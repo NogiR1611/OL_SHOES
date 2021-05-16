@@ -12,7 +12,7 @@ export const Sidebar = dynamic(() => {
     return import('./../components/sidebar/sidebar.js')
 },{ ssr:false });
 
-export default class Orders extends React.Component{
+export default class Users extends React.Component{
     constructor(props){
         super(props)
         this.state = {

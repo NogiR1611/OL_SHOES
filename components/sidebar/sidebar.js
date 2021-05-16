@@ -22,10 +22,10 @@ export default class Sidebar extends React.Component{
                             <li 
                                 className={
                                     "text-red-500 text-2xl p-3 cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out " + 
-                                    (window.location.href.indexOf("/") !==-1 ? "bg-red-300" : "bg-gray-100")
+                                    (window.location.href.indexOf("/home") !==-1 ? "bg-red-300" : "bg-gray-100")
                                 }
                             >
-                                <Link href="/">
+                                <Link href="/home">
                                     Beranda
                                 </Link>
                             </li>
