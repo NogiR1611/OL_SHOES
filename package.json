@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@next-tools/dynamic": "0.0.11",
+    "axios": "^0.21.1",
     "isomorphic-unfetch": "^3.1.0",
     "next": "^10.2.0",
     "next-compose-plugins": "^2.2.1",

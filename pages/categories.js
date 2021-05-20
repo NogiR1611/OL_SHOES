@@ -3,7 +3,7 @@ import Header from './../components/header/header.js';
 import Footer from './../components/footer/footer.js';
 import SearchModal from './../components/modals/searchModal.js';
 import FilterModal from './../components/modals/filterModal.js';
-import ProductListCards from './../components/cards/ProductListCards.js';
+import ProductCards from './../components/cards/ProductCards.js';
 import dynamic from 'next/dynamic';
 import CategoryCard from './../components/cards/CategoryCard.js';
 
@@ -48,12 +48,15 @@ class Categories extends React.Component{
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                     <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
                     <Sidebar searchOnClick={this.onOpenSearch} />
-                    <div className="flex flex-wrap h-full relative ml-72">
+                    <div className="flex flex-wrap h-full relative w-11/12 ml-72">
                         <CategoryCard searchOnClick={this.onOpenSearch} />
                         <SearchModal onOpenSearch={this.openSearch} onCloseSearch={this.onCloseSearch} />
-                        <ProductListCards />
-                        <ProductListCards />
-                        <ProductListCards /> 
+                        <div className="flex flex-wrap w-7/12 px-auto">
+                            <ProductCards />
+                            <ProductCards />
+                            <ProductCards />
+                            <ProductCards />
+                        </div>
                     </div>
                     <Footer />
                 </div>

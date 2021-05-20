@@ -199,14 +199,14 @@ export default class ContentProductCard extends React.Component{
                             <div className="text-red-darker py-4 w-6/12">
                                 <div className="border-2 my-6 rounded-lg inline-block">
                                     <button 
-                                        className="py-1 px-4 focus:outline-none hover:bg-gray-200 duration-300 active:text-gray-200 border-r-2 border-gray-200"
+                                        className="py-1 px-4 focus:outline-none hover:bg-gray-200 transition duration-300 ease-in-out active:text-gray-200 border-r-2 border-gray-200"
                                         onClick={() => this.setState({ amount_product : amount_product - 1 })}
                                     >
                                         -
                                     </button>
                                     <span className="py-1 px-4">{amount_product}</span>
                                     <button
-                                        className="py-1 px-4 focus:outline-none hover:bg-gray-200 duration-300 active:text-gray-200 border-l-2 border-gray-200"
+                                        className="py-1 px-4 focus:outline-none hover:bg-gray-200 transition duration-300 ease-in-out active:text-gray-200 border-l-2 border-gray-200"
                                         onClick={() => this.setState({ amount_product : amount_product + 1 })}
                                     >
                                         +

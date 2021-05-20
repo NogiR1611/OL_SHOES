@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import List from './../../assets/images/icons/list.svg';
+import Share from './../../assets/images/icons/share.svg';
 import Filter from './../../assets/images/icons/filter.svg';
 import Search from './../../assets/images/icons/search.svg';
 import Profile from './../../assets/images/icons/userprofile.svg';
@@ -23,12 +24,27 @@ export default class Header extends React.Component{
                             </Link>
                         </div> 
                         <div className="inline-block">
-                            <button
-                                className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-16 w-16"
-                                onClick={this.props.filterOnClick}
-                            >
-                                <Filter className="inline-block stroke-current stroke-0 black" width={24} height={24} />
-                            </button>
+                            {this.props.displayShare ? 
+                                (
+                                    <button
+                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-16 w-16"
+                                        onClick={this.props.shareOnClick}
+                                    >
+                                        <Share className="inline-block stroke-current stroke-2 black" width={24} height={24} />
+                                    </button> 
+                                ) 
+                                : null
+                            }
+                            {this.props.displayFilter ? 
+                                (
+                                    <button
+                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-16 w-16"
+                                        onClick={this.props.filterOnClick}
+                                    >
+                                        <Filter className="inline-block stroke-current stroke-0 black" width={24} height={24} />
+                                    </button> 
+                                ) : null
+                            }
                             <button
                                 className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-16 w-16"
                                 onClick={this.props.searchOnClick}

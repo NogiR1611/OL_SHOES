@@ -8,11 +8,35 @@ export const Sidebar = dynamic(() => {
 },{ ssr:false });
 
 export default class About extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            openSearch: false
+        }
+    }
+    
+    onOpenSearch = () => {
+        this.setState({ openSearch : true });
+    }
+
+    onCloseSearch = () => {
+        this.setState({ openSearch : false });
+    }
+    
+    pushProfileRoute = () => {
+        Router.pushRoute('/users');
+    }
+
     render(){
         return (
             <>
                 <div className="flex flex-col min-h-screen mb-auto">  
-                    <Header />
+                    <Header 
+                        searchOnClick={this.onOpenSearch} 
+                        filterOnClick={this.onOpenFilter}
+                        displayFilter={false}
+                        profileOnClick={this.pushProfileRoute}
+                    />
                     <Sidebar />
                     <div className="flex flex-col min-h-screen relative ml-72">
                         <p>Tentang Kami</p>
