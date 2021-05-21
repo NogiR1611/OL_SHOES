@@ -1,6 +1,13 @@
 import React from 'react';
 import Checklist from './../../assets/images/icons/checklist.svg';
 import CartModal from './../../components/modals/cartModal.js';
+import AmountOfProduct from './../../components/modals/cartSubModal/amountOfProduct.js';
+import Note from './../../components/modals/cartSubModal/note.js';
+import Voucher from './../../components/modals/cartSubModal/voucher.js';
+import InfoCustomer from './../../components/modals/cartSubModal/infoCustomer.js';
+import ShipmentService from './../../components/modals/cartSubModal/shipmentService.js';
+import PaymentService from './../../components/modals/cartSubModal/paymentService.js';
+import TransferBank from './../../components/modals/cartSubModal/transferBank.js';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -23,17 +30,38 @@ export default class ContentProductCard extends React.Component{
             ],
             sizeOfBuyer: null,
             colorOfBuyer: null,
-            openCart: false,
-            productOnCart: {}
+            productOnCart: {},
+            cart: false,
+            amountProduct: 0,
+            modalAmountProduct: false,
+            note: false,
+            voucherOne: false,
+            voucherTwo: false,
+            modalInfoCustomer: false,
+            shipmentModal: false,
+            paymentService: false,
+            transferBank: false,
         }
     }
 
-    onOpenCart = () => {
-        this.setState({ openCart:true });
+    onCloseCart = () => {
+        this.setState({ cart:false });
     }
 
-    onCloseCart = () => {
-        this.setState({ openCart:false });
+    onClosemodalAmountProduct = () => {
+        this.setState({ modalAmountProduct: false });
+    }
+
+    onCloseNote = () => {
+        this.setState({ note: false });
+    }
+
+    onCloseVoucherOne = () => {
+        this.setState({ voucherOne: false });
+    }
+
+    onCloseVoucherTwo = () => {
+        this.setState({ voucherTwo: false });
     }
 
     handleColor = button => {
@@ -58,10 +86,56 @@ export default class ContentProductCard extends React.Component{
             <>
                 <div className="flex flex-wrap">
                     <CartModal
-                        onOpenCart={this.state.openCart}
+                        openCart={this.state.cart}
                         onCloseCart={this.onCloseCart}
-                        continueToShop={this.onCloseCart} 
+                        continueToShop={this.onCloseCart}
+                        removeModal={() => this.setState({ cart:false,modalInfoCustomer:true })}
                     />
+                    {/* Modal for Manage Amount of Product */}
+                    <AmountOfProduct 
+                        openModalAmountProduct={this.state.modalAmountProduct}
+                        onClosemodalAmountProduct={this.onClosemodalAmountProduct}
+                        amountProduct={this.state.amountProduct}
+                        onReduceAmount={() => this.setState({ amountProduct : this.state.amountProduct - 1 })}
+                        onAddAmount={() => this.setState({ amountProduct : this.state.amountProduct + 1 })}
+                    />
+                    {/* Modal for note */}
+                    <Note 
+                        note={this.state.note}
+                        onCloseNote={this.onCloseNote}
+                    />
+                    {/* Modal For Voucher */}
+                    <Voucher 
+                        voucherOne={this.state.voucherOne}
+                        voucherTwo={this.state.voucherTwo}
+                        onCloseVoucherOne={this.onCloseVoucherOne}
+                        onCloseVoucherTwo={this.onCloseVoucherTwo}
+                        changeVoucherTwo={() => this.setState({ voucherTwo: true })}
+                    />
+                    {/* Modal for info customer */}
+                    <InfoCustomer
+                        modalInfoCustomer={this.state.modalInfoCustomer}
+                        onCloseModalInfoCustomer={() => this.setState({ modalInfoCustomer:false,cart:true })}
+                        shipmentModal={() => this.setState({ modalInfoCustomer:false,shipmentService:true }) }
+                    />
+                    {/* Modal for shipment service */}
+                    <ShipmentService
+                        modalShipmentService={this.state.shipmentService}
+                        onCloseShipmentService={() => this.setState({ shipmentService:false,modalInfoCustomer:true })}
+                        paymentModal={() => this.setState({ shipmentService:false,paymentService:true })}
+                    />
+                    {/**Modal for payment service */}
+                    <PaymentService 
+                        modalPayment={this.state.paymentService}
+                        onCloseModalPayment={() => this.setState({ paymentService:false,shipmentService:true })}
+                        transferBank={() => this.setState({ paymentService:false,transferBank:true })}
+                    />
+                    {/**Modal for transfer bank */}
+                    <TransferBank
+                        transferBank={this.state.transferBank}
+                        onCloseTransferBank={() => this.setState({ transferBank:false,paymentService:true })}
+                    />
+                    
                     <div className="w-7/12 p-10 flex justify-center">
                         <Carousel
                             additionalTransfrom={0}
@@ -216,9 +290,7 @@ export default class ContentProductCard extends React.Component{
                             <div className="object-none object-right text-right w-6/12">
                                 <p className="py-2 text-red-darker font-semibold">Barang Tersedia!</p>
                                 <button
-                                    onClick={() => {
-                                        this.onOpenCart()
-                                    }}
+                                    onClick={() => this.setState({ cart:true })}
                                     className="bg-orange px-4 py-2 border-2 border-orange rounded-lg focus:outline-none hover:bg-yellow-600 hover:border-yellow-600 duration-300 font-bold text-white  " 
                                     type="button"
                                 >

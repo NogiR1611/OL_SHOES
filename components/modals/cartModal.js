@@ -10,19 +10,28 @@ import AmountOfProduct from './cartSubModal/amountOfProduct.js';
 import Note from './cartSubModal/note.js';
 import Voucher from './cartSubModal/voucher.js';
 import InfoCustomer from './cartSubModal/infoCustomer.js';
+import ShipmentService from './cartSubModal/shipmentService.js';
+import PaymentService from './cartSubModal/paymentService.js';
 
 export default class CartModal extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            openCart: true,
             openModal: false,
             note: false,
             amountProduct: 0,
             modalAmountProduct: false,
             voucherOne: false,
             voucherTwo: false,
-            modalInfoCustomer: false
+            modalInfoCustomer: false,
+            shipmentModal: false,
+            paymentService: false,
         }
+    }
+
+    onCloseCart = () => {
+        this.setState({ openCart:false });
     }
 
     onClosemodalAmountProduct = () => {
@@ -38,15 +47,22 @@ export default class CartModal extends React.Component{
     }
 
     onCloseVoucherTwo = () => {
-        this.setState({ voucherTwo: false })
+        this.setState({ voucherTwo: false });
     }
 
     onCloseModalInfoCustomer = () => {
         this.setState({ modalInfoCustomer: false });
     }
+    
+    onCloseShipmentService = () => {
+        this.setState({ shipmentService:false })
+    }
+
+    onClosePaymentService = () => {
+        this.setState({ paymentService:false })
+    }
 
     render(){
-        
         if(this.state.amountProduct < 0){
             this.setState({ amountProduct : 0 })
         }
@@ -55,7 +71,7 @@ export default class CartModal extends React.Component{
             <>
                 <Modal
                     styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
-                    open={this.props.onOpenCart} 
+                    open={this.props.openCart}
                     onClose={this.props.onCloseCart}
                     closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
                 >
@@ -128,7 +144,7 @@ export default class CartModal extends React.Component{
                         </div>
                         <div className="mx-4">
                             <button
-                                onClick={() => this.setState({ modalInfoCustomer: true })}
+                                onClick={this.props.removeModal}
                                 className="w-full p-4 text-center font-bold bg-red-600 text-gray-100 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
                             >
                                 <Packing width={20} height={20} fill="white" className="inline-block float-left stroke-current stroke-2 white" />
@@ -162,6 +178,18 @@ export default class CartModal extends React.Component{
                 <InfoCustomer
                     modalInfoCustomer={this.state.modalInfoCustomer}
                     onCloseModalInfoCustomer={this.onCloseModalInfoCustomer}
+                    shipmentModal={() => this.setState({ shipmentService:true }) }
+                />
+                {/* Modal for shipment service */}
+                <ShipmentService
+                    modalShipmentService={this.state.shipmentService}
+                    onCloseShipmentService={this.onCloseShipmentService}
+                    paymentModal={() => this.setState({ paymentService:true })}
+                />
+                {/**Modal for payment service */}
+                <PaymentService 
+                    modalPayment={this.state.paymentService}
+                    onCloseModalPayment={this.onClosePaymentService}
                 />
             </>
         );

@@ -15,6 +15,7 @@ export default class InfoCustomer extends React.Component{
             province: false,
             city: false,
             district: false,
+            shipmentService: false,
             provinceData: [],
             cityData: [],
             districtData: [],
@@ -24,7 +25,8 @@ export default class InfoCustomer extends React.Component{
             provinceAndCity: '',
             searchProvince: '',
             searchCity: '',
-            searchDistrict: ''
+            searchDistrict: '',
+            detailAddress: '',
         }
     }
 
@@ -115,14 +117,37 @@ export default class InfoCustomer extends React.Component{
                                 placeholder=""
                                 onClick={this.clickAddress}
                             />
-                            <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Alamat Lengkap Penerima</label>
-                            <input
-                                className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
-                                type="text"
-                                name="detailAddress"
-                                id="detailAddress"
-                                placeholder=""
-                            />
+                            {this.state.provinceAndCity ? (
+                                <>
+                                    <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Alamat Lengkap Penerima</label>
+                                    <textarea   
+                                        rows="3"
+                                        className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
+                                        type="text"
+                                        name="detailAddress"
+                                        value={this.state.detailAddress}
+                                        onChange={e => this.setState({ detailAddress: e.target.value })}
+                                        id="detailAddress"
+                                        placeholder=""
+                                    />
+                                </>
+                                ) : null
+                            }
+                            {this.state.detailAddress ? (
+                                <>
+                                    <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Email Penerima(Opsional)</label>
+                                    <input
+                                        className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
+                                        type="text"
+                                        name="detailAddress"
+                                        value={this.state.emailCustomer}
+                                        onChange={e => this.setState({ emailCustomer:e.target.value })}
+                                        id="detailAddress"
+                                        placeholder=""
+                                    />
+                                </>
+                                ) : null
+                            }
                         </div>
                         <p className="py-4">
                             Saya sudah membaca dan menyetujui<span> </span>
@@ -131,7 +156,7 @@ export default class InfoCustomer extends React.Component{
                             </Link>
                         </p>
                         <button
-                            onClick={this.inputText}
+                            onClick={this.props.shipmentModal}
                             className="w-full p-4 text-center font-bold bg-red-600 text-gray-100 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
                         >
                             Setuju & Lanjutkan
@@ -203,13 +228,13 @@ export default class InfoCustomer extends React.Component{
                     closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
                 >
                     <div className="w-full max-w-2xl py-4 px-4 items-center">
-                        <div className="py-4">
+                        <div className="w-full py-4">
                             <p className="text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
                             <p className="text-gray-800 py-1">{this.state.provinceName} : </p>
                         </div>
                         <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
                             <input
-                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
+                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
                                 type="text"
                                 name="product"
                                 id="product" 
@@ -218,12 +243,12 @@ export default class InfoCustomer extends React.Component{
                             />
                             {this.state.searchCity !== '' ?
                                 <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchCity : '' }) }>
-                                    <Clear className="inline-block " width={15} height={15} />
+                                    <Clear className="inline-block mx-1 float-right" width={15} height={15} />
                                 </button> : 
-                                <Search className="inline-block pl-1" width={22} height={22} />
+                                <Search className="inline-block mx-2 float-right" width={22} height={22} />
                             }
                         </div>
-                        <div className="max-h-96 overflow-y-auto">
+                        <div className="w-full max-h-96 overflow-y-auto">
                             {this.state.cityData
                             .filter(element => {
                                 return (
@@ -267,7 +292,7 @@ export default class InfoCustomer extends React.Component{
                         </div>
                         <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
                             <input
-                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
+                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
                                 type="text"
                                 name="product"
                                 id="product" 
@@ -276,9 +301,9 @@ export default class InfoCustomer extends React.Component{
                             />
                             {this.state.searchDistrict !== '' ?
                                 <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchDistrict : '' }) }>
-                                    <Clear className="inline-block " width={15} height={15} />
+                                    <Clear className="inline-block float-right mx-1" width={15} height={15} />
                                 </button> : 
-                                <Search className="inline-block pl-1" width={22} height={22} />
+                                <Search className="inline-block float-right mx-2" width={22} height={22} />
                             }
                         </div>
                         <div className="max-h-96 overflow-y-auto">
