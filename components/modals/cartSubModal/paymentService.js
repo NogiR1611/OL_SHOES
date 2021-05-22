@@ -43,7 +43,7 @@ export default class PaymentService extends React.Component{
                             <p className="text-gray-500 text-center font-normal">Alfamart</p>
                         </button>
                         <button
-                            onClick={this.props.kreditAndDebit}
+                            onClick={this.props.creditAndDebit}
                             className="w-full text-center h-16 focus:outline-none py-2 transition duration-300 ease-in-out bg-gray-200 hover:bg-gray-300 active:bg-gray-300 shadow-lg rounded-md font-semibold text-gray-900 my-2"
                         >
                             Kartu Kredit/Debit

@@ -1,5 +1,9 @@
 import React from 'react';
 import Checklist from './../../assets/images/icons/checklist.svg';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+/** import modal */
 import CartModal from './../../components/modals/cartModal.js';
 import AmountOfProduct from './../../components/modals/cartSubModal/amountOfProduct.js';
 import Note from './../../components/modals/cartSubModal/note.js';
@@ -8,8 +12,9 @@ import InfoCustomer from './../../components/modals/cartSubModal/infoCustomer.js
 import ShipmentService from './../../components/modals/cartSubModal/shipmentService.js';
 import PaymentService from './../../components/modals/cartSubModal/paymentService.js';
 import TransferBank from './../../components/modals/cartSubModal/transferBank.js';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import EPayment from '../modals/cartSubModal/ePayment.js';
+import Minimarket from '../modals/cartSubModal/minimarket.js';
+import CreditAndDebit from '../modals/cartSubModal/creditAndDebit.js';
 
 export default class ContentProductCard extends React.Component{
     constructor(props){
@@ -41,6 +46,9 @@ export default class ContentProductCard extends React.Component{
             shipmentModal: false,
             paymentService: false,
             transferBank: false,
+            ePayment: false,
+            minimarket: false,
+            creditAndDebit: false,
         }
     }
 
@@ -129,13 +137,30 @@ export default class ContentProductCard extends React.Component{
                         modalPayment={this.state.paymentService}
                         onCloseModalPayment={() => this.setState({ paymentService:false,shipmentService:true })}
                         transferBank={() => this.setState({ paymentService:false,transferBank:true })}
+                        ePayment={() => this.setState({ paymentService:false,ePayment:true }) }
+                        minimarket={() => this.setState({ paymentService:false,minimarket:true })}
+                        creditAndDebit={() => this.setState({ paymentService:false,creditAndDebit:true }) }
                     />
                     {/**Modal for transfer bank */}
                     <TransferBank
                         transferBank={this.state.transferBank}
                         onCloseTransferBank={() => this.setState({ transferBank:false,paymentService:true })}
                     />
-                    
+                    {/**Modal For E-Payment */}
+                    <EPayment 
+                        ePayment={this.state.ePayment}
+                        onCloseEpayment={() => this.setState({ ePayment:false,paymentService:true })}
+                    />
+                    {/**Modal For Minimarket */}
+                    <Minimarket 
+                        minimarket={this.state.minimarket}
+                        onCloseMinimarket={() => this.setState({ minimarket:false,paymentService:true })}
+                    />
+                    {/**Modal For Credit And Debit */}
+                    <CreditAndDebit
+                        creditAndDebit={this.state.creditAndDebit}
+                        onCloseCreditAndDebit={() => this.setState({ creditAndDebit:false,paymentService:true }) }
+                    />
                     <div className="w-7/12 p-10 flex justify-center">
                         <Carousel
                             additionalTransfrom={0}
