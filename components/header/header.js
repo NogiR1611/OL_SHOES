@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Download from './../../assets/images/icons/download.svg';
 import List from './../../assets/images/icons/list.svg';
 import Share from './../../assets/images/icons/share.svg';
 import Filter from './../../assets/images/icons/filter.svg';
@@ -24,6 +25,16 @@ export default class Header extends React.Component{
                             </Link>
                         </div> 
                         <div className="inline-block">
+                            {this.props.displayDownload ?
+                                (
+                                    <button
+                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-16 w-16"
+                                        onClick={this.props.shareOnClick}
+                                    >
+                                        <Download className="inline-block stroke-current stroke-2 black" width={24} height={24} />
+                                    </button>
+                                ) : null
+                            }
                             {this.props.displayShare ? 
                                 (
                                     <button

@@ -25,4 +25,14 @@ module.exports = routes()
     name: 'content-product',
     pattern: '/products/1',
     page: '/products/contentProduct'
-  });
+  })
+  .add({
+    name: 'waiting-pay-order',
+    pattern: '/orders/1',
+    page: '/orders/waitingPayOrder'
+  })
+  .add({
+    name: 'order-rejected',
+    pattern: '/orders/1/rejected',
+    page: '/orders/rejectedOrder'
+  })

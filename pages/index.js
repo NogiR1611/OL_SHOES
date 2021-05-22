@@ -6,7 +6,7 @@ import FilterModal from './../components/modals/filterModal.js';
 import ProductCards from './../components/cards/ProductCards.js';
 import {Router} from '../routes.js';
 import Image from 'next/image';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 export const Sidebar = dynamic(() => {
     return import('./../components/sidebar/sidebar.js')
