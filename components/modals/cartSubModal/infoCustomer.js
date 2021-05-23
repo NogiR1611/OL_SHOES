@@ -151,9 +151,9 @@ export default class InfoCustomer extends React.Component{
                         </div>
                         <p className="py-4">
                             Saya sudah membaca dan menyetujui<span> </span>
-                            <Link href="">
+                            <a target="_blank"  href='/terms-and-conditions'>
                                 <span className="text-red-600 underline">Syarat & Ketentuan</span>
-                            </Link>
+                            </a>
                         </p>
                         <button
                             onClick={this.props.shipmentModal}

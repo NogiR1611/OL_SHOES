@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './../components/header/header.js';
 import Footer from './../components/footer/footer.js';
+import SearchModal from './../components/modals/searchModal.js';
+import {Router} from '../routes.js';
 import dynamic from 'next/dynamic';
 
 export const Sidebar = dynamic(() => {
@@ -11,7 +13,8 @@ export default class About extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            openSearch: false
+            openSearch: false,
+            openFilter : false,
         }
     }
     
@@ -33,11 +36,11 @@ export default class About extends React.Component{
                 <div className="flex flex-col min-h-screen mb-auto">  
                     <Header 
                         searchOnClick={this.onOpenSearch} 
-                        filterOnClick={this.onOpenFilter}
                         displayFilter={false}
                         profileOnClick={this.pushProfileRoute}
                     />
-                    <Sidebar />
+                    <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
+                    <Sidebar /> 
                     <div className="flex flex-col min-h-screen relative ml-72">
                         <p>Tentang Kami</p>
                     </div>

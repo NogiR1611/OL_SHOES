@@ -78,23 +78,29 @@ class Index extends React.Component{
                         </div>
                         <div className="w-11/12 mx-auto">
                             <div className="flex flex-wrap w-full">
-                                <div className="w-6/12 h-6/12 p-1">
+                                <div className="w-6/12 h-6/12 p-1 relative">
                                     <Image 
                                         src='/images/products/vans_category.jpg'
                                         layout="responsive"
                                         width={450}
                                         height={450}
-                                        className="relative"
+                                        className="relative filter brightness-75"
                                     />
+                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                        VANS
+                                    </div>
                                 </div>
-                                <div className="w-6/12 h-6/12 p-1">
+                                <div className="w-6/12 h-6/12 p-1 relative">
                                     <Image 
                                         src='/images/products/vans_category.jpg'
                                         layout="responsive"
                                         width={450}
                                         height={450}
-                                        className="relative"
+                                        className="relative filter brightness-75"
                                     />
+                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                        VANS
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex flex-wrap w-full p-1">
@@ -111,24 +117,9 @@ class Index extends React.Component{
                                 <div className="text-center w-full">
                                     Product Recommended
                                 </div>
-                                <div className="w-6/12 h-6/12 p-1">
-                                    <Image 
-                                        src='/images/products/vans_category.jpg'
-                                        layout="responsive"
-                                        width={450}
-                                        height={450}
-                                        className="relative"
-                                    />
-                                </div>
-                                <div className="w-6/12 h-6/12 p-1">
-                                    <Image 
-                                        src='/images/products/vans_category.jpg'
-                                        layout="responsive"
-                                        width={450}
-                                        height={450}
-                                        className="relative"
-                                    />
-                                </div>
+                                <ProductCards />
+                                <ProductCards />
+                                <ProductCards />
                             </div>
                             <div className="flex flex-wrap w-full p-1">
                                 <div className="text-center w-full bg-gray-400">
@@ -160,32 +151,41 @@ class Index extends React.Component{
                                     {this.state.namePage === 'category' ? 
                                         (
                                             <div className="flex flex-wrap">
-                                                <div className="w-6/12 h-6/12 p-1">
+                                                <div className="w-6/12 h-6/12 p-1 relative">
                                                     <Image 
                                                         src='/images/products/vans_category.jpg'
                                                         layout="responsive"
                                                         width={450}
                                                         height={450}
-                                                        className="relative"
+                                                        className="relative filter brightness-75"
                                                     />
+                                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                                        VANS
+                                                    </div>
                                                 </div>
-                                                <div className="w-6/12 h-6/12 p-1">
+                                                <div className="w-6/12 h-6/12 p-1 relative">
                                                     <Image 
                                                         src='/images/products/vans_category.jpg'
                                                         layout="responsive"
                                                         width={450}
                                                         height={450}
-                                                        className="relative"
+                                                        className="relative filter brightness-75"
                                                     />
+                                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                                        VANS
+                                                    </div>
                                                 </div>
-                                                <div className="w-6/12 h-6/12 p-1">
+                                                <div className="w-6/12 h-6/12 p-1 relative">
                                                     <Image 
                                                         src='/images/products/vans_category.jpg'
                                                         layout="responsive"
                                                         width={450}
                                                         height={450}
-                                                        className="relative"
+                                                        className="relative filter brightness-75"
                                                     />
+                                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                                        VANS
+                                                    </div>
                                                 </div>
                                             </div>
                                         ) : ''
@@ -198,7 +198,19 @@ class Index extends React.Component{
                                                 <ProductCards />
                                                 <ProductCards />
                                             </div>
-                                        ) : ''}
+                                        ) : ''
+                                    }
+                                    {this.state.namePage === 'discount' ? 
+                                        (
+                                        <div className="flex flex-wrap w-full px-auto">
+                                            <ProductCards />
+                                            <ProductCards />
+                                            <ProductCards />
+                                            <ProductCards />
+                                            <ProductCards />
+                                        </div>
+                                        ) : ''
+                                    }
                                 </div>
                             </div>
                         </div>

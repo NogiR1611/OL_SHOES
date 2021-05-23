@@ -35,7 +35,6 @@ export default class TermAndConditions extends React.Component{
                 <Header
                     searchOnClick={this.onOpenSearch} 
                     filterOnClick={this.onOpenFilter}
-                    displayDownload={true}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />

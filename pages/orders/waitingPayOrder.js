@@ -297,7 +297,9 @@ export default class WaitingPayOrder extends React.Component{
                             >
                                 Punya Pertanyaan?
                             </button>
-                            <span className="block text-right underline text-red-600 cursor-pointer">Syarat & Ketentuan</span>
+                            <a target="_blank"  href='/terms-and-conditions'>
+                                <span className="block text-right underline text-red-600 cursor-pointer">Syarat & Ketentuan</span>
+                            </a>
                         </div>
                     </div>
                 </div>
