@@ -42,6 +42,18 @@ export default class WaitingPayOrder extends React.Component{
         this.setState({ openFilter : false });
     }
     
+    copyText = () => {
+        this.totalPrice.select();
+        document.execCommand("copy");
+        alert("berhasil copy");
+    }
+
+    copyAccount = () => {
+        this.account.select();
+        document.execCommand("copy");
+        alert("berhasil copy");
+    }
+
     render(){
         return (
             <div className="flex flex-col w-full min-h-screen mb-auto">
@@ -60,11 +72,17 @@ export default class WaitingPayOrder extends React.Component{
                         <p className="font-light text-black">(Order Berhasil 22/05/2021)</p>
                         <hr className="border-b-1 border-gray-300 my-2" />
                     </div>
-                    <div className="my-2">
+                    <div className="w-full my-2">
+                        <img 
+                            src="/images/component/status-1.png"
+                            className="w-1/6 my-2"
+                        />
                         <p className="text-lg font-semibold text-red-600">Status : Menunggu Pembayaran</p>
                         <p className="text-base font-semibold text-black">
-                            Rp 754.000 
-                            <Copy className="inline-block stroke-current stroke-2 text-black mx-2 cursor-pointer" width={18} height={18} />
+                            <input type="text" value="Rp.754.000" ref={(totalPrice) => this.totalPrice = totalPrice} className="w-20 focus:outline-none select-none font-semibold text-black" readonly />
+                            <button onClick={this.copyText} className="focus:outline-none transition duration-300 ease-in-out transform active:scale-90 hover:scale-110">
+                                <Copy className="inline-block stroke-current stroke-2 text-black mx-1 cursor-pointer" width={16} height={16} />
+                            </button>
                         </p>
                         <p className="text-xs font-semibold text-red-600">Transfer sebelum 23 Mei 2021 06.50</p>
                     </div>
@@ -72,10 +90,12 @@ export default class WaitingPayOrder extends React.Component{
                         <div className="flex-1 w-11/12">
                             <p className="text-sm text-black">Mandiri - Virtual Account</p>
                             <p className="text-base font-semibold text-black">
-                                7001400400292806
-                                <Copy className="inline-block stroke-current stroke-2 text-black mx-2 cursor-pointer" width={18} height={18} />
+                                <input type="text" value="7001400400292806" ref={(account) => this.account = account} className="w-36 focus:outline-none select-none font-semibold text-black" readonly />
+                                <button onClick={this.copyAccount} className="focus:outline-none transition duration-300 ease-in-out transform active:scale-90 hover:scale-110">
+                                    <Copy className="inline-block stroke-current stroke-2 text-black cursor-pointer" width={16} height={16} />
+                                </button>
                             </p>
-                            <p className="text-xs font-semibold text-red-600">Ke: EPAY - JKTSNEAKERS fff</p>
+                            <p className="text-xs font-semibold text-red-600">Ke: EPAY - OL Shoes fff</p>
                         </div>
                         <div className="flex-none w-1/12">
                             <img 
@@ -106,15 +126,48 @@ export default class WaitingPayOrder extends React.Component{
                         </div>
                         <div className="w-full">
                             {this.state.namePage === 'ATM' ? (
-                                <p>Ini ATM</p>
+                                <div className="m-2">
+                                    <ol className="list-decimal list-inside text-red-600">
+                                        <li>Masukkan kartu ATM dan Pin</li>
+                                        <li>Pilih Menu Bayar/Beli.</li>
+                                        <li>Pilih menu Lainnya, hingga menemukan menu Multipayment.</li>
+                                        <li>Masukkan kode biller Tokopedia 88708, lalu pilih Benar.</li>
+                                        <li>Masukkan Nomor Virtual Account Tokopedia, lalu pilih tombol Benar.</li>
+                                        <li>Masukkan Angka 1 untuk memilih tagihan, lalu pilih tombol Ya.</li>
+                                        <li>Akan muncul konfirmasi pembayaran, lalu pilih tombol Ya.</li>
+                                        <li>Simpan struk sebagai bukti pembayaran Anda.</li>
+                                    </ol>
+                                </div>
                             ) : null 
                             }
                             {this.state.namePage === 'Mobile Banking' ? (
-                                <p>Mobile Banking</p>
+                                <div className="m-2">
+                                    <ol className="list-decimal list-inside text-red-600">
+                                        <li>Masukkan kartu ATM dan Pin</li>
+                                        <li>Pilih Menu Bayar/Beli.</li>
+                                        <li>Pilih menu Lainnya, hingga menemukan menu Multipayment.</li>
+                                        <li>Masukkan kode biller Tokopedia 88708, lalu pilih Benar.</li>
+                                        <li>Masukkan Nomor Virtual Account Tokopedia, lalu pilih tombol Benar.</li>
+                                        <li>Masukkan Angka 1 untuk memilih tagihan, lalu pilih tombol Ya.</li>
+                                        <li>Akan muncul konfirmasi pembayaran, lalu pilih tombol Ya.</li>
+                                        <li>Simpan struk sebagai bukti pembayaran Anda.</li>
+                                    </ol>
+                                </div>
                             ) : null
                             }
                             {this.state.namePage === 'Internet Banking' ? (
-                                <p>Internet Banking</p>
+                                <div className="m-2">
+                                    <ol className="list-decimal list-inside text-red-600">
+                                        <li>Login Mandiri Online dengan memasukkan username dan password.</li>
+                                        <li>Pilih menu Pembayaran.</li>
+                                        <li>Pilih menu Multipayment.</li>
+                                        <li>Pilih penyedia jasa “Tokopedia.</li>
+                                        <li>Masukkan Nomor Virtual Account dan Nominal yang akan dibabayarkan, lalu pilih Lanjut.</li>
+                                        <li>Setelah muncul tagihan, pilih Konfirmasi.</li>
+                                        <li>Masukkan PIN/ challange code token.</li>
+                                        <li>Transaksi selesai, simpan bukti bayar kamu.</li>
+                                    </ol>
+                            </div>
                             ) : null
                             }
                         </div>

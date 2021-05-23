@@ -36,3 +36,8 @@ module.exports = routes()
     pattern: '/orders/1/rejected',
     page: '/orders/rejectedOrder'
   })
+  .add({
+    name: 'terms-and-conditions',
+    pattern: '/terms-and-conditions',
+    page: '/termsAndConditions'
+  })

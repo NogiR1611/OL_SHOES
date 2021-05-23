@@ -46,6 +46,8 @@ module.exports = {
       boxShadow: ['active','visited','focus','hover'],
       ringWidth: ['hover', 'active','visited','focus'],
       ringColor: ['hover', 'active','visited','focus'],
+      scale: ['active', 'group-hover'],
+      rotate: ['active', 'group-hover'],
     },
   },
   plugins: []
