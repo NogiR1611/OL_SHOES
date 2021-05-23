@@ -26,17 +26,20 @@ export default class SearchModal extends React.Component{
             >
                 <div className="w-full max-w-md py-8 px-1 items-center">                
                     <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
-                        <label className="text-gray-600 px-2 focus:text-red-600" htmlFor="product">Cari Produk</label>
-                        <input
-                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
-                            type="text"
-                            name="product"
-                            id="product" 
-                            value={search}
-                            onChange={ (e) => this.setState({ search : e.target.value }) }
-                        />
+                        <div className="inline-block relative border-b-2 xl:w-11/12 focus-within:border-red-500 pl-2">
+                            <input
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                placeholder=" " 
+                                value={this.state.search}
+                                className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                onChange={(e) => this.setState({ search: e.target.value }) }
+                            />
+                            <label for="username" class="absolute top-0 transition duration-300 ease-in-out">Cari Produk</label>
+                        </div>
                         {search !== '' ?
-                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ search : '' }) }>
+                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ search: '' }) }>
                                 <Clear className="inline-block " width={25} height={25} />
                             </button> : 
                             <Search className="inline-block pl-1" width={28} height={28} />

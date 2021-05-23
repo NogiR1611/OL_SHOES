@@ -87,167 +87,171 @@ export default class InfoCustomer extends React.Component{
                     closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
                 >
                     <div className="w-full max-w-2xl py-4 px-4 items-center">
-                        <div className="w-full px-2">
+                        <div className="w-full px-2 py-2">
                             <p className="text-lg font-bold text-gray-800">Informasi Pengiriman</p>
                         </div>
-                        <div className="w-full py-2 px-4">
-                            <label className="text-gray-600 font-semibold focus:text-red-600 my-2" htmlFor="name">Nama Lengkap Penerima</label>
-                            <input
-                                className="block w-full duration-400 my-2 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"
-                                type="text"
-                                name="name"
-                                id="name"
-                                placeholder=""
-                            />
-                            <label className="text-gray-600 font-semibold focus:text-red-600 my-2" htmlFor="numberPhone">Nomor HP Penerima</label>
-                            <input
-                                className="block w-full duration-400 my-2 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"
-                                type="text"
-                                name="numberPhone"
-                                id="numberPhone"
-                                placeholder=""
-                            />
-                            <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="address">Alamat Penerima</label>
-                            <input
-                                className="block w-full cursor-default duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"
-                                type="text"
-                                name="address"
-                                id="address"
-                                value={`${this.state.provinceAndCity}`}
-                                placeholder=""
-                                onClick={this.clickAddress}
-                            />
-                            {this.state.provinceAndCity ? (
-                                <>
-                                    <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Alamat Lengkap Penerima</label>
-                                    <textarea   
-                                        rows="3"
-                                        className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
-                                        type="text"
-                                        name="detailAddress"
-                                        value={this.state.detailAddress}
-                                        onChange={e => this.setState({ detailAddress: e.target.value })}
-                                        id="detailAddress"
-                                        placeholder=""
-                                    />
-                                </>
-                                ) : null
-                            }
-                            {this.state.detailAddress ? (
-                                <>
-                                    <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Email Penerima(Opsional)</label>
-                                    <input
-                                        className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
-                                        type="text"
-                                        name="detailAddress"
-                                        value={this.state.emailCustomer}
-                                        onChange={e => this.setState({ emailCustomer:e.target.value })}
-                                        id="detailAddress"
-                                        placeholder=""
-                                    />
-                                </>
-                                ) : null
-                            }
-                        </div>
-                        <p className="py-4">
-                            Saya sudah membaca dan menyetujui<span> </span>
-                            <a target="_blank"  href='/terms-and-conditions'>
-                                <span className="text-red-600 underline">Syarat & Ketentuan</span>
-                            </a>
-                        </p>
-                        <button
-                            onClick={this.props.shipmentModal}
-                            className="w-full p-4 text-center font-bold bg-red-600 text-gray-100 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
-                        >
-                            Setuju & Lanjutkan
-                        </button>
-                    </div>
-                </Modal>
-                <Modal
-                    styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
-                    open={this.state.province}
-                    onClose={this.onCloseModalProvince}
-                    closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
-                >
-                    <div className="w-full max-w-2xl py-4 px-4 items-center">
-                        <div className="py-4">
-                            <p className="text-xl text-gray-800 font-semibold py-1">1.Pilih Provinsi</p>
-                            <p className="text-gray-800 py-1">Kemana kamu mau mengirimkan paket?</p>
-                            <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
+                        <div className="w-full py-2 px-2">
+                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
                                 <input
-                                    className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
-                                    type="text"
-                                    name="product"
-                                    id="product" 
-                                    value={this.state.searchProvince}
-                                    onChange={ (e) => this.setState({ searchProvince : e.target.value }) }
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder=" " 
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
                                 />
-                                {this.state.searchProvince !== '' ?
-                                    <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchProvince : '' }) }>
-                                        <Clear className="inline-block " width={15} height={15} />
-                                    </button> : 
-                                    <Search className="inline-block pl-1" width={22} height={22} />
-                                }
+                                <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Nama Lengkap Penerima</label>
                             </div>
-                        </div>
-                        <div className="w-full max-h-96 overflow-y-auto">
-                            {this.state.provinceData
-                            .filter(element => {
-                                return (
-                                    element.name.toLowerCase().includes(this.state.searchProvince.toString().toLowerCase())    
-                                )
-                            })
-                            .map( (element,index) => {
-                                return (
-                                    <div className="w-full font-bold text-gray-800" key={index}>
-                                        <button
-                                            className="w-full text-left font-bold text-gray-800 p-1 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
-                                            onClick={() => {
-                                                this.clickCity(element.id)
-                                                this.setState({
-                                                    provinceName: element.name,
-                                                    province: false,
-                                                    city: true
-                                                });
-                                            }}
-                                        >
-                                            {element.name}
-                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-2 text-black" width={12} height={12} />
-                                        </button>
-                                        <hr className="border-b-1 border-gray-200 py-1" />
-                                    </div>
-                                )
-                            })}
-                        </div>
+                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
+                                <input
+                                    type="text" 
+                                    id="numberPhone" 
+                                    name="numberPhone" 
+                                    placeholder=" " 
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100"
+                                />
+                                <label for="numberPhone" class="absolute top-0 transition duration-300 ease-in-out">Nomor HP Penerima</label>
+                            </div>
+                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
+                                <input
+                                    type="text" 
+                                    id="address" 
+                                    name="address" 
+                                    value={`${this.state.provinceAndCity}`}
+                                    onClick={this.clickAddress}
+                                    placeholder=" " 
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                />
+                                <label for="address" class="absolute top-0 transition duration-300 ease-in-out">Alamat Penerima</label>
+                            </div>
+                        {this.state.provinceAndCity ? (
+                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
+                                <textarea
+                                    rows="3"
+                                    type="text" 
+                                    id="detailAddress" 
+                                    name="detailAddress"
+                                    placeholder=" " 
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100"
+                                />
+                                <label for="detailAddress" class="absolute top-0 transition duration-300 ease-in-out">Alamat Lengkap Penerima</label>
+                            </div>
+                            ) : null
+                        }
+                        {this.state.detailAddress ? (
+                            <>
+                                <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Email Penerima(Opsional)</label>
+                                <input
+                                    className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
+                                    type="text"
+                                    name="detailAddress"
+                                    value={this.state.emailCustomer}
+                                    onChange={e => this.setState({ emailCustomer:e.target.value })}
+                                    id="detailAddress"
+                                    placeholder=""
+                                />
+                            </>
+                            ) : null
+                        }
                     </div>
-                </Modal>
-                <Modal
-                    styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
-                    open={this.state.city}
-                    onClose={this.onCloseModalCity}
-                    closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
-                >
-                    <div className="w-full max-w-2xl py-4 px-4 items-center">
-                        <div className="w-full py-4">
-                            <p className="text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
-                            <p className="text-gray-800 py-1">{this.state.provinceName} : </p>
-                        </div>
+                    <p className="py-4">
+                        Saya sudah membaca dan menyetujui<span> </span>
+                        <a target="_blank"  href='/terms-and-conditions'>
+                            <span className="text-red-600 underline">Syarat & Ketentuan</span>
+                        </a>
+                    </p>
+                    <button
+                        onClick={this.props.shipmentModal}
+                        className="w-full p-4 text-center font-bold bg-red-600 text-gray-100 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
+                    >
+                        Setuju & Lanjutkan
+                    </button>
+                </div>
+            </Modal>
+            <Modal
+                styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
+                open={this.state.province}
+                onClose={this.onCloseModalProvince}
+                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+            >
+                <div className="w-full max-w-2xl py-4 px-4 items-center">
+                    <div className="py-4">
+                        <p className="text-xl text-gray-800 font-semibold py-1">1.Pilih Provinsi</p>
+                        <p className="text-gray-800 py-1">Kemana kamu mau mengirimkan paket?</p>
                         <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
                             <input
-                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
+                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
                                 type="text"
                                 name="product"
                                 id="product" 
-                                value={this.state.searchCity}
-                                onChange={ (e) => this.setState({ searchCity : e.target.value }) }
+                                value={this.state.searchProvince}
+                                onChange={ (e) => this.setState({ searchProvince : e.target.value }) }
                             />
-                            {this.state.searchCity !== '' ?
-                                <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchCity : '' }) }>
-                                    <Clear className="inline-block mx-1 float-right" width={15} height={15} />
+                            {this.state.searchProvince !== '' ?
+                                <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchProvince : '' }) }>
+                                    <Clear className="inline-block " width={15} height={15} />
                                 </button> : 
-                                <Search className="inline-block mx-2 float-right" width={22} height={22} />
+                                <Search className="inline-block pl-1" width={22} height={22} />
                             }
                         </div>
+                    </div>
+                    <div className="w-full max-h-96 overflow-y-auto">
+                        {this.state.provinceData
+                        .filter(element => {
+                            return (
+                                element.name.toLowerCase().includes(this.state.searchProvince.toString().toLowerCase())    
+                            )
+                        })
+                        .map( (element,index) => {
+                            return (
+                                <div className="w-full font-bold text-gray-800" key={index}>
+                                    <button
+                                        className="w-full text-left font-bold text-gray-800 p-1 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                        onClick={() => {
+                                            this.clickCity(element.id)
+                                            this.setState({
+                                                provinceName: element.name,
+                                                province: false,
+                                                city: true
+                                            });
+                                        }}
+                                    >
+                                        {element.name}
+                                        <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-2 text-black" width={12} height={12} />
+                                    </button>
+                                    <hr className="border-b-1 border-gray-200 py-1" />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </Modal>
+            <Modal
+                styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
+                open={this.state.city}
+                onClose={this.onCloseModalCity}
+                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+            >
+                <div className="w-full max-w-2xl py-4 px-4 items-center">
+                    <div className="w-full py-4">
+                        <p className="text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
+                        <p className="text-gray-800 py-1">{this.state.provinceName} : </p>
+                    </div>
+                    <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
+                        <input
+                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
+                            type="text"
+                            name="product"
+                            id="product" 
+                            value={this.state.searchCity}
+                            onChange={ (e) => this.setState({ searchCity : e.target.value }) }
+                        />
+                        {this.state.searchCity !== '' ?
+                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchCity : '' }) }>
+                                <Clear className="inline-block mx-1 float-right" width={15} height={15} />
+                            </button> : 
+                            <Search className="inline-block mx-2 float-right" width={22} height={22} />
+                        }
+                    </div>
                         <div className="w-full max-h-96 overflow-y-auto">
                             {this.state.cityData
                             .filter(element => {

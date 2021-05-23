@@ -8,3 +8,21 @@ input:checked + div {
 input:checked + div svg {
   @apply block;
 }
+
+input[type=text]:focus-within ~ label,
+input[type=text]:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6 -ml-4;
+}
+
+input[type=text]:focus-within ~ label {
+  @apply text-red-500 -ml-4;
+}
+
+textarea:focus-within ~ label,
+textarea:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6 -ml-6;
+}
+
+textarea:focus-within ~ label {
+  @apply text-red-500;
+}

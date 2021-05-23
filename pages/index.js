@@ -78,7 +78,7 @@ class Index extends React.Component{
                         </div>
                         <div className="w-11/12 mx-auto">
                             <div className="flex flex-wrap w-full">
-                                <div className="w-6/12 h-6/12 p-1 relative">
+                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
                                     <Image 
                                         src='/images/products/vans_category.jpg'
                                         layout="responsive"
@@ -90,7 +90,7 @@ class Index extends React.Component{
                                         VANS
                                     </div>
                                 </div>
-                                <div className="w-6/12 h-6/12 p-1 relative">
+                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
                                     <Image 
                                         src='/images/products/vans_category.jpg'
                                         layout="responsive"
@@ -151,7 +151,7 @@ class Index extends React.Component{
                                     {this.state.namePage === 'category' ? 
                                         (
                                             <div className="flex flex-wrap">
-                                                <div className="w-6/12 h-6/12 p-1 relative">
+                                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
                                                     <Image 
                                                         src='/images/products/vans_category.jpg'
                                                         layout="responsive"
@@ -163,7 +163,7 @@ class Index extends React.Component{
                                                         VANS
                                                     </div>
                                                 </div>
-                                                <div className="w-6/12 h-6/12 p-1 relative">
+                                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
                                                     <Image 
                                                         src='/images/products/vans_category.jpg'
                                                         layout="responsive"
@@ -175,7 +175,7 @@ class Index extends React.Component{
                                                         VANS
                                                     </div>
                                                 </div>
-                                                <div className="w-6/12 h-6/12 p-1 relative">
+                                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
                                                     <Image 
                                                         src='/images/products/vans_category.jpg'
                                                         layout="responsive"

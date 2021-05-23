@@ -33,53 +33,59 @@ export default class CreditAndDebit extends React.Component{
                         </div>
                     </div>
                     <div className="py-4">
-                        <label className="text-gray-600 font-semibold focus:text-red-600 my-2" htmlFor="name">Nama Di Kartu</label>
-                        <input
-                            className="block w-full duration-400 my-2 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"
-                            type="text"
-                            name="name"
-                            id="name"
-                            placeholder=""
-                        />
-                        <label className="text-gray-600 font-semibold focus:text-red-600 my-2" htmlFor="number">Nomor Kartu</label>
-                        <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
+                        <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
                             <input
-                                className="w-11/12 duration-400 my-2 rounded-md bg-gray-100 border-b-2 border-gray-400 outline-none focus:border-2 border-red-600"
-                                type="number"
-                                name="date"
-                                id="date"
-                                placeholder=""
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder=" " 
+                                className="block w-full appearance-none focus:outline-none bg-gray-100" 
                             />
-                            <Locked className="inline-block pl-1" width={28} height={28}/>
+                            <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Nama Di Kartu</label>
+                        </div>
+                        <div className="block w-full bg-gray-100 focus:bg-gray-400 py-1">
+                            <div className="inline-block relative border-b-2 xl:w-11/12 focus-within:border-red-500">
+                                <input
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder=" " 
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                />
+                                <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Nomor Kartu</label>
+                            </div>
+                            <Locked className="inline-block pl-1" width={28} height={28} />
                         </div>
                         <img 
                             src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/credit_cards.ef76bc8.svg"
                             className="my-4 w-1/3"
                         />
-                        <label className="text-gray-600 font-semibold focus:text-red-600 my-2" htmlFor="date">Berlaku hingga</label>
-                        <input
-                            className="block w-full duration-400 my-2 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"
-                            type="date"
-                            name="date"
-                            id="date"
-                            placeholder=""
-                        />
-                            <label className="text-gray-600 font-semibold focus:text-red-600 my-2" htmlFor="code">Kode CVV</label>
-                            <div className="flex flex-wrap my-2">
-                                <div className="flex-1">
-                                    <input
-                                        className="block w-full duration-400 my-2 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"
-                                        type="code"
-                                        name="code"
-                                        id="code"
-                                        placeholder=""
-                                    />
-                                </div>
-                                <img 
-                                    src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/credit_card_cvv.9385122.svg"
-                                    className="flex-none my-2 mx-1"
+                        <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
+                            <input
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder=" " 
+                                className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                            />
+                            <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Berlaku Hingga</label>
+                        </div>
+                        <div className="block w-full py-1">
+                            <div className="inline-block relative bg-gray-100 focus:bg-gray-400 xl:w-9/12 border-b-2 w-full focus-within:border-red-500">
+                                <input
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder=" " 
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
                                 />
+                                <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Kode CVV</label>
                             </div>
+                            <img 
+                                src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/credit_card_cvv.9385122.svg"
+                                className="inline-block xl:w-2/12 mx-2"
+                            />
+                        </div>
                         <p className="text-xs my-2">
                             Info pembayaran kamu tersimpan dengan aman.
                             Kami bekerja sama dengan NICEPAY untuk memastikan info kamu terlindungi.Kami tidak dapat mengakses info kartumu.

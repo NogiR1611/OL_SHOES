@@ -39,7 +39,7 @@ module.exports = {
     extend: {
       backgroundColor: ['active','visited','focus','hover','group-focus','group-hover'],
       textColor: ['active','visited','focus','hover','group-focus','group-hover'],
-      borderColor: ['active','visited','focus','hover','group-focus','group-hover'],
+      borderColor: ['active','visited','focus','focus-within','hover','group-focus','group-hover'],
       borderWidth: ['active','visited','hover', 'focus'],
       borderRadius: ['active','visited','focus','hover'],
       outline: ['active','visited','focus','hover'],
