@@ -31,7 +31,8 @@ class Index extends React.Component{
             data : [],
             openSearch : false,
             openFilter : false,
-            namePage : 'product'
+            namePage : 'product',
+            showSidebar : false,
         }
     }
 
@@ -62,8 +63,10 @@ class Index extends React.Component{
     render(){
         return (
             <>
-                <div className="flex flex-col w-full min-h-screen mb-auto">  
+                <div className={"flex flex-col w-full min-h-screen mb-auto"}>  
                     <Header
+                        clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
+                        changeIcon={this.state.showSidebar}
                         searchOnClick={this.onOpenSearch} 
                         displayFilter={true}
                         filterOnClick={this.onOpenFilter}
@@ -71,8 +74,15 @@ class Index extends React.Component{
                     />
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                     <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
-                    <Sidebar searchOnClick={this.onOpenSearch} />
-                    <div className="flex flex-col min-h-screen relative ml-72">
+                    <Sidebar
+                        showSidebar={this.state.showSidebar}
+                        removeIcon={this.state.showSidebar}
+                        searchOnClick={this.onOpenSearch} 
+                        removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
+                    />
+                    <div
+                        className={"flex flex-col min-h-screen lg:ml-64 xl:ml-72 p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
+                    >
                         <div className="bg-gray-400 my-2 w-full h-full">
                             <p className="text-center">Cover Here</p>
                         </div>
@@ -86,7 +96,7 @@ class Index extends React.Component{
                                         height={450}
                                         className="relative filter brightness-75"
                                     />
-                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
                                         VANS
                                     </div>
                                 </div>
@@ -98,7 +108,7 @@ class Index extends React.Component{
                                         height={450}
                                         className="relative filter brightness-75"
                                     />
-                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
                                         VANS
                                     </div>
                                 </div>
@@ -130,19 +140,19 @@ class Index extends React.Component{
                                 <div className="w-full border-b-2 border-gray-200">
                                     <button
                                         onClick={() => this.setState({ namePage: 'category' }) }
-                                        className={"w-1/3 px-16 py-2 text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "category" ? "border-b-2 border-red-600 text-red-600" : "")}
+                                        className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "category" ? "border-b-2 border-red-600 text-red-600" : "")}
                                     >
                                         Kategori
                                     </button>
                                     <button
                                         onClick={() => this.setState({ namePage: 'product' }) }
-                                        className={"w-1/3 px-16 py-2 text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "product" ? "border-b-2 border-red-600 text-red-600" : "")}
+                                        className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "product" ? "border-b-2 border-red-600 text-red-600" : "")}
                                     >
                                         Semua Produk
                                     </button>
                                     <button
                                         onClick={() => this.setState({ namePage: 'discount' }) }
-                                        className={"w-1/3 px-16 py-2 text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "discount" ? "border-b-2 border-red-600 text-red-600" : "")}
+                                        className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "discount" ? "border-b-2 border-red-600 text-red-600" : "")}
                                     >
                                         Diskon
                                     </button>
@@ -159,7 +169,7 @@ class Index extends React.Component{
                                                         height={450}
                                                         className="relative filter brightness-75"
                                                     />
-                                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
                                                         VANS
                                                     </div>
                                                 </div>
@@ -171,7 +181,7 @@ class Index extends React.Component{
                                                         height={450}
                                                         className="relative filter brightness-75"
                                                     />
-                                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
                                                         VANS
                                                     </div>
                                                 </div>
@@ -183,7 +193,7 @@ class Index extends React.Component{
                                                         height={450}
                                                         className="relative filter brightness-75"
                                                     />
-                                                    <div className="absolute uppercase text-gray-100 text-7xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
+                                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
                                                         VANS
                                                     </div>
                                                 </div>

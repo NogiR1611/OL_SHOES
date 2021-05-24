@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Download from './../../assets/images/icons/download.svg';
 import List from './../../assets/images/icons/list.svg';
+import Cross from './../../assets/images/icons/exit.svg';
 import Share from './../../assets/images/icons/share.svg';
 import Filter from './../../assets/images/icons/filter.svg';
 import Search from './../../assets/images/icons/search.svg';
@@ -16,10 +17,18 @@ export default class Header extends React.Component{
     render(){
         return (
             <>
-                <header>
+                <header className="w-full sticky top-0 z-50"> 
                     <div className="flex justify-between items-center bg-gray-100 text-gray-800 p-2">
                         <div className="inline-block">
-                            <List className="inline-block lg:hidden" width={24} height={24} />
+                            <button
+                                className="focus:outline-none"
+                                onClick={this.props.clickMenu}
+                            >
+                                {this.props.changeIcon ?
+                                    "" :
+                                    (<List className="inline-block lg:hidden" width={24} height={24} />)
+                                }
+                            </button>
                             <Link href="/home">
                                 <span className="mx-2 cursor-pointer text-xl align-middle font-medium">OL SHOES</span>
                             </Link>

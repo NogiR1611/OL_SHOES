@@ -8,7 +8,7 @@ export default class ProductCards extends React.Component{
         return (
             <>
                 <Link href="">
-                    <div className="relative inline-block flex flex-col w-1/3 my-2 border-2 rounded-lg shadow-lg h-4/10 object-contain cursor-pointer duration-300 hover:bg-gray-100">   
+                    <div className="relative inline-block flex flex-col w-1/2 md:w-1/3 my-2 border-2 rounded-lg shadow-lg h-4/10 object-contain cursor-pointer duration-300 hover:bg-gray-100">   
                         <div className="w-full relative">    
                             <Image  
                                 src="/images/products/converse.jpg"

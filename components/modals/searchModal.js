@@ -18,15 +18,15 @@ export default class SearchModal extends React.Component{
         const {search} = this.state;
         return (
             <Modal
-                styles={{modal: { width : '30%',borderRadius : '10px' }}}
+                styles={{modal: { maxWidth: '100%',borderRadius : '10px' }}}
                 open={this.props.onOpenSearch}
                 onClose={this.props.onCloseSearch}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center duration-300" />}
+                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full transform scale-100 md:scale-75 h-8 w-8 flex justify-center duration-300" />}
                 center
             >
-                <div className="w-full max-w-md py-8 px-1 items-center">                
+                <div className="lg:w-96 py-10 lg:py-8 px-1 mx-auto items-center">                
                     <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
-                        <div className="inline-block relative border-b-2 xl:w-11/12 focus-within:border-red-500 pl-2">
+                        <div className="inline-block relative border-b-2 lg:w-11/12 focus-within:border-red-500 pl-2">
                             <input
                                 type="text" 
                                 id="username" 
@@ -36,7 +36,7 @@ export default class SearchModal extends React.Component{
                                 className="block w-full appearance-none focus:outline-none bg-gray-100" 
                                 onChange={(e) => this.setState({ search: e.target.value }) }
                             />
-                            <label for="username" class="absolute top-0 transition duration-300 ease-in-out">Cari Produk</label>
+                            <label for="username" class="absolute top-0 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
                         </div>
                         {search !== '' ?
                             <button className="focus:outline-none pl-1" onClick={() => this.setState({ search: '' }) }>
