@@ -2,6 +2,7 @@ const withPlugins = require('next-compose-plugins');
 const svgr = require("@svgr/webpack");
 const withImages = require('next-images');
 
+
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
@@ -16,17 +17,16 @@ const nextConfig = {
     return config;
   },
   useFileSystemPublicRoutes: false,
-  async redirects(){
+  async redirects() {
     return [
       {
-        source: '/home',
-        destination: '/',
+        source: '/',
+        destination: '/home',
         permanent: true,
       },
     ]
   },
 }
-
 
 module.exports = withPlugins([],nextConfig);
 
