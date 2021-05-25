@@ -125,7 +125,7 @@ class Index extends React.Component{
                             </div>
                             <div className="flex flex-wrap w-full p-1">
                                 <div className="text-center w-full">
-                                    Product Recommended
+                                    <p className="text-gray-700">Product Recommended</p>
                                 </div>
                                 <ProductCards />
                                 <ProductCards />

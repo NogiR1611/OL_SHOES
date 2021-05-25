@@ -42,21 +42,22 @@ class Categories extends React.Component{
             <>
                 <div className="flex flex-col w-full min-h-screen mb-auto">  
                     <Header
-                        searchOnClick={this.onOpenSearch} 
+                        searchOnClick={this.onOpenSearch}  
                         filterOnClick={this.onOpenFilter}
                     />
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                     <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
                     <Sidebar searchOnClick={this.onOpenSearch} />
-                    <div className="flex flex-wrap h-full relative w-11/12 ml-72">
+                    <div className="flex flex-nowrap flex-auto min-h-full ml-64 lg:w-3/4 xl:ml-72 2xl:ml-80">
                         <CategoryCard searchOnClick={this.onOpenSearch} />
                         <SearchModal onOpenSearch={this.openSearch} onCloseSearch={this.onCloseSearch} />
-                        <div className="flex flex-wrap w-7/12 px-auto">
+                        <div className="flex flex-wrap flex-auto px-2">
                             <ProductCards />
                             <ProductCards />
                             <ProductCards />
                             <ProductCards />
                         </div>
+                        <div className="h-5"></div>
                     </div>
                     <Footer />
                 </div>
