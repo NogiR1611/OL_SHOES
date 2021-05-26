@@ -19,6 +19,7 @@ export default class WaitingPayOrder extends React.Component{
             openFilter : false,
             openDownload : false,
             namePage : 'ATM',
+            showSidebar : false,
         }
     }
 
@@ -58,14 +59,21 @@ export default class WaitingPayOrder extends React.Component{
         return (
             <div className="flex flex-col w-full min-h-screen mb-auto">
                 <Header
+                    clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
+                    changeIcon={this.state.showSidebar}
                     searchOnClick={this.onOpenSearch} 
                     filterOnClick={this.onOpenFilter}
                     displayDownload={true}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
-                <Sidebar searchOnClick={this.onOpenSearch} />
-                <div className="flex flex-col min-h-screen relative ml-72 p-2">
+                <Sidebar
+                    searchOnClick={this.onOpenSearch} 
+                    showSidebar={this.state.showSidebar}
+                    removeIcon={this.state.showSidebar}
+                    removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
+                />
+                <div className="flex-auto min-h-screen lg:ml-auto lg:w-3/4 px-4">
                     <div className="py-2">
                         <p className="text-xl font-semibold text-black my-2">Order Saya</p>
                         <p className="text-lg font-semibold text-black">No. Order: 013275</p>
@@ -75,12 +83,12 @@ export default class WaitingPayOrder extends React.Component{
                     <div className="w-full my-2">
                         <img 
                             src="/images/component/status-1.png"
-                            className="w-1/6 my-2"
+                            className="w-1/3 md:w-1/6 my-2"
                         />
                         <p className="text-lg font-semibold text-red-600">Status : Menunggu Pembayaran</p>
                         <p className="text-base font-semibold text-black">
                             <input type="text" value="Rp.754.000" ref={(totalPrice) => this.totalPrice = totalPrice} className="w-20 focus:outline-none select-none font-semibold text-black" readonly />
-                            <button onClick={this.copyText} className="focus:outline-none transition duration-300 ease-in-out transform active:scale-90 hover:scale-110">
+                            <button onClick={this.copyText} className="mx-1 focus:outline-none transition duration-300 ease-in-out transform active:scale-90 hover:scale-110">
                                 <Copy className="inline-block stroke-current stroke-2 text-black mx-1 cursor-pointer" width={16} height={16} />
                             </button>
                         </p>
@@ -107,19 +115,19 @@ export default class WaitingPayOrder extends React.Component{
                         <div className="w-full border-b-2 border-gray-200">
                             <button
                                 onClick={() => this.setState({ namePage: 'ATM' }) }
-                                className={"w-1/3 px-16 py-2 text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "ATM" ? "border-b-2 border-red-600 text-red-600" : "")}
+                                className={"w-1/3 px-4  md:px-16 py-2 text-gray-600 text-xs md:text-base transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "ATM" ? "border-b-2 border-red-600 text-red-600" : "")}
                             >
                                 ATM
                             </button>
                             <button
                                 onClick={() => this.setState({ namePage: 'Mobile Banking' }) }
-                                className={"w-1/3 px-16 py-2 text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "Mobile Banking" ? "border-b-2 border-red-600 text-red-600" : "")}
+                                className={"w-1/3 px-4 md:px-16 py-2 text-gray-600 text-xs md:text-base  transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "Mobile Banking" ? "border-b-2 border-red-600 text-red-600" : "")}
                             >
                                 Mobile Banking
                             </button>
                             <button
                                 onClick={() => this.setState({ namePage: 'Internet Banking' }) }
-                                className={"w-1/3 px-16 py-2 text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "Internet Banking" ? "border-b-2 border-red-600 text-red-600" : "")}
+                                className={"w-1/3 px-4 md:px-16 py-2 text-gray-600 text-xs md:text-base  transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "Internet Banking" ? "border-b-2 border-red-600 text-red-600" : "")}
                             >
                                 Internet Banking
                             </button>
@@ -215,7 +223,7 @@ export default class WaitingPayOrder extends React.Component{
                     <div className="flex flex-wrap w-full">
                         <img 
                             src="https://logos-download.com/wp-content/uploads/2016/06/Bank_Mandiri_logo_fon.png"
-                            className="flex-none w-1/12"
+                            className="flex-none w-1/6 lg:w-1/12 py-2"
                         />
                         <div className="flex-1 w-9/12 mx-2">
                             <p className="font-semibold">Mandiri</p>
@@ -233,7 +241,7 @@ export default class WaitingPayOrder extends React.Component{
                     <div className="flex flex-wrap w-full">
                         <img 
                             src="https://upload.wikimedia.org/wikipedia/commons/9/92/New_Logo_JNE.png"
-                            className="flex-none w-1/12 h-10 self-center"
+                            className="flex-none w-1/6 md:w-1/12 md:h-10 self-center"
                         />
                         <div className="flex-1 w-8/12 mx-2">
                             <p className="font-semibold">JNE OKE</p>

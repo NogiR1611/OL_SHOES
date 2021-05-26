@@ -81,7 +81,7 @@ class Index extends React.Component{
                         removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                     />
                     <div
-                        className={"flex flex-col min-h-screen lg:ml-64 xl:ml-72 p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
+                        className={"flex flex-col min-h-screen lg:ml-64 xl:ml-96 p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
                     >
                         <div className="bg-gray-400 my-2 w-full h-full">
                             <p className="text-center">Cover Here</p>

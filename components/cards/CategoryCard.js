@@ -15,7 +15,7 @@ export default class CategoryCard extends React.Component{
     render(){
         return (
             <>
-                <div className="hidden xl:block flex-none bg-gray-200 xl:w-64 my-2 mx-1 px-1 py-4">
+                <div className="hidden xl:block flex-none self-start h-100 bg-gray-200 xl:w-64 my-2 mx-1 px-1 py-4">
                     <div className="my-6">
                         <button
                             onClick={this.props.searchOnClick}
