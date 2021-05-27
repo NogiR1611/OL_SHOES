@@ -1,12 +1,17 @@
 import React from 'react';
-import Header from './../components/header/header.js';
 import Footer from './../components/footer/footer.js';
 import SearchModal from './../components/modals/searchModal.js';
 import FilterModal from './../components/modals/filterModal.js';
 import ProductCards from './../components/cards/ProductCards.js';
+import CategoryCard from './../components/cards/CategoryCard.js';
 import {Router} from '../routes.js';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+
+
+export const Header = dynamic(() => {
+    return import('./../components/header/header.js')
+},{ ssr:false });
 
 export const Sidebar = dynamic(() => {
     return import('./../components/sidebar/sidebar.js')
@@ -81,37 +86,21 @@ class Index extends React.Component{
                         removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                     />
                     <div
-                        className={"flex flex-col min-h-screen lg:ml-64 xl:ml-96 p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
+                        className={"flex flex-col flex-auto bg-gray-lighter min-h-screen w-full lg:ml-auto lg:w-3/4 relative p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
                     >
                         <div className="bg-gray-400 my-2 w-full h-full">
                             <p className="text-center">Cover Here</p>
                         </div>
                         <div className="w-11/12 mx-auto">
                             <div className="flex flex-wrap w-full">
-                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
-                                    <Image 
-                                        src='/images/products/vans_category.jpg'
-                                        layout="responsive"
-                                        width={450}
-                                        height={450}
-                                        className="relative filter brightness-75"
-                                    />
-                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
-                                        VANS
-                                    </div>
-                                </div>
-                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
-                                    <Image 
-                                        src='/images/products/vans_category.jpg'
-                                        layout="responsive"
-                                        width={450}
-                                        height={450}
-                                        className="relative filter brightness-75"
-                                    />
-                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
-                                        VANS
-                                    </div>
-                                </div>
+                                <CategoryCard 
+                                    sourceImg='/images/products/vans_category.jpg'
+                                    name='vans'
+                                />
+                                <CategoryCard 
+                                    sourceImg='/images/products/vans_category.jpg'
+                                    name='vans'
+                                />
                             </div>
                             <div className="flex flex-wrap w-full p-1">
                                 <div className="text-center w-full bg-gray-400">
@@ -161,42 +150,18 @@ class Index extends React.Component{
                                     {this.state.namePage === 'category' ? 
                                         (
                                             <div className="flex flex-wrap">
-                                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
-                                                    <Image 
-                                                        src='/images/products/vans_category.jpg'
-                                                        layout="responsive"
-                                                        width={450}
-                                                        height={450}
-                                                        className="relative filter brightness-75"
-                                                    />
-                                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
-                                                        VANS
-                                                    </div>
-                                                </div>
-                                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
-                                                    <Image 
-                                                        src='/images/products/vans_category.jpg'
-                                                        layout="responsive"
-                                                        width={450}
-                                                        height={450}
-                                                        className="relative filter brightness-75"
-                                                    />
-                                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
-                                                        VANS
-                                                    </div>
-                                                </div>
-                                                <div className="w-6/12 h-6/12 p-1 relative cursor-pointer">
-                                                    <Image 
-                                                        src='/images/products/vans_category.jpg'
-                                                        layout="responsive"
-                                                        width={450}
-                                                        height={450}
-                                                        className="relative filter brightness-75"
-                                                    />
-                                                    <div className="absolute uppercase text-gray-100 text-xl md:text-3xl lg:text-5xl font-bold transform -translate-x-1/2 transform -translate-y-1/2 top-1/2 left-1/2">
-                                                        VANS
-                                                    </div>
-                                                </div>
+                                                <CategoryCard 
+                                                    sourceImg='/images/products/vans_category.jpg'
+                                                    name='vans'
+                                                />
+                                                <CategoryCard 
+                                                    sourceImg='/images/products/vans_category.jpg'
+                                                    name='vans'
+                                                />
+                                                <CategoryCard 
+                                                    sourceImg='/images/products/vans_category.jpg'
+                                                    name='vans'
+                                                />
                                             </div>
                                         ) : ''
                                     }

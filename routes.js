@@ -22,6 +22,11 @@ module.exports = routes()
     page: 'categories'
   })
   .add({
+    name: 'content-category',
+    pattern: '/categories/1',
+    page: '/categories/contentCategory'
+  })
+  .add({
     name: 'content-product',
     pattern: '/products/1',
     page: '/products/contentProduct'
