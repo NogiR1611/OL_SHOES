@@ -54,7 +54,7 @@ class Categories extends React.Component{
     }
     
     pushProfileRoute = () => {
-        Router.pushRoute('/users');
+        Router.pushRoute('/orders');
     }
 
     render(){
@@ -66,6 +66,7 @@ class Categories extends React.Component{
                         changeIcon={this.state.showSidebar}
                         searchOnClick={this.onOpenSearch}  
                         filterOnClick={this.onOpenFilter}
+                        displayProfile={true}
                         profileOnClick={this.pushProfileRoute}
                     />
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
@@ -84,9 +85,10 @@ class Categories extends React.Component{
                                 height: "240px",
                                 backgroundRepeat: "no-repeat",
                             }} 
-                            className="w-full flex-grow bg-cover bg-center relative p-1"
+                            className="w-full flex-grow bg-cover bg-center relative p-1 bg-black bg-opacity-50"
                         >
-                            <div className="absolute uppercase text-gray-300 text-xl md:text-3xl lg:text-5xl font-bold bottom-5 left-5">
+                            <div className="absolute inset-0 bg-gray-900 bg-opacity-30"></div>
+                            <div className="absolute uppercase text-white text-lg md:text-3xl lg:text-4xl xl:text-5xl font-medium bottom-5 left-5">
                                 VANS
                             </div>
                         </div>

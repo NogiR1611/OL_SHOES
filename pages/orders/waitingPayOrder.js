@@ -61,7 +61,7 @@ export default class WaitingPayOrder extends React.Component{
     }
 
     pushProfileRoute = () => {
-        Router.pushRoute('/home');
+        Router.pushRoute('/orders');
     }
 
     rejectedOrder = () => {
@@ -77,6 +77,7 @@ export default class WaitingPayOrder extends React.Component{
                     searchOnClick={this.onOpenSearch} 
                     filterOnClick={this.onOpenFilter}
                     displayDownload={true}
+                    displayProfile={true}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />

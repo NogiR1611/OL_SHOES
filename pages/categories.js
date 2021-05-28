@@ -19,7 +19,7 @@ export default class Categories extends React.Component{
         this.state = {
             openSearch: false,
             showSidebar: false,
-            tag: ["#adidas","#nike","#vans","#converse","#allstar","#allstar","#allstar","#allstar","#allstar","#allstar","#allstar","#allstar","#allstar","#allstar","#allstar"],
+            tag: ["#adidas","#nike","#vans","#converse","#allstar","#airforce","#allstar","#authen","#authentic","#chuka",,"#converse60","#era","#macbeth","#revenge","#slip"],
         }
     }
 
@@ -32,7 +32,7 @@ export default class Categories extends React.Component{
     }
 
     pushProfileRoute = () => {
-        Router.pushRoute('/users');
+        Router.pushRoute('/orders');
     }
 
     render(){
@@ -43,6 +43,7 @@ export default class Categories extends React.Component{
                     changeIcon={this.state.showSidebar}
                     searchOnClick={this.onOpenSearch}  
                     profileOnClick={this.pushProfileRoute}
+                    displayProfile={true}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <Sidebar
@@ -103,13 +104,13 @@ export default class Categories extends React.Component{
                                 />
                             </div>
                         </div>
-                        <div className="mx-auto mt-6 px-2 max-w-md w-full">
-                            <div className="flex flex-wrap">
+                        <div className="mx-auto mt-6 px-2 w-9/12">
+                            <div className="flex flex-wrap flex-auto">
                                 {this.state.tag.map((element,index) => {
                                     return (
                                         <div 
                                             key={index}
-                                            className="flex-shrink-0"
+                                            className="flex-shrink-0 h-16 py-2 px-1"
                                         >
                                             <a href="#" className="text-black-darker px-2 py-4">
                                                 {element}

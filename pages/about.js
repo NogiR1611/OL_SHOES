@@ -27,7 +27,7 @@ export default class About extends React.Component{
     }
     
     pushProfileRoute = () => {
-        Router.pushRoute('/users');
+        Router.pushRoute('/orders');
     }
 
     render(){
@@ -38,6 +38,7 @@ export default class About extends React.Component{
                         searchOnClick={this.onOpenSearch} 
                         displayFilter={false}
                         profileOnClick={this.pushProfileRoute}
+                        displayProfile={true}
                     />
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                     <Sidebar /> 

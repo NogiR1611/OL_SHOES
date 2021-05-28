@@ -7,9 +7,14 @@ module.exports = routes()
     page: 'index'
   })
   .add({
-    name: 'users',
-    pattern: '/users',
-    page: 'users'
+    name: 'orders',
+    pattern: '/orders',
+    page: 'orders'
+  })
+  .add({
+    name: 'messages',
+    pattern: '/messages',
+    page: 'messages'
   })
   .add({
     name: 'about',

@@ -62,7 +62,7 @@ class Index extends React.Component{
     }
 
     pushProfileRoute = () => {
-        Router.pushRoute('/users');
+        Router.pushRoute('/orders');
     }
 
     render(){
@@ -74,6 +74,7 @@ class Index extends React.Component{
                         changeIcon={this.state.showSidebar}
                         searchOnClick={this.onOpenSearch} 
                         displayFilter={true}
+                        displayProfile={true}
                         filterOnClick={this.onOpenFilter}
                         profileOnClick={this.pushProfileRoute}
                     />

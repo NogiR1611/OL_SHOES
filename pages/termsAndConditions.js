@@ -32,7 +32,7 @@ export default class TermAndConditions extends React.Component{
     }
 
     pushProfileRoute = () => {
-        Router.pushRoute('/users');
+        Router.pushRoute('/orders');
     }
 
     render(){
@@ -43,6 +43,7 @@ export default class TermAndConditions extends React.Component{
                     changeIcon={this.state.showSidebar}
                     searchOnClick={() => this.setState({ openSearch:true })} 
                     profileOnClick={this.pushProfileRoute}
+                    displayProfile={true}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />

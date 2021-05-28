@@ -44,61 +44,61 @@ export default class Sidebar extends React.Component{
                             }
                         </div>
                         <ul className="">
-                            <li 
-                                className={
-                                    "text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal " + 
-                                    (window.location.href.indexOf("/home") !==-1 ? "bg-red-300" : "bg-gray-lighter")
-                                }
-                            >
-                                <Link href="/home">
+                            <Link href="/home">
+                                <li 
+                                    className={
+                                        "text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal " + 
+                                        (window.location.href.indexOf("/home") !==-1 ? "bg-red-darker-1 bg-opacity-10" : "bg-gray-lighter")
+                                    }
+                                >
                                     Beranda
-                                </Link>
-                            </li>
-                            <li className={
-                                    "text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal " +
-                                    (window.location.href.indexOf("/about") !==-1 ? "bg-red-300" : "bg-gray-lighter")
-                                }    
-                            >
-                                <Link href="/about">
+                                </li>
+                            </Link>
+                            <Link href="/about">
+                                <li className={
+                                        "text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal " +
+                                        (window.location.href.indexOf("/about") !==-1 ? "bg-red-darker-1 bg-opacity-10" : "bg-gray-lighter")
+                                    }    
+                                >
                                     Tentang OL Shoes
-                                </Link>
-                            </li>
-                            <li className={
-                                "px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal " 
-                                + (this.state.clickButton ? "text-black-darker" : "text-red-darker-1 ")
-                                }
-                            >
-                                <Link href="#">
-                                    <button className="w-full uppercase text-left focus:outline-none" onClick={() => this.setState({ clickButton : !this.state.clickButton })}>
-                                        Panduan Ukuran
-                                        <ArrowDown 
-                                            className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.clickButton ? "transform -rotate-180" : '')}
-                                            width={24}
-                                            height={24}
-                                        />
-                                    </button>
-                                </Link>
-                            </li>
-                            <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal ">
-                                <Link href="">
+                                </li>
+                            </Link>
+                            <Link href="#">
+                                <li className={
+                                    "px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal " 
+                                    + (this.state.clickButton ? "bg-red-darker-1 bg-opacity-10" : "text-red-darker-1 ")
+                                    }
+                                >
+                                        <button className="w-full uppercase text-left focus:outline-none" onClick={() => this.setState({ clickButton : !this.state.clickButton })}>
+                                            Panduan Ukuran
+                                            <ArrowDown 
+                                                className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.clickButton ? "transform -rotate-180" : '')}
+                                                width={24}
+                                                height={24}
+                                            />
+                                        </button>
+                                </li>
+                            </Link>
+                            <Link href="">
+                                <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal ">
                                     Pria
-                                </Link>
-                            </li>
-                            <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal ">
-                                <Link href="">
+                                </li>
+                            </Link>
+                            <Link href="">
+                                <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal ">
                                     Wanita
-                                </Link>
-                            </li>
-                            <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal ">
-                                <Link href="">
+                                </li>
+                            </Link>
+                            <Link href="">
+                                <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal ">
                                     Anak
-                                </Link>
-                            </li>
-                            <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-300 transition duration-200 ease-in-out font-normal ">
-                                <Link href="">
+                                </li>
+                            </Link>
+                            <Link href="">
+                                <li className="text-red-darker-1 px-4 py-3 uppercase cursor-pointer hover:bg-red-darker-1 hover:bg-opacity-10 transition duration-200 ease-in-out font-normal ">
                                     Discount Up To 150K
-                                </Link>
-                            </li>
+                                </li>
+                            </Link>
                         </ul>
                     </div>
                 </nav>
