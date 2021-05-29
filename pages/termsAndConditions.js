@@ -1,11 +1,14 @@
 import React from 'react';
-import Header from './../components/header/header.js';
 import Footer from './../components/footer/footer.js';
 import SearchModal from './../components/modals/searchModal.js';
 import FilterModal from './../components/modals/filterModal.js';
 import ArrowDown from './../assets/images/icons/arrowDown.svg';
 import {Router} from '../routes.js';
 import dynamic from 'next/dynamic';
+
+export const Header = dynamic(() => {
+    return import('./../components/header/header.js')
+},{ ssr:false });
 
 export const Sidebar = dynamic(() => {
     return import('./../components/sidebar/sidebar.js')
@@ -53,16 +56,16 @@ export default class TermAndConditions extends React.Component{
                     searchOnClick={() => this.setState({ openSearch:true })} 
                     removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                 />
-                <div className="flex flex-col min-h-screen relative lg:ml-72 p-2">
-                    <div className="w-10/12 md:w-8/12 bg-gray-100 mx-auto py-2 rounded-lg divide-y divide-gray-300 shadow-md">
-                        <div className="px-4">
+                <div className="flex flex-col flex-auto bg-gray-lighter min-h-screen w-full relative lg:ml-auto lg:w-3/4 p-2">
+                    <div className="bg-white w-10/12 md:w-8/12 mx-auto py-2 rounded-lg divide-y divide-gray-300 shadow-md">
+                        <div className="bg-white px-4">
                             <button
                                 onClick={() => this.setState({ namePage: 'syarat',activePage:!this.state.activePage })}
                                 className="w-full focus:outline-none py-2 text-gray-600 text-sm md:text-base font-base text-left"
                             >
                                 Persyaratan Layanan
                                 <ArrowDown 
-                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'syarat' && this.state.activePage  ? "transform rotate-180" : '')}
+                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'syarat' && this.state.activePage  ? "transform -rotate-180" : '')}
                                     width={28}
                                     height={28}
                                 />
@@ -73,14 +76,14 @@ export default class TermAndConditions extends React.Component{
                                 </p>
                             </div>
                         </div>
-                        <div className="px-4">
+                        <div className="bg-white px-4">
                             <button
                                 onClick={() => this.setState({ namePage: 'privasi',activePage:!this.state.activePage })}
                                 className="w-full focus:outline-none py-2 text-gray-600 text-sm md:text-base font-base text-left"
                             >
                                 Kebijakan Privasi
                                 <ArrowDown 
-                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'privasi' && this.state.activePage  ? "transform rotate-180" : '')}
+                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'privasi' && this.state.activePage  ? "transform -rotate-180" : '')}
                                     width={28}
                                     height={28}
                                 />
@@ -91,14 +94,14 @@ export default class TermAndConditions extends React.Component{
                                 </p>
                             </div> 
                         </div>
-                        <div className="px-4">
+                        <div className="bg-white px-4">
                             <button
                                 onClick={() => this.setState({ namePage: 'pengiriman',activePage:!this.state.activePage })}
                                 className="w-full focus:outline-none py-2 text-gray-600 text-sm md:text-base font-base text-left"
                             >
                                 Kebijakan Pengiriman
                                 <ArrowDown 
-                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'pengiriman' && this.state.activePage  ? "transform rotate-180" : '')}
+                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'pengiriman' && this.state.activePage  ? "transform -rotate-180" : '')}
                                     width={28}
                                     height={28}
                                 />
@@ -109,14 +112,14 @@ export default class TermAndConditions extends React.Component{
                                 </p>
                             </div> 
                         </div>
-                        <div className="px-4">
+                        <div className="bg-white px-4">
                             <button
                                 onClick={() => this.setState({ namePage: 'pengembalian',activePage:!this.state.activePage })}
                                 className="w-full focus:outline-none py-2 text-gray-600 text-sm md:text-base font-base text-left"
                             >
                                 Kebijakan Pengembalian    
                                 <ArrowDown 
-                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'pengembalian' && this.state.activePage  ? "transform rotate-180" : '')}
+                                    className={"float-right mx-2 transform scale-75 md:scale-100 transition duration-500 ease-in-out " + (this.state.namePage === 'pengembalian' && this.state.activePage  ? "transform -rotate-180" : '')}
                                     width={28}
                                     height={28}
                                 />

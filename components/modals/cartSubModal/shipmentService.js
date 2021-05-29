@@ -3,7 +3,7 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Circle from './../../../assets/images/icons/circle.svg';
 import Checkmark from './../../../assets/images/icons/checkmark2.svg';
-import Exit from './../../../assets/images/icons/exit.svg';
+import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
 
 export default class ShipmentService extends React.Component{
     constructor(props){
@@ -39,48 +39,49 @@ export default class ShipmentService extends React.Component{
     render(){
         return (
             <Modal
-                styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
+                styles={{modal: { maxWidth : '100%',borderRadius : '5%' }}} 
                 open={this.props.modalShipmentService}
                 onClose={this.props.onCloseShipmentService}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                 center
             >
-                <div className="w-full max-w-2xl py-4 px-4 items-center">
-                    <div className="w-full py-4">
-                        <p className="text-xl font-bold text-gray-800">Pilih Metode Pengiriman</p>
-                        <div className="py-2 text-gray-600">
-                            <span className="float-left">Total Berat Paket:</span>
-                            <span className="float-right font-bold">3000g</span>
+                <div className="bg-gray-lighter w-full md:w-480 items-center">
+                    <div className="md:h-9 md:w-480" />
+                    <div className="w-full">
+                        <p className="text-xl font-medium text-black-darker py-4 px-6 text-gray-800">Pilih Metode Pengiriman</p>
+                        <div className="flex justify-between px-6 flex-auto text-black-darker">
+                            <div className="">Total Berat Paket:</div>
+                            <div className="font-bold">3000g</div>
                         </div>
                     </div>
-                    <div className="overflow-y-auto py-2 divide-y">
+                    <div className="overflow-y-auto px-6 pb-6 divide-y-1 divide-gray-300">
                         {this.state.arrayShipment.map( (element,index) => {
                             return (
                             <>
                                 <div
                                     onClick={() => this.handleOption(element.id) }
                                     key={index}
-                                    className="flex flex-wrap py-2 cursor-pointer"
+                                    className="flex flex-nowrap flex-auto mt-4 cursor-pointer"
                                 >
                                     <>
                                         {this.state.shipmentOption === element.nameShipment ? (
-                                            <Checkmark className="flex-none w-8 h-8 self-center fill-current text-red-600" /> 
+                                            <Checkmark className="flex-none w-6 h-6 self-center fill-current text-red-600" /> 
                                         ):
-                                            <Circle className="flex-none w-8 h-8 self-center stroke-current stroke-2 text-black" />
+                                            <Circle className="flex-none w-6 h-6 self-center stroke-current stroke-1 text-black" />
                                         }
-                                        <div className="flex-1 w-10/12">
+                                        <div className="flex-auto">
                                             <div className="">
-                                                <span className="line-through text-lg text-gray-400 mx-2">Rp {element.firstPrice}</span>
-                                                <span className="text-gray-600 text-lg">Rp {element.discountPrice}</span>
+                                                <span className="line-through text-gray-lighter-1">Rp {element.firstPrice}</span>
+                                                <span className="text-black-darker">Rp {element.discountPrice}</span>
                                             </div>
                                             <div className="py-1">
-                                                <span className="text-gray-600 text-base">{element.timeDelivery} Hari</span>
+                                                <span className="text-gray-lighter-1 text-sm">{element.timeDelivery} Hari</span>
                                             </div>
                                         </div>
-                                        <div className="flex-none w-1/12 content-center">
+                                        <div className="flex-none content-center">
                                             <img 
                                                 src={element.logo}
-                                                className="w-full my-2"
+                                                className="w-12 h-12"
                                             />
                                         </div>
                                     </>

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Download from './../../assets/images/icons/download.svg';
 import List from './../../assets/images/icons/list.svg';
-import ArrowLeft from './../../assets/images/icons/ArrowLeft.svg';
+import ArrowLeft from './../../assets/images/icons/arrowLeft.svg';
 import Share from './../../assets/images/icons/share.svg';
 import Filter from './../../assets/images/icons/filter.svg';
 import Search from './../../assets/images/icons/search.svg';

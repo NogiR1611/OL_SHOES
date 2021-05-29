@@ -42,7 +42,8 @@ export default class DescriptionProductCard extends React.Component{
                         </div>
                     </div>
                     <button
-                        className="flex w-full p-2 mt-10 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-gray-300 active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                        onClick={this.props.cartButton}
+                        className="flex w-full p-2 mt-10 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
                     >
                         <Cart className="inline-block float-left fill-current text-white self-center" width={24} height={24} />
                         <span className="mx-auto self-center">Beli Sekarang</span>

@@ -1,8 +1,7 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import Exit from './../../../assets/images/icons/exit.svg';
-import Link from 'next/link';
+import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
 import address from './../../../address.js';
 import RightArrow from './../../../assets/images/icons/rightArrow.svg';
 import Search from './../../../assets/images/icons/search.svg';
@@ -84,13 +83,14 @@ export default class InfoCustomer extends React.Component{
                     styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                     open={this.props.modalInfoCustomer}
                     onClose={this.props.onCloseModalInfoCustomer}
-                    closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                    closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                    center
                 >
-                    <div className="w-full max-w-2xl py-4 px-4 items-center">
-                        <div className="w-full px-2 py-2">
+                    <div className="bg-gray-lighter w-full h-9/10 md:w-480 items-center">
+                        <div className="w-full px-6 pt-4 pb-2">
                             <p className="text-lg font-bold text-gray-800">Informasi Pengiriman</p>
                         </div>
-                        <div className="w-full py-2 px-2">
+                        <div className="w-full px-6">
                             <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
                                 <input
                                     type="text" 
@@ -152,32 +152,37 @@ export default class InfoCustomer extends React.Component{
                             </>
                             ) : null
                         }
+                        <p className="mt-6">
+                            Saya sudah membaca dan menyetujui<span> </span>
+                            <a target="_blank"  href='/terms-and-conditions'>
+                                <span className="text-red-darker-1 underline mx-auto">Syarat & Ketentuan</span>
+                            </a>
+                        </p>
                     </div>
-                    <p className="py-4">
-                        Saya sudah membaca dan menyetujui<span> </span>
-                        <a target="_blank"  href='/terms-and-conditions'>
-                            <span className="text-red-600 underline">Syarat & Ketentuan</span>
-                        </a>
-                    </p>
-                    <button
-                        onClick={this.props.shipmentModal}
-                        className="w-full p-4 text-center font-bold bg-red-600 text-gray-100 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
-                    >
-                        Setuju & Lanjutkan
-                    </button>
+                    <div className="py-2 px-4">
+                        <button
+                            onClick={this.props.shipmentModal}
+                            className="w-full text-center h-12 font-bold bg-red-darker-1 text-white rounded-md hover:bg-red-darker-1 active:bg-red-darker-1 hover:bg-opacity-90 active:bg-opacity-50 text-medium text-sm focus:outline-none transition duration-300 ease-in-out"
+                        >
+                            Setuju & Lanjutkan
+                        </button>
+                    </div>
+                    
                 </div>
             </Modal>
             <Modal
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.province}
                 onClose={this.onCloseModalProvince}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                center
             >
-                <div className="w-full max-w-2xl py-4 px-4 items-center">
-                    <div className="py-4">
+                <div className="bg-gray-lighter w-full md:w-480 items-center">
+                    <div className="md:h-9 md:w-480" />
+                    <div className="py-4 px-6">  
                         <p className="text-xl text-gray-800 font-semibold py-1">1.Pilih Provinsi</p>
-                        <p className="text-gray-800 py-1">Kemana kamu mau mengirimkan paket?</p>
-                        <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
+                        <p className="text-gray-800 py-1 mb-4">Kemana kamu mau mengirimkan paket?</p>
+                        <div className="bg-gray-100 focus:bg-gray-400 w-full px-6 rounded-lg">
                             <input
                                 className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
                                 type="text"
@@ -203,9 +208,9 @@ export default class InfoCustomer extends React.Component{
                         })
                         .map( (element,index) => {
                             return (
-                                <div className="w-full font-bold text-gray-800" key={index}>
+                                <div className="w-full pl-6 font-bold text-gray-800" key={index}>
                                     <button
-                                        className="w-full text-left font-bold text-gray-800 p-1 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                        className="w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                         onClick={() => {
                                             this.clickCity(element.id)
                                             this.setState({
@@ -216,9 +221,9 @@ export default class InfoCustomer extends React.Component{
                                         }}
                                     >
                                         {element.name}
-                                        <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-2 text-black" width={12} height={12} />
+                                        <RightArrow className="inline-block float-right stroke-current stroke-0 text-black" width={24} height={24} />
                                     </button>
-                                    <hr className="border-b-1 border-gray-200 py-1" />
+                                    <hr className="border-b-2 border-gray-200" />
                                 </div>
                             )
                         })}
@@ -229,10 +234,12 @@ export default class InfoCustomer extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.city}
                 onClose={this.onCloseModalCity}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                center
             >
-                <div className="w-full max-w-2xl py-4 px-4 items-center">
-                    <div className="w-full py-4">
+                <div className="bg-gray-lighter w-full md:w-480 items-center">
+                    <div className="md:h-9 md:w-480" />
+                    <div className="py-4 px-6">
                         <p className="text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
                         <p className="text-gray-800 py-1">{this.state.provinceName} : </p>
                     </div>
@@ -261,9 +268,9 @@ export default class InfoCustomer extends React.Component{
                             })
                             .map( (element,index) => {
                                 return (
-                                    <div className="w-full font-bold text-gray-800" key={index}>
+                                    <div className="w-full pl-6 font-bold text-gray-800" key={index}>
                                         <button
-                                            className="w-full text-left font-bold text-gray-800 p-1 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                            className="w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                             onClick={() => {
                                                 this.clickDistrict(element.id)
                                                 this.setState({ 
@@ -274,9 +281,9 @@ export default class InfoCustomer extends React.Component{
                                             }}
                                         >
                                             {element.name}
-                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-2 text-black" width={12} height={12} />
+                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black" width={24} height={24} />
                                         </button>
-                                        <hr className="border-b-1 border-gray-200 py-1" />
+                                        <hr className="border-b-2 border-gray-200" />
                                     </div>
                                 )
                             })}
@@ -287,10 +294,12 @@ export default class InfoCustomer extends React.Component{
                     styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                     open={this.state.district}
                     onClose={this.onCloseModalDistrict}
-                    closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                    closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                    center
                 >
-                    <div className="w-full max-w-2xl py-4 px-4 items-center">
-                        <div className="py-4">
+                    <div className="bg-gray-lighter md:w-480 w-full items-center">
+                        <div className="md:h-9 md:w-480" />
+                        <div className="py-4 px-6">
                             <p className="text-xl text-gray-800 font-semibold py-1">3.Pilih Kecamatan</p>
                             <p className="text-gray-800 py-1">{this.state.provinceName},{this.state.cityName} : </p>
                         </div>
@@ -319,9 +328,9 @@ export default class InfoCustomer extends React.Component{
                             })
                             .map( (element,index) => {
                                 return (
-                                    <div className="w-full font-bold text-gray-800" key={index}>
+                                    <div className="w-full font-bold text-gray-800 pl-6" key={index}>
                                         <button
-                                            className="w-full text-left font-bold text-gray-800 p-1 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                            className="w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                             onClick={() => {
                                                 this.setState({
                                                     districtName: element.districtName,
@@ -331,9 +340,9 @@ export default class InfoCustomer extends React.Component{
                                             }}
                                         >
                                             {element.subdistrict_name}
-                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-2 text-black" width={12} height={12} />
+                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black" width={24} height={24} />
                                         </button>
-                                        <hr className="border-b-1 border-gray-200 py-1" />
+                                        <hr className="border-b-2 border-gray-200" />
                                     </div>
                                 )
                             })}

@@ -1,9 +1,9 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import Packing from './../../assets/images/icons/packing.svg';
+import Truck from './../../assets/images/icons/truck.svg';
 import Cart from './../../assets/images/icons/cart.svg';
-import Exit from './../../assets/images/icons/exit.svg';
+import Blank from './../../assets/images/icons/blank.svg';
 
 //import submodal
 import AmountOfProduct from './cartSubModal/amountOfProduct.js';
@@ -70,84 +70,112 @@ export default class CartModal extends React.Component{
         return (
             <>
                 <Modal
-                    styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
+                    styles={{modal: { maxWidth : '100%',maxHeight:'90%',borderRadius : '5%' }}} 
                     open={this.props.openCart}
                     onClose={this.props.onCloseCart}
-                    closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                    closeIcon={<Blank />}
+                    center
                 >
-                    <div className="w-full max-w-2xl py-4 items-center">
-                        <div className="px-2">
-                            <Cart width={24} height={24} className="inline-block mr-2" fill="gray" />
-                            <p className="inline-block text-lg font-bold text-gray-800">Keranjang Saya {this.props.amountTotalProduct}</p>
-                        </div>
-                        <div className="text-gray-600 my-4 max-h-96 overflow-y-auto">
-                            <ul className="">
-                                <div className="my-4 mx-2">
-                                    <li className="w-full flex flex-wrap my-4">
+                    <div className="bg-gray-lighter w-full h-full md:w-480 items-center">
+                        <div className="flex px-6 py-4">
+                            <Cart width={24} height={24} className="inline-block self-center" />
+                            <p className="inline-block text-lg font-medium text-darker-1">Keranjang Saya {this.props.amountTotalProduct}</p>
+                        </div>  
+                        <div className="text-gray-600 px-6 pb-5 max-h-96 overflow-y-auto">
+                                <div className="">
+                                    <div className="w-full flex flex-nowrap">
                                         <img
                                             src="/images/products/converse.jpg"
-                                            className="inline-block w-2/12 mr-4"
+                                            className="inline-block w-12 h-12 self-center"
                                         />
-                                        <div className="inline-block w-7/12">
-                                            <span className="block uppercase font-bold">VANS OLD SKOOL BLACK WHITE</span> 
-                                            <span className="block">Rp 300.000</span>
-                                            <span className="block"><s>Rp 320.000</s></span>
+                                        <div className="flex-shrink flex-grow ml-2">
+                                            <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
+                                            <span className="block text-black-darker font-bold">VANS OLD SKOOL BLACK WHITE</span> 
+                                            <span className="block text-sm text-gray-lighter-1">SIZE 40</span>
+                                            <span className="block text-sm text-gray-lighter-1 opacity-50 line-through">Rp 320.000</span>
+                                            <span className="block text-sm text-gray-lighter-1">Rp 300.000</span>
                                         </div>
-                                        <div className="w-2/12">
-                                            <span className="inline-block">{this.state.amountProduct}</span>
+                                        <div className="mx-1 font-bold self-center">
+                                            3
+                                        </div>
+                                        <div className="ml-2 self-center">
                                             <button
                                                 onClick={() => this.setState({ modalAmountProduct: true }) }
-                                                className="inline-block py-2 px-2 ml-4 justify-self-end font-semibold bg-gray-100 rounded-md outline-none focus:outline-none hover:bg-gray-200 duration-300"
+                                                className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
                                             >
                                                 Ubah
                                             </button>
                                         </div>
-                                    </li>
-                                    <hr className="border-gray-300 my-2 mx-2" />
+                                    </div>
+                                    <hr className="border-b-1 border-gray-300" />
+                                    <div className="w-full flex flex-nowrap mt-2">
+                                        <img
+                                            src="/images/products/converse.jpg"
+                                            className="inline-block w-12 h-12 self-center"
+                                        />
+                                        <div className="flex-shrink flex-grow ml-2">
+                                            <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
+                                            <span className="block text-black-darker font-bold">VANS OLD SKOOL BLACK WHITE</span> 
+                                            <span className="block text-sm text-gray-lighter-1">SIZE 40</span>
+                                            <span className="block text-sm text-gray-lighter-1 opacity-50 line-through">Rp 320.000</span>
+                                            <span className="block text-sm text-gray-lighter-1">Rp 300.000</span>
+                                        </div>
+                                        <div className="mx-1 font-bold self-center">
+                                            3
+                                        </div>
+                                        <div className="ml-2 self-center">
+                                            <button
+                                                onClick={() => this.setState({ modalAmountProduct: true }) }
+                                                className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
+                                            >
+                                                Ubah
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr className="border-b-1 border-gray-300" />
                                 </div>
-                            </ul>
-                            <div className="px-4 py-2">
+                            <div className="">
                                 <button
                                     onClick={this.props.continueToShop}
-                                    className="w-full p-2 font-semibold bg-gray-200 rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
+                                    className="w-full px-6 my-4 h-12 font-semibold bg-gray-lighter-4 text-black-darker text-sm rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
                                 >
                                     Lanjutkan Belanja
                                 </button>
-                                <hr className="border-black my-4" />
-                                <div className="flex flex-wrap">
-                                    <p className="text-left">Harga Normal Produk</p>
-                                    <p className="text-right">{this.props.totalNormalPrice}</p>
+                                <hr className="border-b-1 border-black-darker my-2" />
+                                <div className="flex flex-nowrap flex-auto my-2">
+                                    <p className="flex-auto text-left">Harga Normal Produk</p>
+                                    <p className="text-right font-bold text-black-darker">Rp.300.000</p>
                                 </div>
-                                <div className="flex flex-wrap">
-                                    <p className="text-left">Diskon Produk</p>
-                                    <p className="text-right">{this.props.productDiscount}</p>
+                                <div className="flex flex-nowrap flex-auto my-2">
+                                    <p className="flex-auto text-left">Diskon Produk</p>
+                                    <p className="text-right font-bold text-black-darker">-Rp.50.000</p>
                                 </div>
-                                <div className="flex flex-wrap">
-                                    <p className="text-left">Total Harga Produk</p>
-                                    <p className="text-right">{this.props.totalPrice}</p>
+                                <div className="flex flex-nowrap flex-auto my-2">
+                                    <p className="flex-auto text-left">Total Harga Produk (7 Barang)</p>
+                                    <p className="text-right font-bold text-black-darker">Rp.2.300.000</p>
                                 </div>
-                                <div className="flex flex-wrap my-4">
+                                <div className="flex flex-wrap p-3 mt-3 justify-center">
                                     <button
                                         onClick={() => this.setState({ voucherOne: true }) }
-                                        className="p-2 font-semibold bg-gray-200 mx-auto rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
+                                        className="flex-auto p-2 m-1 font-semibold bg-gray-lighter-4 text-black-darker text-sm rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
                                     >
-                                        + Aplikasikan Voucher
+                                        + Aplikasikan Voucherd
                                     </button>
                                     <button
                                         onClick={() => this.setState({ note: true }) }
-                                        className="p-2 font-semibold bg-gray-200 mx-auto rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
+                                        className="flex p-2 m-1 font-semibold bg-gray-lighter-4 text-black-darker text-sm rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
                                     >
                                         + Tambahkan Catatan
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <div className="mx-4">
+                        <div className="px-4 py-3">
                             <button
                                 onClick={this.props.removeModal}
-                                className="w-full p-4 text-center font-bold bg-red-600 text-gray-100 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
+                                className="w-full text-center px-2 h-12 font-bold bg-red-darker-1 text-sm text-white rounded-md hover:bg-red-darker-1 active:bg-red-darker-1 hover:bg-opacity-90 active:bg-opacity-50 focus:outline-none transition duration-300 ease-in-out"
                             >
-                                <Packing width={20} height={20} fill="white" className="inline-block float-left stroke-current stroke-2 white" />
+                                <Truck width={24} height={24} className="inline-block float-left stroke-current stroke-0 white" />
                                 Order Sekarang
                             </button>
                         </div>

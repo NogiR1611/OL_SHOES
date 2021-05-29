@@ -42,8 +42,8 @@ export default class About extends React.Component{
                     />
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                     <Sidebar /> 
-                    <div className="flex flex-col min-h-screen relative ml-72">
-                        <p>Tentang Kami</p>
+                    <div className="flex flex-col bg-gray-lighter min-h-screen relative w-full lg:w-3/4 lg:ml-auto">
+                        
                     </div>
                     <Footer />
                 </div>

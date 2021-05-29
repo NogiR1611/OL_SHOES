@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Search from './../../assets/images/icons/search.svg';
-import Exit from './../../assets/images/icons/exit.svg';
+import ArrowLeft from './../../assets/images/icons/arrowLeft.svg';
 import Clear from './../../assets/images/icons/clear.svg';
 
 export default class SearchModal extends React.Component{
@@ -21,29 +21,40 @@ export default class SearchModal extends React.Component{
                 styles={{modal: { maxWidth: '100%',borderRadius : '10px' }}}
                 open={this.props.onOpenSearch}
                 onClose={this.props.onCloseSearch}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full transform scale-100 md:scale-75 h-8 w-8 flex justify-center duration-300" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center duration-300" />}
                 center
             >
-                <div className="lg:w-96 py-10 lg:py-8 px-1 mx-auto items-center">                
-                    <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
-                        <div className="inline-block relative border-b-2 lg:w-11/12 focus-within:border-red-500 pl-2">
-                            <input
-                                type="text" 
-                                id="username" 
-                                name="username" 
-                                placeholder=" " 
-                                value={this.state.search}
-                                className="block w-full appearance-none focus:outline-none bg-gray-100" 
-                                onChange={(e) => this.setState({ search: e.target.value }) }
-                            />
-                            <label for="username" class="absolute top-0 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
+                <div className="bg-gray-lighter md:w-560 px-6 pt-2 mx-auto items-center">                
+                    <div className="flex justify-center md:hidden">
+                        <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                    </div>
+                    <div className="h-24 pt-16">
+                        <div className="bg-gray-lighter-7 focus:bg-gray-400 w-full rounded-t-lg">
+                            <div className="inline-block relative border-b-2 lg:w-11/12  focus-within:border-red-darker-1 px-3">
+                                <input
+                                    type="text" 
+                                    id="username" 
+                                    name="username" 
+                                    placeholder=" " 
+                                    value={this.state.search}
+                                    className="block w-full bg-transparent appearance-none py-2 focus:outline-none" 
+                                    onChange={(e) => this.setState({ search: e.target.value }) }
+                                />
+                                <label for="username" class="absolute top-0 text-gray-lighter-3 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
+                            </div>
+                            {search !== '' ?
+                                <button className="focus:outline-none pl-1" onClick={() => this.setState({ search: '' }) }>
+                                    <Clear className="inline-block " width={24} height={24} />
+                                </button> : 
+                                <Search className="inline-block pl-1" width={24} height={24} />
+                            }
                         </div>
-                        {search !== '' ?
-                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ search: '' }) }>
-                                <Clear className="inline-block " width={25} height={25} />
-                            </button> : 
-                            <Search className="inline-block pl-1" width={28} height={28} />
-                        }
+                    </div>
+                    <div className="px-6 pb-5 w-full">
+                        <div className="pt-3 relative">
+                            <p className="text-black-darker pt-4 pb-3">0 Hasil ditemukan</p>
+                            <p>Gunakan nama yang berbeda atau lebih spesifik</p>
+                        </div>
                     </div>
                 </div>
             </Modal>
