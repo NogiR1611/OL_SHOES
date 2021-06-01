@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from './../../components/footer/footer.js';
-import SearchModal from './../../components/modals/searchModal.js';
+import FlashAlert from './../../components/cards/FlashAlertCard.js';
 import CarouselCard from './../../components/cards/CarouselCard.js';
 import DescriptionProductCard from './../../components/cards/DescriptionProductCard.js';
 import CarouselProductCard from './../../components/cards/CarouselProductCard.js';
@@ -9,6 +9,7 @@ import {Router} from './../../routes.js';
 import dynamic from 'next/dynamic';
 
 /**Import Modal */
+import SearchModal from './../../components/modals/searchModal.js';
 import SizeModal from './../../components/modals/sizeModal.js';
 import AmountModal from './../../components/modals/amountModal.js';
 import CartModal from './../../components/modals/cartModal.js';
@@ -41,6 +42,7 @@ export default class ContentProduct extends React.Component{
             size: false,
             amount:false,
             cart: false,
+            alert: false,
             amountProduct: 0,
             modalAmountProduct: false,
             note: false,
@@ -53,6 +55,33 @@ export default class ContentProduct extends React.Component{
             ePayment: false,
             minimarket: false,
             creditAndDebit: false,
+            productDataset: [
+                {
+                    id:1,
+                    size:41,
+                    price:270000,
+                    amount:2,
+                    status:'banyak',
+                },
+                {
+                    id:2,
+                    size:42,
+                    price:300000,
+                    amount:3,
+                    status:'banyak'
+                },
+                {
+                    id:1,
+                    size:43,
+                    price:330000,
+                    amount:4,
+                    status:'banyak'
+                },
+            ],
+            arrayAmount: [],
+            sizeProduct: null,
+            priceProduct: null,
+            amountProduct: null,
         }
     }
 
@@ -92,9 +121,15 @@ export default class ContentProduct extends React.Component{
         Router.pushRoute('/users');
     } 
 
+    addProductToCart = () => {
+
+    }
+
     render(){
+        console.log(this.state.alert);
         return (
-            <>
+            <div className="bg-gray-lighter">
+                <>
                 <Header 
                     displayShare={true}
                     searchOnClick={this.onOpenSearch}
@@ -102,16 +137,56 @@ export default class ContentProduct extends React.Component{
                     displayProfile={true}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
+                {this.state.alert ? (
+                <FlashAlert
+                    message="Berhasil ditambahkan" 
+                />): null}
                 {/**Modal for size */}
                 <SizeModal 
                     onOpenSize={this.state.size}
-                    onCloseSize={() => this.setState({ size:false,amount:true })}
+                    onCloseSize={() => this.setState({ size:false })}
                     onClickSize={() => this.setState({ size:false,amount:true })}
+                    renderButton={
+                        this.state.productDataset.map((element,index) => {
+                            return (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        this.setState({ 
+                                            size:false,
+                                            amount:true,
+                                            arrayAmount:Array.from({length: element.amount}, (_, i) => i + 1),
+                                            sizeProduct:element.size,
+                                            priceProduct:element.price
+                                        })
+                                    }}
+                                    className="h-12 w-full flex-column text-center text-sm rounded shadow bg-white mt-4 focus:outline-none"
+                                >
+                                    <p className="text-darker-1 text-sm font-medium">SIZE {element.size}</p>
+                                    <span className="text-lighter-1 text-sm">Stok {element.status} </span><span className="text-red-darker-1 text-sm">({element.price})</span>
+                                </button>
+                            )
+                        })
+                    }
                 />
                 <AmountModal 
                     onOpenAmount={this.state.amount}
-                    onCloseAmount={() => this.setState({ amount:false,cart:true })}
-                    onClickStock={() => this.setState({ amount:false,cart:true })}
+                    onCloseAmount={() => this.setState({ amount:false,size:true })}
+                    onClickStock={amount => {
+                        this.setState({ amount:false,cart:true,alert:true })
+                        setTimeout(() => this.setState({ alert:false }),1000)
+                        let cartTotalProduct = [];
+                        let productData = {
+                            name: 'VANS SK8 HI BLACK WHITE',
+                            price:this.state.priceProduct,
+                            size:this.state.sizeProduct,
+                            amount:amount,
+                        };
+                        cartTotalProduct.push(productData);
+                        localStorage["cart"] = JSON.stringify(cartTotalProduct);
+                    }
+                    }
+                    arraySize={this.state.arrayAmount}
                 />
                 {/** Modal for Cart */}
                 <CartModal
@@ -188,6 +263,7 @@ export default class ContentProduct extends React.Component{
                     searchOnClick={this.onOpenSearch} 
                     removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                 />
+                </>
                 <div className="bg-gray-lighter flex flex-auto relative min-h-screen w-full lg:ml-auto lg:w-3/4">
                     <div className="w-11/12 mx-auto">
                         <div className="flex flex-wrap flex-auto">
@@ -197,8 +273,8 @@ export default class ContentProduct extends React.Component{
                             <div className="flex-auto w-1/2">
                                 <DescriptionProductCard 
                                     titleProduct="VANS SK8 HI BLACK WHITE"
-                                    realPrice="Rp320,000"
-                                    discountPrice="Rp290,000"
+                                    realPrice="320,000"
+                                    discountPrice="290,000"
                                     cartButton={() => this.setState({ size:true })}
                                 />
                             </div>
@@ -214,7 +290,7 @@ export default class ContentProduct extends React.Component{
                     </div>
                 </div>
                 <Footer />
-            </>
+            </div>
         );
     }
 }

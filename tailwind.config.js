@@ -26,6 +26,25 @@ module.exports = {
       pink: colors.pink,
     },
     extend: {   
+      keyframes: {
+        'fade' : {
+          '0%' : {
+            opacity: '0',
+            display: 'none'
+          },
+          '50%' : {
+            opacity: '0.8',
+            display: 'block',
+          },
+          '100%' : {
+            opacity: '0',
+            display: 'none'
+          }
+        }
+      },
+      animation: {
+        'fade' : 'fade 1s ease-in-out',
+      },
       colors: {
         "orange" : "#ff7a0d",
         "red-darker" : "#d1211b",
@@ -39,11 +58,14 @@ module.exports = {
         "gray-lighter-6" : "rgba(0,0,0,.32)",
         "gray-lighter-7" : "rgba(0,0,0,.06)",
         "gray-lighter-8" : "#ebebeb",
+        "gray-lighter-9" : "rgba(0,0,0,.42)",
+        "white-1" : "#f4f4f4",
         "black-lighter-1" : "#222",
         "black-darker" : "rgba(0,0,0,0.8)",
         "orange-darker" : "#ff5252",
         "orange-lighter-1" : "#dd2c00",
         "flat-orange" : "#ffe5e5",
+        "green-whatsapp" : "#25d366"
       },
       width: {
         '1/10' : '10%',
@@ -55,6 +77,7 @@ module.exports = {
         '7/10' : '70%',
         '8/10' : '80%',
         '9/10' : '90%',
+        '450'  : '450px',
         '480'  : '480px',
         '560'  : '560px',
       },
@@ -76,6 +99,9 @@ module.exports = {
       },
       zIndex: {
         "-1" :  "-1",
+        "500" : "500",
+        "1000" : "1000",
+        "2000" : "2000",
       }
     },
   },
@@ -92,6 +118,8 @@ module.exports = {
       ringColor: ['hover', 'active','visited','focus'],
       scale: ['active', 'group-hover'],
       rotate: ['active', 'group-hover'],
+      transitionDuration: ['hover', 'focus'],
+      backgroundOpacity: ['active'],
     },
   },
   plugins: []

@@ -70,7 +70,7 @@ export default class WaitingPayOrder extends React.Component{
 
     render(){
         return (
-            <div className="flex flex-col w-full min-h-screen mb-auto">
+            <div className="bg-gray-lighter flex flex-col w-full min-h-screen mb-auto">
                 <Header
                     clickMenu={() => this.pushProfileRoute()}
                     changeIcon={this.state.showSidebar}
@@ -337,7 +337,7 @@ export default class WaitingPayOrder extends React.Component{
                         </button>
                         <button
                             onClick={() => this.rejectedOrder()}
-                            className="w-full p-2 my-2 shadow-md font-semibold text-center text-sm bg-red-darker-1 hover:opacity-90 active:opacity-60 focus:outline-none transition duration-300 linear text-white rounded-md"
+                            className="w-full p-2 my-2 shadow-md font-semibold text-center text-sm bg-red-darker-1 hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none transition duration-300 linear text-white rounded-md"
                         >
                             Batalkan Pesanan
                         </button>

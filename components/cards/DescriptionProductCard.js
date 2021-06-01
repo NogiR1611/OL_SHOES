@@ -1,4 +1,5 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 import Like from './../../assets/images/icons/like.svg';
 import Plus from './../../assets/images/icons/plus.svg';
 import Truck from './../../assets/images/icons/truck.svg';
@@ -19,7 +20,9 @@ export default class DescriptionProductCard extends React.Component{
                     </span>
                     <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
                 </div>
-                <p className="font-medium leading-6 text-xl py-2 text-black-darker">{this.props.titleProduct}</p>
+                <p className="font-medium leading-6 text-xl py-2 text-black-darker">
+                    {this.props.titleProduct}
+                </p>
                 <p className="text-gray-lighter-1 line-through">{this.props.realPrice}</p>
                 <p className="text-red-darker-1">{this.props.discountPrice}</p>
                 <div className="mt-2">
@@ -70,7 +73,7 @@ export default class DescriptionProductCard extends React.Component{
                     <p className="mb-2 font-medium">Pengiriman</p>
                     <div className="flex justify-between">
                         <p>Kirim ke:</p>
-                        <button className="text-sm">
+                        <button className="text-sm hover:bg-gray-300 py-1">
                             <span>Bekasi,Cikarang Barat</span>
                             <ArrowDown className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>

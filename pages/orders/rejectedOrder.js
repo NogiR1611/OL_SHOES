@@ -48,7 +48,7 @@ export default class RejectedOrder extends React.Component{
     
     render(){
         return (
-            <div className="flex flex-col w-full min-h-screen mb-auto">
+            <div className="bg-gray-lighter flex flex-col w-full min-h-screen mb-auto">
                 <Header
                     searchOnClick={this.onOpenSearch} 
                     filterOnClick={this.onOpenFilter}

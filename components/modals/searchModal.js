@@ -29,25 +29,27 @@ export default class SearchModal extends React.Component{
                         <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
                     </div>
                     <div className="h-24 pt-16">
-                        <div className="bg-gray-lighter-7 focus:bg-gray-400 w-full rounded-t-lg">
-                            <div className="inline-block relative border-b-2 lg:w-11/12  focus-within:border-red-darker-1 px-3">
+                        <div className="flex flex-nowrap flex-auto bg-gray-lighter-7 focus:bg-gray-400 w-full rounded-t-lg">
+                            <div className="flex-auto inline-block relative border-b-2 focus-within:border-red-darker-1 px-3">
                                 <input
                                     type="text" 
                                     id="username" 
                                     name="username" 
                                     placeholder=" " 
                                     value={this.state.search}
-                                    className="block w-full bg-transparent appearance-none py-2 focus:outline-none" 
+                                    className="block w-full bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
                                     onChange={(e) => this.setState({ search: e.target.value }) }
                                 />
-                                <label for="username" class="absolute top-0 text-gray-lighter-3 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
+                                <label for="username" class="absolute top-3 text-gray-lighter-3 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
                             </div>
-                            {search !== '' ?
-                                <button className="focus:outline-none pl-1" onClick={() => this.setState({ search: '' }) }>
-                                    <Clear className="inline-block " width={24} height={24} />
-                                </button> : 
-                                <Search className="inline-block pl-1" width={24} height={24} />
-                            }
+                            <div className="flex flex-none px-1">
+                                {search !== '' ?
+                                    <button className="self-center focus:outline-none" onClick={() => this.setState({ search: '' }) }>
+                                        <Clear className="inline-block " width={24} height={24} />
+                                    </button> : 
+                                    <Search className="self-center inline-block" width={24} height={24} />
+                                }
+                            </div>
                         </div>
                     </div>
                     <div className="px-6 pb-5 w-full">

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import Exit from './../../assets/images/icons/exit.svg';
+import ArrowLeft from './../../assets/images/icons/arrowLeft.svg';
 import Checklist from './../../assets/images/icons/checklist1.svg';
 
 export default class FilterModal extends React.Component{
@@ -18,7 +18,7 @@ export default class FilterModal extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%' }}} 
                 open={this.props.onOpenFilter} 
                 onClose={this.props.onCloseFilter}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center duration-300" />}
                 center
             >
                 <div className="w-56 md:w-80 lg:w-96 py-6 px-1 items-center">

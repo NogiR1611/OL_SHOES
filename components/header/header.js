@@ -7,6 +7,7 @@ import Share from './../../assets/images/icons/share.svg';
 import Filter from './../../assets/images/icons/filter.svg';
 import Search from './../../assets/images/icons/search.svg';
 import Profile from './../../assets/images/icons/userprofile.svg';
+import Logo from './../../assets/images/icons/logo-bg-black.svg';
 
 export default class Header extends React.Component{
     constructor(props){
@@ -28,7 +29,10 @@ export default class Header extends React.Component{
                                 <List className={"lg:hidden " + (window.location.href.indexOf("/orders") !== -1 ? "hidden" : "inline-block")} width={24} height={24} />
                             </button>
                             <Link href="/home">
-                                <span className="mx-2 cursor-pointer leading-4 align-middle font-medium">OL Shoes</span>
+                                <div className="flex flex-nowrap flex-auto">
+                                    <Logo width={40} height={40} className="h-10 w-10 rounded-full" />
+                                    <span className="mx-2 self-center cursor-pointer leading-4 align-middle font-medium">OL Shoes</span>
+                                </div>
                             </Link>
                         </div> 
                         <div className="flex items-center justify-end flex-nowrap inline-block">

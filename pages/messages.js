@@ -24,7 +24,6 @@ export default class Messages extends React.Component{
             openContact : false,
             openFilter : false,
             changePage : false,
-            namePage : "orders"
         }
     }
     
@@ -76,7 +75,7 @@ export default class Messages extends React.Component{
                                 </div>
                                 <button 
                                     onClick={this.onOpenContact}
-                                    className="flex flex-1 h-12 self-center bg-red-darker-1 duration-300 hover:bg-red-700 active:bg-red-800 focus:outline-none px-5 w-1/3 text-white font-semibold mx-1 rounded-lg"
+                                    className="flex flex-1 h-12 self-center bg-red-darker-1 duration-300 hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none px-5 w-1/3 text-white font-semibold mx-1 rounded-lg"
                                 >
                                     <Locked
                                         className="h-6 w-6 inline-block fill-current text-white stroke-current stroke-0 text-white float-left self-center"
@@ -104,32 +103,17 @@ export default class Messages extends React.Component{
                     </div>
                     <div className="mx-auto">
                         <button
-                            className={"px-16 py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === 'orders' ? "border-b-2 border-red-darker-1" : "")}
+                            className="px-16 py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none"
                         >
                             Order Saya
                         </button>
                         <button
-                            className={"px-16 py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === 'messages' ? "border-b-2 border-red-darker-1" : "")}
+                            className="px-16 py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none border-b-2 border-red-darker-1"
                         >
                             Chat
                         </button>
                     </div>
                     <div className="bg-gray-lighter-4 w-full h-screen">
-                        <div className="">
-                            <p>ini chat</p>
-                        </div> : 
-                        <div className="mx-auto w-1/2">
-                            <p
-                                className="py-4 font-bold text-lg"
-                            >
-                                Order Saya(0)
-                            </p>
-                            <p
-                                className="bg-gray-300 p-4 rounded-md text-gray-700"
-                            >
-                                Kamu bisa mengecek order kamu dan update-nya di daftar ini.
-                            </p>
-                        </div>
                     </div>
                 </div>
                 <Footer />

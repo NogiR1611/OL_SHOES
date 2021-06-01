@@ -7,47 +7,51 @@ export default class AmountOfProduct extends React.Component{
     render(){
         return (
             <Modal
-                styles={{modal: { width : '33%',borderRadius : '10px' }}}
+                styles={{modal: { maxWidth : '100%',borderRadius : '10px' }}}
                 open={this.props.openModalAmountProduct}
                 onClose={this.props.onClosemodalAmountProduct}
                 showCloseIcon={false}
+                center
             >
-                <div className="w-full py-4 items-center">
-                    <div className="flex flex-wrap w-full">
-                        <p className="inline-block w-11/12 font-bold text-gray-800">VANS OLD SKOOL BLACK WHITE</p>
-                        <Trash width={28} height={28} className="inline-block w-1/12 cursor-pointer hover:bg-gray-200 rounded-full h-10 w-10 flex justify-center duration-300"  />
+                <div className="bg-gray-lighter w-full md:w-480 h-full items-center">
+                    <div className="md:h-9 md:w-480" />
+                    <div className="flex flex-nowrap flex-auto mt-4 mb-2 mx-6">
+                        <p className="flex-auto font-medium text-xl text-black-darker whitespace-nowrap overflow-ellipsis overflow-hidden">VANS OLD SKOOL BLACK WHITE</p>
+                        <div className="flex justify-center h-12 w-12 bg-gray-lighter-4 cursor-pointer rounded-full">
+                            <Trash width={24} height={24} className="h-6 w-6 self-center"  />
+                        </div>
                     </div>
                     <div className="flex justify-center my-4">
                         <button 
-                            className="inline-block bg-gray-300 rounded-full active:bg-gray-500 h-10 w-10 mx-2 focus:outline-none focus:ring-offset-transparent hover:bg-gray-400 duration-300 p-auto"
+                            className="inline-block flex justify-center bg-gray-lighter-4 rounded-full h-12 w-12 mx-2 focus:outline-none hover:bg-opacity-50 hover:bg-gray-lighter-4 transition duration-300 ease-in-out"
                             onClick={this.props.onReduceAmount}
                         >
-                            -
+                            <svg className="self-center" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" fill="inherit"><path d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"></path></svg>
                         </button>
                         <div className="inline-block p-2">{this.props.amountProduct}</div>
-                            <button
-                                className="inline-block bg-gray-300 rounded-full active:bg-gray-500 h-10 w-10 mx-2 focus:outline-none hover:bg-gray-400 transition duration-300 ease-in-out p-auto"
-                                onClick={this.props.onAddAmount}
-                            >
-                                +
-                            </button>
-                        </div>
-                        <div className="my-4 float-right">
-                            <button
-                                onClick={this.props.onClosemodalAmountProduct}
-                                className="mx-2 p-2 font-bold text-gray-800 focus:outline-none"
-                            >
-                                Tutup
-                            </button>
-                            <button
-                                onClick={this.props.onClosemodalAmountProduct}
-                                className="mx-2 p-2 font-bold bg-red-600 hover:bg-red-700 active:bg-red-800 rounded-lg text-gray-100 focus:outline-none"
-                            >
-                                Simpan
-                            </button>
-                        </div>
+                        <button
+                            className="inline-block flex justify-center bg-gray-lighter-4 rounded-full active:bg-gray-500 h-12 w-12 mx-2 focus:outline-none active:bg-gray-lighter-4 hover:bg-opacity-80 transition duration-300 ease-in-out"
+                            onClick={this.props.onAddAmount}
+                        >
+                            <svg className="self-center" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" fill="inherit"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg>
+                        </button>
                     </div>
-                </Modal>
+                    <div className="my-2 mx-4 flex justify-end bg-gray-lighter">
+                        <button
+                            onClick={this.props.onClosemodalAmountProduct}
+                            className="mx-2 p-2 font-bold text-gray-800 focus:outline-none"
+                        >
+                            Tutup
+                        </button>
+                        <button
+                            onClick={this.props.onClosemodalAmountProduct}
+                            className="mx-2 p-2 font-bold bg-red-darker-1 hover:bg-red-700 active:bg-red-800 rounded-lg text-gray-100 focus:outline-none"
+                        >
+                            Simpan
+                        </button>
+                    </div>
+                </div>
+            </Modal>
         )
     }
 }

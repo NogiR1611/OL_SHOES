@@ -37,7 +37,7 @@ export default class Categories extends React.Component{
 
     render(){
         return (
-            <div className="flex flex-col w-full min-h-screen max-h-full">
+            <div className="bg-gray-lighter flex flex-col w-full min-h-screen max-h-full">
                 <Header
                     clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
                     changeIcon={this.state.showSidebar}

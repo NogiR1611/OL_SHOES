@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './../components/header/header.js';
 import Footer from './../components/footer/footer.js';
 import SearchModal from './../components/modals/searchModal.js';
 import {Router} from '../routes.js';
@@ -7,6 +6,10 @@ import dynamic from 'next/dynamic';
 
 export const Sidebar = dynamic(() => {
     return import('./../components/sidebar/sidebar.js')
+},{ ssr:false });
+
+export const Header = dynamic(() => {
+    return import('./../components/header/header.js')
 },{ ssr:false });
 
 export default class About extends React.Component{

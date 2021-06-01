@@ -11,16 +11,16 @@ input:checked + div svg {
 
 input[type=text]:focus-within ~ label,
 input[type=text]:not(:placeholder-shown) ~ label {
-  @apply transform scale-75 -translate-y-6 -ml-4;
+  @apply transform scale-75 -translate-y-4 -ml-1;
 }
 
 input[type=text]:focus-within ~ label {
-  @apply text-red-darker-1 -ml-4;
+  @apply text-red-darker-1;
 }
 
 textarea:focus-within ~ label,
 textarea:not(:placeholder-shown) ~ label {
-  @apply transform scale-75 -translate-y-6 -ml-6;
+  @apply transform scale-75 -translate-y-4 -ml-1;
 }
 
 textarea:focus-within ~ label {

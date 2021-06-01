@@ -83,76 +83,105 @@ export default class InfoCustomer extends React.Component{
                     styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                     open={this.props.modalInfoCustomer}
                     onClose={this.props.onCloseModalInfoCustomer}
-                    closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                    closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                     center
                 >
                     <div className="bg-gray-lighter w-full h-9/10 md:w-480 items-center">
+                        <div className="md:h-9 md:w-480" />
+                        <div className="flex justify-center md:hidden">
+                            <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                        </div>
                         <div className="w-full px-6 pt-4 pb-2">
                             <p className="text-lg font-bold text-gray-800">Informasi Pengiriman</p>
                         </div>
                         <div className="w-full px-6">
-                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
-                                <input
-                                    type="text" 
-                                    id="name" 
-                                    name="name" 
-                                    placeholder=" " 
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
-                                />
-                                <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Nama Lengkap Penerima</label>
+                            <div className="flex flex-col">
+                                <div className="flex flex-auto">
+                                    <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
+                                        <input
+                                            type="text" 
+                                            id="name" 
+                                            name="name" 
+                                            placeholder=" " 
+                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                        />
+                                        <label for="name" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nama Lengkap Penerima*</label>
+                                    </div>
+                                </div>
+                                <div className="flex flex-grow px-3 pb-2 mt-2">
+                                </div>
                             </div>
-                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
-                                <input
-                                    type="text" 
-                                    id="numberPhone" 
-                                    name="numberPhone" 
-                                    placeholder=" " 
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100"
-                                />
-                                <label for="numberPhone" class="absolute top-0 transition duration-300 ease-in-out">Nomor HP Penerima</label>
+                            <div className="flex flex-col">
+                                <div className="flex flex-auto">
+                                    <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
+                                        <input
+                                            type="text" 
+                                            id="number" 
+                                            name="number" 
+                                            placeholder=" " 
+                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                        />
+                                        <label for="number" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nomor HP Penerima*</label>
+                                    </div>
+                                </div>
+                                <div className="flex flex-grow px-3 pb-2 mt-2">
+                                </div>
                             </div>
-                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
-                                <input
-                                    type="text" 
-                                    id="address" 
-                                    name="address" 
-                                    value={`${this.state.provinceAndCity}`}
-                                    onClick={this.clickAddress}
-                                    placeholder=" " 
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
-                                />
-                                <label for="address" class="absolute top-0 transition duration-300 ease-in-out">Alamat Penerima</label>
+                            <div className="flex flex-col">
+                                <div className="flex flex-auto">
+                                    <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
+                                        <input
+                                            type="text" 
+                                            id="address" 
+                                            name="address" 
+                                            value={`${this.state.provinceAndCity}`}
+                                            onClick={this.clickAddress}
+                                            onChange={this.clickAddress}
+                                            placeholder=" " 
+                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                        />
+                                        <label for="address" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Alamat Penerima*</label>
+                                    </div>
+                                </div>
+                                <div className="flex flex-grow px-3 pb-2 mt-2">
+                                </div>
                             </div>
-                        {this.state.provinceAndCity ? (
-                            <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
-                                <textarea
-                                    rows="3"
-                                    type="text" 
-                                    id="detailAddress" 
-                                    name="detailAddress"
-                                    placeholder=" " 
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100"
-                                />
-                                <label for="detailAddress" class="absolute top-0 transition duration-300 ease-in-out">Alamat Lengkap Penerima</label>
-                            </div>
-                            ) : null
-                        }
-                        {this.state.detailAddress ? (
-                            <>
-                                <label className="text-gray-600 font-semibold focus:text-red-600 my-4" htmlFor="detailAddress">Email Penerima(Opsional)</label>
-                                <input
-                                    className={"block w-full duration-400 my-4 rounded-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-600"}
-                                    type="text"
-                                    name="detailAddress"
-                                    value={this.state.emailCustomer}
-                                    onChange={e => this.setState({ emailCustomer:e.target.value })}
-                                    id="detailAddress"
-                                    placeholder=""
-                                />
-                            </>
-                            ) : null
-                        }
-                        <p className="mt-6">
+                            {this.state.provinceAndCity ? (
+                                <div className="flex flex-col">
+                                    <div className="flex flex-auto">
+                                        <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
+                                            <textarea
+                                                rows="3"
+                                                type="text" 
+                                                id="detailAddress" 
+                                                name="detailAddress"
+                                                placeholder=" " 
+                                                className="block w-full appearance-none focus:outline-none bg-transparent pt-4 pl-4"
+                                            />
+                                            <label for="detailAddress" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Alamat Lengkap Penerima*</label>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-grow px-3 pb-2 mt-2">
+                                    </div>
+                                </div>) : null
+                            }
+                            <div className="flex flex-col">
+                                <div className="flex flex-auto">
+                                    <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
+                                        <input
+                                            type="text" 
+                                            id="email" 
+                                            name="email" 
+                                            placeholder=" " 
+                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                        />
+                                        <label for="email" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Email Penerima(Opsional)</label>
+                                    </div>
+                                </div>
+                                <div className="flex flex-grow px-3 pb-2 mt-2">
+                                </div>
+                            </div> 
+                        <p className="mt-6 text-black-darker text-sm md:text-base">
                             Saya sudah membaca dan menyetujui<span> </span>
                             <a target="_blank"  href='/terms-and-conditions'>
                                 <span className="text-red-darker-1 underline mx-auto">Syarat & Ketentuan</span>
@@ -162,29 +191,31 @@ export default class InfoCustomer extends React.Component{
                     <div className="py-2 px-4">
                         <button
                             onClick={this.props.shipmentModal}
-                            className="w-full text-center h-12 font-bold bg-red-darker-1 text-white rounded-md hover:bg-red-darker-1 active:bg-red-darker-1 hover:bg-opacity-90 active:bg-opacity-50 text-medium text-sm focus:outline-none transition duration-300 ease-in-out"
+                            className="w-full text-center h-12 font-bold bg-red-darker-1 text-white rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 text-medium text-sm focus:outline-none transition duration-300 ease-in-out"
                         >
                             Setuju & Lanjutkan
                         </button>
                     </div>
-                    
                 </div>
             </Modal>
             <Modal
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.province}
                 onClose={this.onCloseModalProvince}
-                closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
+                    <div className="flex justify-center md:hidden">
+                        <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                    </div>
                     <div className="md:h-9 md:w-480" />
                     <div className="py-4 px-6">  
                         <p className="text-xl text-gray-800 font-semibold py-1">1.Pilih Provinsi</p>
                         <p className="text-gray-800 py-1 mb-4">Kemana kamu mau mengirimkan paket?</p>
                         <div className="bg-gray-100 focus:bg-gray-400 w-full px-6 rounded-lg">
                             <input
-                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
+                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-darker-1"
                                 type="text"
                                 name="product"
                                 id="product" 
@@ -234,18 +265,21 @@ export default class InfoCustomer extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.city}
                 onClose={this.onCloseModalCity}
-                closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
-                    <div className="md:h-9 md:w-480" />
-                    <div className="py-4 px-6">
+                    <div className="flex justify-center md:hidden">
+                        <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                    </div>
+                    <div className="w-full md:h-9 md:w-480" />
+                    <div className="w-full py-4 px-6">
                         <p className="text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
                         <p className="text-gray-800 py-1">{this.state.provinceName} : </p>
                     </div>
-                    <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
+                    <div className="w-full bg-gray-100 focus:bg-gray-400 py-1 rounded-lg">
                         <input
-                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
+                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
                             type="text"
                             name="product"
                             id="product" 
@@ -294,10 +328,13 @@ export default class InfoCustomer extends React.Component{
                     styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                     open={this.state.district}
                     onClose={this.onCloseModalDistrict}
-                    closeIcon={<ArrowLeft width={24} height={24} className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                    closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                     center
                 >
                     <div className="bg-gray-lighter md:w-480 w-full items-center">
+                        <div className="flex justify-center md:hidden">
+                            <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                        </div>
                         <div className="md:h-9 md:w-480" />
                         <div className="py-4 px-6">
                             <p className="text-xl text-gray-800 font-semibold py-1">3.Pilih Kecamatan</p>

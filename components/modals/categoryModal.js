@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import Exit from './../../assets/images/icons/exit.svg';
+import ArrowLeft from './../../assets/images/icons/arrowLeft.svg';
 
 export default class CategoryModal extends React.Component{
     render(){
@@ -10,7 +10,7 @@ export default class CategoryModal extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.props.openCategoryModal}
                 onClose={this.props.onCloseCategoryModal}
-                closeIcon={<Exit width={28} height={28} className="hover:bg-gray-200 rounded-full h-8 w-8 flex justify-center transition duration-300 ease-in-out" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="w-full max-w-2xl py-6 px-4 items-center overflow-y-auto h-96">

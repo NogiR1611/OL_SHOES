@@ -11,7 +11,7 @@ export default class CreditAndDebit extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.props.creditAndDebit}
                 onClose={this.props.onCloseCreditAndDebit}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
@@ -33,66 +33,70 @@ export default class CreditAndDebit extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div className="px-6">
-                        <div className="block relative bg-gray-100 my-6 border-b-2 w-full focus-within:border-red-500">
+                    <div className="px-6 mt-3">
+                        <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
                             <input
                                 type="text" 
                                 id="name" 
                                 name="name" 
                                 placeholder=" " 
-                                className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                className="block w-full appearance-none focus:outline-none pt-4 pl-3 bg-transparent" 
                             />
-                            <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Nama Di Kartu</label>
+                            <label for="name" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nama di Kartu</label>
                         </div>
-                        <div className="block w-full bg-gray-100 focus:bg-gray-400 mt-4">
-                            <div className="inline-block relative border-b-2 xl:w-11/12 focus-within:border-red-500">
+                        <div className="flex flex-nowrap flex-auto bg-gray-lighter-7 border-b-2 border-gray-lighter-9 focus:bg-gray-400 w-full pr-3 rounded-t-lg mt-4">
+                            <div className="flex-auto inline-block relative border-b-2 focus-within:border-red-darker-1">
                                 <input
                                     type="text" 
-                                    id="name" 
-                                    name="name" 
+                                    id="number" 
+                                    name="number" 
                                     placeholder=" " 
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                    className="block w-full bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
                                 />
-                                <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Nomor Kartu</label>
+                                <label for="number" class="absolute top-3 text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Nomor Kartu</label>
                             </div>
-                            <Locked className="inline-block pl-1" width={28} height={28} />
+                            <div className="flex flex-none">
+                                <Locked className="self-center inline-block" width={24} height={24} />
+                            </div>
                         </div>
                         <img 
                             src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/credit_cards.ef76bc8.svg"
                             className="my-4 w-1/3"
                         />
-                        <div className="block relative bg-gray-100 mt-4 border-b-2 w-full focus-within:border-red-500">
+                        <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
                             <input
                                 type="text" 
-                                id="name" 
-                                name="name" 
+                                id="date" 
+                                name="date" 
                                 placeholder=" " 
-                                className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                className="block w-full appearance-none focus:outline-none pt-4 pl-3 bg-transparent" 
                             />
-                            <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Berlaku Hingga</label>
+                            <label for="date" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Berlaku hingga</label>
                         </div>
-                        <div className="block w-full mt-4">
-                            <div className="inline-block relative bg-gray-100 focus:bg-gray-400 xl:w-9/12 border-b-2 w-full focus-within:border-red-500">
+                        <div className="flex flex-wrap flex-auto mt-4">
+                            <div className="flex-auto block relative border-b-2 bg-gray-lighter-7 focus-within:border-red-darker-1 rounded-t-lg border-gray-lighter-9">
                                 <input
                                     type="text" 
-                                    id="name" 
-                                    name="name" 
+                                    id="cvv" 
+                                    name="cvv" 
                                     placeholder=" " 
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100" 
+                                    className="block w-full bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
                                 />
-                                <label for="name" class="absolute top-0 transition duration-300 ease-in-out">Kode CVV</label>
+                                <label for="cvv" class="absolute top-4 text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Kode CVV</label>
                             </div>
-                            <img 
-                                src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/credit_card_cvv.9385122.svg"
-                                className="inline-block xl:w-2/12 mx-2"
-                            />
+                            <div className="flex flex-grow-0 ml-3 pr-3">
+                                <img 
+                                    src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/credit_card_cvv.9385122.svg"
+                                    className="inline-block"
+                                />
+                            </div>
                         </div>
                         <p className="text-xs mt-4 mx-1">
                             Info pembayaran kamu tersimpan dengan aman.
                             Kami bekerja sama dengan NICEPAY untuk memastikan info kamu terlindungi.Kami tidak dapat mengakses info kartumu.
                         </p>
                         <button
-                            className="w-full bg-red-darker-1 text-white py-2 my-2 rounded-md hover:bg-red-700 active:bg-red-800 focus:outline-none transition duration-300 ease-in-out"
+                            className="w-full bg-red-darker-1 text-white py-2 my-2 rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none transition duration-300 ease-in-out"
                         >
                             Lanjutkan
                         </button>

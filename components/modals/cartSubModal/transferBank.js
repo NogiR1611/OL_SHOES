@@ -10,7 +10,7 @@ export default class TransferBank extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.props.transferBank}
                 onClose={this.props.onCloseTransferBank}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
