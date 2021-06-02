@@ -188,7 +188,7 @@ class Index extends React.Component{
                         removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                     />
                     <div
-                        className={"flex flex-col flex-auto bg-gray-lighter min-h-screen w-full lg:ml-auto lg:w-3/4 relative p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
+                        className={"flex flex-col flex-auto bg-gray-lighter min-h-screen w-full lg:ml-auto lg:w-3/4 xl:w-8/10 relative p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
                     >
                         <div className="bg-gray-400 my-2 w-full h-full">
                             <p className="text-center">Cover Here</p>
@@ -196,10 +196,12 @@ class Index extends React.Component{
                         <div className="w-full lg:w-11/12 mx-auto">
                             <div className="flex flex-wrap w-full">
                                 <CategoryCard 
+                                    link='/categories/1'
                                     sourceImg='/images/products/vans_category.jpg'
                                     name='vans'
                                 />
                                 <CategoryCard 
+                                    link='/categories/1'
                                     sourceImg='/images/products/vans_category.jpg'
                                     name='vans'
                                 />
@@ -253,14 +255,17 @@ class Index extends React.Component{
                                         (
                                             <div className="flex flex-wrap">
                                                 <CategoryCard 
+                                                    link='/categories/1'
                                                     sourceImg='/images/products/vans_category.jpg'
                                                     name='vans'
                                                 />
                                                 <CategoryCard 
+                                                    link='/categories/1'
                                                     sourceImg='/images/products/vans_category.jpg'
                                                     name='vans'
                                                 />
                                                 <CategoryCard 
+                                                    link='/categories/1'
                                                     sourceImg='/images/products/vans_category.jpg'
                                                     name='vans'
                                                 />

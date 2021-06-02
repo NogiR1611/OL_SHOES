@@ -36,7 +36,7 @@ export default class About extends React.Component{
     render(){
         return (
             <>
-                <div className="flex flex-col min-h-screen mb-auto">  
+                <div className="bg-gray-lighter flex flex-col min-h-screen mb-auto">  
                     <Header 
                         searchOnClick={this.onOpenSearch} 
                         displayFilter={false}
@@ -45,7 +45,7 @@ export default class About extends React.Component{
                     />
                     <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                     <Sidebar /> 
-                    <div className="flex flex-col bg-gray-lighter min-h-screen relative w-full lg:w-3/4 lg:ml-auto">
+                    <div className="flex flex-col bg-gray-lighter min-h-screen relative w-full lg:w-3/4 xl:w-8/10 lg:ml-auto">
                         
                     </div>
                     <Footer />

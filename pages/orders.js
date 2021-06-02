@@ -96,7 +96,7 @@ export default class Orders extends React.Component{
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
                 <Sidebar searchOnClick={this.onOpenSearch} />
-                <div className="flex flex-col flex-auto w-full lg:w-3/4 lg:ml-auto bg-gray-lighter">
+                <div className="flex flex-col flex-auto w-full lg:w-3/4 xl:w-8/10 lg:ml-auto bg-gray-lighter">
                     <div className="pt-6 pb-4 w-full">
                         <div className="w-11/12 md:w-9/12 lg:w-6/12 mx-auto">
                             <div className="flex flex-nowrap flex-auto w-full">

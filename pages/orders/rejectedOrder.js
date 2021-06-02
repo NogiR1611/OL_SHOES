@@ -58,7 +58,7 @@ export default class RejectedOrder extends React.Component{
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
                 <Sidebar searchOnClick={this.onOpenSearch} />
-                <div className="bg-gray-lighter flex flex-col flex-auto lg:ml-auto lg:w-3/4 min-h-screen relative p-2">
+                <div className="bg-gray-lighter flex flex-col flex-auto lg:ml-auto lg:w-3/4 xl:w-8/10 min-h-screen relative p-2">
                     <div className="w-full px-6 xl:px-0 xl:w-3/4 mx-auto pt-4 pb-16">
                     <div className="">
                             <p className="text-xl font-semibold text-black-darker leading-6 mb-2">Order Saya</p>

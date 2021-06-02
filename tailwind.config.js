@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     screen: {
       'hp' : '425px',
+      'tablet-600' : '600px',
     },
     fill: {
       current: 'currentColor',
@@ -30,7 +31,7 @@ module.exports = {
         'fade' : {
           '0%' : {
             opacity: '0',
-            display: 'none'
+            display: 'none',
           },
           '50%' : {
             opacity: '0.8',
@@ -38,9 +39,23 @@ module.exports = {
           },
           '100%' : {
             opacity: '0',
-            display: 'none'
+            display: 'none',
           }
         }
+      },
+      fontFamily: {
+        "avenir" : ['avenir-lt-pro-black','sans-serif'],
+        "oblique" : ['avenir-lt-pro-black-oblique','sans-serif'],
+        "probook" : ['avenir-lt-pro-book','sans-serif'],
+        "probookoblique" : ['avenir-lt-pro-book-oblique','sans-serif'],
+        "proheavy" : ['avenir-lt-pro-heavy','sans-serif'],
+        "proheavyoblique" : ['avenir-lt-pro-heavy-oblique','sans-serif'],
+        prolight : ['avenir-lt-pro-light','sans-serif'],
+        prolightoblique : ['avenir-lt-pro-light-oblique','sans-serif'],
+        promedium : ['avenir-lt-pro-medium','sans-serif'],
+        promediumoblique : ['avenir-lt-pro-medium-oblique','sans-serif'],
+        prooblique : ['avenir-lt-pro-oblique','sans-serif'],
+        proroman : ['avenir-lt-pro-roman','sans-serif'],
       },
       animation: {
         'fade' : 'fade 1s ease-in-out',

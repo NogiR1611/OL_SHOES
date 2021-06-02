@@ -40,7 +40,7 @@ export default class TermAndConditions extends React.Component{
 
     render(){
         return (
-            <div className="flex flex-col w-full min-h-screen mb-auto">
+            <div className="bg-gray-lighter flex flex-col w-full min-h-screen mb-auto">
                 <Header
                     clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
                     changeIcon={this.state.showSidebar}
@@ -56,7 +56,7 @@ export default class TermAndConditions extends React.Component{
                     searchOnClick={() => this.setState({ openSearch:true })} 
                     removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                 />
-                <div className="flex flex-col flex-auto bg-gray-lighter min-h-screen w-full relative lg:ml-auto lg:w-3/4 p-2">
+                <div className="flex flex-col flex-auto bg-gray-lighter min-h-screen w-full relative lg:ml-auto lg:w-3/4 xl:w-8/10 p-2">
                     <div className="bg-white w-10/12 md:w-8/12 mx-auto py-2 rounded-lg divide-y divide-gray-300 shadow-md">
                         <div className="bg-white px-4">
                             <button

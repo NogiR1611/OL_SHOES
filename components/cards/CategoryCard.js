@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default class CategoryCard extends React.Component{
     render(){
         return (
-            <Link href="">
+            <Link href={this.props.link}>
                 <div className="flex-auto min-w-1/3 min-h-1/3 max-w-6/12 max-h-6/12 p-1 relative cursor-pointer">
                     <Image 
                         src={this.props.sourceImg}

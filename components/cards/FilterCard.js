@@ -15,12 +15,12 @@ export default class FilterCard extends React.Component{
     render(){
         return (
             <>
-                <div className="hidden xl:block flex-none self-start h-100 bg-gray-200 xl:w-64 my-2 mx-1 px-1 py-4">
+                <div className="hidden xl:block flex-none self-start h-100 bg-gray-200 xl:w-64 my-3 mx-1 px-1 py-4">
                     <div className="my-6">
                         <button
                             onClick={this.props.searchOnClick}
                             type="button"
-                            className="w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 duration-200 py-2"
+                            className="w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 transition duration-200 ease-in-out py-2"
                         >  
                             <Search
                                 className="inline-block stroke-current stroke-0 black mr-1"

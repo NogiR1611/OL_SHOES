@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base{
+  @font-face{
+    font-family: avenir-lt-pro-black;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProBlack.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-black-oblique;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProBlackOblique.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-book;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProBook.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-book-oblique;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProBookOblique.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-heavy;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProHeavy.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-heavy-oblique;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProHeavyOblique.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-light;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProLight.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-light-oblique;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProLightOblique.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-medium;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProMedium.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-medium-oblique;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProMediumOblique.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-oblique;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProOblique.otf)
+  }
+  @font-face{
+    font-family: avenir-lt-pro-roman;
+    src: url(/fonts/avenir-lt-pro-cufonfonts/AvenirLTProRoman.otf)
+  }
+}
+
+*{
+  font-family: 'avenir-lt-pro-black','sans-serif';
+}
+
 input:checked + div {
   @apply border-red-darker-1;
 }

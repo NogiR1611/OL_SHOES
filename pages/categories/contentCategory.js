@@ -27,7 +27,7 @@ class Categories extends React.Component{
         openSortir  : false,
         showSidebar : false,
         nameType: ['Semua Produk','Produk Unggulan','Diskon'],
-        nameCategory: ['vans','saba','converse','ventela','local brand','kaos gabut','puma','kids','apparel ganteng','nike','adidas','new balance'],
+        nameCategory: ['vans','saba','converse','ventela','local brand','kaos gabut','puma','kids'],
         clickType: '',
         clickCategory: ''
         }
@@ -77,7 +77,7 @@ class Categories extends React.Component{
                         searchOnClick={this.onOpenSearch} 
                         removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                     />
-                    <div className="flex-auto bg-gray-lighter lg:ml-auto lg:w-3/4">
+                    <div className="flex-auto bg-gray-lighter lg:ml-auto xl:w-8/10 lg:w-3/4">
                         <div 
                             style={{
                                 backgroundImage: `url(/images/products/converse_category.jpg)`,
@@ -97,7 +97,7 @@ class Categories extends React.Component{
                                 onClick={() => this.setState({ openCategory:true })}
                                 className="flex-1 block bg-gray-200 mx-2 rounded-md text-gray-900 py-4 font-semibold focus:outline-none hover:bg-gray-300 active:bg-gray-400"
                             >
-                                Kategori
+                                Urutan
                             </button>
                             <button
                                 onClick={() => this.setState({ openFilter:true })}
@@ -121,11 +121,11 @@ class Categories extends React.Component{
                                                 type="button"
                                                 onClick={() => this.setState({ clickType:element })}
                                                 className={
-                                                    "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out py-1 " +
+                                                    "w-full flex flex-grow flex-shrink-0 justify-start h-8 leading-none text-left text-black-darker px-3 font-medium font-avenirProBlack text-sm rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
                                                     (this.state.clickType === element ? "bg-gray-300" : "")
                                                 }
                                             >
-                                                {element}
+                                                <span className="self-center">{element}</span>
                                             </button>
                                         );
                                     })
@@ -137,11 +137,11 @@ class Categories extends React.Component{
                                                 key={index}
                                                 onClick={() => this.setState({ clickCategory:element })}
                                                 className={
-                                                    "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
+                                                    "w-full flex flex-grow flex-shrink-0 justify-start h-8 leading-none text-left text-black-darker px-3 font-medium font-avenirProBook text-sm uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
                                                     (this.state.clickCategory === element ? "bg-gray-300" : "")
                                                 }
                                             >
-                                                {element}
+                                                <span className="self-center">{element}</span>
                                             </button>
                                         )
                                     })

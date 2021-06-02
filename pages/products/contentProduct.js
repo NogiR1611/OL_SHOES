@@ -264,7 +264,7 @@ export default class ContentProduct extends React.Component{
                     removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                 />
                 </>
-                <div className="bg-gray-lighter flex flex-auto relative min-h-screen w-full lg:ml-auto lg:w-3/4">
+                <div className="bg-gray-lighter flex flex-auto relative min-h-screen w-full lg:ml-auto xl:w-8/10 lg:w-3/4">
                     <div className="w-11/12 mx-auto">
                         <div className="flex flex-wrap flex-auto">
                             <div className="flex-auto w-1/2">

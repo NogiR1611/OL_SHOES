@@ -37,7 +37,7 @@ export default class SearchModal extends React.Component{
                                     name="username" 
                                     placeholder=" " 
                                     value={this.state.search}
-                                    className="block w-full bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
+                                    className="block w-full bg-transparent appearance-none pt-4 pl-2 focus:outline-none" 
                                     onChange={(e) => this.setState({ search: e.target.value }) }
                                 />
                                 <label for="username" class="absolute top-3 text-gray-lighter-3 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>

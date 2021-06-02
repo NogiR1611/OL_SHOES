@@ -15,7 +15,7 @@ export default class Sidebar extends React.Component{
     render(){
         return (
             <>
-                <nav className={"bg-gray-lighter top-16 w-2/3 md:w-1/4 min-h-screen fixed z-40 transition duration-500 linear transform lg:translate-x-0 " + (this.props.showSidebar ? "translate-x-0" : "-translate-x-full")}>
+                <nav className={"bg-gray-lighter top-16 w-2/3 lg:w-1/4 xl:w-1/5 min-h-screen fixed z-40 transition duration-500 linear transform lg:translate-x-0 " + (this.props.showSidebar ? "translate-x-0" : "-translate-x-full")}>
                     <div className="py-2">
                         <div className="justify-between">
                             <button

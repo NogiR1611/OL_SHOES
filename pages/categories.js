@@ -52,7 +52,7 @@ export default class Categories extends React.Component{
                     searchOnClick={this.onOpenSearch} 
                     removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
                 />
-                <div className="flex flex-wrap relative bg-gray-lighter p-1 w-full lg:ml-auto lg:w-3/4">
+                <div className="flex flex-wrap relative bg-gray-lighter p-1 w-full lg:ml-auto lg:w-3/4 xl:w-8/10">
                     <div className="flex-column relative w-11/12 mx-auto">
                         <div className="flex flex-wrap">
                             <div className="w-1/3">
