@@ -25,13 +25,13 @@ export default class PaymentService extends React.Component{
                     <div className="pb-5 px-6">
                         <button
                             onClick={this.props.transferBank}
-                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 transition duration-300 ease-in-out hover:bg-gray-300 active:bg-gray-300 shadow rounded-md font-semibold text-black-darker"
+                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             Transfer Bank
                         </button>
                         <button
                             onClick={this.props.ePayment}
-                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 transition duration-300 ease-in-out hover:bg-gray-300 active:bg-gray-300 shadow rounded-md font-semibold text-black-darker"
+                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             <div className="flex flex-col flex-auto flex-nowrap">
                                 <p className="text-center leading-none">E-Payment</p>
@@ -40,7 +40,7 @@ export default class PaymentService extends React.Component{
                         </button>
                         <button
                             onClick={this.props.minimarket}
-                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 transition duration-300 ease-in-out hover:bg-gray-300 active:bg-gray-300 shadow rounded-md font-semibold text-black-darker"
+                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             <div className="flex flex-col flex-auto flex-nowrap">
                                 <p className="text-center leading-none">Minimarket</p>
@@ -49,7 +49,7 @@ export default class PaymentService extends React.Component{
                         </button>
                         <button
                             onClick={this.props.creditAndDebit}
-                            className="bg-white text-sm w-full text-center h-12 mt-4 focus:outline-none py-2 transition duration-300 ease-in-out hover:bg-gray-300 active:bg-gray-300 shadow rounded-md font-semibold text-black-darker"
+                            className="bg-white text-sm w-full text-center h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             Kartu Kredit/Debit
                         </button>

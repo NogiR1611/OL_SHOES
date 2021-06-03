@@ -24,7 +24,7 @@ export default class TransferBank extends React.Component{
                     </div>
                     <div className="overflow-y-auto px-6 pb-5">
                         <button
-                            className="flex flex-wrap px-5 mt-4 h-12 w-full cursor-pointer shadow-xl focus:outline-none rounded-md transition duration-300 ease-in-out bg-white hover:bg-gray-200 active:bg-gray-300"
+                            className="flex flex-wrap px-5 mt-4 h-12 w-full cursor-pointer shadow-xl focus:outline-none rounded-md bg-white hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out"
                             onClick={e => e.preventDefault()}
                         >
                             <div className="flex flex-col flex-auto flex-nowrap justify-center self-center text-center">
@@ -37,7 +37,7 @@ export default class TransferBank extends React.Component{
                             />
                         </button>
                         <button
-                            className="flex flex-wrap px-5 mt-4 h-12 w-full cursor-pointer shadow-xl focus:outline-none rounded-md transition duration-300 ease-in-out bg-white hover:bg-gray-200 active:bg-gray-300"
+                            className="flex flex-wrap px-5 mt-4 h-12 w-full cursor-pointer shadow-xl focus:outline-none rounded-md bg-white hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out"
                             onClick={e => e.preventDefault()}
                         >
                             <div className="flex flex-col flex-auto flex-nowrap justify-center self-center text-center">

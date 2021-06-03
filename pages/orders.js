@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Locked from './../assets/images/icons/locked.svg';
 import Lists from './../assets/images/icons/orders.svg';
 import Footer from './../components/footer/footer.js';
@@ -81,17 +80,22 @@ export default class Orders extends React.Component{
         this.setState({ openContact : false });
     }
 
+    pageToHome = () => {
+        Router.pushRoute('/');
+    }
+
     pageToMessages = () => {
         Router.pushRoute('/messages');
     }
 
-    render(){
+    render(){   
         return(
             <div className="bg-gray-lighter flex flex-col w-full min-h-screen max-h-full mb-auto">
                 <Header
                     searchOnClick={this.onOpenSearch} 
                     filterOnClick={this.onOpenFilter}
                     displayProfile={false}
+                    clickMenu={this.pageToHome}
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
@@ -138,13 +142,13 @@ export default class Orders extends React.Component{
                     <div className="w-full sticky top-16 z-50 bg-gray-lighter">
                         <div className="w-full md:w-9/12 lg:w-6/12 mx-auto text-sm lg:text-base">
                             <button
-                                className={"w-1/2 text-center py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === 'orders' ? "border-b-2 border-red-darker-1" : "")}
+                                className="w-1/2 text-center py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none border-b-2 border-red-darker-1"
                             >
                                 Order Saya
                             </button>
                             <button
                                 onClick={() => this.pageToMessages() }
-                                className={"w-1/2 text-center py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === 'messages' ? "border-b-2 border-red-darker-1" : "")}
+                                className="w-1/2 text-center py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none"
                             >
                                 Chat
                             </button>

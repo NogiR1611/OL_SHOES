@@ -1,7 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const svgr = require("@svgr/webpack");
 const withImages = require('next-images');
-const withFonts = require('next-fonts');
 
 
 const nextConfig = {
@@ -16,7 +15,7 @@ const nextConfig = {
     });
     return config;
   },
-  useFileSystemPublicRoutes: false
+  useFileSystemPublicRoutes: false,
 }
 
 module.exports = withPlugins([],nextConfig);

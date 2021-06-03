@@ -17,7 +17,7 @@ export default class ChatWhatsappCard extends React.Component{
                         <div className="flex flex-col">
                             <div className="bg-white p-2 w-full flex-auto rounded-md">
                                 <p className="text-red-darker-1 font-bold">Apa yang bisa kami lakukan untukmu hari ini?</p>
-                                <p>Silahkan bertanya kepada kami di Whatsapp aw</p>
+                                <p>Silahkan bertanya kepada kami di Whatsapp</p>
                             </div>
                             <div className="mt-1 pl-3">
                                 <p className="text-sm text-gray-lighter-1">01 Juni 2021 17:13</p>

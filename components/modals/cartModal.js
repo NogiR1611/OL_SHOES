@@ -91,7 +91,7 @@ export default class CartModal extends React.Component{
                             <div className="">
                                 <button
                                     onClick={this.props.continueToShop}
-                                    className="w-full px-6 my-4 h-12 font-semibold bg-gray-lighter-4 text-black-darker text-sm rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
+                                    className="w-full px-6 my-4 h-12 font-semibold bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out text-black-darker text-sm rounded-md focus:outline-none "
                                 >
                                     Lanjutkan Belanja
                                 </button>
@@ -111,13 +111,13 @@ export default class CartModal extends React.Component{
                                 <div className="flex flex-wrap p-3 mt-3 justify-center">
                                     <button
                                         onClick={() => this.setState({ voucherOne: true }) }
-                                        className="flex-auto p-2 m-1 font-semibold bg-gray-lighter-4 text-black-darker text-sm rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
+                                        className="flex-auto p-2 m-1 font-semibold bg-gray-lighter-4 text-black-darker hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out text-sm rounded-md focus:outline-none"
                                     >
                                         + Aplikasikan Voucher
                                     </button>
                                     <button
                                         onClick={() => this.setState({ note: true }) }
-                                        className="flex-auto p-2 m-1 font-semibold bg-gray-lighter-4 text-black-darker text-sm rounded-md outline-none focus:outline-none hover:bg-gray-300 transition duration-300 ease-in-out"
+                                        className="flex-auto p-2 m-1 font-semibold bg-gray-lighter-4 text-black-darker hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out text-sm rounded-md focus:outline-none"
                                     >
                                         + Tambahkan Catatan
                                     </button>

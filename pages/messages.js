@@ -4,7 +4,9 @@ import Footer from './../components/footer/footer.js';
 import SearchModal from './../components/modals/searchModal.js';
 import ContactModal from './../components/modals/contactModal.js';
 import FilterModal from './../components/modals/filterModal.js';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
+import {Router} from '../routes.js';
+
 
 
 export const Sidebar = dynamic(() => {
@@ -49,6 +51,10 @@ export default class Messages extends React.Component{
 
     onCloseContact = () => {
         this.setState({ openContact : false });
+    }
+
+    pageToOrders = () => {
+        Router.pushRoute('/orders');
     }
 
     render(){
@@ -101,17 +107,20 @@ export default class Messages extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div className="mx-auto">
-                        <button
-                            className="px-16 py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none"
-                        >
-                            Order Saya
-                        </button>
-                        <button
-                            className="px-16 py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none border-b-2 border-red-darker-1"
-                        >
-                            Chat
-                        </button>
+                    <div className="w-full sticky top-16 z-50 bg-gray-lighter">
+                        <div className="w-full md:w-9/12 lg:w-6/12 mx-auto text-sm lg:text-base">
+                            <button
+                                onClick={() => this.pageToOrders() }
+                                className="w-1/2 text-center py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none"
+                            >
+                                Order Saya
+                            </button>
+                            <button
+                                className="w-1/2 text-center py-2 text-red-darker-1 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none border-b-2 border-red-darker-1"
+                            >
+                                Chat
+                            </button>
+                        </div>
                     </div>
                     <div className="bg-gray-lighter-4 w-full h-screen">
                     </div>

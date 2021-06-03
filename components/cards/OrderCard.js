@@ -26,7 +26,7 @@ export default class OrderCard extends React.Component{
                     <p className="font-bold text-red-darker-1">Status : {this.props.statusOrder}</p>
                     </div>
                     <button
-                        className="flex w-full p-2 mt-4 h-12 bg-gray-lighter-4 text-black-darker text-sm shadow-md font-semibold text-center hover:bg-gray-lighter active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                        className="flex w-full p-2 mt-4 h-12 bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 text-black-darker text-sm shadow-md font-semibold text-center focus:outline-none transition duration-300 linear rounded-md"
                     >
                         <Lists className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />
                         <span className="mx-auto self-center">Lihat Order</span>

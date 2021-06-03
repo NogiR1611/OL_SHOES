@@ -22,7 +22,7 @@ export default class SearchModal extends React.Component{
                 open={this.props.onOpenSearch}
                 onClose={this.props.onCloseSearch}
                 closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center duration-300" />}
-                center
+                center 
             >
                 <div className="bg-gray-lighter md:w-560 px-6 pt-2 mx-auto items-center">                
                     <div className="flex justify-center md:hidden">
@@ -52,7 +52,7 @@ export default class SearchModal extends React.Component{
                             </div>
                         </div>
                     </div>
-                    <div className="px-6 pb-5 w-full">
+                    <div className="px-6 pb-5 w-full overflow-y-auto">
                         <div className="pt-3 relative">
                             <p className="text-black-darker pt-4 pb-3">0 Hasil ditemukan</p>
                             <p>Gunakan nama yang berbeda atau lebih spesifik</p>

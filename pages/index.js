@@ -85,9 +85,6 @@ class Index extends React.Component{
                 showCart:true,
                 data:parseData, 
                 amountData:parseData.length,
-            },() => {
-                console.log(this.state.showCart)
-                console.log(this.state.data)
             })
         }
     }
@@ -95,209 +92,221 @@ class Index extends React.Component{
     render(){
         return (
             <>
-                <CartModal
-                    openCart={this.state.cart}
-                    onCloseCart={() => this.setState({ cart:false })}
-                    continueToShop={() => this.setState({ cart:false })}
-                    removeModal={() => this.setState({ cart:false })}
-                    renderProductData={
-                        this.state.data.map((element,index) => {
-                            return (
-                                <div key={index}>
-                                    <div className="w-full flex flex-nowrap">
-                                        <img
-                                            src="/images/products/converse.jpg"
-                                            className="inline-block w-12 h-12 self-center"
-                                        />
-                                        <div className="flex-shrink flex-grow ml-2">
-                                            <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
-                                            <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
-                                            <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
-                                            <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp 320.000</span>
-                                            <span className="block text-sm text-gray-lighter-1 leading-none">Rp {element.price}</span>
+                <Sidebar
+                    showSidebar={this.state.showSidebar}
+                    removeIcon={this.state.showSidebar}
+                    searchOnClick={this.onOpenSearch} 
+                    removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
+                />
+                <div>
+                    {this.state.showSidebar ? (
+                        <div className="bg-black bg-opacity-50 h-full w-full fixed z-500 top-0 bottom-0 left-0 right-0" onClick={() => this.setState({ showSidebar:!this.state.showSidebar })} />
+                    ) : null}
+                    <CartModal
+                        openCart={this.state.cart}
+                        onCloseCart={() => this.setState({ cart:false })}
+                        continueToShop={() => this.setState({ cart:false })}
+                        removeModal={() => this.setState({ cart:false })}
+                        renderProductData={
+                            this.state.data.map((element,index) => {
+                                return (
+                                    <div key={index}>
+                                        <div className="w-full flex flex-nowrap">
+                                            <img
+                                                src="/images/products/converse.jpg"
+                                                className="inline-block w-12 h-12 self-center"
+                                            />
+                                            <div className="flex-shrink flex-grow ml-2">
+                                                <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
+                                                <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
+                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp 320.000</span>
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp {element.price}</span>
+                                            </div>
+                                            <div className="mx-1 font-bold self-center">
+                                                {this.state.amount === null ? element.amount : this.state.amount}
+                                            </div>
+                                            <div className="ml-2 self-center">
+                                                <button
+                                                    onClick={() => this.setState({ amountProduct: true,amount:element.amount }) }
+                                                    className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
+                                                >
+                                                    Ubah
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div className="mx-1 font-bold self-center">
-                                            {this.state.amount === null ? element.amount : this.state.amount}
-                                        </div>
-                                        <div className="ml-2 self-center">
-                                            <button
-                                                onClick={() => this.setState({ amountProduct: true,amount:element.amount }) }
-                                                className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
-                                            >
-                                                Ubah
-                                            </button>
-                                        </div>
+                                        <hr className="border-b-1 border-gray-300" />
                                     </div>
-                                    <hr className="border-b-1 border-gray-300" />
-                                </div>
-                            );
-                        })
-                    }
-                />
-                <AmountOfProduct 
-                    openModalAmountProduct={this.state.amountProduct}
-                    onClosemodalAmountProduct={() => this.setState({ amountProduct:false })}
-                    amountProduct={this.state.amount}
-                    onReduceAmount={() => this.setState({ amount : this.state.amount - 1 })}
-                    onAddAmount={() => this.setState({ amount : this.state.amount + 1 })}
-                />
-                {this.state.showCart ? 
-                        <div className="flex flex-nowrap flex-auto justify-center fixed bottom-0 z-50 pb-2 px-2 w-full">
+                                );
+                            })
+                        }
+                    />
+                    <AmountOfProduct 
+                        openModalAmountProduct={this.state.amountProduct}
+                        onClosemodalAmountProduct={() => this.setState({ amountProduct:false })}
+                        amountProduct={this.state.amount}
+                        onReduceAmount={() => this.setState({ amount : this.state.amount - 1 })}
+                        onAddAmount={() => this.setState({ amount : this.state.amount + 1 })}
+                    />
+                    {this.state.showCart ? 
+                        <div className="flex flex-nowrap flex-auto justify-start md:justify-center fixed bottom-0 z-100 md:pb-2 px-2 w-full">
                             <button 
-                                className="block flex flex-nowrap bg-black focus:outline-none w-9/10 md:w-480 md:h-16 mx-auto rounded-md px-4 py-2"
+                                className="bg-black focus:outline-none w-8/10 md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
                                 onClick={() => this.setState({ cart:true })}
                             >
-                                <div className="flex-auto text-left">
-                                    <p className="font-bold text-white">{this.state.amountData} Barang di keranjang saya</p>
-                                    <p className="text-white text-sm">Rp.320000</p>
+                                <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
+                                <div className="flex flex-nowrap">  
+                                    <div className="flex-auto text-left">
+                                        <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
+                                        <p className="text-white text-xs md:text-sm">Rp.320000</p>
+                                    </div>
+                                    <div className="flex self-center">
+                                        <Cart className="fill-current text-white" width={24} height={24} />
+                                        <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
+                                            {this.state.amountData}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="flex self-center">
-                                    <Cart className="fill-current text-white" width={24} height={24} />
-                                    <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
-                                        {this.state.amountData}
-                                    </span>
-                                </div>
-                            </button>
-                            <button
-                                onClick={() => this.setState({ openChat:!this.state.openChat })}
-                                className="flex justify-center self-center rounded-full h-12 w-12 bg-green-whatsapp focus:outline-none"
-                            >
-                                <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
                             </button>
                         </div> 
                     : null}
-                <div className={"bg-gray-lighter flex flex-col w-full min-h-screen mb-auto"}>  
-                {this.state.openChat ? (
-                    <ChatWhatsappCard />
-                ) : null}
-                    <Header
-                        clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
-                        changeIcon={this.state.showSidebar}
-                        searchOnClick={this.onOpenSearch} 
-                        displayFilter={true}
-                        displayProfile={true}
-                        filterOnClick={this.onOpenFilter}
-                        profileOnClick={this.pushProfileRoute}
-                    />
-                    <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
-                    <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
-                    <Sidebar
-                        showSidebar={this.state.showSidebar}
-                        removeIcon={this.state.showSidebar}
-                        searchOnClick={this.onOpenSearch} 
-                        removeSidebar={() => this.setState({ showSidebar:!this.state.showSidebar })}
-                    />
-                    <div
-                        className={"flex flex-col flex-auto bg-gray-lighter min-h-screen w-full lg:ml-auto lg:w-3/4 xl:w-8/10 relative p-4 transition duration-100 linear " + (this.state.showSidebar ? "opacity-30" : "")}
-                    >
-                        <div className="bg-gray-400 my-2 w-full h-full">
-                            <p className="text-center">Cover Here</p>
-                        </div>
-                        <div className="w-full lg:w-11/12 mx-auto">
-                            <div className="flex flex-wrap w-full">
-                                <CategoryCard 
-                                    link='/categories/1'
-                                    sourceImg='/images/products/vans_category.jpg'
-                                    name='vans'
-                                />
-                                <CategoryCard 
-                                    link='/categories/1'
-                                    sourceImg='/images/products/vans_category.jpg'
-                                    name='vans'
-                                />
+                    <div className="flex flex-nowrap flex-auto justify-end fixed bottom-0 z-50 pb-2 px-2 w-full">
+                        <button
+                            onClick={() => this.setState({ openChat:!this.state.openChat })}
+                            className="flex justify-center self-center rounded-full h-12 w-12 bg-green-whatsapp focus:outline-none"
+                        >
+                            <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
+                        </button>
+                    </div>
+                    <div className={"bg-gray-lighter flex flex-col w-full min-h-screen mb-auto"}>  
+                    {this.state.openChat ? (
+                        <ChatWhatsappCard />
+                    ) : null}
+                        <Header
+                            clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
+                            changeIcon={this.state.showSidebar}
+                            searchOnClick={this.onOpenSearch} 
+                            displayFilter={true}
+                            displayProfile={true}
+                            filterOnClick={this.onOpenFilter}
+                            profileOnClick={this.pushProfileRoute}
+                        />
+                        <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
+                        <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
+                        <div
+                            className="flex flex-col flex-auto bg-gray-lighter min-h-screen w-full lg:ml-auto lg:w-3/4 xl:w-8/10 relative p-1 transition duration-100 linear"
+                        >
+                            <div className="bg-gray-400 my-2 w-full h-full">
+                                <p className="text-center">Cover Here</p>
                             </div>
-                            <div className="flex flex-wrap w-full p-1">
-                                <div className="text-center w-full bg-gray-400">
-                                    Profile Video Here
+                            <div className="w-full lg:w-11/12 mx-auto">
+                                <div className="flex flex-wrap w-full p-1">
+                                    <CategoryCard 
+                                        sourceImg='/images/products/vans_category.jpg'
+                                        name='vans'
+                                    />
+                                    <CategoryCard 
+                                        sourceImg='/images/products/vans_category.jpg'
+                                        name='vans'
+                                    />
                                 </div>
-                            </div>
-                            <div className="flex flex-wrap w-full p-1 h-72">
-                                <div className="text-center w-full h-72">
-                                    <CarouselPromotionCard />
+                                <div className="flex flex-wrap w-full p-1">
+                                    <div className="text-center w-full bg-gray-400">
+                                        Profile Video Here
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex flex-wrap w-full p-1">
-                                <div className="text-center w-full">
-                                    <p className="text-gray-700">Product Recommended</p>
+                                <div className="flex flex-wrap w-full p-1 h-72">
+                                    <div className="text-center w-full h-72">
+                                        <CarouselPromotionCard />
+                                    </div>
                                 </div>
-                                <ProductCards />
-                                <ProductCards />
-                                <ProductCards />
-                            </div>
-                            <div className="flex flex-wrap w-full p-1">
-                                <div className="text-center w-full bg-gray-400">
-                                    Buyer Slider
-                                </div>
-                            </div>
-                            <div className="flex flex-wrap w-full p-1">
-                                <div className="w-full border-b-2 border-gray-200">
-                                    <button
-                                        onClick={() => this.setState({ namePage: 'category' }) }
-                                        className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "category" ? "border-b-2 border-red-600 text-red-600" : "")}
-                                    >
-                                        Kategori
-                                    </button>
-                                    <button
-                                        onClick={() => this.setState({ namePage: 'product' }) }
-                                        className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "product" ? "border-b-2 border-red-600 text-red-600" : "")}
-                                    >
-                                        Semua Produk
-                                    </button>
-                                    <button
-                                        onClick={() => this.setState({ namePage: 'discount' }) }
-                                        className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "discount" ? "border-b-2 border-red-600 text-red-600" : "")}
-                                    >
-                                        Diskon
-                                    </button>
+                                <div className="flex flex-wrap justify-center w-full p-1">
+                                    <div className="flex">
+                                        <p className="text-gray-700">Product Recommended</p>
+                                    </div>
                                 </div>
                                 <div className="w-full">
-                                    {this.state.namePage === 'category' ? 
-                                        (
-                                            <div className="flex flex-wrap">
-                                                <CategoryCard 
-                                                    link='/categories/1'
-                                                    sourceImg='/images/products/vans_category.jpg'
-                                                    name='vans'
-                                                />
-                                                <CategoryCard 
-                                                    link='/categories/1'
-                                                    sourceImg='/images/products/vans_category.jpg'
-                                                    name='vans'
-                                                />
-                                                <CategoryCard 
-                                                    link='/categories/1'
-                                                    sourceImg='/images/products/vans_category.jpg'
-                                                    name='vans'
-                                                />
-                                            </div>
-                                        ) : ''
-                                    }
-                                    {this.state.namePage === 'product' ? 
-                                        (
+                                    <div className="flex flex-wrap p-1">
+                                        <ProductCards />
+                                        <ProductCards />
+                                        <ProductCards />
+                                        <ProductCards />
+                                    </div>
+                                </div>
+                                <div className="flex flex-wrap w-full p-1">
+                                    <div className="text-center w-full bg-gray-400">
+                                        Buyer Slider
+                                    </div>
+                                </div>
+                                <div className="flex flex-wrap w-full p-1">
+                                    <div className="w-full border-b-2 border-gray-200 whitespace-nowrap">
+                                        <button
+                                            onClick={() => this.setState({ namePage: 'category' }) }
+                                            className={"w-1/3 md:px-6 py-2 text-sm text-white-2 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none " + (this.state.namePage === "category" ? "border-b-2 border-red-darker-1 text-red-darker-1" : "")}
+                                        >
+                                            Kategori
+                                        </button>
+                                        <button
+                                            onClick={() => this.setState({ namePage: 'product' }) }
+                                            className={"w-1/3 md:px-6 py-2 text-sm text-white-2 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none " + (this.state.namePage === "product" ? "border-b-2 border-red-darker-1 text-red-darker-1" : "")}
+                                        >
+                                            Semua Produk
+                                        </button>
+                                        <button
+                                            onClick={() => this.setState({ namePage: 'discount' }) }
+                                            className={"w-1/3 md:px-6 py-2 text-sm text-gray-600 transition duration-300 ease-in-out hover:bg-red-darker-1 hover:bg-opacity-10 focus:outline-none " + (this.state.namePage === "discount" ? "border-b-2 border-red-darker-1 text-red-darker-1" : "")}
+                                        >
+                                            Diskon
+                                        </button>
+                                    </div>
+                                    <div className="w-full">
+                                        {this.state.namePage === 'category' ? 
+                                            (
+                                                <div className="flex flex-wrap">
+                                                    <CategoryCard 
+                                                        sourceImg='/images/products/vans_category.jpg'
+                                                        name='vans'
+                                                    />
+                                                    <CategoryCard 
+                                                        sourceImg='/images/products/vans_category.jpg'
+                                                        name='vans'
+                                                    />
+                                                    <CategoryCard 
+                                                        sourceImg='/images/products/vans_category.jpg'
+                                                        name='vans'
+                                                    />
+                                                </div>
+                                            ) : ''
+                                        }
+                                        {this.state.namePage === 'product' ? 
+                                            (
+                                                <div className="flex justify-center w-full p-1">
+                                                    <div className="flex flex-wrap">
+                                                        <ProductCards />
+                                                        <ProductCards />
+                                                        <ProductCards />
+                                                        <ProductCards />
+                                                    </div>
+                                                </div>
+                                            ) : ''
+                                        }
+                                        {this.state.namePage === 'discount' ? 
+                                            (
                                             <div className="flex flex-wrap w-full px-auto">
                                                 <ProductCards />
                                                 <ProductCards />
                                                 <ProductCards />
                                                 <ProductCards />
+                                                <ProductCards />
                                             </div>
-                                        ) : ''
-                                    }
-                                    {this.state.namePage === 'discount' ? 
-                                        (
-                                        <div className="flex flex-wrap w-full px-auto">
-                                            <ProductCards />
-                                            <ProductCards />
-                                            <ProductCards />
-                                            <ProductCards />
-                                            <ProductCards />
-                                        </div>
-                                        ) : ''
-                                    }
+                                            ) : ''
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <Footer />
                     </div>
-                    <Footer />
                 </div>
             </>
         );

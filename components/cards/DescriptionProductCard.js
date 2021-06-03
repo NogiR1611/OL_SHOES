@@ -73,14 +73,14 @@ export default class DescriptionProductCard extends React.Component{
                     <p className="mb-2 font-medium">Pengiriman</p>
                     <div className="flex justify-between">
                         <p>Kirim ke:</p>
-                        <button className="text-sm hover:bg-gray-300 py-1">
+                        <button className="text-sm bg-transparent hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 py-1">
                             <span>Bekasi,Cikarang Barat</span>
                             <ArrowDown className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>
                     </div>
                     <div className="flex justify-between">
                         <p>Perkiraan:</p>
-                        <button className="text-sm flex">
+                        <button className="text-sm flex hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1">
                             <span className="self-center">Rp.8000</span>
                             <Alert className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>
@@ -102,7 +102,7 @@ export default class DescriptionProductCard extends React.Component{
                             </div>
                         </div>
                         <button
-                            className="font-medium bg-gray-lighter-4 rounded-md h-8 w-14 text-center"
+                            className="font-medium bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 focus:outline-none h-8 w-14 text-center"
                         >
                             Beli
                         </button>
@@ -117,7 +117,7 @@ export default class DescriptionProductCard extends React.Component{
                             </div>
                         </div>
                         <button
-                            className="font-medium bg-gray-lighter-4 rounded-md h-8 w-14 text-center"
+                            className="font-medium bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 focus:outline-none h-8 w-14 text-center"
                         >
                             Beli
                         </button>
@@ -132,7 +132,7 @@ export default class DescriptionProductCard extends React.Component{
                             </div>
                         </div>
                         <button
-                            className="font-medium bg-gray-lighter-4 rounded-md h-8 w-14 text-center"
+                            className="font-medium bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 focus:outline-none h-8 w-14 text-center"
                         >
                             Beli
                         </button>
@@ -147,14 +147,14 @@ export default class DescriptionProductCard extends React.Component{
                             </div>
                         </div>
                         <button
-                            className="font-medium bg-gray-lighter-4 rounded-md h-8 w-14 text-center"
+                            className="font-medium bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 focus:outline-none h-8 w-14 text-center"
                         >
                             Beli
                         </button>
                     </div>
                     <hr className="border-b-1 border-gray-lighter-4 border-solid" />
                         <button
-                            className="flex w-full p-2 mt-6 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center hover:bg-gray-300 active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                            className="flex w-full p-2 mt-6 bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg shadow-md font-semibold text-black-darker text-sm text-center focus:outline-none"
                         >
                             <Sms className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />
                             <span className="mx-auto self-center">Kirim Pesan ke OLSHOES?</span>

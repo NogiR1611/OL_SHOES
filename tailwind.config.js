@@ -2,11 +2,15 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx,jpg}', './components/**/*.{js,ts,jsx,tsx,jpg}','./assets/**/*.{js,ts,jsx,tsx,jpg}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false, // or 'media' or 'class' 
   theme: {
-    screen: {
+    screens: {
       'hp' : '425px',
       'tablet-600' : '600px',
+      'md' : '768px',
+      'lg' : '1024px',
+      'xl' : '1280px',
+      '2xl' : '1440px',
     },
     fill: {
       current: 'currentColor',
@@ -41,7 +45,28 @@ module.exports = {
             opacity: '0',
             display: 'none',
           }
+        },
+        'sliding-down' : {
+          '0%' : {
+            display : 'none'
+          },
+          '100%' : {
+            display : 'block'
+          }
+        },
+        'sliding-up' : {
+          '0%' : {
+            display : 'block'
+          },
+          '100%' : {
+            display : 'none'
+          }
         }
+      },
+      animation: {
+        'fade' : 'fade 1s ease-in-out',
+        'sliding-down' : 'sliding-down 3s ease-in-out',
+        'sliding-up' : 'sliding-up 3s ease-in-out'
       },
       fontFamily: {
         "avenir" : ['avenir-lt-pro-black','sans-serif'],
@@ -50,15 +75,12 @@ module.exports = {
         "probookoblique" : ['avenir-lt-pro-book-oblique','sans-serif'],
         "proheavy" : ['avenir-lt-pro-heavy','sans-serif'],
         "proheavyoblique" : ['avenir-lt-pro-heavy-oblique','sans-serif'],
-        prolight : ['avenir-lt-pro-light','sans-serif'],
-        prolightoblique : ['avenir-lt-pro-light-oblique','sans-serif'],
-        promedium : ['avenir-lt-pro-medium','sans-serif'],
-        promediumoblique : ['avenir-lt-pro-medium-oblique','sans-serif'],
-        prooblique : ['avenir-lt-pro-oblique','sans-serif'],
-        proroman : ['avenir-lt-pro-roman','sans-serif'],
-      },
-      animation: {
-        'fade' : 'fade 1s ease-in-out',
+        "prolight" : ['avenir-lt-pro-light','sans-serif'],
+        "prolightoblique" : ['avenir-lt-pro-light-oblique','sans-serif'],
+        "promedium" : ['avenir-lt-pro-medium','sans-serif'],
+        "promediumoblique" : ['avenir-lt-pro-medium-oblique','sans-serif'],
+        "prooblique" : ['avenir-lt-pro-oblique','sans-serif'],
+        "proroman" : ['avenir-lt-pro-roman','sans-serif'],
       },
       colors: {
         "orange" : "#ff7a0d",
@@ -75,6 +97,7 @@ module.exports = {
         "gray-lighter-8" : "#ebebeb",
         "gray-lighter-9" : "rgba(0,0,0,.42)",
         "white-1" : "#f4f4f4",
+        "white-2" : "rgba(0,0,0,.54)",
         "black-lighter-1" : "#222",
         "black-darker" : "rgba(0,0,0,0.8)",
         "orange-darker" : "#ff5252",

@@ -50,7 +50,7 @@ export default class ContactModal extends React.Component{
                                 Kirim Ke Whatsapp
                             </button>
                             <button
-                                className="bg-white text-sm shadow-md h-12 transition duration-400 ease-in-out border-1 border-black focus:outline-none hover:bg-gray-lighter active:bg-gray-lighter-5 font-semibold text-black-darker-1 rounded-md px-5 w-full"
+                                className="bg-white text-sm shadow-md h-12 transition duration-400 ease-in-out border-1 border-black focus:outline-none hover:bg-gray-lighter active:bg-gray-lighter-5 font-semibold text-black-darker-1 rounded-md px-5 mt-3 w-full"
                             >
                                 <SMS 
                                     width={24}

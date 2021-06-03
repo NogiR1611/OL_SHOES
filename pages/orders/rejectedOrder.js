@@ -2,11 +2,11 @@ import React from 'react';
 import Footer from './../../components/footer/footer.js';
 import SearchModal from './../../components/modals/searchModal.js';
 import FilterModal from './../../components/modals/filterModal.js';
-import Checklist from './../../assets/images/icons/checklist2.svg';
-import Copy from './../../assets/images/icons/copy.svg';
+import AlertModal from './../../components/modals/alertModal.js';
 import Cart from './../../assets/images/icons/cart.svg';
 import Sms from './../../assets/images/icons/sms.svg';
 import dynamic from 'next/dynamic';
+import {Router} from './../../routes.js';
 
 export const Header = dynamic(() => {
     return import('./../../components/header/header.js')
@@ -23,6 +23,7 @@ export default class RejectedOrder extends React.Component{
             openSearch : false,
             openFilter : false,
             openDownload : false,
+            openAlert : false,
         }
     }
 
@@ -45,6 +46,18 @@ export default class RejectedOrder extends React.Component{
     onCloseFilter = () => {
         this.setState({ openFilter : false });
     }
+
+    onCloseAlert = () => {
+        this.setState({ openAlert : false });
+    }
+
+    pushHomeRoute = () => {
+        Router.pushRoute('/');
+    }
+
+    pushOrderRoute = () => {
+        Router.pushRoute('/orders');
+    }
     
     render(){
         return (
@@ -57,6 +70,11 @@ export default class RejectedOrder extends React.Component{
                 />
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
+                <AlertModal
+                    openAlert={this.state.openAlert} 
+                    closeAlert={this.pushHomeRoute} 
+                    message="Beberapa produk mungkin tidak tersedia atau tidak memiliki stok yang cukup."
+                />
                 <Sidebar searchOnClick={this.onOpenSearch} />
                 <div className="bg-gray-lighter flex flex-col flex-auto lg:ml-auto lg:w-3/4 xl:w-8/10 min-h-screen relative p-2">
                     <div className="w-full px-6 xl:px-0 xl:w-3/4 mx-auto pt-4 pb-16">
@@ -70,7 +88,8 @@ export default class RejectedOrder extends React.Component{
                             <p className="text-lg font-bold text-red-darker-1">Status : Order dibatalkan</p>
                         </div>
                         <button
-                            className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center hover:bg-gray-300 active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                            onClick={() => this.setState({ openAlert:true })}
+                            className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out focus:outline-none rounded-md"
                         >
                             <Cart className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />
                             <span className="mx-auto self-center">Order Ulang dari Keranjang</span>
@@ -176,7 +195,8 @@ export default class RejectedOrder extends React.Component{
                         </div>
                         <hr className="border-b-1 border-gray-300 my-2" />
                         <button
-                            className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center hover:bg-gray-300 active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                            onClick={this.pushOrderRoute}
+                            className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out focus:outline-none transition rounded-md"
                         >
                             <Sms className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />
                             <span className="mx-auto self-center">Kirim Pesan ke OLSHOES?</span>
@@ -185,12 +205,12 @@ export default class RejectedOrder extends React.Component{
                         <div className="w-full flex justify-end py-4">
                             <div className="py-2">
                                 <a 
-                                    className="block p-2 my-2 shadow-md font-semibold text-center bg-gray-lighter-4 hover:bg-gray-300 active:bg-gray-400 focus:outline-none transition duration-300 linear text-gray-700 rounded-md"
+                                    className="block p-2 my-2 shadow-md font-semibold text-center bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out focus:outline-none rounded-md"
                                     href="https://www.tokoepay.com/faq"
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                 >
-                                    <span className="block no-underline text-black-darker text-right underline text-red-600 cursor-pointer text-sm">Punya Pertanyaan?</span>
+                                    <span className="block no-underline text-black-darker text-right underline  cursor-pointer text-sm">Punya Pertanyaan?</span>
                                 </a>
                                 <a 
                                     target="_blank"  

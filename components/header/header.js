@@ -22,13 +22,13 @@ export default class Header extends React.Component{
                     <div className="flex flex-nowrap flex-auto justify-between items-center bg-gray-lighter text-gray-800 px-2 py-8 md:p-2">
                         <div className="flex justify-start inline-block items-center mr-1">
                             <button
-                                className={"lg:hidden focus:outline-none transition duration-300 ease-in-out bg-gray-lighter-4 hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12"}
+                                className={"lg:hidden focus:outline-none transition duration-300 ease-in-out bg-gray-lighter-4 hover:bg-gray-lighter-5 rounded-full h-10 w-10 md:h-12 md:w-12"}
                                 onClick={this.props.clickMenu}
                             >
                                 <ArrowLeft className={"lg:hidden " + (window.location.href.indexOf("/orders") !== -1 ? "inline-block" : "hidden")} width={24} height={24} />
                                 <List className={"lg:hidden " + (window.location.href.indexOf("/orders") !== -1 ? "hidden" : "inline-block")} width={24} height={24} />
                             </button>
-                            <Link href="/home">
+                            <Link href="/">
                                 <div className="flex flex-nowrap flex-auto">
                                     <Logo width={40} height={40} className="h-10 w-10 rounded-full" />
                                     <span className="mx-2 self-center cursor-pointer leading-4 align-middle font-medium">OL Shoes</span>

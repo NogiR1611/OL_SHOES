@@ -31,7 +31,7 @@ export default class Minimarket extends React.Component{
                         </div>
                     </div>
                     <div
-                        className="flex flex-wrap py-2 my-4 cursor-pointer shadow-xl rounded-md transition duration-300 ease-in-out hover:bg-gray-200 active:bg-gray-300"
+                        className="flex flex-wrap py-2 my-4 cursor-pointer shadow-xl rounded-md bg-white hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out"
                         onClick={e => e.preventDefault()}
                     >
                         <div className="w-8/12 text-center">

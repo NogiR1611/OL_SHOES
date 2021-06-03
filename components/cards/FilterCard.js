@@ -33,8 +33,8 @@ export default class FilterCard extends React.Component{
                             type="button"
                             onClick={() => this.setState({ clickType: 'all_product' })}
                             className={
-                                "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out py-2 " +
-                                (this.state.clickType === 'all_product' ? "bg-gray-300" : "")
+                                "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out py-2 " +
+                                (this.state.clickType === 'all_product' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             Semua Produk
@@ -43,8 +43,8 @@ export default class FilterCard extends React.Component{
                             type="button"
                             onClick={() => this.setState({ clickType: 'unggulan_product' })}
                             className={
-                                "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out py-2 " +
-                                (this.state.clickType === 'unggulan_product' ? "bg-gray-300" : "")
+                                "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out py-2 " +
+                                (this.state.clickType === 'unggulan_product' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             Produk Unggulan
@@ -53,8 +53,8 @@ export default class FilterCard extends React.Component{
                             type="button"
                             onClick={() => this.setState({ clickType: 'diskon' })}
                             className={
-                                "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out py-2 " +
-                                (this.state.clickType === 'diskon' ? "bg-gray-300" : "")
+                                "w-full px-2 text-left text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out py-2 " +
+                                (this.state.clickType === 'diskon' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             Diskon
@@ -65,8 +65,8 @@ export default class FilterCard extends React.Component{
                         <button
                             onClick={() => this.setState({ clickCategory: 'vans' })}
                             className={
-                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
-                                (this.state.clickCategory === 'vans' ? "bg-gray-300" : "")
+                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out " +
+                                (this.state.clickCategory === 'vans' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             vans
@@ -74,8 +74,8 @@ export default class FilterCard extends React.Component{
                         <button
                             onClick={() => this.setState({ clickCategory: 'saba' })}
                             className={
-                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
-                                (this.state.clickCategory === 'saba' ? "bg-gray-300" : "")
+                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out " +
+                                (this.state.clickCategory === 'saba' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             saba
@@ -83,8 +83,8 @@ export default class FilterCard extends React.Component{
                         <button
                             onClick={() => this.setState({ clickCategory: 'converse' })}
                             className={
-                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
-                                (this.state.clickCategory === 'converse' ? "bg-gray-300" : "")
+                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out " +
+                                (this.state.clickCategory === 'converse' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             converse
@@ -92,8 +92,8 @@ export default class FilterCard extends React.Component{
                         <button
                             onClick={() => this.setState({ clickCategory: 'ventela' })}
                             className={
-                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
-                                (this.state.clickCategory === 'ventela' ? "bg-gray-300" : "")
+                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out " +
+                                (this.state.clickCategory === 'ventela' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             ventela
@@ -101,8 +101,8 @@ export default class FilterCard extends React.Component{
                         <button
                             onClick={() => this.setState({ clickCategory: 'local' })}
                             className={
-                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
-                                (this.state.clickCategory === 'local' ? "bg-gray-300" : "")
+                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out " +
+                                (this.state.clickCategory === 'local' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             lokal brand
@@ -110,8 +110,8 @@ export default class FilterCard extends React.Component{
                         <button
                             onClick={() => this.setState({ clickCategory: 'gabut' })}
                             className={
-                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out " +
-                                (this.state.clickCategory === 'gabut' ? "bg-gray-300" : "")
+                                "w-full text-left block py-1 px-2 text-gray-700 uppercase rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out " +
+                                (this.state.clickCategory === 'gabut' ? "bg-gray-lighter-5" : "")
                             }
                         >
                             kaos gabut
@@ -122,7 +122,7 @@ export default class FilterCard extends React.Component{
                         <p className="text-gray-800 text-lg font-semibold text-center py-2">Urutkan produk berdasarkan</p>
                         <button
                             onClick={() => this.setState({clickProduct: 'unggulan' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Unggulan
                             {this.state.clickProduct === 'unggulan' ?
@@ -133,7 +133,7 @@ export default class FilterCard extends React.Component{
                         </button>
                         <button
                             onClick={() => this.setState({clickProduct: 'terbaru' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Terbaru
                             {this.state.clickProduct === 'terbaru' ?
@@ -144,7 +144,7 @@ export default class FilterCard extends React.Component{
                         </button>
                         <button
                             onClick={() => this.setState({clickProduct: 'terlama' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Terlama
                             {this.state.clickProduct === 'terlama' ?
@@ -155,7 +155,7 @@ export default class FilterCard extends React.Component{
                         </button>
                         <button
                             onClick={() => this.setState({clickProduct: 'terpopuler' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Terpopuler
                             {this.state.clickProduct === 'terpopuler' ?
@@ -166,7 +166,7 @@ export default class FilterCard extends React.Component{
                         </button>
                         <button
                             onClick={() => this.setState({clickProduct: 'terendah' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Harga Terendah
                             {this.state.clickProduct === 'terendah' ?
@@ -177,7 +177,7 @@ export default class FilterCard extends React.Component{
                         </button>
                         <button
                             onClick={() => this.setState({clickProduct: 'tertinggi' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Harga Tertinggi
                             {this.state.clickProduct === 'tertinggi' ?
@@ -188,7 +188,7 @@ export default class FilterCard extends React.Component{
                         </button>
                         <button
                             onClick={() => this.setState({clickProduct: 'nama_product' })}
-                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-300 active:bg-gray-400 transition duration-200 ease-in-out"
+                            className="w-full text-left block py-1 px-2 text-gray-700 rounded-lg focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-200 ease-in-out"
                         >
                             Nama Produk (A-Z)
                             {this.state.clickProduct === 'nama_product' ?

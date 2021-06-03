@@ -274,7 +274,7 @@ export default class WaitingPayOrder extends React.Component{
                             <p className="flex-shrink md:w-2/12 text-sm lg:text-base self-center font-bold text-right text-black-darker tracking-tighter">Belum Terbayar</p>
                         </div>
                         <button
-                            className="w-full p-2 mt-4 bg-white text-black-darker text-sm shadow-md font-semibold text-center hover:bg-gray-lighter active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                            className="w-full p-2 mt-4 bg-white text-black-darker text-sm shadow-md font-semibold text-center hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out focus:outline-none rounded-md"
                         >
                             Ubah Metode Pembayaran
                         </button>
@@ -324,13 +324,13 @@ export default class WaitingPayOrder extends React.Component{
                             <p className="text-sm lg:text-base font-semibold text-black-darker">0813-2122-1212</p>
                         </div>
                         <button
-                            className="w-full p-2 my-2 bg-white text-black-darker text-sm shadow-md font-semibold text-center hover:bg-gray-lighter active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                            className="w-full p-2 my-2 bg-white text-black-darker text-sm shadow-md font-semibold text-center hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out focus:outline-none rounded-md"
                         >
                             Ubah Info
                         </button>
                         <hr className="border-b-1 border-gray-300 my-2" />
                         <button
-                            className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center hover:bg-gray-300 active:bg-gray-400 focus:outline-none transition duration-300 linear rounded-md"
+                            className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-md"
                         >
                             <Sms className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />
                             <span className="mx-auto self-center">Kirim Pesan ke OLSHOES?</span>
