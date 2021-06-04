@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from './../../components/footer/footer.js';
 import SearchModal from './../../components/modals/searchModal.js';
 import FilterModal from './../../components/modals/filterModal.js';
+import FlashAlert from './../../components/cards/FlashAlertCard.js';
 import Copy from './../../assets/images/icons/copy.svg';
 import Checklist from './../../assets/images/icons/checklist2.svg';
 import Sms from './../../assets/images/icons/sms.svg';
@@ -25,6 +26,7 @@ export default class WaitingPayOrder extends React.Component{
             openDownload : false,
             namePage : 'ATM',
             showSidebar : false,
+            showCopyAlert : false,
         }
     }
 
@@ -57,7 +59,8 @@ export default class WaitingPayOrder extends React.Component{
         document.execCommand("copy");
         document.body.removeChild(TempText);
         
-        alert("Copied the text: " + TempText.value);
+        this.setState({ showCopyAlert:true });
+        setTimeout(() => this.setState({ showCopyAlert:false }),1000)
     }
 
     pushProfileRoute = () => {
@@ -79,6 +82,11 @@ export default class WaitingPayOrder extends React.Component{
                     displayDownload={true}
                     displayProfile={true}
                 />
+                {this.state.showCopyAlert ? (
+                    <FlashAlert
+                        message="Berhasil disalin"  
+                    />
+                ) : null}
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
                 <Sidebar
@@ -87,7 +95,7 @@ export default class WaitingPayOrder extends React.Component{
                 <div className="bg-gray-lighter flex flex-auto relative min-h-screen lg:ml-auto xl:w-8/10 lg:w-3/4">
                     <div className="w-full px-6 xl:px-0 xl:w-3/4 mx-auto pt-4 pb-16">
                         <div className="">
-                            <p className="text-xl font-semibold text-black-darker leading-6 mb-2 font-avenirProHeavyOblique">Order Saya</p>
+                            <p className="text-xl font-semibold text-black-darker leading-6 mb-2">Order Saya</p>
                             <p className="text-sm lg:text-base font-bold text-black-darker leading-5">No. Order: 013275</p>
                             <p className="text-sm text-gray-lighter-1 leading-4 mb-4">(Order Berhasil 22/05/2021)</p>
                             <hr className="border-b-1 border-gray-300 my-2" />

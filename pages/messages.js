@@ -1,5 +1,6 @@
 import React from 'react';
 import Locked from './../assets/images/icons/locked.svg';
+import Send from './../assets/images/icons/send.svg';
 import Footer from './../components/footer/footer.js';
 import SearchModal from './../components/modals/searchModal.js';
 import ContactModal from './../components/modals/contactModal.js';
@@ -26,6 +27,7 @@ export default class Messages extends React.Component{
             openContact : false,
             openFilter : false,
             changePage : false,
+            placeholder : 'Pesan'
         }
     }
     
@@ -122,10 +124,46 @@ export default class Messages extends React.Component{
                             </button>
                         </div>
                     </div>
-                    <div className="bg-gray-lighter-4 w-full h-screen">
+                    <div className="bg-gray-lighter-4 w-full min-h-screen">
+                        <div className="w-1/2 mx-auto pt-4 pb-20 flex-col">
+                            <div className="flex justify-end mt-4 ml-20">
+                                <div className="bg-red-darker-1 rounded-xl w-80 p-2 text-white text-left">
+                                    <p>Permisi apa ada yang bisa saya Chat lewat sini?</p>
+                                </div>
+                            </div>
+                            <div className="flex justify-start mt-4 mr-10">
+                                <div className="bg-white rounded-xl w-80 p-2 text-black-darker text-left">
+                                    <p>Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja
+                                    Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex justify-end mt-4 ml-20">
+                                <div className="bg-red-darker-1 rounded-xl w-80 p-2 text-white text-left">
+                                    <p>Oke siap min</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <Footer />
+                    <div className="fixed bottom-3 w-full flex justify-center flex flex-nowrap flex-auto">
+                            <div className="flex w-1/2 block relative border-b-2 border-gray-lighter-9 transition duration-500 ease-in-out focus-within:border-red-darker-1 rounded-t-lg">
+                                <input
+                                    type="text" 
+                                    id="messages" 
+                                    name="messages"
+                                    placeholder={this.state.placeholder} 
+                                    onFocus={() => this.setState({ placeholder: '' })}
+                                    onBlur={() => this.setState({ placeholder: 'Pesan' })}
+                                    className="block w-full appearance-none focus:outline-none bg-gray-100 rounded-t-lg pt-4 pl-4" 
+                                />
+                            </div>
+                            <button
+                                className="flex bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-12 w-16 focus:outline-none"
+                            >
+                                <Send className="self-center h-6 w-6 mx-auto fill-current text-white" width={24} height={24} />
+                            </button>
+                        </div>
             </div>
         );
     }

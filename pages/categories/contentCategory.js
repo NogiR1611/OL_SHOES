@@ -1,4 +1,9 @@
 import React from 'react';
+import CartModal from './../../components/modals/cartModal.js';
+import AmountOfProduct from './../../components/modals/cartSubModal/amountOfProduct.js';
+import ChatWhatsappCard from './../../components/cards/ChatWhatsappCard.js';
+import Cart from './../../assets/images/icons/cart.svg';
+import Whatsapp from './../../assets/images/icons/whatsapp.svg';
 import Footer from './../../components/footer/footer.js';
 import Sorting from './../../assets/images/icons/sort.svg';
 import SearchModal from './../../components/modals/searchModal.js';
@@ -26,6 +31,14 @@ export default class Categories extends React.Component{
         openCategory : false,
         openSortir  : false,
         showSidebar : false,
+        cart : false,
+        showCart : false,
+        openChat: false,
+        data : [],
+        amountData : null,
+        amountProduct : false,
+        amount : null,
+        showCart : false,
         nameType: ['Semua Produk','Produk Unggulan','Diskon'],
         nameCategory: ['vans','saba','converse','ventela','local brand','kaos gabut','puma','kids'],
         clickType: '',
@@ -57,6 +70,19 @@ export default class Categories extends React.Component{
         Router.pushRoute('/orders');
     }
 
+    componentDidMount(){
+        let appState = localStorage["cart"];
+
+        if(appState){
+            let parseData = JSON.parse(appState);
+            this.setState({ 
+                showCart:true,
+                data:parseData, 
+                amountData:parseData.length,
+            })
+        }
+    }
+
     render(){
         return (
             <>
@@ -71,7 +97,96 @@ export default class Categories extends React.Component{
                     {this.state.showSidebar ? (
                         <div className="bg-black bg-opacity-50 h-full w-full fixed z-500 top-0 bottom-0 left-0 right-0" onClick={() => this.setState({ showSidebar:!this.state.showSidebar })} />
                     ) : null}
+                    <CartModal
+                        openCart={this.state.cart}
+                        onCloseCart={() => this.setState({ cart:false })}
+                        continueToShop={() => this.setState({ cart:false })}
+                        removeModal={() => this.setState({ cart:false })}
+                        renderProductData={
+                            this.state.data.map((element,index) => {
+                                return (
+                                    <div key={index}>
+                                        <div className="w-full flex flex-nowrap">
+                                            <img
+                                                src="/images/products/converse.jpg"
+                                                className="inline-block w-12 h-12 self-center"
+                                            />
+                                            <div className="flex-shrink flex-grow ml-2">
+                                                <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
+                                                <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
+                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp 320.000</span>
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp {element.price}</span>
+                                            </div>
+                                            <div className="mx-1 font-bold self-center">
+                                                {this.state.amount === null ? element.amount : this.state.amount}
+                                            </div>
+                                            <div className="ml-2 self-center">
+                                                <button
+                                                    onClick={() => this.setState({ amountProduct: true,amount:element.amount }) }
+                                                    className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
+                                                >
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <hr className="border-b-1 border-gray-300" />
+                                    </div>
+                                );
+                            })
+                        }
+                    />
+                    <AmountOfProduct 
+                        openModalAmountProduct={this.state.amountProduct}
+                        onClosemodalAmountProduct={() => this.setState({ amountProduct:false })}
+                        amountProduct={this.state.amount}
+                        onReduceAmount={() => this.setState({ amount : this.state.amount - 1 })}
+                        onAddAmount={() => this.setState({ amount : this.state.amount + 1 })}
+                    />
+                    <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
+                        {this.state.showCart ? 
+                            <div className="flex flex-auto justify-center px-2">
+                                <button 
+                                    className="bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
+                                    onClick={() => this.setState({ cart:true })}
+                                >
+                                    <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
+                                    <div className="flex flex-nowrap">  
+                                        <div className="flex flex-nowrap flex-auto text-left">
+                                            <div className="flex flex-none mr-2">
+                                                <img
+                                                    src="/images/products/converse.jpg"
+                                                    className="inline-block rounded-full w-12 h-12 self-center"
+                                                />
+                                            </div>
+                                            <div className="self-center flex-auto">
+                                                <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
+                                                <p className="text-white text-xs md:text-sm">Rp.320000</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex self-center">
+                                            <Cart className="fill-current text-white" width={24} height={24} />
+                                            <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
+                                                {this.state.amountData}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        : null}
+                        <div className="flex flex-none">
+                            <button
+                                onClick={() => this.setState({ openChat:!this.state.openChat })}
+                                className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
+                            >
+                                <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
+                            </button>
+                        </div>
+                    </div> 
                     <div className="bg-gray-lighter flex flex-col w-full min-h-screen max-h-full">  
+                        {this.state.openChat ? (
+                            <ChatWhatsappCard />
+                        ) : null}
                         <Header
                             clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
                             changeIcon={this.state.showSidebar}
@@ -156,7 +271,7 @@ export default class Categories extends React.Component{
                             <div className="bg-gray-lighter flex flex-nowrap">
                                 <FilterCard searchOnClick={this.onOpenSearch} />
                                 <SearchModal onOpenSearch={this.openSearch} onCloseSearch={this.onCloseSearch} />
-                                <div className="flex 1 flex-wrap px-2 mb-16">
+                                <div className="flex 1 flex-wrap px-2 pt-3 mb-16">
                                     <ProductCards />
                                     <ProductCards />
                                     <ProductCards /> 

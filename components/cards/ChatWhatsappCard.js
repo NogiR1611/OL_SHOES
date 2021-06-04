@@ -5,11 +5,11 @@ import Send from './../../assets/images/icons/send.svg';
 export default class ChatWhatsappCard extends React.Component{
     render(){
         return (
-            <div className="w-450 z-1000 bottom-20 right-4 shadow-lg rounded-lg fixed h-3/4 bg-white-1">
+            <div className="w-8/10 md:w-450 z-1000 bottom-20 right-4 shadow-lg rounded-lg fixed h-3/4 bg-white-1">
                 <div className="p-4">
-                    <p className="text-black-darker text-lg font-medium">Chat Whatsapp</p>
+                    <p className="text-black-darker font-semibold text-xl lg:text-lg lg:font-medium">Chat Whatsapp</p>
                 </div>
-                <div className="pb-4 px-4 overflow-y-auto flex flex-grow flex-shrink">
+                <div className="pb-4 px-4 overflow-y-auto text-sm lg:text-base flex flex-grow flex-shrink">
                     <div className="flex flex-nowrap flex-auto mr-10 mb-4">
                         <div className="mr-2">
                             <Logo className="h-6 w-6 rounded-full" width={24} height={24} />
@@ -36,7 +36,7 @@ export default class ChatWhatsappCard extends React.Component{
                                 />
                             </div>
                             <button
-                                className="flex bg-green-whatsapp rounded-lg ml-2 h-12 w-16 focus:outline-none"
+                                className="flex bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-12 w-16 focus:outline-none"
                             >
                                 <Send className="self-center h-6 w-6 mx-auto fill-current text-white" width={24} height={24} />
                             </button>

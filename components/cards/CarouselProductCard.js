@@ -47,7 +47,7 @@ export default class CarouselProductCard extends React.Component{
                 arrows
                 autoPlaySpeed={3000}
                 centerMode={false}
-                className="w-11/12 pt-3 mx-auto"
+                className="w-full pt-3 px20"
                 containerClass="container-with-dots"
                 customLeftArrow={<CustomLeftArrow />}
                 customRightArrow={<CustomRightArrow />}

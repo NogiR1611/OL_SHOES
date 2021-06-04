@@ -1,43 +1,76 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
 
 export default class Note extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            placeholderOne: 'Catatan Produk untuk OL SHOES',
+            placeholderTwo: 'Catatan Pengiriman untuk Driver(Optional)'
+        }
+    }
     render(){
         return (
             <Modal
-                styles={{modal: { width : '33%',maxHeight:'100%',borderRadius : '10px' }}}
+                styles={{modal: { maxWidth : '100%',borderRadius : '10px' }}}
                 open={this.props.note}
                 onClose={this.props.onCloseNote}
                 showCloseIcon={false}
                 center
             >
-                <div className="bg-gray-lighter w-full md:w-480 h-full items-center px-6 pb-5">
-                    <div className="md:h-9 md:w-480" />
-                    <p className="text-lg text-gray-800 font-bold my-2">Tambahkan Catatan</p>
-                    <label className="text-gray-600 font-semibold focus:text-red-darker-1 my-4" htmlFor="note">Catatan Produk untuk OL SHOES</label>
-                    <input
-                        className="block w-full transition duration-400 ease-in-out my-4 rounded-t-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-darker-1"
-                        type="text"
-                        name="note"
-                        id="note"
-                        placeholder="Contoh : Tolong Bungkus dengan Tebal"
-                    />
-                    <label className="text-gray-600 font-semibold focus:text-red- my-4" htmlFor="note">Catatan Pengiriman untuk Driver(Optional)</label>
-                    <input
-                        className="block w-full duration-400 my-4 rounded-t-md bg-gray-100 border-b-2 border-gray-400 px-2 mr-4 outline-none focus:border-2 border-red-darker-1"
-                        type="text"
-                        name="note"
-                        id="note"
-                        placeholder="Contoh : Taruh Paket Didepan Pintu"
-                    />
-                    <button
-                        onClick={this.props.onCloseNote}
-                        className="float-right inline-block p-2 text-center font-bold bg-red-darker-1 text-gray-100 rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 transition duration-300 ease-in-out focus:outline-none"
-                    >
-                        Oke
-                    </button>
+                <div className="bg-gray-lighter w-full md:w-480 h-full items-center">
+                    <p className="text-lg text-gray-800 font-bold pt-4 pb-2 px-6">Tambahkan Catatan</p>
+                    <div className="px-6 pb-5">
+                        <div className="flex flex-col">
+                            <label for="note_olshoes" class="text-black-darker text-sm font-medium">Catatan Produk untuk OL SHOES</label>
+                            <div className="flex flex-auto">
+                                <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 transition duration-300 ease-in-out focus-within:border-red-darker-1 rounded-t-lg">
+                                    <input
+                                        type="text" 
+                                        id="note_olshoes" 
+                                        name="note_olshoes" 
+                                        placeholder={this.state.placeholderOne}
+                                        onFocus={() => this.setState({ placeholderOne: 'Contoh : Tolong Bungkus dengan Tebal' })}
+                                        onBlur={() => this.setState({ placeholderOne: 'Catatan Produk untuk OL SHOES' })}
+                                        className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex flex-grow px-3 pb-2 mt-2">
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <label for="note_driver" class="text-black-darker text-sm font-medium">Catatan Pengiriman untuk Driver(Optional)</label>
+                            <div className="flex flex-auto">
+                                <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 transition duration-300 ease-in-out focus-within:border-red-darker-1 rounded-t-lg">
+                                    <input
+                                        type="text" 
+                                        id="note_driver" 
+                                        name="note_driver" 
+                                        placeholder='Contoh : Taruh Paket Didepan Pintu'
+                                        className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex flex-grow px-3 pb-2 mt-2">
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex justify-end py-2 px-4">
+                        <button
+                            onClick={this.props.onCloseNote}
+                            className="px-2 h-12 text-center w-20 text-black-darker text-sm font-medium rounded-md focus:outline-none"
+                        >
+                            Tutup
+                        </button>
+                        <button
+                            onClick={this.props.onCloseNote}
+                            className="px-2 ml-2 h-12 text-center w-20 font-medium bg-red-darker-1 text-white rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 transition duration-300 ease-in-out focus:outline-none"
+                        >
+                            Oke
+                        </button>
+                    </div>
                 </div>
             </Modal>
         )

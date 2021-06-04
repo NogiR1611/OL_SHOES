@@ -25,7 +25,13 @@ export default class InfoCustomer extends React.Component{
             searchProvince: '',
             searchCity: '',
             searchDistrict: '',
+            nameCustomer: '',
+            numberPhone: '',
             detailAddress: '',
+            statusNameCustomer: false,
+            statusNumberPhone: false,
+            statusAddress: false,
+            statusDetailAddress: false,
         }
     }
 
@@ -76,6 +82,27 @@ export default class InfoCustomer extends React.Component{
         })
     }
 
+    /*
+    validationInfoCustomer = () => {
+        const {nameCustomer,numberPhone,statusNumberPhone,statusNameCustomer} = this.state;
+        if(nameCustomer === ''){
+            this.setState({ statusNameCustomer:true });
+        }
+        else{
+            this.setState({ statusNameCustomer:false });
+        }
+        if(numberPhone === ''){
+            this.setState({ statusNumberPhone:true });
+        }
+        else{
+            this.setState({ statusNumberPhone:false });
+        }
+        if(!statusNameCustomer && !statusNumberPhone){
+            this.
+        }
+    }
+    */
+
     render(){
         return (
             <>
@@ -102,6 +129,8 @@ export default class InfoCustomer extends React.Component{
                                             type="text" 
                                             id="name" 
                                             name="name" 
+                                            value={this.state.nameCustomer}
+                                            onChange={e => this.setState({ nameCustomer : e.target.value })}
                                             placeholder=" " 
                                             className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
@@ -109,6 +138,7 @@ export default class InfoCustomer extends React.Component{
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
+                                    {this.state.statusNameCustomer ? "Mohon Isi nama lengkap anda" : null}
                                 </div>
                             </div>
                             <div className="flex flex-col">
@@ -117,7 +147,9 @@ export default class InfoCustomer extends React.Component{
                                         <input
                                             type="text" 
                                             id="number" 
-                                            name="number" 
+                                            name="number"
+                                            value={this.state.numberPhone} 
+                                            onChange={e => this.setState({ numberPhone : e.target.value })}
                                             placeholder=" " 
                                             className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
@@ -125,6 +157,7 @@ export default class InfoCustomer extends React.Component{
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
+                                    {this.state.statusNumberPhone ? "Mohon isi nomor telepon anda" : null}
                                 </div>
                             </div>
                             <div className="flex flex-col">
@@ -136,7 +169,7 @@ export default class InfoCustomer extends React.Component{
                                             name="address" 
                                             value={`${this.state.provinceAndCity}`}
                                             onClick={this.clickAddress}
-                                            onChange={this.clickAddress}
+                                            onChange={e => this.setState({ provinceAndCity : e.target.value })}
                                             placeholder=" " 
                                             className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
@@ -155,6 +188,8 @@ export default class InfoCustomer extends React.Component{
                                                 type="text" 
                                                 id="detailAddress" 
                                                 name="detailAddress"
+                                                value={this.state.detailAddress}
+                                                onChange={e => this.setState({ detailAddress : e.target.value })}
                                                 placeholder=" " 
                                                 className="block w-full appearance-none focus:outline-none bg-transparent pt-4 pl-4"
                                             />

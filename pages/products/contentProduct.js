@@ -4,9 +4,11 @@ import FlashAlert from './../../components/cards/FlashAlertCard.js';
 import CarouselCard from './../../components/cards/CarouselCard.js';
 import DescriptionProductCard from './../../components/cards/DescriptionProductCard.js';
 import CarouselProductCard from './../../components/cards/CarouselProductCard.js';
-import ProductCards from './../../components/cards/ProductCards.js';
 import {Router} from './../../routes.js';
 import dynamic from 'next/dynamic';
+import ChatWhatsappCard from './../../components/cards/ChatWhatsappCard.js';
+import Whatsapp from './../../assets/images/icons/whatsapp.svg';
+import Cart from './../../assets/images/icons/cart.svg';
 
 /**Import Modal */
 import SearchModal from './../../components/modals/searchModal.js';
@@ -44,17 +46,23 @@ export default class ContentProduct extends React.Component{
             cart: false,
             alert: false,
             amountProduct: 0,
+            amountData: null,
+            showCart: false,
+            openChat: false,
+            amountProductCart: null,
             modalAmountProduct: false,
             note: false,
             voucherOne: false,
             voucherTwo: false,
             modalInfoCustomer: false,
+            amountProductModal: false,
             shipmentModal: false,
             paymentService: false,
             transferBank: false,
             ePayment: false,
             minimarket: false,
             creditAndDebit: false,
+            data: [],
             productDataset: [
                 {
                     id:1,
@@ -121,6 +129,19 @@ export default class ContentProduct extends React.Component{
         Router.pushRoute('/orders');
     } 
 
+    componentDidMount(){
+        let appState = localStorage["cart"];
+
+        if(appState){
+            let parseData = JSON.parse(appState);
+            this.setState({ 
+                showCart:true,
+                data:parseData, 
+                amountData:parseData.length,
+            })
+        }
+    }
+
     render(){
         return (
             <>
@@ -134,7 +155,96 @@ export default class ContentProduct extends React.Component{
                     {this.state.showSidebar ? (
                         <div className="bg-black bg-opacity-50 h-full w-full fixed z-500 top-0 bottom-0 left-0 right-0" onClick={() => this.setState({ showSidebar:!this.state.showSidebar })} />
                     ) : null}
+                    <CartModal
+                        openCart={this.state.cart}
+                        onCloseCart={() => this.setState({ cart:false })}
+                        continueToShop={() => this.setState({ cart:false })}
+                        removeModal={() => this.setState({ cart:false,modalInfoCustomer:true })}
+                        renderProductData={
+                            this.state.data.map((element,index) => {
+                                return (
+                                    <div key={index}>
+                                        <div className="w-full flex flex-nowrap">
+                                            <img
+                                                src="/images/products/converse.jpg"
+                                                className="inline-block w-12 h-12 self-center"
+                                            />
+                                            <div className="flex-shrink flex-grow ml-2">
+                                                <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
+                                                <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
+                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp 320.000</span>
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp {element.price}</span>
+                                            </div>
+                                            <div className="mx-1 font-bold self-center">
+                                                {this.state.amountProductCart === null ? element.amount : this.state.amountProductCart}
+                                            </div>
+                                            <div className="ml-2 self-center">
+                                                <button
+                                                    onClick={() => this.setState({ amountProduct: true,amountProductCart:element.amount }) }
+                                                    className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
+                                                >
+                                                    Ubah
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <hr className="border-b-1 border-gray-300" />
+                                    </div>
+                                );
+                            })
+                        }
+                    />
+                    <AmountOfProduct 
+                        openModalAmountProduct={this.state.amountProduct}
+                        onClosemodalAmountProduct={() => this.setState({ amountProduct:false })}
+                        amountProduct={this.state.amountProductCart}
+                        onReduceAmount={() => this.setState({ amountProductCart : this.state.amountProductCart - 1 })}
+                        onAddAmount={() => this.setState({ amountProductCart : this.state.amountProductCart + 1 })}
+                    />
+                    <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
+                        {this.state.showCart ? 
+                            <div className="flex flex-auto justify-center px-2">
+                                <button 
+                                    className="bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
+                                    onClick={() => this.setState({ cart:true })}
+                                >
+                                    <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
+                                    <div className="flex flex-nowrap">  
+                                        <div className="flex flex-nowrap flex-auto text-left">
+                                            <div className="flex flex-none mr-2">
+                                                <img
+                                                    src="/images/products/converse.jpg"
+                                                    className="inline-block rounded-full w-12 h-12 self-center"
+                                                />
+                                            </div>
+                                            <div className="self-center flex-auto">
+                                                <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
+                                                <p className="text-white text-xs md:text-sm">Rp.320000</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex self-center">
+                                            <Cart className="fill-current text-white" width={24} height={24} />
+                                            <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
+                                                {this.state.amountData}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        : null}
+                        <div className="flex flex-none">
+                            <button
+                                onClick={() => this.setState({ openChat:!this.state.openChat })}
+                                className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
+                            >
+                                <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
+                            </button>
+                        </div>
+                    </div> 
                     <>
+                        {this.state.openChat ? (
+                            <ChatWhatsappCard />
+                        ) : null}
                         <Header 
                             clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
                             displayShare={true}
@@ -146,7 +256,7 @@ export default class ContentProduct extends React.Component{
                         {this.state.alert ? (
                         <FlashAlert
                             message="Berhasil ditambahkan" 
-                        />): null}
+                        />): null} 
                         {/**Modal for size */}
                         <SizeModal 
                             onOpenSize={this.state.size}
@@ -178,7 +288,7 @@ export default class ContentProduct extends React.Component{
                         <AmountModal 
                             onOpenAmount={this.state.amount}
                             onCloseAmount={() => this.setState({ amount:false,size:true })}
-                            onClickStock={amount => {
+                            onClickStock={amountProduct => {
                                 this.setState({ amount:false,cart:true,alert:true })
                                 setTimeout(() => this.setState({ alert:false }),1000)
                                 let cartTotalProduct = [];
@@ -186,20 +296,13 @@ export default class ContentProduct extends React.Component{
                                     name: 'VANS SK8 HI BLACK WHITE',
                                     price:this.state.priceProduct,
                                     size:this.state.sizeProduct,
-                                    amount:amount,
+                                    amount:amountProduct,
                                 };
                                 cartTotalProduct.push(productData);
                                 localStorage["cart"] = JSON.stringify(cartTotalProduct);
                             }
                             }
                             arraySize={this.state.arrayAmount}
-                        />
-                        {/** Modal for Cart */}
-                        <CartModal
-                            openCart={this.state.cart}
-                            onCloseCart={this.onCloseCart}
-                            continueToShop={this.onCloseCart}
-                            removeModal={() => this.setState({ cart:false,modalInfoCustomer:true })}
                         />
                         {/* Modal for Manage Amount of Product */}
                         <AmountOfProduct 

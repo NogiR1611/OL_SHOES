@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from './../components/footer/footer.js';
 import CartModal from './../components/modals/cartModal.js';
-import AmountOfProduct from './../components/modals/cartSubModal/amountOfProduct.js'
+import AmountOfProduct from './../components/modals/cartSubModal/amountOfProduct.js';
 import SearchModal from './../components/modals/searchModal.js';
 import FilterModal from './../components/modals/filterModal.js';
 import ProductCards from './../components/cards/ProductCards.js';
@@ -148,36 +148,46 @@ class Index extends React.Component{
                         onReduceAmount={() => this.setState({ amount : this.state.amount - 1 })}
                         onAddAmount={() => this.setState({ amount : this.state.amount + 1 })}
                     />
-                    {this.state.showCart ? 
-                        <div className="flex flex-nowrap flex-auto justify-start md:justify-center fixed bottom-0 z-100 md:pb-2 px-2 w-full">
-                            <button 
-                                className="bg-black focus:outline-none w-8/10 md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
-                                onClick={() => this.setState({ cart:true })}
-                            >
-                                <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
-                                <div className="flex flex-nowrap">  
-                                    <div className="flex-auto text-left">
-                                        <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
-                                        <p className="text-white text-xs md:text-sm">Rp.320000</p>
+                        <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
+                        {this.state.showCart ? 
+                            <div className="flex flex-auto justify-center px-2">
+                                <button 
+                                    className="bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
+                                    onClick={() => this.setState({ cart:true })}
+                                >
+                                    <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
+                                    <div className="flex flex-nowrap">  
+                                        <div className="flex flex-nowrap flex-auto text-left">
+                                            <div className="flex flex-none mr-2">
+                                                <img
+                                                    src="/images/products/converse.jpg"
+                                                    className="inline-block rounded-full w-12 h-12 self-center"
+                                                />
+                                            </div>
+                                            <div className="self-center flex-auto">
+                                                <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
+                                                <p className="text-white text-xs md:text-sm">Rp.320000</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex self-center">
+                                            <Cart className="fill-current text-white" width={24} height={24} />
+                                            <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
+                                                {this.state.amountData}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="flex self-center">
-                                        <Cart className="fill-current text-white" width={24} height={24} />
-                                        <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
-                                            {this.state.amountData}
-                                        </span>
-                                    </div>
-                                </div>
-                            </button>
+                                </button>
+                            </div>
+                        : null}
+                            <div className="flex flex-none">
+                                <button
+                                    onClick={() => this.setState({ openChat:!this.state.openChat })}
+                                    className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
+                                >
+                                    <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
+                                </button>
+                            </div>
                         </div> 
-                    : null}
-                    <div className="flex flex-nowrap flex-auto justify-end fixed bottom-0 z-50 pb-2 px-2 w-full">
-                        <button
-                            onClick={() => this.setState({ openChat:!this.state.openChat })}
-                            className="flex justify-center self-center rounded-full h-12 w-12 bg-green-whatsapp focus:outline-none"
-                        >
-                            <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
-                        </button>
-                    </div>
                     <div className={"bg-gray-lighter flex flex-col w-full min-h-screen mb-auto"}>  
                     {this.state.openChat ? (
                         <ChatWhatsappCard />
@@ -226,12 +236,12 @@ class Index extends React.Component{
                                     </div>
                                 </div>
                                 <div className="w-full">
-                                    <div className="flex flex-wrap p-1">
-                                        <ProductCards />
-                                        <ProductCards />
-                                        <ProductCards />
-                                        <ProductCards />
-                                    </div>
+                                        <div className="flex flex-wrap w-11/12 mx-auto p-1">
+                                            <ProductCards />
+                                            <ProductCards />
+                                            <ProductCards />
+                                            <ProductCards />
+                                        </div>
                                 </div>
                                 <div className="flex flex-wrap w-full p-1">
                                     <div className="text-center w-full bg-gray-400">

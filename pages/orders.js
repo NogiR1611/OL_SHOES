@@ -113,7 +113,7 @@ export default class Orders extends React.Component{
                                 </div>
                                 <button 
                                     onClick={this.onOpenContact}
-                                    className="flex flex-1 h-12 self-center bg-red-darker-1 duration-300 hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none px-5 w-1/3 text-white font-semibold mx-1 rounded-lg"
+                                    className="flex flex-1 h-12 self-center bg-red-darker-1 transition duration-300 ease-in-out hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none px-5 w-1/3 text-white font-semibold mx-1 rounded-lg"
                                 >
                                     <Locked
                                         className="h-6 w-6 inline-block fill-current text-white stroke-current stroke-0 text-white float-left self-center"
