@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
@@ -82,9 +83,8 @@ export default class InfoCustomer extends React.Component{
         })
     }
 
-    /*
     validationInfoCustomer = () => {
-        const {nameCustomer,numberPhone,statusNumberPhone,statusNameCustomer} = this.state;
+        const {nameCustomer,numberPhone,provinceAndCity,detailAddress} = this.state;
         if(nameCustomer === ''){
             this.setState({ statusNameCustomer:true });
         }
@@ -97,13 +97,22 @@ export default class InfoCustomer extends React.Component{
         else{
             this.setState({ statusNumberPhone:false });
         }
-        if(!statusNameCustomer && !statusNumberPhone){
-            this.
+        if(provinceAndCity === ''){
+            this.setState({ statusAddress:true });
+        }
+        else{
+            this.setState({ statusAddress:false });
+        }
+        if(detailAddress === ''){
+            this.setState({ statusDetailAddress:true });
+        }
+        else{
+            this.setState({ statusDetailAddress:false });
         }
     }
-    */
 
     render(){
+        console.log(this.state.provinceAndCity)
         return (
             <>
                 <Modal
@@ -120,7 +129,7 @@ export default class InfoCustomer extends React.Component{
                         </div>
                         <div className="w-full px-6 pt-4 pb-2">
                             <p className="text-lg font-bold text-gray-800">Informasi Pengiriman</p>
-                        </div>
+                        </div>  
                         <div className="w-full px-6">
                             <div className="flex flex-col">
                                 <div className="flex flex-auto">
@@ -138,7 +147,9 @@ export default class InfoCustomer extends React.Component{
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
-                                    {this.state.statusNameCustomer ? "Mohon Isi nama lengkap anda" : null}
+                                    {this.state.statusNameCustomer ? 
+                                        <p className="text-xs text-orange-lighter-1">Mohon Isi nama lengkap anda</p>
+                                     : null}
                                 </div>
                             </div>
                             <div className="flex flex-col">
@@ -157,7 +168,9 @@ export default class InfoCustomer extends React.Component{
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
-                                    {this.state.statusNumberPhone ? "Mohon isi nomor telepon anda" : null}
+                                    {this.state.statusNumberPhone ? 
+                                        <p className="text-xs text-orange-lighter-1">Mohon isi nomor telepon anda</p>
+                                     : null}
                                 </div>
                             </div>
                             <div className="flex flex-col">
@@ -169,7 +182,6 @@ export default class InfoCustomer extends React.Component{
                                             name="address" 
                                             value={`${this.state.provinceAndCity}`}
                                             onClick={this.clickAddress}
-                                            onChange={e => this.setState({ provinceAndCity : e.target.value })}
                                             placeholder=" " 
                                             className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
@@ -177,6 +189,9 @@ export default class InfoCustomer extends React.Component{
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
+                                    {this.state.statusAddress ? 
+                                        <p className="text-xs text-orange-lighter-1">Mohon isi alamat anda</p>
+                                     : null}
                                 </div>
                             </div>
                             {this.state.provinceAndCity ? (
@@ -196,7 +211,13 @@ export default class InfoCustomer extends React.Component{
                                             <label for="detailAddress" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Alamat Lengkap Penerima*</label>
                                         </div>
                                     </div>
-                                    <div className="flex flex-grow px-3 pb-2 mt-2">
+                                    <div className="flex flex-nowrap flex-auto px-3 pb-2 mt-2">
+                                        <p className="flex flex-auto text-xs text-orange-lighter-1">
+                                            {this.state.statusDetailAddress ? 
+                                                "Mohon isi alamat lengkap anda"
+                                            : null}
+                                        </p>
+                                        <p className="flex-none text-xs text-black-darker">{this.state.detailAddress.length}/255</p>
                                     </div>
                                 </div>) : null
                             }
@@ -225,7 +246,9 @@ export default class InfoCustomer extends React.Component{
                     </div>
                     <div className="py-2 px-4">
                         <button
-                            onClick={this.props.shipmentModal}
+                            onClick={this.state.nameCustomer !== '' && this.state.numberPhone !== '' && this.state.address !== '' && this.state.detailAddress !== '' ? 
+                                this.props.shipmentModal : this.validationInfoCustomer
+                            }
                             className="w-full text-center h-12 font-bold bg-red-darker-1 text-white rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 text-medium text-sm focus:outline-none transition duration-300 ease-in-out"
                         >
                             Setuju & Lanjutkan

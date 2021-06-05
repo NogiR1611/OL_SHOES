@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
@@ -19,7 +20,7 @@ export default class PaymentService extends React.Component{
                         <p className="w-full text-xl font-bold text-black-darker py-4 px-6">Pilih Metode Pembayaran</p>
                         <div className="w-full px-6 text-gray-600">
                             <span className="float-left">Total Harga Order:</span>
-                            <span className="float-right font-bold">Rp.754.000</span>
+                            <span className="float-right font-bold">Rp. {numeral(754000).format('0,0')}</span>
                         </div>
                     </div>
                     <div className="pb-5 px-6">

@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Truck from './../../assets/images/icons/truck.svg';
@@ -98,15 +99,15 @@ export default class CartModal extends React.Component{
                                 <hr className="border-b-1 border-black-darker my-2" />
                                 <div className="flex flex-nowrap flex-auto my-2">
                                     <p className="flex-auto text-left leading-none">Harga Normal Produk</p>
-                                    <p className="text-right font-bold text-black-darker leading-none">Rp.300.000</p>
+                                    <p className="text-right font-bold text-black-darker leading-none">Rp. {numeral(300000).format('0,0')}</p>
                                 </div>
                                 <div className="flex flex-nowrap flex-auto my-2">
                                     <p className="flex-auto text-left leading-none">Diskon Produk</p>
-                                    <p className="text-right font-bold text-black-darker leading-none">-Rp.50.000</p>
+                                    <p className="text-right font-bold text-black-darker leading-none">-Rp. {numeral(50000).format('0,0')}</p>
                                 </div>
                                 <div className="flex flex-nowrap flex-auto my-2">
                                     <p className="flex-auto text-left leading-none">Total Harga Produk (7 Barang)</p>
-                                    <p className="text-right font-bold text-black-darker leading-none">Rp.2.300.000</p>
+                                    <p className="text-right font-bold text-black-darker leading-none">Rp. {numeral(2300000).format('0,0')}</p>
                                 </div>
                                 <div className="flex flex-wrap p-3 mt-3 justify-center">
                                     <button

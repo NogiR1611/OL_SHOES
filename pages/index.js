@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import Footer from './../components/footer/footer.js';
 import CartModal from './../components/modals/cartModal.js';
 import AmountOfProduct from './../components/modals/cartSubModal/amountOfProduct.js';
@@ -120,8 +121,8 @@ class Index extends React.Component{
                                                 <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
                                                 <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
                                                 <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
-                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp 320.000</span>
-                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp {element.price}</span>
+                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp. {numeral(320000).format('0,0')}</span>
+                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp {numeral(element.price).format('0,0')}</span>
                                             </div>
                                             <div className="mx-1 font-bold self-center">
                                                 {this.state.amount === null ? element.amount : this.state.amount}
@@ -166,7 +167,7 @@ class Index extends React.Component{
                                             </div>
                                             <div className="self-center flex-auto">
                                                 <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
-                                                <p className="text-white text-xs md:text-sm">Rp.320000</p>
+                                                <p className="text-white text-xs md:text-sm">Rp. {numeral(320000).format('0,0')}</p>
                                             </div>
                                         </div>
                                         <div className="flex self-center">

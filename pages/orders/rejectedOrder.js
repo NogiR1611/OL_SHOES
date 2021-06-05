@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import Footer from './../../components/footer/footer.js';
 import SearchModal from './../../components/modals/searchModal.js';
 import FilterModal from './../../components/modals/filterModal.js';
@@ -105,7 +106,7 @@ export default class RejectedOrder extends React.Component{
                             <div className="flex-1 w-10/12 ml-2 whitespace-nowrap overflow-ellipsis overflow-hidden">
                                 <p className="block uppercase text-sm lg:text-base text-gray-lighter-2 tracking-tighter font-bold whitespace-nowrap overflow-ellipsis overflow-hidden">VANS OLD SKOOL BLACK WHITE</p>
                                 <p className="uppercase text-sm lg:text-base text-gray-lighter-1">SIZE 40</p>
-                                <p className="text-xs lg:text-sm text-gray-lighter-1">Rp.280.000</p>
+                                <p className="text-xs lg:text-sm text-gray-lighter-1">Rp. {numeral(280000).format('0,0')}</p>
                             </div>
                             <div className="flex-shrink font-bold text-sm lg:text-base">
                                 <span className="my-4 float-right text-gray-lighter-2">3</span>
@@ -115,23 +116,23 @@ export default class RejectedOrder extends React.Component{
                         <div className="py-2">
                             <div className="w-full py-2">
                                 <span className="float-left text-xs lg:text-sm text-gray-lighter-1 font-medium">Harga Normal Produk</span>
-                                <span className="float-right font-bold text-sm lg:text-base text-black-darker">Rp.840.000</span>
+                                <span className="float-right font-bold text-sm lg:text-base text-black-darker">Rp. {numeral(840000).format('0,0')}</span>
                             </div>
                             <div className="w-full py-4">
                                 <span className="float-left text-xs lg:text-sm text-gray-lighter-1 font-medium">Ongkos Kirim</span>
-                                <span className="float-right font-bold text-sm lg:text-base text-black-darker">(3.0 Kg) Rp.24.000</span>
+                                <span className="float-right font-bold text-sm lg:text-base text-black-darker">(3.0 Kg) Rp. {numeral(24000).format('0,0')}</span>
                             </div>
                             <div className="w-full py-2">
                                 <span className="float-left text-xs lg:text-sm text-gray-lighter-1 font-medium">Diskon Pengiriman</span>
-                                <span className="float-right font-bold text-sm lg:text-base text-black-darker"> -Rp.20.000</span>
+                                <span className="float-right font-bold text-sm lg:text-base text-black-darker"> -Rp. {numeral(20000).format('0,0')}</span>
                             </div>
                             <div className="w-full py-4">
                                 <span className="float-left text-xs lg:text-sm text-gray-lighter-1 font-medium">Diskon</span>
-                                <span className="float-right font-bold text-sm lg:text-base text-black-darker"> -Rp.90.000</span>
+                                <span className="float-right font-bold text-sm lg:text-base text-black-darker"> -Rp. {numeral(90000).format('0,0')}</span>
                             </div>
                             <div className="w-full py-2">
                                 <span className="float-left text-xs lg:text-sm text-gray-lighter-1 font-medium">Total Harga Order</span>
-                                <span className="float-right font-bold text-sm lg:text-base text-black-darker">Rp.754.000</span>
+                                <span className="float-right font-bold text-sm lg:text-base text-black-darker">Rp. {numeral(754000).format('0,0')}</span>
                             </div>
                         </div>
                         <div className="flex flex-auto flex-nowrap w-full mt-4">
@@ -158,7 +159,7 @@ export default class RejectedOrder extends React.Component{
                             </div>
                             <div className="flex-1 w-9/12">
                                 <p className="font-bold text-sm lg:text-base text-black-darker">JNE OKE</p>
-                                <p className="text-gray-lighter-1 text-xs lg:text-sm font-medium">Rp.4.000</p>
+                                <p className="text-gray-lighter-1 text-xs lg:text-sm font-medium">Rp. {numeral(4000).format('0,0')}</p>
                                 <p className="text-gray-lighter-1 text-xs lg:text-sm font-medium">Metode Pengiriman</p>
                             </div>
                             <p className="flex-shrink text-sm lg:text-base self-center font-bold text-right text-black-darker tracking-tighter">Belum Terkirim</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
@@ -15,36 +16,38 @@ export default class EPayment extends React.Component{
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
                     <div className="md:h-9 md:w-480" />
-                    <div className="py-4">
-                        <p className="w-full text-xl font-bold text-gray-800">Pilih E-Payment</p>
-                        <div className="w-full py-2 text-gray-600">
-                            <span className="float-left">Total Harga:</span>
-                            <span className="float-right font-bold">Rp.754.000</span>
+                    <p className="w-full text-xl font-semibold text-black-darker px-6 py-4">Pilih E-Payment</p>
+                    <div className="px-6 pb-5">
+                        <div className="flex flex-nowrap flex-auto w-full mb-2 text-black-darker">
+                            <span className="flex flex-auto">Total Harga:</span>
+                            <span className="flex flex-none font-semibold">Rp. {numeral(754000).format('0,0')}</span>
                         </div>
-                        <div className="w-full py-4 text-gray-600">
-                            <span className="float-left">Biaya E-Payment:</span>
-                            <span className="float-right font-bold">Rp.3.000</span>
+                        <div className="flex flex-nowrap flex-auto w-full mb-2 text-black-darker">
+                            <span className="flex flex-auto">Biaya E-Payment:</span>
+                            <span className="flex flex-none font-semibold">Rp. {numeral(3000).format('0,0')}</span>
                         </div>
-                        <div className="w-full py-2 text-gray-600">
-                            <span className="float-left">Total Pembayaran:</span>
-                            <span className="float-right font-bold">Rp.757.000</span>
+                        <div className="flex flex-nowrap flex-auto w-full mb-2 text-black-darker">
+                            <span className="flex flex-auto">Total Pembayaran:</span>
+                            <span className="flex flex-none font-semibold">Rp. {numeral(757000).format('0,0')}</span>
+                        </div>
+                        <div
+                            className="flex flex-nowrap flex-auto h-12 px-5 text-sm cursor-pointer shadow-xl rounded-md bg-white hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out"
+                            onClick={e => e.preventDefault()}
+                        >
+                            <div className="flex flex-col flex-auto text-center self-center">
+                                <p className="text-black-darker font-semibold">OVO</p>
+                                <p className="text-red-darker-1">Merchant: EPAY</p>
+                            </div>
+                            <div className="flex flex-none">
+                                <img 
+                                    src="https://d1ggq58xg1ha0k.cloudfront.net/_nuxt/img/ovo.f732f22.svg"
+                                    className="self-center h-10 w-10"
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div
-                        className="flex flex-wrap py-2 my-4 cursor-pointer shadow-xl rounded-md bg-white hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out"
-                        onClick={e => e.preventDefault()}
-                    >
-                        <div className="w-9/12 text-center">
-                            <p className="text-gray-700 font-semibold">OVO</p>
-                            <span className="text-red-700 font-normal">Merchant: EPAY</span>
-                        </div>
-                        <img 
-                            src="https://gadgetren.com/wp-content/uploads/2019/07/OVO-Logo.jpg"
-                            className="w-2/12 mx-auto"
-                        />
-                    </div>
-                </div>
-            </Modal>
+            </div>
+        </Modal>
         )
     }
 }

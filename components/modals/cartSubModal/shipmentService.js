@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Circle from './../../../assets/images/icons/circle.svg';
@@ -71,8 +72,8 @@ export default class ShipmentService extends React.Component{
                                         }
                                         <div className="flex-auto">
                                             <div className="">
-                                                <span className="line-through text-gray-lighter-1 mr-1">Rp {element.firstPrice}</span>
-                                                <span className="text-black-darker">Rp {element.discountPrice}</span>
+                                                <span className="line-through text-gray-lighter-1 mr-1">Rp. {numeral(element.firstPrice).format('0,0')}</span>
+                                                <span className="text-black-darker">Rp {numeral(element.discountPrice).format('0,0')}</span>
                                             </div>
                                             <div className="py-1">
                                                 <span className="text-gray-lighter-1 text-sm">{element.timeDelivery} Hari</span>
@@ -100,7 +101,7 @@ export default class ShipmentService extends React.Component{
                                                         </g>
                                                     </svg>
                                                 </div>
-                                                <label for="A3-yes" class="cursor-pointer select-none text-black-darker">Gunakan Asuransi Rp.6.500</label>
+                                                <label for="A3-yes" class="cursor-pointer select-none text-black-darker">Gunakan Asuransi Rp. {numeral(6500).format('0,0')}</label>
                                             </div>
                                         </div>
                                         <button

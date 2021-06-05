@@ -46,6 +46,23 @@ module.exports = {
             display: 'none',
           }
         },
+        'bouncing' : {
+          '0%' : {
+            top: '-2px'
+          },
+          '25%': {
+            bottom: '-2px'
+          },
+          '50%': {
+            top: '-2px'
+          },
+          '75%': {
+            bottom: '-2px'
+          },
+          '100%': {
+            bottom: '0px'
+          }
+        },
         'sliding-down' : {
           '0%' : {
             display : 'none'
@@ -65,6 +82,7 @@ module.exports = {
       },
       animation: {
         'fade' : 'fade 1s ease-in-out',
+        'bouncing' : 'bouncing 1.5s ease-in-out',
         'sliding-down' : 'sliding-down 3s ease-in-out',
         'sliding-up' : 'sliding-up 3s ease-in-out'
       },

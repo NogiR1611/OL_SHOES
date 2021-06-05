@@ -1,5 +1,6 @@
 import React from 'react';
 import NumberFormat from 'react-number-format';
+import numeral from 'numeral';
 import Like from './../../assets/images/icons/like.svg';
 import Plus from './../../assets/images/icons/plus.svg';
 import Truck from './../../assets/images/icons/truck.svg';
@@ -23,17 +24,17 @@ export default class DescriptionProductCard extends React.Component{
                 <p className="font-medium leading-6 text-xl py-2 text-black-darker">
                     {this.props.titleProduct}
                 </p>
-                <p className="text-gray-lighter-1 line-through">{this.props.realPrice}</p>
-                <p className="text-red-darker-1">{this.props.discountPrice}</p>
+                <p className="text-gray-lighter-1 line-through">Rp. {numeral(this.props.realPrice).format('0,0')}</p>
+                <p className="text-red-darker-1">Rp. {numeral(this.props.discountPrice).format('0,0')}</p>
                 <div className="mt-2">
                     <div className="inline-block bg-red-darker-1 text-white text-sm mt-1">
-                        <span>Beli Rp.200.000 Diskon Rp.30.000</span>
+                        <span>Beli Rp {numeral(300000).format('0,0')} Diskon Rp {numeral(30000).format('0,0')}</span>
                     </div>
                     <div className="inline-flex flex-nowrap flex-auto py-1 w-full">
                         <Plus className="inline-block self-center" width={26} height={16} />
                         <div className="flex flex-auto flex-nowrap text-sm bg-red-darker-1 px-1 text-white">
                             <Truck className="float-left inline-block self-center fill-current text-white mx-1" width={16} height={14} />
-                            <span className="w-full">Beli minimum 330000, dapatkan 25000 Diskon Pengiriman</span>
+                            <span className="w-full">Beli minimum Rp. {numeral(330000).format('0,0')}, dapatkan Rp. {numeral(25000).format('0,0')} Diskon Pengiriman</span>
                             <ArrowDown className="float-right inline-block self-center fill-current text-white" width={24} height={24} />
                         </div>
                     </div>
@@ -41,7 +42,7 @@ export default class DescriptionProductCard extends React.Component{
                         <Plus className="inline-block self-center" width={26} height={16} />
                         <div className="flex flex-auto flex-nowrap text-sm bg-red-darker-1 px-1 text-white">
                             <Truck className="float-left inline-block self-center fill-current text-white mx-1" width={16} height={14} />
-                            <span>Beli minimum 300000, dapatkan 25000 Diskon Pengiriman</span>
+                            <span>Beli minimum Rp. {numeral(300000).format('0,0')}, dapatkan Rp. {numeral(25000).format('0,0')} Diskon Pengiriman</span>
                         </div>
                     </div>
                     <button
@@ -81,7 +82,7 @@ export default class DescriptionProductCard extends React.Component{
                     <div className="flex justify-between">
                         <p>Perkiraan:</p>
                         <button className="text-sm flex hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1">
-                            <span className="self-center">Rp.8000</span>
+                            <span className="self-center">Rp. {numeral(8000).format('0,0')}</span>
                             <Alert className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>
                     </div>
@@ -97,7 +98,7 @@ export default class DescriptionProductCard extends React.Component{
                         <div className="flex-auto">
                             <p className="text-black-darker font-medium">Size 40</p>
                             <div className="flex flex-wrap text-sm">
-                                <p className="mr-1 text-red-darker-1">Rp.300.000</p>
+                                <p className="mr-1 text-red-darker-1">Rp. {numeral(8000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
                             </div>
                         </div>
@@ -112,7 +113,7 @@ export default class DescriptionProductCard extends React.Component{
                         <div className="flex-auto">
                             <p className="text-black-darker font-medium">Size 42</p>
                             <div className="flex flex-wrap text-sm">
-                                <p className="mr-1 text-red-darker-1">Rp.300.000</p>
+                                <p className="mr-1 text-red-darker-1">Rp. {numeral(300000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
                             </div>
                         </div>
@@ -127,7 +128,7 @@ export default class DescriptionProductCard extends React.Component{
                         <div className="flex-auto">
                             <p className="text-black-darker font-medium">Size 43</p>
                             <div className="flex flex-wrap text-sm">
-                                <p className="mr-1 text-red-darker-1">Rp.300.000</p>
+                                <p className="mr-1 text-red-darker-1">Rp. {numeral(300000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
                             </div>
                         </div>
@@ -142,7 +143,7 @@ export default class DescriptionProductCard extends React.Component{
                         <div className="flex-auto">
                             <p className="text-black-darker font-medium">Size 44</p>
                             <div className="flex flex-wrap text-sm">
-                                <p className="mr-1 text-red-darker-1">Rp.300.000</p>
+                                <p className="mr-1 text-red-darker-1">Rp. {numeral(300000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
                             </div>
                         </div>

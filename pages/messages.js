@@ -126,21 +126,36 @@ export default class Messages extends React.Component{
                     </div>
                     <div className="bg-gray-lighter-4 w-full min-h-screen">
                         <div className="w-1/2 mx-auto pt-4 pb-20 flex-col">
-                            <div className="flex justify-end mt-4 ml-20">
-                                <div className="bg-red-darker-1 rounded-xl w-80 p-2 text-white text-left">
-                                    <p>Permisi apa ada yang bisa saya Chat lewat sini?</p>
+                            <div className="flex justify-end mt-4 ml-20">  
+                                <div className="flex flex-col">
+                                    <div className="bg-red-darker-1 rounded-xl w-80 p-2 text-white text-left">
+                                        <p>Permisi apa ada yang bisa saya Chat lewat sini?</p>
+                                    </div>
+                                    <div className="flex justify-start pl-3 mt-1">
+                                        <p className="text-sm text-gray-lighter-1">15 Mei 2021 14:36</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex justify-start mt-4 mr-10">
-                                <div className="bg-white rounded-xl w-80 p-2 text-black-darker text-left">
-                                    <p>Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja
-                                    Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja
-                                    </p>
+                                <div className="flex flex-col">
+                                    <div className="bg-white rounded-xl w-80 p-2 text-black-darker text-left">
+                                        <p>Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja
+                                        Iya Kak silahkan diorder saja Iya Kak silahkan diorder saja
+                                        </p>
+                                    </div>
+                                    <div className="flex justify-start pl-3 mt-1">
+                                        <p className="text-sm text-gray-lighter-1">15 Mei 2021 14:36</p>
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex justify-end mt-4 ml-20">
-                                <div className="bg-red-darker-1 rounded-xl w-80 p-2 text-white text-left">
-                                    <p>Oke siap min</p>
+                                <div className="flex flex-col">
+                                    <div className="bg-red-darker-1 rounded-xl w-80 p-2 text-white text-left">
+                                        <p>Oke siap min</p>
+                                    </div>
+                                    <div className="flex justify-start pl-3 mt-1">
+                                        <p className="text-sm text-gray-lighter-1">15 Mei 2021 14:36</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

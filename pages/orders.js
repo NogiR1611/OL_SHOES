@@ -1,4 +1,5 @@
 import React from 'react';
+import numeral from 'numeral';
 import Locked from './../assets/images/icons/locked.svg';
 import Lists from './../assets/images/icons/orders.svg';
 import Footer from './../components/footer/footer.js';
