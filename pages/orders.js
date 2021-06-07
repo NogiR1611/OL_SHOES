@@ -3,7 +3,8 @@ import numeral from 'numeral';
 import Locked from './../assets/images/icons/locked.svg';
 import Lists from './../assets/images/icons/orders.svg';
 import Footer from './../components/footer/footer.js';
-import OrderCard from './../components/cards/OrderCard.js';
+import RejectedOrderCard from './../components/cards/RejectedOrderCard.js';
+import WaitingOrderCard from './../components/cards/WaitingOrderCard.js';
 import SearchModal from './../components/modals/searchModal.js';
 import ContactModal from './../components/modals/contactModal.js';
 import FilterModal from './../components/modals/filterModal.js';
@@ -164,16 +165,20 @@ export default class Orders extends React.Component{
                         {this.state.orderData ?
                             this.state.orderData.map((element,index) => {
                                 return (
-                                    <OrderCard 
-                                        href={`/orders/${element.id}`}
-                                        numberOrder={element.number}
-                                        dateOrder={element.date}
-                                        size={element.size}
-                                        imageProduct={element.imgProduct}
-                                        statusOrder={element.status}
-                                    />
+                                    <>
+                                        <RejectedOrderCard 
+                                            href={`/orders/${element.id}`}
+                                            numberOrder={element.number}
+                                            dateOrder={element.date}
+                                            size={element.size}
+                                            imageProduct={element.imgProduct}
+                                            statusOrder={element.status}
+                                        />
+                                        <WaitingOrderCard />
+                                    </>
                                 )
-                            }) : (
+                            }) 
+                            : (
                             <div className="mx-auto w-11/12 md:w-3/4 lg:w-1/2">    
                                 <p className="bg-gray-300 p-4 rounded-md text-gray-700">
                                     Kamu bisa mengecek order kamu dan update-nya di daftar ini.

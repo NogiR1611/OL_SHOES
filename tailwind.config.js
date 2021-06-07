@@ -5,6 +5,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class' 
   theme: {
     screens: {
+      'hp-one' : '320px',
+      'hp-two' : '375px',
       'hp' : '425px',
       'tablet-600' : '600px',
       'md' : '768px',
@@ -136,6 +138,7 @@ module.exports = {
         '450'  : '450px',
         '480'  : '480px',
         '560'  : '560px',
+        '512'  : '512px', 
       },
       height: {
         '1/10' : '10%',
@@ -149,6 +152,7 @@ module.exports = {
         '9/10' : '90%',
         '480'  : '480px',
         '560'  : '560px',
+        '512'  : '512px', 
       },
       transformOrigin: {
         "0": "0%",

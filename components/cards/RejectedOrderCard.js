@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Lists from './../../assets/images/icons/orders.svg';
 
-export default class OrderCard extends React.Component{
+export default class RejectedOrderCard extends React.Component{
     render(){
         return (
             <Link href={this.props.href}>

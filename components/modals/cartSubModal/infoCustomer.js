@@ -382,40 +382,40 @@ export default class InfoCustomer extends React.Component{
                         </div>
                     </div>
                 </Modal>
-                <Modal
-                    styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
-                    open={this.state.district}
-                    onClose={this.onCloseModalDistrict}
-                    closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
-                    center
-                >
-                    <div className="bg-gray-lighter md:w-480 w-full items-center">
-                        <div className="flex justify-center md:hidden">
-                            <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
-                        </div>
-                        <div className="md:h-9 md:w-480" />
-                        <div className="py-4 px-6">
-                            <p className="text-xl text-gray-800 font-semibold py-1">3.Pilih Kecamatan</p>
-                            <p className="text-gray-800 py-1">{this.state.provinceName},{this.state.cityName} : </p>
-                        </div>
-                        <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
-                            <input
-                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
-                                type="text"
-                                name="product"
-                                id="product" 
-                                value={this.state.searchDistrict}
-                                onChange={ (e) => this.setState({ searchDistrict : e.target.value }) }
-                            />
-                            {this.state.searchDistrict !== '' ?
-                                <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchDistrict : '' }) }>
-                                    <Clear className="inline-block float-right mx-1" width={15} height={15} />
-                                </button> : 
-                                <Search className="inline-block float-right mx-2" width={22} height={22} />
-                            }
-                        </div>
-                        <div className="max-h-96 overflow-y-auto">
-                            {this.state.districtData
+            <Modal
+                styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
+                open={this.state.district}
+                onClose={this.onCloseModalDistrict}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                center
+            >
+                <div className="bg-gray-lighter md:w-480 w-full items-center">
+                    <div className="flex justify-center md:hidden">
+                        <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                    </div>
+                    <div className="md:h-9 md:w-480" />
+                    <div className="py-4 px-6">
+                        <p className="text-xl text-gray-800 font-semibold py-1">3.Pilih Kecamatan</p>
+                        <p className="text-gray-800 py-1">{this.state.provinceName},{this.state.cityName} : </p>
+                    </div>
+                    <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
+                        <input
+                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
+                            type="text"
+                            name="product"
+                            id="product" 
+                            value={this.state.searchDistrict}
+                            onChange={ (e) => this.setState({ searchDistrict : e.target.value }) }
+                        />
+                        {this.state.searchDistrict !== '' ?
+                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchDistrict : '' }) }>
+                                <Clear className="inline-block float-right mx-1" width={15} height={15} />
+                            </button> : 
+                            <Search className="inline-block float-right mx-2" width={22} height={22} />
+                        }
+                    </div>
+                    <div className="max-h-96 overflow-y-auto">
+                        {this.state.districtData
                             .filter(element => {
                                 return (
                                     element.subdistrict_name.toLowerCase().includes(this.state.searchDistrict.toString().toLowerCase())    

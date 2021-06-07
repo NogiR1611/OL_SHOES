@@ -2,7 +2,9 @@ import React from 'react';
 import numeral from 'numeral';
 import Footer from './../../components/footer/footer.js';
 import FlashAlert from './../../components/cards/FlashAlertCard.js';
-import CarouselCard from './../../components/cards/CarouselCard.js';
+import ListImagesCard from './../../components/cards/ListImagesCard.js';
+import ModalImageProduct from './../../components/modals/ModalImagesProduct.js';
+import DisplayImageCard from './../../components/cards/DisplayImageCard.js';
 import DescriptionProductCard from './../../components/cards/DescriptionProductCard.js';
 import CarouselProductCard from './../../components/cards/CarouselProductCard.js';
 import {Router} from './../../routes.js';
@@ -35,10 +37,28 @@ export const Sidebar = dynamic(() => {
     return import('./../../components/sidebar/sidebar.js')
 },{ ssr:false });
 
+const imgUrls = [
+    "https://source.unsplash.com/3Z70SDuYs5g/800x600",
+    "https://source.unsplash.com/01vFmYAOqQ0/800x600",
+    "https://source.unsplash.com/2Bjq3A7rGn4/800x600",
+    "https://source.unsplash.com/t20pc32VbrU/800x600",
+    "https://source.unsplash.com/pHANr-CpbYM/800x600",
+    "https://source.unsplash.com/3PmwYw2uErY/800x600",
+    "https://source.unsplash.com/uOi3lg8fGl4/800x600",
+    "https://source.unsplash.com/CwkiN6_qpDI/800x600",
+    "https://source.unsplash.com/9O1oQ9SzQZQ/800x600",
+    "https://source.unsplash.com/E4944K_4SvI/800x600",
+    "https://source.unsplash.com/-hI5dX2ObAs/800x600",
+    "https://source.unsplash.com/vZlTg_McCDo/800x600"
+];                                    
+
 export default class ContentProduct extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            imgIndex: 0,
+            imgUrlLength :imgUrls.length,
+            showImgModal : false,
             openSearch : false,
             openFilter : false,
             showSidebar : false,
@@ -130,6 +150,36 @@ export default class ContentProduct extends React.Component{
         Router.pushRoute('/orders');
     } 
 
+    openModal = () => {
+        this.setState({ showImgModal:true })
+    }
+
+    closeModal = () => {
+        this.setState({ showImgModal:false })
+    }
+
+    nextClick = () => {
+        this.setState(prevState => {
+            return {
+                imgIndex:
+                    prevState.imgIndex === prevState.imgUrlLength - 1
+                    ? 0
+                    : prevState.imgIndex + 1
+            };
+        });
+    }
+
+    prevClick = () => {
+        this.setState(prevState => {
+            return {
+                imgIndex:
+                    prevState.imgIndex === 0 
+                    ? prevState.imgUrlLength - 1
+                    : prevState.imgIndex - 1
+            };
+        });
+    }
+
     componentDidMount(){
         let appState = localStorage["cart"];
 
@@ -144,6 +194,7 @@ export default class ContentProduct extends React.Component{
     }
 
     render(){
+        console.log(this.state.imgIndex);
         return (
             <>
                 <Sidebar
@@ -280,7 +331,7 @@ export default class ContentProduct extends React.Component{
                                             className="h-12 w-full flex-column text-center text-sm rounded shadow bg-white mt-4 focus:outline-none"
                                         >
                                             <p className="text-darker-1 text-sm font-medium">SIZE {element.size}</p>
-                                            <span className="text-lighter-1 text-sm">Stok {element.status} </span><span className="text-red-darker-1 text-sm">({element.price})</span>
+                                            <span className="text-lighter-1 text-sm">Stok {element.status} </span><span className="text-red-darker-1 text-sm">(Rp. {numeral(element.price).format('0,0')})</span>
                                         </button>
                                     )
                                 })
@@ -364,7 +415,7 @@ export default class ContentProduct extends React.Component{
                         />
                         {/**Modal For Credit And Debit */}
                         <CreditAndDebit
-                            creditAndDebit={this.state.creditAndDebit}
+                            creditAndDebit={this.state.creditAndDebit} 
                             onCloseCreditAndDebit={() => this.setState({ creditAndDebit:false,paymentService:true }) }
                         />
                     </>
@@ -372,7 +423,24 @@ export default class ContentProduct extends React.Component{
                         <div className="w-11/12 mx-auto">
                             <div className="flex flex-wrap flex-auto">
                                 <div className="flex-auto w-1/2">
-                                    <CarouselCard />
+                                    <DisplayImageCard 
+                                        imgUrls={imgUrls}
+                                        changeIndex={i => this.setState({ imgIndex:i })}
+                                        openModal={this.openModal}
+                                        activeIndex={this.state.imgIndex}
+                                    />
+                                    <ListImagesCard
+                                        imgUrls={imgUrls} 
+                                        changeIndex={i => this.setState({ imgIndex:i })} 
+                                        activeIndex={this.state.imgIndex}
+                                    />
+                                    <ModalImageProduct 
+                                        isOpen={this.state.showImgModal}
+                                        onClose={this.closeModal}
+                                        onNext={this.nextClick}
+                                        onPrev={this.prevClick}
+                                        src={imgUrls[this.state.imgIndex]}
+                                    />
                                 </div>
                                 <div className="flex-auto w-1/2">
                                     <DescriptionProductCard 

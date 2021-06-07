@@ -1,7 +1,7 @@
 import React from 'react';
 import Locked from './../assets/images/icons/locked.svg';
 import Send from './../assets/images/icons/send.svg';
-import Footer from './../components/footer/footer.js';
+import Note from './../assets/images/icons/note.svg';
 import SearchModal from './../components/modals/searchModal.js';
 import ContactModal from './../components/modals/contactModal.js';
 import FilterModal from './../components/modals/filterModal.js';
@@ -158,27 +158,101 @@ export default class Messages extends React.Component{
                                     </div>
                                 </div>
                             </div>
+                            <div className="flex justify-start mt-4 mr-10">
+                                <div className="flex flex-col">
+                                    <div className="p-2 bg-white w-80 rounded-xl">
+                                        <p className="text-red-darker-1 font-semibold">Status: Menunggu pembayaran</p>
+                                        <p className="text-black-darker">
+                                            Mohon lakukan pembayaran agar order kamu tidak dibatalkan
+                                        </p>
+                                    </div>
+                                    <div className="mt-2 bg-white rounded-xl w-80 py-4 px-2">
+                                        <button 
+                                            className="flex flex-auto flex-nowrap bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 linear w-full h-8 rounded-lg px-3 focus:outline-none"
+                                        >
+                                            <div className="flex flex-none self-center">
+                                                <Note 
+                                                    width={24}
+                                                    height={24}
+                                                    className="h-6 w-6 self-center"
+                                                />
+                                            </div>
+                                            <div className="flex flex-auto justify-center self-center">
+                                                <p className="text-black-darker font-semibold">Lihat Order</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div className="flex justify-start pl-3 mt-1">
+                                        <p className="text-sm text-gray-lighter-1">15 Mei 2021 14:36</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-start mt-4 mr-10">
+                                <div className="flex flex-col">
+                                    <div className="p-2 bg-white w-80 rounded-xl">
+                                        <p className="text-red-darker-1 font-semibold">Status: Order dibatalkan</p>
+                                        <p className="text-black-darker">
+                                            Mohon maaf atas ketidaknyamanannya. Kamu bisa order ulang produk tersebut di bawah ini.
+                                        </p>
+                                    </div>
+                                    <div className="mt-2 bg-white rounded-xl w-80 py-4 px-2">
+                                        <div className="mb-3">
+                                            <div className="flex flex-nowrap flex-auto pb-2">
+                                                <div className="flex flex-auto flex-col">
+                                                    <p className="font-bold text-black-darker">VANS OLD SKOOL BLACK WHITE</p>
+                                                    <p className="text-gray-lighter-1">SIZE 40</p>
+                                                    <p className="text-gray-lighter-1">(Order Berhasil 22/05/2021)</p>
+                                                </div>
+                                                <div className="flex flex-none ml-2">
+                                                    <img 
+                                                        src="images/products/converse.jpg"
+                                                        className="h-12 w-12"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <hr className="border-b-1 border-gray-300" />
+                                        </div>
+                                        <button 
+                                            className="flex flex-auto flex-nowrap bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 linear w-full h-8 rounded-lg px-3 focus:outline-none"
+                                        >
+                                            <div className="flex flex-none self-center">
+                                                <Note 
+                                                    width={24}
+                                                    height={24}
+                                                    className="h-6 w-6 self-center"
+                                                />
+                                            </div>
+                                            <div className="flex flex-auto justify-center self-center">
+                                                <p className="text-black-darker font-semibold">Lihat Order</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div className="flex justify-start pl-3 mt-1">
+                                        <p className="text-sm text-gray-lighter-1">15 Mei 2021 14:36</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                    <div className="fixed bottom-3 w-full flex justify-center flex flex-nowrap flex-auto">
-                            <div className="flex w-1/2 block relative border-b-2 border-gray-lighter-9 transition duration-500 ease-in-out focus-within:border-red-darker-1 rounded-t-lg">
-                                <input
-                                    type="text" 
-                                    id="messages" 
-                                    name="messages"
-                                    placeholder={this.state.placeholder} 
-                                    onFocus={() => this.setState({ placeholder: '' })}
-                                    onBlur={() => this.setState({ placeholder: 'Pesan' })}
-                                    className="block w-full appearance-none focus:outline-none bg-gray-100 rounded-t-lg pt-4 pl-4" 
-                                />
-                            </div>
-                            <button
-                                className="flex bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-12 w-16 focus:outline-none"
-                            >
-                                <Send className="self-center h-6 w-6 mx-auto fill-current text-white" width={24} height={24} />
-                            </button>
-                        </div>
+                <div className="fixed bottom-3 w-full flex justify-center flex flex-nowrap flex-auto">
+                    <div className="flex w-1/2 block relative border-b-2 border-gray-lighter-9 transition duration-500 ease-in-out focus-within:border-red-darker-1 rounded-t-lg">
+                        <input
+                            type="text" 
+                            id="messages" 
+                            name="messages"
+                            placeholder={this.state.placeholder} 
+                            onFocus={() => this.setState({ placeholder: '' })}
+                            onBlur={() => this.setState({ placeholder: 'Pesan' })}
+                            className="block w-full appearance-none focus:outline-none bg-gray-100 rounded-t-lg pt-4 pl-4" 
+                        />
+                    </div>
+                    <button
+                        className="flex bg-green-whatsapp transition duration-300 ease-in-out shadow-md hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-12 w-16 focus:outline-none"
+                    >
+                        <Send className="self-center h-6 w-6 mx-auto fill-current text-white" width={24} height={24} />
+                    </button>
+                </div>
             </div>
         );
     }

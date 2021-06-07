@@ -74,14 +74,14 @@ export default class DescriptionProductCard extends React.Component{
                     <p className="mb-2 font-medium">Pengiriman</p>
                     <div className="flex justify-between">
                         <p>Kirim ke:</p>
-                        <button className="text-sm bg-transparent hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 py-1">
+                        <button className="text-sm bg-transparent focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 py-1">
                             <span>Bekasi,Cikarang Barat</span>
                             <ArrowDown className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>
                     </div>
                     <div className="flex justify-between">
                         <p>Perkiraan:</p>
-                        <button className="text-sm flex hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1">
+                        <button className="text-sm flex focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1">
                             <span className="self-center">Rp. {numeral(8000).format('0,0')}</span>
                             <Alert className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>

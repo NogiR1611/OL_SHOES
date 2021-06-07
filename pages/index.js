@@ -3,6 +3,8 @@ import numeral from 'numeral';
 import Footer from './../components/footer/footer.js';
 import CartModal from './../components/modals/cartModal.js';
 import AmountOfProduct from './../components/modals/cartSubModal/amountOfProduct.js';
+import ListAddress from './../components/modals/cartSubModal/listAddress.js';
+import OptionAddress from './../components/modals/cartSubModal/optionAddress.js';
 import SearchModal from './../components/modals/searchModal.js';
 import FilterModal from './../components/modals/filterModal.js';
 import ProductCards from './../components/cards/ProductCards.js';
@@ -43,6 +45,8 @@ class Index extends React.Component{
             openSearch : false,
             openFilter : false,
             namePage : 'product',
+            addressSaved : false,
+            listAddress : false,
             showSidebar : false,
             showCart: false,
             cart: false,
@@ -54,6 +58,7 @@ class Index extends React.Component{
             size: null,
             amount: null,
             openChat: false,
+            tag: ["#adidas aw","#nike","#vans","#converse","#allstar","#airforce","#allstar","#authen","#authentic","#chuka",,"#converse60","#era","#macbeth","#revenge","#slip"],
         }
     }
 
@@ -107,7 +112,7 @@ class Index extends React.Component{
                         openCart={this.state.cart}
                         onCloseCart={() => this.setState({ cart:false })}
                         continueToShop={() => this.setState({ cart:false })}
-                        removeModal={() => this.setState({ cart:false })}
+                        removeModal={() => this.setState({ cart:false,addressSaved:true })}
                         renderProductData={
                             this.state.data.map((element,index) => {
                                 return (
@@ -149,7 +154,16 @@ class Index extends React.Component{
                         onReduceAmount={() => this.setState({ amount : this.state.amount - 1 })}
                         onAddAmount={() => this.setState({ amount : this.state.amount + 1 })}
                     />
-                        <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
+                    <ListAddress 
+                        openAddressSaved={this.state.addressSaved}
+                        openOptionAddress={() => this.setState({ listAddress:true })}
+                        onCloseAddressSaved={() => this.setState({ addressSaved:false })}
+                    />
+                    <OptionAddress 
+                        openListAddress={this.state.listAddress}
+                        onCloseListAddress={() => this.setState({ listAddress:false })}
+                    />
+                    <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
                         {this.state.showCart ? 
                             <div className="flex flex-auto justify-center px-2">
                                 <button 
@@ -312,6 +326,22 @@ class Index extends React.Component{
                                             </div>
                                             ) : ''
                                         }
+                                    </div>
+                                </div>
+                                <div className="mx-auto mt-6 px-2 w-9/12">
+                                    <div className="flex flex-wrap flex-auto">
+                                        {this.state.tag.map((element,index) => {
+                                            return (
+                                                <div 
+                                                    key={index}
+                                                    className="flex-shrink-0 h-16 py-2 px-1"
+                                                >
+                                                    <a href="#" className="text-black-darker px-2 py-4">
+                                                        {element}
+                                                    </a>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             </div>

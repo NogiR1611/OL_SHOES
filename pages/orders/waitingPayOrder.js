@@ -1,8 +1,10 @@
 import React from 'react';
 import numeral from 'numeral';
+import {format} from 'date-fns';
 import Footer from './../../components/footer/footer.js';
 import SearchModal from './../../components/modals/searchModal.js';
 import FilterModal from './../../components/modals/filterModal.js';
+import VerificationModal from './../../components/modals/verificationModal.js';
 import FlashAlert from './../../components/cards/FlashAlertCard.js';
 import Copy from './../../assets/images/icons/copy.svg';
 import Checklist from './../../assets/images/icons/checklist2.svg';
@@ -28,6 +30,7 @@ export default class WaitingPayOrder extends React.Component{
             namePage : 'ATM',
             showSidebar : false,
             showCopyAlert : false,
+            showVerification : false,
         }
     }
 
@@ -68,6 +71,10 @@ export default class WaitingPayOrder extends React.Component{
         Router.pushRoute('/orders');
     }
 
+    pushMessageRoute = () => {
+        Router.pushRoute('/messages');
+    }
+
     rejectedOrder = () => {
         Router.pushRoute('/orders/1/rejected');
     }
@@ -80,6 +87,7 @@ export default class WaitingPayOrder extends React.Component{
                     changeIcon={this.state.showSidebar}
                     searchOnClick={this.onOpenSearch} 
                     filterOnClick={this.onOpenFilter}
+                    downloadOnClick={() => this.setState({ showVerification:true })}
                     displayDownload={true}
                     displayProfile={true}
                 />
@@ -90,6 +98,10 @@ export default class WaitingPayOrder extends React.Component{
                 ) : null}
                 <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
                 <FilterModal onOpenFilter={this.state.openFilter} onCloseFilter={this.onCloseFilter} />
+                <VerificationModal 
+                    openVerificationModal={this.state.showVerification} 
+                    onCloseVerificationModal={() => this.setState({ showVerification:false })}
+                />
                 <Sidebar
                     searchOnClick={this.onOpenSearch} 
                 />
@@ -98,7 +110,7 @@ export default class WaitingPayOrder extends React.Component{
                         <div className="">
                             <p className="text-xl font-semibold text-black-darker leading-6 mb-2">Order Saya</p>
                             <p className="text-sm lg:text-base font-bold text-black-darker leading-5">No. Order: 013275</p>
-                            <p className="text-sm text-gray-lighter-1 leading-4 mb-4">(Order Berhasil 22/05/2021)</p>
+                            <p className="text-sm text-gray-lighter-1 leading-4 mb-4">(Order Berhasil {format(new Date(),'MM/dd/yyyy')})</p>
                             <hr className="border-b-1 border-gray-300 my-2" />
                         </div>
                         <div className="w-full my-2 pt-6">
@@ -135,7 +147,7 @@ export default class WaitingPayOrder extends React.Component{
                                         <Copy className="inline-block stroke-current stroke-0 text-black cursor-pointer" />
                                     </button>
                                 </div>
-                                <p className="text-xs font-semibold text-red-darker-1">Transfer sebelum <b>23 Mei 2021 06.50</b></p>
+                                <p className="text-xs font-semibold text-red-darker-1">Transfer sebelum <b>{format(new Date(), "dd/MM/yyyy hh.mm")}</b></p>
                             </div>
                         </div>
                         <div className="flex flex-nowrap flex-auto my-2 w-full">
@@ -339,6 +351,7 @@ export default class WaitingPayOrder extends React.Component{
                         </button>
                         <hr className="border-b-1 border-gray-300 my-2" />
                         <button
+                            onClick={this.pushMessageRoute}
                             className="flex w-full p-2 my-2 bg-gray-lighter-4 shadow-md font-semibold text-black-darker text-sm text-center focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-md"
                         >
                             <Sms className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />

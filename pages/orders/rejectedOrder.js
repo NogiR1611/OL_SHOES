@@ -1,5 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
+import {format} from 'date-fns';
 import Footer from './../../components/footer/footer.js';
 import SearchModal from './../../components/modals/searchModal.js';
 import FilterModal from './../../components/modals/filterModal.js';
@@ -82,7 +83,7 @@ export default class RejectedOrder extends React.Component{
                     <div className="">
                             <p className="text-xl font-semibold text-black-darker leading-6 mb-2">Order Saya</p>
                             <p className="text-sm lg:text-base font-bold text-black-darker leading-5">No. Order: 013275</p>
-                            <p className="text-sm text-gray-lighter-1 leading-4 mb-4">(Order Berhasil 22/05/2021)</p>
+                            <p className="text-sm text-gray-lighter-1 leading-4 mb-4">(Order Berhasil {format(new Date(),'MM/dd/yyyy')})</p>
                             <hr className="border-b-1 border-gray-300 my-2" />
                         </div>
                         <div className="w-full my-2 pt-6">

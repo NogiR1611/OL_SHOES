@@ -40,7 +40,7 @@ export default class Header extends React.Component{
                                 (
                                     <button
                                         className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12"
-                                        onClick={this.props.shareOnClick}
+                                        onClick={this.props.downloadOnClick}
                                     >
                                         <Download className="inline-block stroke-current stroke-0 black" width={24} height={24} />
                                     </button>
