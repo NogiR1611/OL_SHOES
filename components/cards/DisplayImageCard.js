@@ -13,16 +13,16 @@ export default class DisplayImageCard extends React.Component{
     render(){ 
         return (
             <>
-            <div className="flex flex-auto">
+            <div className="flex flex-auto flex-col w-full h-full lg:h-1/4">
                 <Slider
                     onSlideComplete={this.props.changeIndex}
                     activeIndex={this.props.activeIndex}
                 >
                     {this.props.imgUrls.map((element,index) => {
                         return (
-                            <div className="aspect-w-3 aspect-h-3" onClick={() => this.props.openModal(this.props.index)}>
+                            <div className="aspect-w-3 aspect-h-3 lg:aspect-none lg:h-auto" onClick={() => this.props.openModal(this.props.index)}>
                                 <img
-                                    className=" object-cover" 
+                                    className="object-cover" 
                                     key={index}
                                     src={element} 
                                 />
@@ -31,16 +31,16 @@ export default class DisplayImageCard extends React.Component{
                     })
                     }
                 </Slider>
-            </div>
-            <div className="flex justify-center mt-2 w-full lg:hidden">
-                {this.props.imgUrls.map((element,index) => {
-                    return (
-                        <div 
-                            onClick={() => this.props.changeDotIndex(index)}
-                            className={"rounded-full h-2 w-2 mr-1 " + (index === this.props.activeIndex ? "bg-black" : "bg-gray-lighter-1")} 
-                        />
-                    );
-                })}
+                <div className="flex justify-center mt-2 w-full lg:hidden">
+                    {this.props.imgUrls.map((element,index) => {
+                        return (
+                            <div 
+                                onClick={() => this.props.changeDotIndex(index)}
+                                className={"rounded-full h-2 w-2 mr-1 " + (index === this.props.activeIndex ? "bg-black" : "bg-gray-lighter-1")} 
+                            />
+                        );
+                    })}
+                </div>
             </div>
             </>
         );
