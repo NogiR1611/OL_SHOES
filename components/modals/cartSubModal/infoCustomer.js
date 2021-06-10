@@ -112,25 +112,24 @@ export default class InfoCustomer extends React.Component{
     }
 
     render(){
-        console.log(this.state.provinceAndCity)
         return (
             <>
                 <Modal
                     styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                     open={this.props.modalInfoCustomer}
                     onClose={this.props.onCloseModalInfoCustomer}
-                    closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                    closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-6 w-6 hp-one:h-8 hp-one:w-8 p-1 flex justify-center" />}
                     center
                 >
                     <div className="bg-gray-lighter w-full h-9/10 md:w-480 items-center">
-                        <div className="md:h-9 md:w-480" />
+                        <div className="h-9 md:w-480" />
                         <div className="flex justify-center md:hidden">
                             <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
                         </div>
-                        <div className="w-full px-6 pt-4 pb-2">
-                            <p className="text-lg font-bold text-gray-800">Informasi Pengiriman</p>
+                        <div className="w-full px-2 hp-one:px-6 pt-4 pb-2">
+                            <p className="text-base hp-one:text-lg font-bold text-gray-800">Informasi Pengiriman</p>
                         </div>  
-                        <div className="w-full px-6">
+                        <div className="w-full px-2 hp-one:px-6">
                             <div className="flex flex-col">
                                 <div className="flex flex-auto">
                                     <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
@@ -141,9 +140,9 @@ export default class InfoCustomer extends React.Component{
                                             value={this.state.nameCustomer}
                                             onChange={e => this.setState({ nameCustomer : e.target.value })}
                                             placeholder=" " 
-                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
-                                        <label for="name" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nama Lengkap Penerima*</label>
+                                        <label for="name" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 text-xs hp-one:text-sm lg:text-base font-medium">Nama Lengkap Penerima*</label>
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
@@ -162,9 +161,9 @@ export default class InfoCustomer extends React.Component{
                                             value={this.state.numberPhone} 
                                             onChange={e => this.setState({ numberPhone : e.target.value })}
                                             placeholder=" " 
-                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
-                                        <label for="number" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nomor HP Penerima*</label>
+                                        <label for="number" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 text-xs hp-one:text-sm lg:text-base font-medium">Nomor HP Penerima*</label>
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
@@ -183,9 +182,9 @@ export default class InfoCustomer extends React.Component{
                                             value={`${this.state.provinceAndCity}`}
                                             onClick={this.clickAddress}
                                             placeholder=" " 
-                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
-                                        <label for="address" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Alamat Penerima*</label>
+                                        <label for="address" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 text-xs hp-one:text-sm lg:text-base font-medium">Alamat Penerima*</label>
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
@@ -206,9 +205,9 @@ export default class InfoCustomer extends React.Component{
                                                 value={this.state.detailAddress}
                                                 onChange={e => this.setState({ detailAddress : e.target.value })}
                                                 placeholder=" " 
-                                                className="block w-full appearance-none focus:outline-none bg-transparent pt-4 pl-4"
+                                                className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none bg-transparent pt-4 pl-4"
                                             />
-                                            <label for="detailAddress" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Alamat Lengkap Penerima*</label>
+                                            <label for="detailAddress" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 text-xs hp-one:text-sm lg:text-base font-medium">Alamat Lengkap Penerima*</label>
                                         </div>
                                     </div>
                                     <div className="flex flex-nowrap flex-auto px-3 pb-2 mt-2">
@@ -217,7 +216,7 @@ export default class InfoCustomer extends React.Component{
                                                 "Mohon isi alamat lengkap anda"
                                             : null}
                                         </p>
-                                        <p className="flex-none text-xs text-black-darker">{this.state.detailAddress.length}/255</p>
+                                        <p className="flex-none text-super-tiny hp-one:text-xs text-black-darker">{this.state.detailAddress.length}/255</p>
                                     </div>
                                 </div>) : null
                             }
@@ -229,15 +228,15 @@ export default class InfoCustomer extends React.Component{
                                             id="email" 
                                             name="email" 
                                             placeholder=" " 
-                                            className="block w-full appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none pt-4 pl-4 bg-transparent" 
                                         />
-                                        <label for="email" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Email Penerima(Opsional)</label>
+                                        <label for="email" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 text-xs hp-one:text-sm lg:text-base font-medium">Email Penerima(Opsional)</label>
                                     </div>
                                 </div>
                                 <div className="flex flex-grow px-3 pb-2 mt-2">
                                 </div>
                             </div> 
-                        <p className="mt-6 text-black-darker text-sm md:text-base">
+                        <p className="mt-6 text-black-darker text-tiny hp-one:text-xs lg:text-base">
                             Saya sudah membaca dan menyetujui<span> </span>
                             <a target="_blank"  href='/terms-and-conditions'>
                                 <span className="text-red-darker-1 underline mx-auto">Syarat & Ketentuan</span>
@@ -249,7 +248,7 @@ export default class InfoCustomer extends React.Component{
                             onClick={this.state.nameCustomer !== '' && this.state.numberPhone !== '' && this.state.address !== '' && this.state.detailAddress !== '' ? 
                                 this.props.shipmentModal : this.validationInfoCustomer
                             }
-                            className="w-full text-center h-12 font-bold bg-red-darker-1 text-white rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 text-medium text-sm focus:outline-none transition duration-300 ease-in-out"
+                            className="w-full text-center h-8 hp-one:h-12 font-bold bg-red-darker-1 text-white rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 text-medium text-xs hp-one:text-sm focus:outline-none transition duration-300 ease-in-out"
                         >
                             Setuju & Lanjutkan
                         </button>
@@ -260,35 +259,35 @@ export default class InfoCustomer extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.province}
                 onClose={this.onCloseModalProvince}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-6 w-6 hp-one:h-8 hp-one:w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
                     <div className="flex justify-center md:hidden">
                         <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
                     </div>
-                    <div className="md:h-9 md:w-480" />
-                    <div className="py-4 px-6">  
-                        <p className="text-xl text-gray-800 font-semibold py-1">1.Pilih Provinsi</p>
-                        <p className="text-gray-800 py-1 mb-4">Kemana kamu mau mengirimkan paket?</p>
-                        <div className="bg-gray-100 focus:bg-gray-400 w-full px-6 rounded-lg">
+                    <div className="h-9 md:w-480" />
+                    <div className="py-4 px-2 hp-one:px-6">  
+                        <p className="text-sm hp-one:text-base lg:text-xl text-gray-800 font-semibold py-1">1.Pilih Provinsi</p>
+                        <p className="text-xs hp-one:text-sm lg:text-base text-gray-800 py-1 mb-4">Kemana kamu mau mengirimkan paket?</p>
+                        <div className="flex flex-nowrap flex-auto text-xs hp-one:text-sm lg:text-base bg-gray-lighter-7 focus:bg-gray-400 w-full rounded-t-lg">
                             <input
-                                className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-darker-1"
+                                className="flex-auto inline-block transition duration-400 ease-in-out bg-transparent border-b-2 border-gray-400 px-2 outline-none focus:border-red-darker-1"
                                 type="text"
-                                name="product"
-                                id="product" 
+                                name=""
+                                id="" 
                                 value={this.state.searchProvince}
                                 onChange={ (e) => this.setState({ searchProvince : e.target.value }) }
                             />
                             {this.state.searchProvince !== '' ?
-                                <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchProvince : '' }) }>
-                                    <Clear className="inline-block " width={15} height={15} />
+                                <button className="bg-transparent flex flex-none focus:outline-none pl-1" onClick={() => this.setState({ searchProvince : '' }) }>
+                                    <Clear className="self-center inline-block h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8" />
                                 </button> : 
-                                <Search className="inline-block pl-1" width={22} height={22} />
+                                <Search className="self-center inline-block pl-1 h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8" />
                             }
                         </div>
                     </div>
-                    <div className="w-full max-h-96 overflow-y-auto">
+                    <div className="w-full max-h-96 text-xs hp-one:text-sm lg:text-base overflow-y-auto">
                         {this.state.provinceData
                         .filter(element => {
                             return (
@@ -299,7 +298,7 @@ export default class InfoCustomer extends React.Component{
                             return (
                                 <div className="w-full pl-6 font-bold text-gray-800" key={index}>
                                     <button
-                                        className="w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                        className="flex flex-nowrap flex-auto w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                         onClick={() => {
                                             this.clickCity(element.id)
                                             this.setState({
@@ -309,8 +308,8 @@ export default class InfoCustomer extends React.Component{
                                             });
                                         }}
                                     >
-                                        {element.name}
-                                        <RightArrow className="inline-block float-right stroke-current stroke-0 text-black" width={24} height={24} />
+                                        <span className="flex-auto self-center">{element.name}</span>
+                                        <RightArrow className="flex-none inline-block float-right stroke-current stroke-0 text-black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </button>
                                     <hr className="border-b-2 border-gray-200" />
                                 </div>
@@ -323,35 +322,35 @@ export default class InfoCustomer extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.city}
                 onClose={this.onCloseModalCity}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-6 w-6 hp-one:h-8 hp-one:w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
                     <div className="flex justify-center md:hidden">
                         <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
                     </div>
-                    <div className="w-full md:h-9 md:w-480" />
-                    <div className="w-full py-4 px-6">
-                        <p className="text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
-                        <p className="text-gray-800 py-1">{this.state.provinceName} : </p>
+                    <div className="w-full h-9 md:w-480" />
+                    <div className="py-4 px-2 hp-one:px-6">
+                        <p className="text-sm hp-one:text-base lg:text-xl text-gray-800 font-semibold py-1">2.Pilih Kota</p>
+                        <p className="text-xs hp-one:text-sm lg:text-base text-gray-800 py-1">{this.state.provinceName} : </p>
+                        <div className="flex flex-nowrap flex-auto w-full text-xs hp-one:text-sm lg:text-base bg-gray-lighter-7 focus:bg-gray-400 py-1 rounded-t-lg">
+                            <input
+                                className="flex-auto inline-block transition duration-400 ease-in-out bg-transparent border-b-2 border-gray-400 px-2 outline-none focus:border-red-darker-1"
+                                type="text"
+                                name=""
+                                id="" 
+                                value={this.state.searchCity}
+                                onChange={ (e) => this.setState({ searchCity : e.target.value }) }
+                            />
+                            {this.state.searchCity !== '' ?
+                                <button className="flex flex-none focus:outline-none pl-1" onClick={() => this.setState({ searchCity : '' }) }>
+                                    <Clear className="self-center inline-block mx-1 h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8 float-right" />
+                                </button> : 
+                                <Search className="self-center inline-block mx-2 h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8 float-right" />
+                            }
+                        </div>
                     </div>
-                    <div className="w-full bg-gray-100 focus:bg-gray-400 py-1 rounded-lg">
-                        <input
-                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-11/12 md:3/12 px-2 outline-none focus:border-red-600"
-                            type="text"
-                            name="product"
-                            id="product" 
-                            value={this.state.searchCity}
-                            onChange={ (e) => this.setState({ searchCity : e.target.value }) }
-                        />
-                        {this.state.searchCity !== '' ?
-                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchCity : '' }) }>
-                                <Clear className="inline-block mx-1 float-right" width={15} height={15} />
-                            </button> : 
-                            <Search className="inline-block mx-2 float-right" width={22} height={22} />
-                        }
-                    </div>
-                        <div className="w-full max-h-96 overflow-y-auto">
+                        <div className="w-full max-h-96 text-xs hp-one:text-sm lg:text-base overflow-y-auto">
                             {this.state.cityData
                             .filter(element => {
                                 return (
@@ -362,7 +361,7 @@ export default class InfoCustomer extends React.Component{
                                 return (
                                     <div className="w-full pl-6 font-bold text-gray-800" key={index}>
                                         <button
-                                            className="w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                            className="flex flex-nowrap flex-auto w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                             onClick={() => {
                                                 this.clickDistrict(element.id)
                                                 this.setState({ 
@@ -372,8 +371,8 @@ export default class InfoCustomer extends React.Component{
                                                 })
                                             }}
                                         >
-                                            {element.name}
-                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black" width={24} height={24} />
+                                            <span className="flex-auto self-center">{element.name}</span>
+                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                         </button>
                                         <hr className="border-b-2 border-gray-200" />
                                     </div>
@@ -386,35 +385,35 @@ export default class InfoCustomer extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.state.district}
                 onClose={this.onCloseModalDistrict}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-6 w-6 hp-one:h-8 hp-one:w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter md:w-480 w-full items-center">
                     <div className="flex justify-center md:hidden">
                         <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
                     </div>
-                    <div className="md:h-9 md:w-480" />
-                    <div className="py-4 px-6">
-                        <p className="text-xl text-gray-800 font-semibold py-1">3.Pilih Kecamatan</p>
-                        <p className="text-gray-800 py-1">{this.state.provinceName},{this.state.cityName} : </p>
+                    <div className="h-9 md:w-480" />
+                    <div className="py-4 px-2 hp-one:px-6">
+                        <p className="text-sm hp-one:text-base lg:text-xl text-gray-800 font-semibold py-1">3.Pilih Kecamatan</p>
+                        <p className="text-xs hp-one:text-sm lg:text-base text-gray-800 py-1">{this.state.provinceName},{this.state.cityName} : </p>
+                        <div className="flex flex-nowrap flex-auto text-xs hp-one:text-sm lg:text-base bg-gray-lighter-7 focus:bg-gray-400 w-full py-1 rounded-t-lg">
+                            <input
+                                className="flex-auto inline-block transition duration-400 ease-in-out bg-transparent border-b-2 border-gray-400 px-2 outline-none focus:border-red-darker-1"
+                                type="text"
+                                name=""
+                                id="" 
+                                value={this.state.searchDistrict}
+                                onChange={ (e) => this.setState({ searchDistrict : e.target.value }) }
+                            />
+                            {this.state.searchDistrict !== '' ?
+                                <button className="flex flex-none focus:outline-none pl-1" onClick={() => this.setState({ searchDistrict : '' }) }>
+                                    <Clear className="self-center inline-block float-right mx-1 h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8" />
+                                </button> : 
+                                <Search className="self-center inline-block float-right mx-2 h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8" />
+                            }
+                        </div>
                     </div>
-                    <div className="bg-gray-100 focus:bg-gray-400 w-full py-1 rounded-lg">
-                        <input
-                            className="inline-block transition duration-400 ease-in-out bg-gray-100 border-b-2 border-gray-400 xl:w-10/12 md:3/12 px-2 outline-none focus:border-red-600"
-                            type="text"
-                            name="product"
-                            id="product" 
-                            value={this.state.searchDistrict}
-                            onChange={ (e) => this.setState({ searchDistrict : e.target.value }) }
-                        />
-                        {this.state.searchDistrict !== '' ?
-                            <button className="focus:outline-none pl-1" onClick={() => this.setState({ searchDistrict : '' }) }>
-                                <Clear className="inline-block float-right mx-1" width={15} height={15} />
-                            </button> : 
-                            <Search className="inline-block float-right mx-2" width={22} height={22} />
-                        }
-                    </div>
-                    <div className="max-h-96 overflow-y-auto">
+                    <div className="max-h-96 text-xs hp-one:text-sm lg:text-base overflow-y-auto">
                         {this.state.districtData
                             .filter(element => {
                                 return (
@@ -425,7 +424,7 @@ export default class InfoCustomer extends React.Component{
                                 return (
                                     <div className="w-full font-bold text-gray-800 pl-6" key={index}>
                                         <button
-                                            className="w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
+                                            className="flex flex-nowrap flex-auto w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                             onClick={() => {
                                                 this.setState({
                                                     districtName: element.districtName,
@@ -434,8 +433,8 @@ export default class InfoCustomer extends React.Component{
                                                 })
                                             }}
                                         >
-                                            {element.subdistrict_name}
-                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black" width={24} height={24} />
+                                            <span className="flex-auto self-center">{element.subdistrict_name}</span>
+                                            <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                         </button>
                                         <hr className="border-b-2 border-gray-200" />
                                     </div>

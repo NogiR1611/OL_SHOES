@@ -18,20 +18,20 @@ export default class Header extends React.Component{
     render(){
         return (
             <>
-                <header className="w-full sticky top-0 z-50"> 
+                <header className="w-full sticky top-0 z-90"> 
                     <div className="flex flex-nowrap flex-auto justify-between items-center bg-gray-lighter text-gray-800 px-2 py-8 md:p-2">
                         <div className="flex justify-start inline-block items-center mr-1">
                             <button
-                                className={"lg:hidden focus:outline-none transition duration-300 ease-in-out bg-gray-lighter-4 hover:bg-gray-lighter-5 rounded-full h-10 w-10 md:h-12 md:w-12"}
+                                className={"lg:hidden focus:outline-none transition duration-300 ease-in-out bg-gray-lighter-4 hover:bg-gray-lighter-5 rounded-full h-8 w-8 hp-one:h-10 hp-one:w-10 md:h-12 md:w-12"}
                                 onClick={this.props.clickMenu}
                             >
-                                <ArrowLeft className={"lg:hidden " + (window.location.href.indexOf("/orders") !== -1 ? "inline-block" : "hidden")} width={24} height={24} />
-                                <List className={"lg:hidden " + (window.location.href.indexOf("/orders") !== -1 ? "hidden" : "inline-block")} width={24} height={24} />
+                                {/*<ArrowLeft className={"lg:hidden " + (window.location.href.indexOf("/orders") !== -1 ? "inline-block" : "hidden")} width={24} height={24} /> */}
+                                <List className="inline-block lg:hidden h-4 w-4 hp-one:h-6 hp-one:w-6 flex-shrink-0"/>
                             </button>
                             <Link href="/">
-                                <div className="flex flex-nowrap flex-auto">
-                                    <Logo width={40} height={40} className="h-10 w-10 rounded-full" />
-                                    <span className="mx-2 self-center cursor-pointer leading-4 align-middle font-medium">OL Shoes</span>
+                                <div className="flex flex-nowrap flex-auto flex-shrink-0">
+                                    <Logo className="h-8 w-8 hp-one:h-10 hp-one:w-10 rounded-full" />
+                                    <span className="mx-0 hp-one:mx-2 self-center cursor-pointer text-sm hp-one:text-base leading-4 align-middle font-medium">OL Shoes</span>
                                 </div>
                             </Link>
                         </div> 
@@ -60,29 +60,29 @@ export default class Header extends React.Component{
                             {this.props.displayFilter ? 
                                 (
                                     <button
-                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12"
+                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-6 w-6 hp-one:h-10 hp-one:w-10 md:h-12 md:w-12"
                                         onClick={this.props.filterOnClick}
                                     >
-                                        <Filter className="inline-block stroke-current stroke-0 black" width={24} height={24} />
+                                        <Filter className="inline-block stroke-current stroke-0 black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </button> 
                                 ) : null
                             }
                             <button
-                                className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12"
+                                className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-6 w-6 hp-one:h-10 hp-one:w-10 md:h-12 md:w-12"
                                 onClick={this.props.searchOnClick}
                             >
-                                <Search className="inline-block stroke-current stroke-0 black" width={24} height={24} />
+                                <Search className="inline-block stroke-current stroke-0 black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                             </button>
                             {this.props.displayProfile ?
                                 (
                                     <button
                                         className={
-                                            "transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12 " + 
+                                            "transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-6 w-6 hp-one:h-10 hp-one:w-10 md:h-12 md:w-12 " + 
                                             (window.location.href.indexOf("/orders") !== -1 ? "bg-gray-300" : "bg-gray-lighter")
                                         }
                                         onClick={this.props.profileOnClick}
                                     >
-                                        <Profile className="inline-block stroke-current stroke-0 black" width={24} height={24} />
+                                        <Profile className="inline-block stroke-current stroke-0 black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </button>
                                 ) : null
                             }

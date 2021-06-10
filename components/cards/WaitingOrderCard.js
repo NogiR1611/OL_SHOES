@@ -40,82 +40,82 @@ export default class WaitingOrderCard extends React.Component{
             ) : null}
             <Link href='/'>
                 <div className="mx-auto w-11/12 md:w-9/12 lg:w-1/2 mt-4 mb-4 bg-white shadow rounded-md p-4 cursor-pointer">
-                    <p className="text-black-darker font-semibold">No Order: 013636</p>
-                    <p className="text-xs text-gray-lighter-1 leading-4 mb-4">(Order Berhasil {format(new Date(),'MM/dd/yyyy')})</p>
+                    <p className="text-xs hp-one:text-sm text-black-darker font-semibold">No Order: 013636</p>
+                    <p className="text-xs hp-one:text-sm text-gray-lighter-1 leading-4 mb-4">(Order Berhasil {format(new Date(),'MM/dd/yyyy')})</p>
                     <div className="pb-2 flex flex-auto flex-nowrap">
                         <div className="flex flex-auto flex-col">
-                            <p className="font-bold text-black-darker">CONVERSE</p>
-                            <p className="text-black-darker">42</p>
+                            <p className="text-sm hp-one:text-base font-bold text-black-darker">CONVERSE</p>
+                            <p className="text-sm hp-one:text-base text-black-darker">42</p>
                         </div>
                         <div className="flex flex-none">
                             <img 
                                 src="/images/products/converse.jpg" 
-                                className="h-12 w-12"
+                                className="w-8 h-8 hp-one:w-12 hp-one:h-12"
                             />
                         </div>
                     </div>
-                    <div className="pt-6">
+                    <div className="pt-2 hp-one:pt-6">
                         <div className="flex flex-nowrap flex-auto w-1/3 md:w-1/6 mb-4">
                             <div className="flex-shrink items-center">
-                                <div className="rounded-full w-8 h-8 flex items-center inline-flex justify-center bg-red-darker-1 align-middle">
-                                    <Checklist className="w-6 h-6" />
+                                <div className="rounded-full h-6 w-6 hp-one:w-8 hp-one:h-8 flex items-center inline-flex justify-center bg-red-darker-1 align-middle">
+                                    <Checklist className=" h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                 </div>
                             </div>
                             <div className="flex flex-nowrap flex-shrink items-center">
-                                <hr className="flex-1 max-w-6 w-6 block border-gray-lighter-4" />
-                                <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
+                                <hr className="flex-1 max-w-6 w-4 hp-one:w-6 block border-gray-lighter-4" />
+                                <div className="rounded-full h-6 w-6 hp-one:w-8 hp-one:h-8 flex items-center justify-center bg-white">
                                     <div className="rounded-full w-2 h-2 bg-gray-lighter-4"></div>
                                 </div>
                             </div>
                             <div className="flex flex-nowrap flex-shrink items-center">
-                                <hr className="flex-1 max-w-6 w-6 block border-gray-lighter-4" />
-                                <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
+                                <hr className="flex-1 max-w-6 w-4 hp-one:w-6 block border-gray-lighter-4" />
+                                <div className="rounded-full h-6 w-6 hp-one:w-8 hp-one:h-8 flex items-center justify-center bg-white">
                                     <div className="rounded-full w-2 h-2 bg-gray-lighter-4"></div>
                                 </div>
                             </div>
                             <div className="flex flex-nowrap flex-shrink items-center">
-                                <hr className="flex-1 max-w-6 w-6 block border-gray-lighter-4" />
-                                <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
+                                <hr className="flex-1 max-w-6 w-4 hp-one:w-6 block border-gray-lighter-4" />
+                                <div className="rounded-full h-6 w-6 hp-one:w-8 hp-one:h-8 flex items-center justify-center bg-white">
                                     <div className="rounded-full w-2 h-2 bg-gray-lighter-4"></div>
                                 </div>
                             </div>
                         </div>  
-                        <p className="font-semibold text-red-darker-1">Status : Menunggu Pembayaran</p>  
+                        <p className="text-sm hp-one:text-base font-semibold text-red-darker-1">Status : Menunggu Pembayaran</p>  
                     </div>
                     <div className="mt-4">
                         <div className="mt-2 mb-4">
                             <div className="flex flex-auto flex-nowrap">
-                                <span className="bg-transparent focus:outline-none select-none font-semibold text-xl text-black-darker leading-6">Rp. {numeral(754000).format('0,0')}</span>
+                                <span className="bg-transparent text-sm hp-one:text-base focus:outline-none select-none font-semibold text-xs hp-one:text-xl text-black-darker leading-6">Rp. {numeral(754000).format('0,0')}</span>
                                 <button onClick={() => this.copyElement(754000,event)} className="focus:outline-none transition duration-300 ease-in-out transform active:scale-90 hover:scale-110">
-                                    <Copy className="inline-block stroke-current stroke-0 text-black cursor-pointer" />
+                                    <Copy className="inline-block stroke-current stroke-0 text-black cursor-pointer h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                 </button>
                             </div>
-                            <p className="text-xs font-semibold text-red-darker-1">Transfer sebelum <b>{format(new Date(), "dd/MM/yyyy hh.mm")}</b></p>
+                            <p className="text-tiny hp-one:text-xs font-semibold text-red-darker-1">Transfer sebelum <b>{format(new Date(), "dd/MM/yyyy hh.mm")}</b></p>
                         </div>
                         <div className="pb-3">
                             <div className="flex flex-nowrap flex-auto my-2 w-full">
-                                <div className="flex-1 w-11/12">
-                                    <p className="flex flex-auto text-black-darker">Mandiri - Virtual Account</p>
+                                <div className="flex-auto">
+                                    <p className="flex flex-auto text-sm hp-one:text-base text-black-darker">Mandiri - Virtual Account</p>
                                     <div className="flex flex-auto flex-nowrap">
-                                        <span className="bg-transparent focus:outline-none select-none font-semibold text-xl text-black-darker leading-6">7001400400292806</span>
+                                        <span className="bg-transparent focus:outline-none select-none font-semibold text-xs hp-one:text-xl text-black-darker leading-6">7001400400292806</span>
                                         <button onClick={() => this.copyElement(7001400400292806,event)} className="focus:outline-none transition duration-300 ease-in-out transform active:scale-90 hover:scale-110">
-                                            <Copy className="inline-block stroke-current stroke-0 text-black cursor-pointer" />
+                                            <Copy className="inline-block stroke-current stroke-0 text-black cursor-pointer h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                         </button>
                                     </div>
                                 </div>
-                                <div className="flex flex-none">
+                                <div className="flex flex-shrink-0">
                                     <img 
                                         src="https://logos-download.com/wp-content/uploads/2016/06/Bank_Mandiri_logo_fon.png" 
-                                        className="w-12 h-12 self-center"
+                                        className="w-8 h-8 hp-one:w-12 hp-one:h-12 self-center"
                                     />
                                 </div>
                             </div>
-                            <p className="text-xs font-semibold mt-2 text-red-darker-1">Ke: EPAY - OL Shoes fff</p>
+                            <p className="text-tiny hp-one:text-xs font-semibold mt-2 text-red-darker-1">Ke: EPAY - OL Shoes fff</p>
                             <div className="bg-flat-orange mt-4">
                                 <div className="flex flex-auto flex-nowrap w-full border-b-2 border-gray-200">
                                     <button
                                         onClick={() => this.setState({ namePage: 'ATM' }) }
-                                        className={"flex justify-center tracking-tighter w-1/3 py-2 text-gray-lighter-1 text-xs lg:text-base transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "ATM" ? "border-b-2 border-orange-darker text-black-lighter-1 font-semibold" : "")}
+                                        className={"flex justify-center tracking-tighter w-1/3 py-2 text-gray-lighter-1 self-center text-xs lg:text-base transition duration-300 ease-in-out hover:bg-red-100 focus:outline-none " + (this.state.namePage === "ATM" ? "border-b-2 border-orange-darker text-black-lighter-1 font-semibold" : "")}
                                     >
                                         ATM
                                     </button>
@@ -135,8 +135,8 @@ export default class WaitingOrderCard extends React.Component{
                                 <div className="w-full p-4">
                                     {this.state.namePage === 'ATM' ? (
                                         <div className="text-orange-lighter-1">
-                                            <p className="text-xl font-semibold leading-6 mb-4">Bagaimana cara membayar:</p>
-                                            <ol className="list-decimal list-inside text-sm lg:text-base">
+                                            <p className="text-base hp-one:text-xl font-semibold leading-6 mb-4">Bagaimana cara membayar:</p>
+                                            <ol className="list-decimal list-inside text-xs hp-one:text-sm lg:text-base">
                                                 <li className="mb-4">Masukkan kartu ATM dan Pin</li>
                                                 <li className="mb-4">Pilih Menu Bayar/Beli.</li>
                                                 <li className="mb-4">Pilih menu Lainnya, hingga menemukan menu Multipayment.</li>
@@ -151,8 +151,8 @@ export default class WaitingOrderCard extends React.Component{
                                     }
                                     {this.state.namePage === 'Mobile Banking' ? (
                                         <div className="text-orange-lighter-1">
-                                            <p className="text-xl font-semibold leading-6 mb-4">Bagaimana cara membayar:</p>
-                                            <ol className="list-decimal list-inside text-sm lg:text-base">
+                                            <p className="text-base hp-one:text-xl font-semibold leading-6 mb-4">Bagaimana cara membayar:</p>
+                                            <ol className="list-decimal list-inside text-xs hp-one:text-sm lg:text-base">
                                                 <li className="mb-4">Masukkan kartu ATM dan Pin</li>
                                                 <li className="mb-4">Pilih Menu Bayar/Beli.</li>
                                                 <li className="mb-4">Pilih menu Lainnya, hingga menemukan menu Multipayment.</li>
@@ -167,8 +167,8 @@ export default class WaitingOrderCard extends React.Component{
                                     }
                                     {this.state.namePage === 'Internet Banking' ? (
                                         <div className="text-orange-lighter-1">
-                                            <p className="text-xl font-semibold leading-6 mb-4">Bagaimana cara membayar:</p>
-                                            <ol className="list-decimal list-inside text-sm lg:text-base">
+                                            <p className="text-base hp-one:text-xl font-semibold leading-6 mb-4">Bagaimana cara membayar:</p>
+                                            <ol className="list-decimal list-inside text-xs hp-one:text-sm lg:text-base">
                                                 <li className="mb-4">Login Mandiri Online dengan memasukkan username dan password.</li>
                                                 <li className="mb-4">Pilih menu Pembayaran.</li>
                                                 <li className="mb-4">Pilih menu Multipayment.</li>
@@ -187,7 +187,7 @@ export default class WaitingOrderCard extends React.Component{
                         <button
                             className="flex w-full p-2 mt-4 h-12 bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 text-black-darker text-sm shadow-md font-semibold text-center focus:outline-none transition duration-300 linear rounded-md"
                         >
-                            <Lists className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />
+                            <Lists className="inline-block float-left stroke-current stroke-0 black h-4 w-4 hp-one:h-6 hp-one:w-6 self-center" />
                             <span className="mx-auto self-center">Lihat Order</span>
                         </button>
                     </div>

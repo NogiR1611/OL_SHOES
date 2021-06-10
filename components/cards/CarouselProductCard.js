@@ -71,18 +71,18 @@ export default class CarouselProductCard extends React.Component{
                 },
                 mobile: {
                     breakpoint: {
-                    max: 464,
+                    max: 425,
                     min: 0
                     },
-                    items: 1,
+                    items: 2,
                     partialVisibilityGutter: 30
                 },
                 tablet: {
                     breakpoint: {
                     max: 1024,
-                    min: 464
+                    min: 425
                     },
-                    items: 2,
+                    items: 4,
                     partialVisibilityGutter: 30
                 }
                 }}

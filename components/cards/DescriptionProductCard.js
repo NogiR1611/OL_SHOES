@@ -12,7 +12,7 @@ import Sms from './../../assets/images/icons/sms.svg';
 export default class DescriptionProductCard extends React.Component{
     render(){
         return (
-            <div className="pl-6">
+            <div className="px-6">
                 <div className="flex flex-wrap">
                     <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
                     <span className="bg-red-darker-1 text-white mt-1 mr-1 text-sm px-1 flex flex-wrap">
@@ -29,7 +29,7 @@ export default class DescriptionProductCard extends React.Component{
                 <div className="mt-2">
                     <div className="inline-block bg-red-darker-1 text-white text-sm mt-1">
                         <span>Beli Rp {numeral(300000).format('0,0')} Diskon Rp {numeral(30000).format('0,0')}</span>
-                    </div>
+                    </div> 
                     <div className="inline-flex flex-nowrap flex-auto py-1 w-full">
                         <Plus className="inline-block self-center" width={26} height={16} />
                         <div className="flex flex-auto flex-nowrap text-sm bg-red-darker-1 px-1 text-white">
@@ -47,13 +47,13 @@ export default class DescriptionProductCard extends React.Component{
                     </div>
                     <button
                         onClick={this.props.cartButton}
-                        className="flex w-full p-2 mt-10 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
+                        className="hidden lg:block flex w-full p-2 mt-10 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
                     >
                         <Cart className="inline-block float-left fill-current text-white self-center" width={24} height={24} />
                         <span className="mx-auto self-center">Beli Sekarang</span>
                     </button>
                 </div>
-                <div className="mt-6 text-black-darker whitespace-pre-line">
+                <div className="mt-6 text-sm lg:text-base text-black-darker whitespace-pre-line">
                     <p>Kualitas Premium🔥</p>
                     <p>Size 40 s/d 44 Eur</p>
                     <p>Kode Waffle ICC</p>
@@ -96,7 +96,7 @@ export default class DescriptionProductCard extends React.Component{
                     <p className="mb-2 font-medium text-black-darker">Size/Ukuran: </p>
                     <div className="flex flex-auto pt-2 pb-4 items-center">
                         <div className="flex-auto">
-                            <p className="text-black-darker font-medium">Size 40</p>
+                            <p className="text-sm lg:text-base text-black-darker font-medium">Size 40</p>
                             <div className="flex flex-wrap text-sm">
                                 <p className="mr-1 text-red-darker-1">Rp. {numeral(8000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
@@ -111,7 +111,7 @@ export default class DescriptionProductCard extends React.Component{
                     <hr className="border-b-1 border-gray-lighter-4 border-solid" />
                     <div className="flex flex-auto pt-2 pb-4 items-center">
                         <div className="flex-auto">
-                            <p className="text-black-darker font-medium">Size 42</p>
+                            <p className="text-sm lg:text-base text-black-darker font-medium">Size 42</p>
                             <div className="flex flex-wrap text-sm">
                                 <p className="mr-1 text-red-darker-1">Rp. {numeral(300000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
@@ -126,7 +126,7 @@ export default class DescriptionProductCard extends React.Component{
                     <hr className="border-b-1 border-gray-lighter-4 border-solid" />
                     <div className="flex flex-auto pt-2 pb-4 items-center">
                         <div className="flex-auto">
-                            <p className="text-black-darker font-medium">Size 43</p>
+                            <p className="text-sm lg:text-base text-black-darker font-medium">Size 43</p>
                             <div className="flex flex-wrap text-sm">
                                 <p className="mr-1 text-red-darker-1">Rp. {numeral(300000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>
@@ -141,7 +141,7 @@ export default class DescriptionProductCard extends React.Component{
                     <hr className="border-b-1 border-gray-lighter-4 border-solid" />
                     <div className="flex flex-auto pt-2 pb-4 items-center">
                         <div className="flex-auto">
-                            <p className="text-black-darker font-medium">Size 44</p>
+                            <p className="text-sm lg:text-base text-black-darker font-medium">Size 44</p>
                             <div className="flex flex-wrap text-sm">
                                 <p className="mr-1 text-red-darker-1">Rp. {numeral(300000).format('0,0')}</p>
                                 <p className="mr-1 text-red-black-darker">(Stok Menipis)</p>

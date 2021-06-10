@@ -5,7 +5,7 @@ import Checklist from './../../assets/images/icons/checklist1.svg';
 export default class ListImagesCard extends React.Component{
     render(){
         return ( 
-            <div className="flex flex-wrap flex-auto mt-4">
+            <div className="hidden lg:inline-flex flex-wrap flex-auto mt-4">
                 {this.props.imgUrls.map((url,index) => { 
                     return (
                         <div 
@@ -21,9 +21,7 @@ export default class ListImagesCard extends React.Component{
                         >
                             <div className={"flex justify-center self-center h-12 w-12 rounded-full bg-black bg-opacity-40 " + (index === this.props.activeIndex ? "block" : "hidden")}>
                                 <Checklist 
-                                    width={24}
-                                    height={24}
-                                    className="self-center fill-current text-white"
+                                    className="self-center fill-current text-white h-4 w-4 hp-one:h-6 hp-one:w-6"
                                 />
                             </div>
                         </div>

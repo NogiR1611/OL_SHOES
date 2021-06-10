@@ -110,22 +110,22 @@ export default class Categories extends React.Component{
                                         <div className="w-full flex flex-nowrap">
                                             <img
                                                 src="/images/products/converse.jpg"
-                                                className="inline-block w-12 h-12 self-center"
+                                                className="inline-block w-8 h-8 hp-one:w-12 hp-one:h-12 self-center"
                                             />
-                                            <div className="flex-shrink flex-grow ml-2">
-                                                <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
-                                                <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
-                                                <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
-                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp. {numeral(320000).format('0,0')}</span>
-                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp. {numeral(element.price).format('0,0')}</span>
+                                            <div className="overflow-hidden flex-shrink flex-grow ml-2">
+                                                <span className="bg-black text-white mt-1 mr-1 text-tiny hp-one:text-xs md:text-sm px-1">Ada Stok</span>
+                                                <span className="block text-black-darker font-bold text-xs hp-one:text-sm md:text-base whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
+                                                <span className="block text-gray-lighter-1 text-xs hp-one:text-sm md:text-base leading-none">SIZE {element.size}</span>
+                                                <span className="block text-gray-lighter-1 text-xs hp-one:text-sm md:text-base opacity-50 line-through leading-none">Rp. {numeral(320000).format('0,0')}</span>
+                                                <span className="block text-gray-lighter-1 text-xs hp-one:text-sm md:text-base leading-none">Rp {numeral(element.price).format('0,0')}</span>
                                             </div>
-                                            <div className="mx-1 font-bold self-center">
+                                            <div className="mx-1 text-xs hp-one:text-sm md:text-base font-bold self-center">
                                                 {this.state.amount === null ? element.amount : this.state.amount}
                                             </div>
                                             <div className="ml-2 self-center">
                                                 <button
                                                     onClick={() => this.setState({ amountProduct: true,amount:element.amount }) }
-                                                    className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
+                                                    className="w-full h-8 px-3 text-xs hp-one:text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
                                                 >
                                                     Ubah
                                                 </button>
@@ -144,11 +144,11 @@ export default class Categories extends React.Component{
                         onReduceAmount={() => this.setState({ amount : this.state.amount - 1 })}
                         onAddAmount={() => this.setState({ amount : this.state.amount + 1 })}
                     />
-                    <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
+                    <div className="flex flex-nowrap flex-auto fixed bottom-0 z-100 md:pb-2 px-2 w-full">
                         {this.state.showCart ? 
                             <div className="flex flex-auto justify-center px-2">
                                 <button 
-                                    className="bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
+                                    className="bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-1 hp-one:px-4 py-2"
                                     onClick={() => this.setState({ cart:true })}
                                 >
                                     <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
@@ -157,30 +157,30 @@ export default class Categories extends React.Component{
                                             <div className="flex flex-none mr-2">
                                                 <img
                                                     src="/images/products/converse.jpg"
-                                                    className="inline-block rounded-full w-12 h-12 self-center"
+                                                    className="inline-block rounded-full w-8 h-8 hp-one:w-12 hp-one:h-12 self-center"
                                                 />
                                             </div>
                                             <div className="self-center flex-auto">
-                                                <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
+                                                <p className="font-bold text-white text-xs hp-one:text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
                                                 <p className="text-white text-xs md:text-sm">Rp. {numeral(320000).format('0,0')}</p>
                                             </div>
                                         </div>
                                         <div className="flex self-center">
-                                            <Cart className="fill-current text-white" width={24} height={24} />
-                                            <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
-                                                {this.state.amountData}
-                                            </span>
+                                            <Cart className="fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
+                                            <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 hp-one:h-6 hp-one:w-6 text-tiny hp-one:text-xs text-white absolute ml-4 top-3 hp-one:top-0">
+                                                <span className="self-center">{this.state.amountData}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
                             </div>
-                        : null}
+                        : <div className="w-full" />}
                         <div className="flex flex-none">
                             <button
                                 onClick={() => this.setState({ openChat:!this.state.openChat })}
-                                className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
+                                className="flex justify-center float-right self-center rounded-full w-8 h-8 hp-one:w-12 hp-one:h-12  bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
                             >
-                                <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
+                                <Whatsapp className="self-center fill-current text-white h-4 w-4 hp-one:h-6 hp-one:w-6" />
                             </button>
                         </div>
                     </div> 
@@ -216,19 +216,15 @@ export default class Categories extends React.Component{
                             <div className="xl:hidden py-4 w-full flex flex-wrap">
                                 <button
                                     onClick={() => this.setState({ openCategory:true })}
-                                    className="flex-1 block bg-gray-200 mx-2 rounded-md text-gray-900 py-4 font-semibold focus:outline-none hover:bg-gray-300 active:bg-gray-400"
+                                    className="flex-1 block text-sm hp-one:text-base bg-gray-200 mx-2 rounded-md text-gray-900 py-4 font-semibold focus:outline-none hover:bg-gray-300 active:bg-gray-400"
                                 >
                                     Kategori
                                 </button>
                                 <button
                                     onClick={() => this.setState({ openFilter:true })}
-                                    className="flex-1 block bg-gray-200 mx-2 rounded-md text-gray-900 py-4 font-semibold focus:outline-none hover:bg-gray-300 active:bg-gray-400"
+                                    className="flex-1 block text-sm hp-one:text-base bg-gray-200 mx-2 rounded-md text-gray-900 py-4 font-semibold focus:outline-none hover:bg-gray-300 active:bg-gray-400"
                                 >
-                                    <Sorting 
-                                        className="float-left ml-4"
-                                        width={20}
-                                        height={20}
-                                    />
+                                    <Sorting className="float-left ml-4 h-4 w-4 hp-one:h-6 hp-one:w-6"/>
                                     Urutan
                                 </button>
                                 <CategoryModal 
@@ -272,7 +268,7 @@ export default class Categories extends React.Component{
                             <div className="bg-gray-lighter flex flex-nowrap">
                                 <FilterCard searchOnClick={this.onOpenSearch} />
                                 <SearchModal onOpenSearch={this.openSearch} onCloseSearch={this.onCloseSearch} />
-                                <div className="flex 1 flex-wrap px-2 pt-3 mb-16">
+                                <div className="flex flex-wrap w-full mb-16">
                                     <ProductCards />
                                     <ProductCards />
                                     <ProductCards /> 

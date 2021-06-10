@@ -54,29 +54,29 @@ export default class CreditAndDebit extends React.Component{
                 styles={{modal: { maxWidth : '100%',borderRadius : '5%',padding: '0' }}} 
                 open={this.props.creditAndDebit}
                 onClose={this.props.onCloseCreditAndDebit}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-5 transition duration-300 ease-in-out rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-6 w-6 hp-one:h-8 hp-one:w-8 p-1 flex justify-center" />}
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
-                    <div className="md:h-9 md:w-480" />
-                    <p className="w-full text-xl font-medium text-black-darker px-6 py-4">Kartu Kredit/Debit</p>
-                    <div className="overflow-y-auto max-h-96 px-6">
+                    <div className="h-9 md:w-480" />
+                    <p className="w-full text-sm hp-one:text-base lg:text-lg font-medium text-black-darker px-2 hp-one:px-6 py-4">Kartu Kredit/Debit</p>
+                    <div className="overflow-y-auto max-h-96 px-2 hp-one:px-6">
                         <div className="">
                             <div className="flex justify-between mt-2 text-black-darker">
-                                <span className="float-left text-sm">Total Harga:</span>
-                                <span className="float-right text-sm">Rp. {numeral(754000).format('0,0')}</span>
+                                <span className="float-left text-xs hp-one:text-sm">Total Harga:</span>
+                                <span className="float-right text-xs hp-one:text-sm">Rp. {numeral(754000).format('0,0')}</span>
                             </div>
                             <div className="flex justify-between w-full mt-2 text-black-darker">
-                                <span className="float-left text-sm">Biaya Kartu Kredit/Debit:</span>
-                                <span className="float-right text-sm">Rp. {numeral(2500).format('0,0')}</span>
+                                <span className="float-left text-xs hp-one:text-sm">Biaya Kartu Kredit/Debit:</span>
+                                <span className="float-right text-xs hp-one:text-sm">Rp. {numeral(2500).format('0,0')}</span>
                             </div>
                             <div className="flex justify-between w-full mt-2 text-black-darker">
-                                <span className="float-left text-sm">Total Pembayaran:</span>
-                                <span className="float-right font-bold">Rp. {numeral(756500).format('0,0')}</span>
+                                <span className="float-left text-xs hp-one:text-sm">Total Pembayaran:</span>
+                                <span className="float-right font-bold text-xs hp-one:text-sm">Rp. {numeral(756500).format('0,0')}</span>
                             </div>
                         </div>
                     </div>
-                    <div className="px-6 mt-3">
+                    <div className="px-2 hp-one:px-6 mt-3">
                         <div className="flex flex-col">
                             <div className="flex flex-auto">
                                 <div className="block relative bg-gray-lighter-7 border-b-2 w-full border-gray-lighter-9 focus-within:border-red-darker-1 rounded-t-lg">
@@ -87,9 +87,9 @@ export default class CreditAndDebit extends React.Component{
                                         value={this.state.nameCustomer}
                                         onChange={e => this.setState({ nameCustomer:e.target.value })}
                                         placeholder=" " 
-                                        className="block w-full appearance-none focus:outline-none pt-4 pl-3 bg-transparent" 
+                                        className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none pt-4 pl-3 bg-transparent" 
                                     />
-                                    <label for="name" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nama di Kartu</label>
+                                    <label for="name" className="absolute top-3 text-xs hp-one:text-sm lg:text-base transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Nama di Kartu</label>
                                 </div>
                             </div>
                             <div className="flex flex-grow">
@@ -102,8 +102,8 @@ export default class CreditAndDebit extends React.Component{
                         </div>
                         <div className="flex flex-col">
                             <div className="flex flex-auto">
-                                <div className="flex flex-nowrap flex-auto bg-gray-lighter-7 border-b-2 border-gray-lighter-9 focus:bg-gray-400 w-full pr-3 rounded-t-lg mt-4">
-                                    <div className="flex-auto inline-block relative border-b-2 focus-within:border-red-darker-1">
+                                <div className="flex flex-nowrap flex-auto bg-gray-lighter-7 border-b-2 focus:bg-gray-400 w-full pr-3 rounded-t-lg mt-4">
+                                    <div className="flex-auto inline-block relative border-b-2 border-gray-lighter-9 focus-within:border-red-darker-1">
                                         <input
                                             type="text" 
                                             id="number" 
@@ -111,12 +111,12 @@ export default class CreditAndDebit extends React.Component{
                                             value={this.state.numberCard}
                                             onChange={e => this.setState({ numberCard:e.target.value })}
                                             placeholder=" " 
-                                            className="block w-full bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
                                         />
-                                        <label for="number" class="absolute top-3 text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Nomor Kartu</label>
+                                        <label for="number" className="absolute top-3 text-xs hp-one:text-sm lg:text-base text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Nomor Kartu</label>
                                     </div>
                                     <div className="flex flex-none">
-                                        <Locked className="self-center inline-block" width={24} height={24} />
+                                        <Locked className="self-center inline-block h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </div>
                                 </div>
                             </div>
@@ -142,9 +142,9 @@ export default class CreditAndDebit extends React.Component{
                                         value={this.state.dateCard}
                                         onChange={e => this.setState({ dateCard:e.target.value })}
                                         placeholder=" " 
-                                        className="block w-full appearance-none focus:outline-none pt-4 pl-3 bg-transparent" 
+                                        className="block w-full text-xs hp-one:text-sm lg:text-base appearance-none focus:outline-none pt-4 pl-3 bg-transparent" 
                                     />
-                                    <label for="date" class="absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Berlaku hingga</label>
+                                    <label for="date" className="text-xs hp-one:text-sm lg:text-base absolute top-3 transition duration-300 ease-in-out text-gray-lighter-3 font-medium">Berlaku hingga</label>
                                 </div>
                             </div>
                             <div className="flex flex-grow">
@@ -157,7 +157,7 @@ export default class CreditAndDebit extends React.Component{
                         </div>
                         <div className="flex flex-col">
                             <div className="flex flex-auto">
-                                <div className="flex flex-wrap flex-auto mt-4">
+                                <div className="flex flex-nowrap flex-auto mt-4">
                                     <div className="flex-auto block relative border-b-2 bg-gray-lighter-7 focus-within:border-red-darker-1 rounded-t-lg border-gray-lighter-9">
                                         <input
                                             type="text" 
@@ -166,9 +166,9 @@ export default class CreditAndDebit extends React.Component{
                                             value={this.state.code}
                                             onChange={e => this.setState({ code:e.target.value })}
                                             placeholder=" " 
-                                            className="block w-full bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base bg-transparent appearance-none pt-4 pl-3 focus:outline-none" 
                                         />
-                                        <label for="cvv" class="absolute top-4 text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Kode CVV</label>
+                                        <label for="cvv" className="text-xs hp-one:text-sm lg:text-base absolute top-4 text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Kode CVV</label>
                                     </div>
                                     <div className="flex flex-grow-0 ml-3 pr-3">
                                         <img 
@@ -186,7 +186,7 @@ export default class CreditAndDebit extends React.Component{
                                 </p>
                             </div>
                         </div>
-                        <p className="text-xs mt-4 mx-1">
+                        <p className="text-tiny hp-one:text-xs mt-4 mx-1">
                             Info pembayaran kamu tersimpan dengan aman.
                             Kami bekerja sama dengan NICEPAY untuk memastikan info kamu terlindungi.Kami tidak dapat mengakses info kartumu.
                         </p>
@@ -194,7 +194,7 @@ export default class CreditAndDebit extends React.Component{
                             onClick={this.state.nameCustomer !== '' && this.state.numberCard !== null && this.state.dateCard !== null && this.state.code !== null ?
                                 this.props.moveModal : this.validationInfo
                             }
-                            className="w-full bg-red-darker-1 text-white py-2 my-2 rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none transition duration-300 ease-in-out"
+                            className="w-full bg-red-darker-1 text-white h-8 hp-one:h-12 text-xs hp-one:text-sm py-2 my-2 rounded-md hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 focus:outline-none transition duration-300 ease-in-out"
                         >
                             Lanjutkan
                         </button>

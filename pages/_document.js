@@ -11,7 +11,6 @@ export default class MyDocument extends Document {
             <Html>
                 <Head>
                     <link rel="shortcut icon" href="/favicon.ico" />
-                    <title>NextJS + ReactJS</title>
                 </Head>
                 <body>
                     <Main />

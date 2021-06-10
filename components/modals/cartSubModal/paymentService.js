@@ -15,24 +15,27 @@ export default class PaymentService extends React.Component{
                 center
             >
                 <div className="bg-gray-lighter w-full md:w-480 items-center">
-                    <div className="md:h-9 md:w-480" />
+                    <div className="h-9 md:w-480" />
+                    <div className="flex justify-center md:hidden">
+                        <div className="bg-gray-lighter-6 mx-auto h-1 w-20 absolute top-1 rounded-sm" />
+                    </div>
                     <div className="w-full py-4">
-                        <p className="w-full text-xl font-bold text-black-darker py-4 px-6">Pilih Metode Pembayaran</p>
-                        <div className="w-full px-6 text-gray-600">
+                        <p className="w-full text-sm hp-one:text-base lg:text-lg font-bold text-black-darker py-4 px-2 hp-one:px-6">Pilih Metode Pembayaran</p>
+                        <div className="w-full px-2 hp-one:px-6 text-xs hp-one:text-sm lg:text-base text-gray-600">
                             <span className="float-left">Total Harga Order:</span>
                             <span className="float-right font-bold">Rp. {numeral(754000).format('0,0')}</span>
                         </div>
                     </div>
-                    <div className="pb-5 px-6">
+                    <div className="pb-5 px-2 hp-one:px-6">
                         <button
                             onClick={this.props.transferBank}
-                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
+                            className="w-full text-center bg-white text-xs hp-one:text-sm w-8 hp-one:h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             Transfer Bank
                         </button>
                         <button
                             onClick={this.props.ePayment}
-                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
+                            className="w-full text-center bg-white text-xs hp-one:text-sm w-8 hp-one:h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             <div className="flex flex-col flex-auto flex-nowrap">
                                 <p className="text-center leading-none">E-Payment</p>
@@ -41,7 +44,7 @@ export default class PaymentService extends React.Component{
                         </button>
                         <button
                             onClick={this.props.minimarket}
-                            className="w-full text-center bg-white text-sm h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
+                            className="w-full text-center bg-white text-xs hp-one:text-sm w-8 hp-one:h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             <div className="flex flex-col flex-auto flex-nowrap">
                                 <p className="text-center leading-none">Minimarket</p>
@@ -50,7 +53,7 @@ export default class PaymentService extends React.Component{
                         </button>
                         <button
                             onClick={this.props.creditAndDebit}
-                            className="bg-white text-sm w-full text-center h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
+                            className="bg-white text-xs hp-one:text-sm w-full text-center w-8 hp-one:h-12 mt-4 focus:outline-none py-2 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out shadow rounded-md font-semibold text-black-darker"
                         >
                             Kartu Kredit/Debit
                         </button>

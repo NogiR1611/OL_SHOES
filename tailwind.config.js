@@ -33,6 +33,14 @@ module.exports = {
       pink: colors.pink,
     },
     extend: {   
+      spacing: {
+        '1/3': '33.33333%',
+        '2/3': '66.666667%'
+      },
+      fontSize: {
+        'super-tiny' : '.50rem',
+        'tiny' : '.625rem',
+      },
       keyframes: {
         'fade' : {
           '0%' : {
@@ -159,6 +167,11 @@ module.exports = {
       },
       zIndex: {
         "-1" :  "-1",
+        "60" : "60",
+        "70" : "70",
+        "80" : "80",
+        "90" : "90",
+        "100": "100",
         "500" : "500",
         "1000" : "1000",
         "2000" : "2000",
@@ -182,5 +195,7 @@ module.exports = {
       backgroundOpacity: ['active'],
     },
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ]
 }

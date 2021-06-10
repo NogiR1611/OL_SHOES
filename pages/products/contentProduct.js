@@ -219,22 +219,22 @@ export default class ContentProduct extends React.Component{
                                         <div className="w-full flex flex-nowrap">
                                             <img
                                                 src="/images/products/converse.jpg"
-                                                className="inline-block w-12 h-12 self-center"
+                                                className="inline-block w-8 h-8 hp-one:w-12 hp-one:h-12 self-center"
                                             />
-                                            <div className="flex-shrink flex-grow ml-2">
-                                                <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
-                                                <span className="block text-black-darker font-bold whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
-                                                <span className="block text-sm text-gray-lighter-1 leading-none">SIZE {element.size}</span>
-                                                <span className="block text-sm text-gray-lighter-1 opacity-50 line-through leading-none">Rp. {numeral(320000).format('0,0')}</span>
-                                                <span className="block text-sm text-gray-lighter-1 leading-none">Rp {numeral(element.price).format('0,0')}</span>
+                                            <div className="overflow-hidden flex-shrink flex-grow ml-2">
+                                                <span className="bg-black text-white mt-1 mr-1 text-tiny hp-one:text-xs md:text-sm px-1">Ada Stok</span>
+                                                <span className="block text-black-darker font-bold text-xs hp-one:text-sm md:text-base whitespace-nowrap overflow-ellipsis overflow-hidden leading-none">{element.name}</span> 
+                                                <span className="block text-gray-lighter-1 text-xs hp-one:text-sm md:text-base leading-none">SIZE {element.size}</span>
+                                                <span className="block text-gray-lighter-1 text-xs hp-one:text-sm md:text-base opacity-50 line-through leading-none">Rp. {numeral(320000).format('0,0')}</span>
+                                                <span className="block text-gray-lighter-1 text-xs hp-one:text-sm md:text-base leading-none">Rp {numeral(element.price).format('0,0')}</span>
                                             </div>
-                                            <div className="mx-1 font-bold self-center">
+                                            <div className="mx-1 text-xs hp-one:text-sm md:text-base font-bold self-center">
                                                 {this.state.amountProductCart === null ? element.amount : this.state.amountProductCart}
                                             </div>
                                             <div className="ml-2 self-center">
                                                 <button
                                                     onClick={() => this.setState({ amountProduct: true,amountProductCart:element.amount }) }
-                                                    className="w-full h-8 px-3 text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
+                                                    className="w-full h-8 px-3 text-xs hp-one:text-sm justify-self-end font-semibold bg-gray-lighter-4 text-black-darker rounded-md outline-none focus:outline-none hover:bg-gray-200"
                                                 >
                                                     Ubah
                                                 </button>
@@ -253,43 +253,59 @@ export default class ContentProduct extends React.Component{
                         onReduceAmount={() => this.setState({ amountProductCart : this.state.amountProductCart - 1 })}
                         onAddAmount={() => this.setState({ amountProductCart : this.state.amountProductCart + 1 })}
                     />
-                    <div className="flex flex-nowrap flex-auto fixed bottom-0 z-50 md:pb-2 px-2 w-full">
-                        {this.state.showCart ? 
-                            <div className="flex flex-auto justify-center px-2">
+                    <div className="flex flex-nowrap fixed bottom-0 z-50 md:pb-2 px-2 w-full">
+                        <div className="flex flex-auto flex-shrink-0 justify-center px-2">
+                        <button
+                            onClick={() => this.setState({ size:true })}
+                            className="block lg:hidden flex w-full p-2 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
+                        >
+                            <Cart className="inline-block float-left fill-current text-white self-center" width={24} height={24} />
+                            <span className="mx-auto self-center">Beli Sekarang</span>
+                        </button>
+                            {this.state.showCart ? 
                                 <button 
-                                    className="bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-4 py-2"
+                                    className="hidden lg:block bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-1 hp-one:px-4 py-2"
                                     onClick={() => this.setState({ cart:true })}
                                 >
-                                    <div className="md:hidden bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
+                                    <div className="bg-white opacity-30 mx-auto h-1 w-20 rounded-sm" />
                                     <div className="flex flex-nowrap">  
                                         <div className="flex flex-nowrap flex-auto text-left">
                                             <div className="flex flex-none mr-2">
                                                 <img
                                                     src="/images/products/converse.jpg"
-                                                    className="inline-block rounded-full w-12 h-12 self-center"
+                                                    className="inline-block rounded-full w-8 h-8 hp-one:w-12 hp-one:h-12 self-center"
                                                 />
                                             </div>
                                             <div className="self-center flex-auto">
-                                                <p className="font-bold text-white text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
+                                                <p className="font-bold text-white text-xs hp-one:text-sm md:text-base">{this.state.amountData} Barang di keranjang saya</p>
                                                 <p className="text-white text-xs md:text-sm">Rp. {numeral(320000).format('0,0')}</p>
                                             </div>
                                         </div>
                                         <div className="flex self-center">
-                                            <Cart className="fill-current text-white" width={24} height={24} />
-                                            <span className="bg-red-darker-1 rounded-full font-medium px-1 py-1 h-6 w-6 text-xs text-white absolute ml-4 top-0">
-                                                {this.state.amountData}
-                                            </span>
+                                            <Cart className="fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
+                                            <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 hp-one:h-6 hp-one:w-6 text-tiny hp-one:text-xs text-white absolute ml-4 top-3 hp-one:top-0">
+                                                <span className="self-center">{this.state.amountData}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </button>
+                            : <div className="w-full" />}
                             </div>
-                        : null}
-                        <div className="flex flex-none">
+                        <div className="flex flex-shrink-0">
+                            <button
+                                className="flex justify-center lg:hidden mr-2 float-right self-center rounded-full h-12 w-12 bg-black transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-black active:bg-opacity-40 active:bg-black focus:outline-none"
+                                onClick={() => this.setState({ cart:true })}
+                            >
+                                <Cart className="self-center fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
+                                    <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 text-tiny text-white absolute ml-8 top-0">
+                                        <span className="self-center">{this.state.amountData}</span>
+                                    </div>
+                            </button>
                             <button
                                 onClick={() => this.setState({ openChat:!this.state.openChat })}
                                 className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
                             >
-                                <Whatsapp className="self-center h-6 w-6 fill-current text-white" width={24} height={24} />
+                                <Whatsapp className="self-center h-5 w-5 hp-one:h-6 hp-one:w-6 fill-current text-white" />
                             </button>
                         </div>
                     </div> 
@@ -328,10 +344,10 @@ export default class ContentProduct extends React.Component{
                                                     priceProduct:element.price
                                                 })
                                             }}
-                                            className="h-12 w-full flex-column text-center text-sm rounded shadow bg-white mt-4 focus:outline-none"
+                                            className="h-12 w-full flex-column text-center text-xs hp-one:text-sm rounded shadow bg-white mt-4 focus:outline-none"
                                         >
-                                            <p className="text-darker-1 text-sm font-medium">SIZE {element.size}</p>
-                                            <span className="text-lighter-1 text-sm">Stok {element.status} </span><span className="text-red-darker-1 text-sm">(Rp. {numeral(element.price).format('0,0')})</span>
+                                            <p className="text-darker-1 font-medium">SIZE {element.size}</p>
+                                            <span className="text-lighter-1">Stok {element.status} </span><span className="text-red-darker-1 text-sm">(Rp. {numeral(element.price).format('0,0')})</span>
                                         </button>
                                     )
                                 })
@@ -420,14 +436,17 @@ export default class ContentProduct extends React.Component{
                         />
                     </>
                     <div className="bg-gray-lighter flex flex-auto relative min-h-screen w-full lg:ml-auto xl:w-8/10 lg:w-3/4">
-                        <div className="w-11/12 mx-auto">
+                        <div className="w-full md:w-11/12 mx-auto">
                             <div className="flex flex-wrap flex-auto">
-                                <div className="flex-auto w-1/2">
+                                <div className="flex-auto w-full lg:w-1/2">
                                     <DisplayImageCard 
                                         imgUrls={imgUrls}
+                                        onNext={() => this.setState({ imgIndex:this.state.imgIndex - 1 })}
+                                        onPrevious={() => this.setState({ imgIndex:this.state.imgIndex + 1 })}
                                         changeIndex={i => this.setState({ imgIndex:i })}
                                         openModal={this.openModal}
                                         activeIndex={this.state.imgIndex}
+                                        changeDotIndex={i => this.setState({ imgIndex:i })}
                                     />
                                     <ListImagesCard
                                         imgUrls={imgUrls} 
@@ -442,7 +461,7 @@ export default class ContentProduct extends React.Component{
                                         src={imgUrls[this.state.imgIndex]}
                                     />
                                 </div>
-                                <div className="flex-auto w-1/2">
+                                <div className="flex-auto w-full lg:w-1/2">
                                     <DescriptionProductCard 
                                         titleProduct="VANS SK8 HI BLACK WHITE"
                                         realPrice="320,000"

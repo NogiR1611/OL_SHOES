@@ -21,7 +21,7 @@ export default class SearchModal extends React.Component{
                 styles={{modal: { maxWidth: '100%',borderRadius : '10px' }}}
                 open={this.props.onOpenSearch}
                 onClose={this.props.onCloseSearch}
-                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100 h-8 w-8 p-1 flex justify-center duration-300" />}
+                closeIcon={<ArrowLeft className="bg-gray-lighter-4 hover:bg-gray-lighter-4 rounded-full stroke-current stroke-0 focus:outline-none text-black transform scale-100  h-6 w-6 hp-one:h-8 hp-one:w-8 p-1 flex justify-center duration-300" />}
                 center 
             >
                 <div className="bg-gray-lighter md:w-560 px-6 pt-2 mx-auto items-center">                
@@ -37,23 +37,23 @@ export default class SearchModal extends React.Component{
                                     name="username" 
                                     placeholder=" " 
                                     value={this.state.search}
-                                    className="block w-full bg-transparent appearance-none pt-4 pl-2 focus:outline-none" 
+                                    className="block w-full bg-transparent appearance-none pt-4 pl-2 focus:outline-none text-xs hp-one:text-sm md:text-base" 
                                     onChange={(e) => this.setState({ search: e.target.value }) }
                                 />
-                                <label for="username" class="absolute top-3 text-gray-lighter-3 text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
+                                <label for="username" class="absolute top-3 text-gray-lighter-3 text-xs hp-one:text-sm lg:text-base transition duration-300 ease-in-out">Cari Produk</label>
                             </div>
                             <div className="flex flex-none px-1">
-                                {search !== '' ?
+                                {search !== '' ?    
                                     <button className="self-center focus:outline-none" onClick={() => this.setState({ search: '' }) }>
-                                        <Clear className="inline-block " width={24} height={24} />
+                                        <Clear className="inline-block h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </button> : 
-                                    <Search className="self-center inline-block" width={24} height={24} />
+                                    <Search className="self-center inline-block h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                 }
                             </div>
                         </div>
                     </div>
-                    <div className="px-6 pb-5 w-full overflow-y-auto">
-                        <div className="pt-3 relative">
+                    <div className="px-3 hp:px-6 pb-5 w-full overflow-y-auto">
+                        <div className="text-xs hp-one:text-sm md:text-base pt-3 relative">
                             <p className="text-black-darker pt-4 pb-3">0 Hasil ditemukan</p>
                             <p>Gunakan nama yang berbeda atau lebih spesifik</p>
                         </div>

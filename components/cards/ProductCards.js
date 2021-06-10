@@ -20,20 +20,20 @@ export default class ProductCards extends React.Component{
                             <div className="absolute bottom-0 left-0">
                                 <p className="inline-block bg-black text-gray-100 px-1 m-0 md:m-2 text-xs">Ada Stok</p>
                                 <Truck
-                                    className="inline-block bg-red-600 my-2 px-1 stroke-current stroke-0 text-white transform scale-75 md:scale-100 "
+                                    className="inline-block bg-red-darker-1 my-2 px-1 stroke-current stroke-0 text-white transform scale-75 md:scale-100 "
                                     width={20}
                                     height={20}
                                     fill="white" 
                                 />
                             </div>
                         </div>
-                        <div className="my-2 px-4">
-                            <span className="block text-black-darker font-semibold whitespace-nowrap overflow-ellipsis overflow-hidden uppercase text-sm md:text-base">Converse 70S HI Herbal Black Egret</span>
-                            <span className="block text-gray-lighter-1 line-through text-sm md:text-base">Rp 320.000</span>
-                            <span className="block text-red-darker-1 text-sm md:text-base">Rp 300.000</span>
+                        <div className="my-2 px-1 hp-one:px-4">
+                            <span className="block text-black-darker font-semibold whitespace-nowrap overflow-ellipsis overflow-hidden uppercase text-xs hp-one:text-sm md:text-base">Converse 70S HI Herbal Black Egret</span>
+                            <span className="block text-gray-lighter-1 line-through text-xs hp-one:text-sm md:text-base">Rp 320.000</span>
+                            <span className="block text-red-darker-1 text-xs hp-one:text-sm md:text-base">Rp 300.000</span>
                             <p className="bg-red-darker-1 text-white px-1 inline-block text-xs">Diskon</p>
                             <hr className="border-b-1 border-gray-300 my-2" />
-                            <span className="block text-black-darker font-semibold text-center text-sm md:text-base">Lihat Produk</span>
+                            <span className="block text-black-darker font-semibold text-center text-xs hp-one:text-sm md:text-base">Lihat Produk</span>
                         </div>
                     </div>
                 </Link>
