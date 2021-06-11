@@ -1,5 +1,4 @@
 import React from 'react';
-import NumberFormat from 'react-number-format';
 import numeral from 'numeral';
 import Like from './../../assets/images/icons/like.svg';
 import Plus from './../../assets/images/icons/plus.svg';
@@ -18,7 +17,7 @@ export default class DescriptionProductCard extends React.Component{
                     <span className="bg-red-darker-1 text-white mt-1 mr-1 text-sm px-1 flex flex-wrap">
                         <Like width={12} height={12} className="inline-block self-center" />
                         Terfavorit
-                    </span>
+                    </span> 
                     <span className="bg-black text-white mt-1 mr-1 text-sm px-1">Ada Stok</span>
                 </div>
                 <p className="font-medium leading-6 text-xl py-2 text-black-darker">

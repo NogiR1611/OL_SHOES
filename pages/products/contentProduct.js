@@ -448,11 +448,13 @@ export default class ContentProduct extends React.Component{
                                         activeIndex={this.state.imgIndex}
                                         changeDotIndex={i => this.setState({ imgIndex:i })}
                                     />
-                                    <ListImagesCard
-                                        imgUrls={imgUrls} 
-                                        changeIndex={i => this.setState({ imgIndex:i })} 
-                                        activeIndex={this.state.imgIndex}
-                                    />
+                                    <div className="flex justify-center">
+                                        <ListImagesCard
+                                            imgUrls={imgUrls} 
+                                            changeIndex={i => this.setState({ imgIndex:i })} 
+                                            activeIndex={this.state.imgIndex}
+                                        />
+                                    </div>
                                     <ModalImageProduct 
                                         isOpen={this.state.showImgModal}
                                         onClose={this.closeModal}

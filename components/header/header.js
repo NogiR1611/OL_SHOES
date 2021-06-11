@@ -39,20 +39,20 @@ export default class Header extends React.Component{
                             {this.props.displayDownload ?
                                 (
                                     <button
-                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12"
+                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-6 w-6 hp-one:h-10 hp-one:w-10 md:h-12 md:w-12"
                                         onClick={this.props.downloadOnClick}
                                     >
-                                        <Download className="inline-block stroke-current stroke-0 black" width={24} height={24} />
+                                        <Download className="inline-block stroke-current stroke-0 black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </button>
                                 ) : null
                             }
                             {this.props.displayShare ? 
                                 (
                                     <button
-                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-10 w-10 md:h-12 md:w-12"
+                                        className="transition duration-300 ease-in-out focus:outline-none hover:bg-gray-300 rounded-full h-6 w-6 hp-one:h-10 hp-one:w-10 md:h-12 md:w-12"
                                         onClick={this.props.shareOnClick}
                                     >
-                                        <Share className="inline-block stroke-current stroke-2 black" width={24} height={24} />
+                                        <Share className="inline-block stroke-current stroke-2 black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                     </button> 
                                 ) 
                                 : null

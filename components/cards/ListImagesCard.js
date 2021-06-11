@@ -5,7 +5,7 @@ import Checklist from './../../assets/images/icons/checklist1.svg';
 export default class ListImagesCard extends React.Component{
     render(){
         return ( 
-            <div className="hidden lg:inline-flex flex-wrap flex-auto mt-4">
+            <div className="hidden lg:flex flex-wrap mt-4">
                 {this.props.imgUrls.map((url,index) => { 
                     return (
                         <div 

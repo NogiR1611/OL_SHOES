@@ -13,24 +13,25 @@ export default class DisplayImageCard extends React.Component{
     render(){ 
         return (
             <>
-            <div className="flex flex-auto flex-col w-full h-full lg:h-1/4">
-                <Slider
-                    onSlideComplete={this.props.changeIndex}
-                    activeIndex={this.props.activeIndex}
-                >
-                    {this.props.imgUrls.map((element,index) => {
-                        return (
-                            <div className="aspect-w-3 aspect-h-3 lg:aspect-none lg:h-auto" onClick={() => this.props.openModal(this.props.index)}>
-                                <img
-                                    className="object-cover" 
-                                    key={index}
-                                    src={element} 
-                                />
-                            </div>
-                        )
-                    })
-                    }
-                </Slider>
+                <div  className="aspect-w-1 aspect-h-1 h-1/6">
+                    <Slider
+                        onSlideComplete={this.props.changeIndex}
+                        activeIndex={this.props.activeIndex}
+                    >
+                        {this.props.imgUrls.map((element,index) => {
+                            return (
+                                <div onClick={() => this.props.openModal(this.props.index)}>
+                                    <img
+                                        className="object-cover h-auto" 
+                                        key={index}
+                                        src={element} 
+                                    />
+                                </div>
+                            )
+                        })
+                        }
+                    </Slider>
+                </div>
                 <div className="flex justify-center mt-2 w-full lg:hidden">
                     {this.props.imgUrls.map((element,index) => {
                         return (
@@ -41,7 +42,6 @@ export default class DisplayImageCard extends React.Component{
                         );
                     })}
                 </div>
-            </div>
             </>
         );
     }
