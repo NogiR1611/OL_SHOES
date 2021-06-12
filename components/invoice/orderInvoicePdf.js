@@ -5,8 +5,6 @@ const OrderInvoicePdf = () => {
     const doc = new jsPDF("p","mm",[200,280]);
     const date = format(new Date(),"dd-MM-yyyy,hh:mm");
 
-    doc.addFont('ReceiptionalReceipt', 'Receiptional Receipt', 'normal','StandardEncoding');
-    doc.setFont('Receiptional Receipt');  
     doc.setFontSize(14);
     //row 1
     doc.text("Order ID: ",8,8);
@@ -15,20 +13,23 @@ const OrderInvoicePdf = () => {
     doc.text("Dipesan dari Ol Shoes",8,15);
     //row 3
     doc.text("VANS AUTHENTIC OG DRESS BLUE IVORY",8,40);
-    doc.text("x2",190,40);
+    doc.text("x2",190,40,{align:'right'});
     //row 4
     doc.text("SIZE 40",8,47);
     //row 5
     doc.text("Rp. 280,000",8,54);
     //row 6
     doc.text("Harga Normal Produk",8,79);
-    doc.text(100,79,"Dssda");
+    doc.text(190,79,"Rp 560.000",{align:'right'});
     //row 7
     doc.text("Diskon",8,86);
+    doc.text(190,86,"-Rp.50.000",{align:'right'});
     //row 8
     doc.text("Biaya Pengiriman",8,93);
+    doc.text(190,93,"Rp.72.000",{align:'right'});
     //row 9
     doc.text("Total Harga",8,118);
+    doc.text(190,118,"Rp.582.000",{align:'right'});
     //row 10
     doc.text("Metode Pembayaran : ",8,125);
     //row 11

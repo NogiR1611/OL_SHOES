@@ -44,7 +44,7 @@ export default class ListAddress extends React.Component{
                         <button
                             onClick={this.props.openOptionAddress}
                             className="flex w-full px-2 mt-2 h-8 bg-gray-lighter-4 shadow-md font-medium text-black-darker text-xs hp-one:text-sm text-center focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-md"
-                        >
+                        > 
                             <span className="mx-auto self-center">Ganti alamat pengiriman</span>
                         </button>
                         <p className="text-xs hp-one:text-sm md:text-base text-black-darker mt-6">
