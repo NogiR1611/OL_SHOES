@@ -4,6 +4,7 @@ import Footer from './../../components/footer/footer.js';
 import FlashAlert from './../../components/cards/FlashAlertCard.js';
 import ListImagesCard from './../../components/cards/ListImagesCard.js';
 import ModalImageProduct from './../../components/modals/ModalImagesProduct.js';
+import Display3DProduct from './../../components/cards/Display3DCard.js';
 import DisplayImageCard from './../../components/cards/DisplayImageCard.js';
 import DescriptionProductCard from './../../components/cards/DescriptionProductCard.js';
 import CarouselProductCard from './../../components/cards/CarouselProductCard.js';
@@ -64,6 +65,7 @@ export default class ContentProduct extends React.Component{
             showSidebar : false,
             size: false,
             amount:false,
+            showSetAmount:false,
             cart: false,
             alert: false,
             amountProduct: 0,
@@ -149,6 +151,10 @@ export default class ContentProduct extends React.Component{
     pushProfileRoute = () => {
         Router.pushRoute('/orders');
     } 
+
+    pushMessageRoute = () => {
+        Router.pushRoute('/messages');
+    }
 
     openModal = () => {
         this.setState({ showImgModal:true })
@@ -259,7 +265,7 @@ export default class ContentProduct extends React.Component{
                             onClick={() => this.setState({ size:true })}
                             className="block lg:hidden flex w-full p-2 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
                         >
-                            <Cart className="inline-block float-left fill-current text-white self-center" width={24} height={24} />
+                            <Cart className="inline-block float-left fill-current text-white self-center h-5 w-5 hp-one:h-6 hp-one:w-6" />
                             <span className="mx-auto self-center">Beli Sekarang</span>
                         </button>
                             {this.state.showCart ? 
@@ -289,18 +295,20 @@ export default class ContentProduct extends React.Component{
                                         </div>
                                     </div>
                                 </button>
-                            : <div className="w-full" />}
+                            : null}
                             </div>
                         <div className="flex flex-shrink-0">
-                            <button
-                                className="flex justify-center lg:hidden mr-2 float-right self-center rounded-full h-12 w-12 bg-black transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-black active:bg-opacity-40 active:bg-black focus:outline-none"
-                                onClick={() => this.setState({ cart:true })}
-                            >
-                                <Cart className="self-center fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
-                                    <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 text-tiny text-white absolute ml-8 top-0">
-                                        <span className="self-center">{this.state.amountData}</span>
-                                    </div>
-                            </button>
+                            {this.state.showCart ? (
+                                <button
+                                    className="flex justify-center lg:hidden mr-2 float-right self-center rounded-full h-12 w-12 bg-black transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-black active:bg-opacity-40 active:bg-black focus:outline-none"
+                                    onClick={() => this.setState({ cart:true })}
+                                >
+                                    <Cart className="self-center fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
+                                        <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 text-tiny text-white absolute ml-8 top-0">
+                                            <span className="self-center">{this.state.amountData}</span>
+                                        </div>
+                                </button> )
+                            : null}
                             <button
                                 onClick={() => this.setState({ openChat:!this.state.openChat })}
                                 className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
@@ -311,7 +319,9 @@ export default class ContentProduct extends React.Component{
                     </div> 
                     <>
                         {this.state.openChat ? (
-                            <ChatWhatsappCard />
+                            <ChatWhatsappCard 
+                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281212701276','_blank')}
+                            />
                         ) : null}
                         <Header 
                             clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
@@ -321,10 +331,6 @@ export default class ContentProduct extends React.Component{
                             displayProfile={true}
                         />
                         <SearchModal onOpenSearch={this.state.openSearch} onCloseSearch={this.onCloseSearch} />
-                        {this.state.alert ? (
-                        <FlashAlert
-                            message="Berhasil ditambahkan" 
-                        />): null} 
                         {/**Modal for size */}
                         <SizeModal 
                             onOpenSize={this.state.size}
@@ -353,11 +359,15 @@ export default class ContentProduct extends React.Component{
                                 })
                             }
                         />
+                        {this.state.alert ? (
+                            <FlashAlert
+                                message="Berhasil ditambahkan" 
+                            />): null} 
                         <AmountModal 
                             onOpenAmount={this.state.amount}
-                            onCloseAmount={() => this.setState({ amount:false,size:true })}
+                            onCloseAmount={() => this.setState({ amount:false,size:true,showSetAmount:!this.state.showSetAmount })}
                             onClickStock={amountProduct => {
-                                this.setState({ amount:false,cart:true,alert:true })
+                                this.setState({ amount:false,cart:true,alert:true,showSetAmount:!this.state.showSetAmount })
                                 setTimeout(() => this.setState({ alert:false }),1000)
                                 let cartTotalProduct = [];
                                 let productData = {
@@ -368,8 +378,9 @@ export default class ContentProduct extends React.Component{
                                 };
                                 cartTotalProduct.push(productData);
                                 localStorage["cart"] = JSON.stringify(cartTotalProduct);
-                            }
-                            }
+                            }}
+                            setAmount={this.state.showSetAmount}
+                            showSetAmount={() => this.setState({ showSetAmount:!this.state.showSetAmount })}
                             arraySize={this.state.arrayAmount}
                         />
                         {/* Modal for Manage Amount of Product */}
@@ -439,6 +450,13 @@ export default class ContentProduct extends React.Component{
                         <div className="w-full md:w-11/12 mx-auto">
                             <div className="flex flex-wrap flex-auto">
                                 <div className="flex-auto w-full lg:w-1/2">
+                                    <ModalImageProduct 
+                                        isOpen={this.state.showImgModal}
+                                        onClose={this.closeModal}
+                                        onNext={this.nextClick}
+                                        onPrev={this.prevClick}
+                                        src={imgUrls[this.state.imgIndex]}
+                                    />
                                     <DisplayImageCard 
                                         imgUrls={imgUrls}
                                         onNext={() => this.setState({ imgIndex:this.state.imgIndex - 1 })}
@@ -448,20 +466,15 @@ export default class ContentProduct extends React.Component{
                                         activeIndex={this.state.imgIndex}
                                         changeDotIndex={i => this.setState({ imgIndex:i })}
                                     />
-                                    <div className="flex justify-center">
-                                        <ListImagesCard
-                                            imgUrls={imgUrls} 
-                                            changeIndex={i => this.setState({ imgIndex:i })} 
-                                            activeIndex={this.state.imgIndex}
-                                        />
-                                    </div>
-                                    <ModalImageProduct 
-                                        isOpen={this.state.showImgModal}
-                                        onClose={this.closeModal}
-                                        onNext={this.nextClick}
-                                        onPrev={this.prevClick}
-                                        src={imgUrls[this.state.imgIndex]}
+                                    <ListImagesCard
+                                        imgUrls={imgUrls} 
+                                        changeIndex={i => this.setState({ imgIndex:i })} 
+                                        activeIndex={this.state.imgIndex}
                                     />
+                                    <Display3DProduct />
+                                    <video width="750" height="500" controls className="mt-10" >
+                                        <source src="/video/1.mp4" type="video/mp4"/>
+                                    </video>
                                 </div>
                                 <div className="flex-auto w-full lg:w-1/2">
                                     <DescriptionProductCard 
@@ -469,6 +482,7 @@ export default class ContentProduct extends React.Component{
                                         realPrice="320,000"
                                         discountPrice="290,000"
                                         cartButton={() => this.setState({ size:true })}
+                                        onClickMessage={this.pushMessageRoute}
                                     />
                                 </div>
                             </div>

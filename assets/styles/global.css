@@ -69,6 +69,15 @@ input[type=text]:not(:placeholder-shown) ~ label {
   @apply transform scale-75 -translate-y-4 -ml-1;
 }
 
+input[type=number]:focus-within ~ label {
+  @apply text-red-darker-1;
+}
+
+input[type=number]:focus-within ~ label,
+input[type=number]:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-4 -ml-1;
+}
+
 input[type=text]:focus-within ~ label {
   @apply text-red-darker-1;
 }

@@ -8,11 +8,16 @@ export default class AmountModal extends React.Component{
         super(props)
         this.state = {
             showAmountNotif: false,
+            showAmount: false,
         }
     }
 
     onCloseAmountNotif = () => {
         this.setState({ showAmountNotif:false });
+    }
+
+    componentDidMount(){
+        this.props.onOpenAmount ? this.setState({ showAmount:false }) : this.setState({ showAmount:false }) ;
     }
 
     render(){
@@ -92,18 +97,45 @@ export default class AmountModal extends React.Component{
                                     {this.props.arraySize[4] === 5 ? "Stok ada" : "Stok kosong"}
                                 </p>
                             </button>
-                            <button
-                                onClick={this.props.arraySize[0] === 1 ? this.props.onClickStock : e => e.preventDefault()}
-                                className="h-12 w-full bg-gray-lighter-5 flex-column text-center rounded-md bg-white mt-4 focus:outline-none"
-                            >
-                                <p className="text-black-darker font-medium">+Lebih</p>
-                            </button>
-                            <button
-                                onClick={() => this.setState({ showAmountNotif:true })}
-                                className="h-12 w-full bg-gray-lighter flex-column text-center rounded-md bg-white mt-4 focus:outline-none"
-                            >
-                                <p className="text-red-darker-1 font-medium">Beri tahu saya jika produk tersedia kembali</p>
-                            </button>
+                            {this.props.setAmount ? (
+                                <div className="flex flex-nowrap flex-auto mt-4">
+                                    <div className="flex-auto block relative border-b-2 bg-gray-lighter-7 focus-within:border-red-darker-1 rounded-t-lg border-gray-lighter-9">
+                                        <input
+                                            type="number" 
+                                            id="amount"     
+                                            name="amount" 
+                                            placeholder=" "
+                                            className="block w-full text-xs hp-one:text-sm lg:text-base bg-transparent appearance-none pt-6 pl-5 pr-3 focus:outline-none" 
+                                        />
+                                        <label for="amount" className="text-xs hp-one:text-sm lg:text-base absolute top-4 text-gray-lighter-3 transition duration-300 ease-in-out font-medium">Atau ketikan jumlah (cth.5)</label>
+                                    </div>
+                                    <div className="flex flex-grow-0 flex-shrink-0">
+                                        <button
+                                            className="shadow-md focus:outline-none bg-white hover:bg-gray-lighter-5 active:bg-gray-lighter-3 text-black-darker h-12 ml-2 px-5 text-center rounded-md transition duration-300 ease-in-out"
+                                        >
+                                            Oke
+                                        </button>
+                                    </div>
+                                </div>  
+                            ) : (
+                                <>
+                                    <button
+                                        onClick={this.props.arraySize[2] === 3 ? this.props.showSetAmount : e => e.preventDefault()}
+                                        className={
+                                            "h-12 w-full flex-column text-center rounded-md mt-4 focus:outline-none " + 
+                                            (this.props.arraySize[2] === 3 ? "shadow-md bg-white" : "bg-gray-lighter-5")
+                                        }
+                                    >
+                                        <p className="text-black-darker font-medium">+Lebih</p>
+                                    </button>
+                                    <button
+                                        onClick={() => this.setState({ showAmountNotif:true })}
+                                        className="h-12 w-full bg-gray-lighter flex-column text-center rounded-md bg-white mt-4 focus:outline-none"
+                                    >
+                                        <p className="text-red-darker-1 font-medium">Beri tahu saya jika produk tersedia kembali</p>
+                                    </button>
+                                </> 
+                            )}
                         </div>
                     </div>
                 </div>

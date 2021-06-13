@@ -36,6 +36,7 @@ export default class ChatWhatsappCard extends React.Component{
                                 />
                             </div>
                             <button
+                                onClick={this.props.onClickWhatsapp}
                                 className="self-center flex bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-8 w-10 hp-one:h-12 hp-one:w-16 focus:outline-none"
                             >
                                 <Send className="self-center h-4 w-4 hp-one:h-6 hp-one:w-6 mx-auto fill-current text-white" />

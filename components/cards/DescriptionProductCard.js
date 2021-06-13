@@ -147,6 +147,7 @@ export default class DescriptionProductCard extends React.Component{
                             </div>
                         </div>
                         <button
+                            onClick={this.props.onClickBuy}
                             className="font-medium bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 focus:outline-none h-8 w-14 text-center"
                         >
                             Beli
@@ -154,6 +155,7 @@ export default class DescriptionProductCard extends React.Component{
                     </div>
                     <hr className="border-b-1 border-gray-lighter-4 border-solid" />
                         <button
+                            onClick={this.props.onClickMessage}
                             className="flex w-full p-2 mt-6 bg-gray-lighter-4 hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg shadow-md font-semibold text-black-darker text-sm text-center focus:outline-none"
                         >
                             <Sms className="inline-block float-left stroke-current stroke-0 black self-center" width={24} height={24} />

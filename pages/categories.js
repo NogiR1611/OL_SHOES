@@ -162,7 +162,9 @@ export default class Categories extends React.Component{
                     </div> 
                     <div className="bg-gray-lighter flex flex-col w-full min-h-screen max-h-full">
                         {this.state.openChat ? (
-                            <ChatWhatsappCard />
+                            <ChatWhatsappCard 
+                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281212701276','_blank')}
+                            />
                         ) : null}
                         <Header
                             clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}

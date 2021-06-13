@@ -15,6 +15,8 @@ import {Router} from '../routes.js';
 import dynamic from 'next/dynamic';
 import Cart from './../assets/images/icons/cart.svg';
 import Whatsapp from './../assets/images/icons/whatsapp.svg';
+import address from './../address.js';
+import fetch from "isomorphic-unfetch";
 
 
 export const Header = dynamic(() => {
@@ -26,13 +28,12 @@ export const Sidebar = dynamic(() => {
 },{ ssr:false });
 
 /*
-export const getStaticProps = async () => {
-    //example of API data
-    const apiURL = 'https://jsonplaceholder.typicode.com/users';
+export async function getServerSideProps(){
+    const apiURL = `http://localhost:8000/v1/token`;
     const response = await fetch(apiURL);
-    const result = await response.json();
+    const token_user = await response.json();
     return { 
-        props : { categories : result } 
+        props : { token_user } 
     }
 }
 */
@@ -93,9 +94,30 @@ class Index extends React.Component{
                 amountData:parseData.length,
             })
         }
+
+        address.get('/token')
+        .then(res => {
+            let tokenUser = localStorage["user_token"];
+
+            if(!tokenUser){
+                const {token} = res.data;
+                localStorage["user_token"] = JSON.stringify({ token });
+            }
+        })
+        .catch(err => console.log(err))
+
+        /*
+        if(!tokenUser){
+            let token = this.props.token_user;
+            let object_token = [];
+            object_token.push(token);
+            localStorage["token"] = JSON.stringify(object_token);
+        }
+        */
     }
 
     render(){
+        console.log(this.props.token_user);
         return (
             <>
                 <Sidebar
@@ -205,7 +227,9 @@ class Index extends React.Component{
                     </div> 
                     <div className={"bg-gray-lighter flex flex-col w-full min-h-screen mb-auto"}>  
                     {this.state.openChat ? (
-                        <ChatWhatsappCard />
+                        <ChatWhatsappCard  
+                            onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281212701276','_blank')}
+                        />
                     ) : null}
                         <Header
                             clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}

@@ -69,9 +69,9 @@ export default class ShipmentService extends React.Component{
                                 >
                                     <>
                                         {this.state.shipmentOption === element.nameShipment ? (
-                                            <Checkmark className="flex-none h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8 self-center stroke-current stroke-1 text-red-darker-1" /> 
+                                            <Checkmark className="flex-none h-4 w-4 hp-one:h-6 hp-one:w-6 mr-2 self-center stroke-current stroke-1 text-red-darker-1" /> 
                                         ):
-                                            <Circle className="flex-none h-4 w-4 hp-one:h-6 hp-one:w-6 lg:h-8 lg:w-8 self-center stroke-current stroke-1 text-black" />
+                                            <Circle className="flex-none h-4 w-4 hp-one:h-6 hp-one:w-6 mr-2 self-center stroke-current stroke-1 text-black" />
                                         }
                                         <div className="flex-auto">
                                             <div className="">
@@ -109,7 +109,7 @@ export default class ShipmentService extends React.Component{
                                         </div>
                                         <button
                                             onClick={this.props.paymentModal}
-                                            className="w-full bg-red-darker-1 hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 text-white text-center font-medium text-xs hp-one:text-sm h-8 rounded-md focus:outline-none"
+                                            className="w-full bg-red-darker-1 transition duration-300 ease-in-out hover:opacity-90 active:bg-opacity-50 active:bg-red-darker-1 text-white text-center font-medium text-xs hp-one:text-sm h-8 rounded-md focus:outline-none"
                                         >
                                             Pilih metode ini
                                         </button>

@@ -13,26 +13,30 @@ export default class DisplayImageCard extends React.Component{
     render(){ 
         return (
             <>
-                <div  className="aspect-w-1 aspect-h-1 h-1/6">
+                <div className="aspect-w-2 aspect-h-1 lg:aspect-w-1 lg:aspect-h-1">
                     <Slider
                         onSlideComplete={this.props.changeIndex}
                         activeIndex={this.props.activeIndex}
                     >
                         {this.props.imgUrls.map((element,index) => {
                             return (
-                                <div onClick={() => this.props.openModal(this.props.index)}>
-                                    <img
-                                        className="object-cover h-auto" 
-                                        key={index}
-                                        src={element} 
-                                    />
-                                </div>
+                                <div 
+                                    key={index} 
+                                    onClick={() => this.props.openModal(this.props.index)} 
+                                    className="flex justify-center h-24 w-24 cursor-pointer"
+                                    style={{
+                                        backgroundImage: `url(${element})`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                    }}
+                                />
                             )
                         })
                         }
                     </Slider>
                 </div>
-                <div className="flex justify-center mt-2 w-full lg:hidden">
+                <div className="flex justify-center my-2 w-full lg:hidden">
                     {this.props.imgUrls.map((element,index) => {
                         return (
                             <div 

@@ -11,6 +11,10 @@ const nextConfig = {
     {
       test: /\.jpg$/,
       use: ["next-images"]
+    },
+    {
+      test: /\.mp4$/,
+      use: ["next-videos"]     
     });
     return config;
   },

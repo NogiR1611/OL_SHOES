@@ -43,7 +43,7 @@ export default class InfoCustomer extends React.Component{
     onCloseModalCity = () => {
         this.setState({ city: false })
     }
-
+ 
     onCloseModalDistrict = () => {
         this.setState({ district: false })
     }
@@ -62,7 +62,7 @@ export default class InfoCustomer extends React.Component{
     }
     
     clickCity = id => {
-        address.get(`/cities/${id}`)
+        address.get(`/cities?search=province_id=${id}`)
         .then(res => {
             const {data} = res.data;
             this.setState({ cityData: data })
@@ -73,7 +73,7 @@ export default class InfoCustomer extends React.Component{
     }
 
     clickDistrict = id => {
-        address.get(`/areas/${id}`)
+        address.get(`/districts?search=city_id=${id}`)
         .then(res => {
             const {data} = res.data;
             this.setState({ districtData: data })
@@ -417,7 +417,7 @@ export default class InfoCustomer extends React.Component{
                         {this.state.districtData
                             .filter(element => {
                                 return (
-                                    element.subdistrict_name.toLowerCase().includes(this.state.searchDistrict.toString().toLowerCase())    
+                                    element.name.toLowerCase().includes(this.state.searchDistrict.toString().toLowerCase())    
                                 )
                             })
                             .map( (element,index) => {
@@ -427,13 +427,13 @@ export default class InfoCustomer extends React.Component{
                                             className="flex flex-nowrap flex-auto w-full text-left font-bold text-gray-800 py-3 pr-3 focus:outline-none hover:bg-gray-100 transition duration-300 ease-in-out rounded-md"
                                             onClick={() => {
                                                 this.setState({
-                                                    districtName: element.districtName,
+                                                    districtName: element.name,
                                                     district: false,
                                                     provinceAndCity:this.state.cityName + ',' + this.state.provinceName
                                                 })
                                             }}
                                         >
-                                            <span className="flex-auto self-center">{element.subdistrict_name}</span>
+                                            <span className="flex-auto self-center">{element.name}</span>
                                             <RightArrow className="inline-block float-right mx-2 my-2 stroke-current stroke-0 text-black h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                         </button>
                                         <hr className="border-b-2 border-gray-200" />

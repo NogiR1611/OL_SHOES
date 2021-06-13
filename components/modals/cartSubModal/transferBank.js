@@ -32,8 +32,8 @@ export default class TransferBank extends React.Component{
                             onClick={e => e.preventDefault()}
                         >
                             <div className="flex flex-col flex-auto flex-nowrap justify-center self-center text-center">
-                                <p className="text-black-darker text-xs hp-one:text-sm lg:text-lg font-medium leading-none">BCA</p>
-                                <span className="text-gray-lighter-1 text-tiny hp-one:text-sm lg:text-lg leading-none">Auto Konfirmasi &bull; Virtual Account</span>
+                                <p className="text-black-darker text-xs hp-one:text-sm font-medium leading-none">BCA</p>
+                                <span className="text-gray-lighter-1 text-tiny hp-one:text-sm leading-none">Auto Konfirmasi &bull; Virtual Account</span>
                             </div>
                             <div className="flex flex-none self-center">
                                 <img 
@@ -47,8 +47,8 @@ export default class TransferBank extends React.Component{
                             onClick={e => e.preventDefault()}
                         >
                             <div className="flex flex-col flex-auto flex-nowrap justify-center self-center text-center">
-                                <p className="text-black-darker text-xs hp-one:text-sm lg:text-lg font-medium leading-none">BCA</p>
-                                <span className="text-gray-lighter-1 text-tiny hp-one:text-sm lg:text-lg leading-none">Auto Konfirmasi &bull; Virtual Account</span>
+                                <p className="text-black-darker text-xs hp-one:text-sm font-medium leading-none">BCA</p>
+                                <span className="text-gray-lighter-1 text-tiny hp-one:text-sm leading-none">Auto Konfirmasi &bull; Virtual Account</span>
                             </div>
                             <div className="flex flex-none self-center">
                                 <img 

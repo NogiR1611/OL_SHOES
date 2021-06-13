@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-const address = axios.create({
-    baseURL: 'https://api.tokotalk.com/v1/no_auth/ongkir'
+const client = axios.create({
+    baseURL: "http://localhost:8000/v1",
+    headers : {
+        "Content-Type" : "application/json"
+    }
 });
 
-export default address; 
+export default client; 
