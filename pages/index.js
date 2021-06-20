@@ -15,9 +15,7 @@ import {Router} from '../routes.js';
 import dynamic from 'next/dynamic';
 import Cart from './../assets/images/icons/cart.svg';
 import Whatsapp from './../assets/images/icons/whatsapp.svg';
-import address from './../address.js';
-import fetch from "isomorphic-unfetch";
-
+import address from './../utils/address.js';
 
 export const Header = dynamic(() => {
     return import('./../components/header/header.js')
@@ -95,7 +93,7 @@ class Index extends React.Component{
             })
         }
 
-        address.get('/token')
+        address.get('/users/token')
         .then(res => {
             let tokenUser = localStorage["user_token"];
 
@@ -117,7 +115,6 @@ class Index extends React.Component{
     }
 
     render(){
-        console.log(this.props.token_user);
         return (
             <>
                 <Sidebar
@@ -226,11 +223,11 @@ class Index extends React.Component{
                         </div>
                     </div> 
                     <div className={"bg-gray-lighter flex flex-col w-full min-h-screen mb-auto"}>  
-                    {this.state.openChat ? (
-                        <ChatWhatsappCard  
-                            onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281212701276','_blank')}
-                        />
-                    ) : null}
+                        {this.state.openChat ? (
+                            <ChatWhatsappCard  
+                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281212701276','_blank')}
+                            />
+                        ) : null}
                         <Header
                             clickMenu={() => this.setState({ showSidebar:!this.state.showSidebar })}
                             changeIcon={this.state.showSidebar}

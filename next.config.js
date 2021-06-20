@@ -18,6 +18,10 @@ const nextConfig = {
     });
     return config;
   },
+  env: {
+    REACT_APP_API_URL: 'http://localhost:8000/v1',
+    REACT_APP_KEY: 'jBAcsulW27Uk9P38CIRis6fmwEsvItIh'
+  },
 }
 
 module.exports = withPlugins([],nextConfig);

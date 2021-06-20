@@ -73,8 +73,11 @@ export default class DescriptionProductCard extends React.Component{
                     <p className="mb-2 font-medium">Pengiriman</p>
                     <div className="flex justify-between">
                         <p>Kirim ke:</p>
-                        <button className="text-sm bg-transparent focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 py-1">
-                            <span>Bekasi,Cikarang Barat</span>
+                        <button
+                            onClick={this.props.onClickAddressCustomer}
+                            className="flex text-sm bg-transparent focus:outline-none hover:bg-gray-lighter-5 active:bg-gray-lighter-3 transition duration-300 ease-in-out rounded-lg px-1 py-1"
+                        >
+                            <span className="self-center">{this.props.nameAddressCustomer}</span>
                             <ArrowDown className="float-right inline-block self-center fill-current text-black" width={24} height={24} />
                         </button>
                     </div>

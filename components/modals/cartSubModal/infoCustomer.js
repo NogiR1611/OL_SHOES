@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
-import address from './../../../address.js';
+import address from './../../../utils/address.js';
 import RightArrow from './../../../assets/images/icons/rightArrow.svg';
 import Search from './../../../assets/images/icons/search.svg';
 import Clear from './../../../assets/images/icons/clear.svg';

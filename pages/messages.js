@@ -1,14 +1,14 @@
 import React from 'react';
+import {format} from 'date-fns';
 import Locked from './../assets/images/icons/locked.svg';
 import Send from './../assets/images/icons/send.svg';
-import Note from './../assets/images/icons/note.svg';
-import Logo from './../assets/images/icons/logo-bg-black.svg';
+import FlashAlert from './../components/cards/FlashAlertCard.js';
 import SearchModal from './../components/modals/searchModal.js';
 import ContactModal from './../components/modals/contactModal.js';
 import FilterModal from './../components/modals/filterModal.js';
 import dynamic from 'next/dynamic';
 import {Router} from '../routes.js';
-
+import {io} from "socket.io-client";
 
 
 export const Sidebar = dynamic(() => {
@@ -19,17 +19,95 @@ export const Header = dynamic(() => {
     return import('./../components/header/header.js')
 },{ ssr:false });
 
+const SERVER = "http://localhost:8080";
+let socket = io(SERVER);
+
 export default class Messages extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             data : [],
+            message : '',
+            messages : [],
+            naon: null,
+            user: '',
             openSearch : false,
             openContact : false,
             openFilter : false,
             changePage : false,
+            showAlert : false,
             showSidebar : false,
             placeholder : 'Pesan'
+        }
+        
+        /*
+        this.socket = io("http://localhost:8000");
+        
+        this.socket.on('connection',function(data){
+            addMessage(data);
+        });
+        
+        const addMessage = data => {
+            this.setState({ messages: [...this.state.messages,data]});
+        }
+
+        this.sendMessage = ev => {
+            ev.preventDefault();
+            this.socket.emit('connection',{
+                message: this.state.message
+            })
+            this.setState({message: '' });
+        }
+        */
+    }
+
+    componentDidMount(){
+        let userToken = localStorage["user_token"];
+        if(userToken){
+            let parseToken = JSON.parse(userToken);
+            this.setState({ user:parseToken.token });
+        }
+        
+        socket.on("test",data => {
+            console.log(data);
+        })
+
+        socket.on("connection", () => {
+            console.log(socket.id);
+        });
+
+        socket.on('spread-message',(data) => {
+            this.setState({ messages:data })
+        })
+
+        socket.on("retrieve-message",(data) => {
+            console.log(data);
+            this.setState({ messages:[...this.state.messages,data] });
+        });
+    }
+
+    clickEnter = e => {
+        if(e.key === "Enter"){
+            if(this.state.message === ''){
+                this.setState({ showAlert:true });
+                setTimeout(() => this.setState({ showAlert:false }),1000)
+            }
+            this.sendMessage();
+        }
+    }
+
+    sendMessage = ev => {
+        if(this.state.message === ''){
+            this.setState({ showAlert:true });
+            setTimeout(() => this.setState({ showAlert:false }),1000)
+        }
+        else{
+            socket.emit('send-message',{
+                user:this.state.user,
+                message: this.state.message,
+                time: format(new Date(),'hh:mm dd/MM/yyyy')
+            });
+            this.setState({message: '' });
         }
     }
     
@@ -62,6 +140,7 @@ export default class Messages extends React.Component{
     }
 
     render(){
+        socket.emit('channel-name',this.state.user);
         return(
             <>
             {this.state.showSidebar ? (
@@ -83,6 +162,13 @@ export default class Messages extends React.Component{
                     removeIcon={this.state.showSidebar}
                     searchOnClick={this.onOpenSearch} 
                 />
+                {this.state.showAlert ? (
+                    <FlashAlert 
+                        message="Mohon isikan pesan anda"
+                        showChecklist={false}
+                    />
+                    )
+                : null}
                 <div className="flex flex-col flex-auto w-full lg:w-3/4 xl:w-8/10 lg:ml-auto bg-gray-lighter min-h-screen relative">
                     <div className="pt-6 pb-4 w-full">
                         <div className="w-11/12 md:w-9/12 lg:w-6/12 mx-auto">
@@ -139,6 +225,7 @@ export default class Messages extends React.Component{
                     </div>
                     <div className="bg-gray-lighter-4 w-full min-h-screen">
                         <div className="w-full md:w-9/12 lg:w-1/2 mx-auto pt-4 px-2 hp-one:px-6 pb-20 flex-col">
+                            {/*
                             <div className="flex justify-end mt-4 ml-8 hp-one:ml-20">  
                                 <div className="flex flex-col">
                                     <div className="bg-red-darker-1 rounded-xl flex-shrink break-words md:w-80 p-2 text-xs hp-one:text-sm md:text-base text-white text-left">
@@ -250,6 +337,21 @@ export default class Messages extends React.Component{
                                     </div>
                                 </div>
                             </div>
+                            */}
+                            {this.state.messages && this.state.messages.map(message => {
+                                return (
+                                    <div className="flex justify-end mt-4 ml-8 hp-one:ml-20">  
+                                        <div className="flex flex-col">
+                                            <div className="bg-red-darker-1 rounded-xl flex-shrink break-words md:w-80 p-2 text-xs hp-one:text-sm md:text-base text-white text-left">
+                                                <p>{message.message}</p>
+                                            </div>
+                                            <div className="flex justify-start pl-3 mt-1">
+                                                <p className="text-tiny hp-one:text-xs md:text-sm text-gray-lighter-1">{message.time}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -260,6 +362,9 @@ export default class Messages extends React.Component{
                                 type="text" 
                                 id="messages" 
                                 name="messages"
+                                onKeyPress={this.clickEnter}
+                                value={this.state.message}
+                                onChange={ev => this.setState({message:ev.target.value })}
                                 placeholder={this.state.placeholder} 
                                 onFocus={() => this.setState({ placeholder: '' })}
                                 onBlur={() => this.setState({ placeholder: 'Pesan' })}
@@ -267,7 +372,8 @@ export default class Messages extends React.Component{
                             />
                         </div>
                         <button
-                            className="self-center flex bg-green-whatsapp transition duration-300 ease-in-out shadow-md hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-8 w-12 hp-one:h-12 hp-one:w-16 focus:outline-none"
+                            onClick={this.sendMessage}
+                            className="self-center pointer-events-auto flex bg-green-whatsapp transition duration-300 ease-in-out shadow-md hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp rounded-lg ml-2 h-8 w-12 hp-one:h-12 hp-one:w-16 focus:outline-none"
                         >
                             <Send className="self-center h-4 w-4 hp-one:h-6 hp-one:w-6 mx-auto fill-current text-white" />
                         </button>

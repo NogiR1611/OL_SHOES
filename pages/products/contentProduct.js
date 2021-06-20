@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic';
 import ChatWhatsappCard from './../../components/cards/ChatWhatsappCard.js';
 import Whatsapp from './../../assets/images/icons/whatsapp.svg';
 import Cart from './../../assets/images/icons/cart.svg';
+import address from './../../address.js';
 
 /**Import Modal */
 import SearchModal from './../../components/modals/searchModal.js';
@@ -23,6 +24,9 @@ import AmountOfProduct from './../../components/modals/cartSubModal/amountOfProd
 import Note from './../../components/modals/cartSubModal/note.js';
 import Voucher from './../../components/modals/cartSubModal/voucher.js';
 import InfoCustomer from './../../components/modals/cartSubModal/infoCustomer.js';
+import Provinces from './../../components/modals/cartSubModal/provinces.js';
+import Cities from './../../components/modals/cartSubModal/cities.js';
+import Districts from './../../components/modals/cartSubModal/district.js';
 import ShipmentService from './../../components/modals/cartSubModal/shipmentService.js';
 import PaymentService from './../../components/modals/cartSubModal/paymentService.js';
 import TransferBank from './../../components/modals/cartSubModal/transferBank.js';
@@ -79,13 +83,28 @@ export default class ContentProduct extends React.Component{
             voucherTwo: false,
             modalInfoCustomer: false,
             amountProductModal: false,
+            provinces: false,
+            searchProvince: '',
+            provinceId: null,
+            provinceName: null,
+            provinceData: [],
+            city: false,
+            searchCity: '',
+            cityId: null,
+            cityName: null,
+            cityData: [],
+            district: false,
+            searchDistrict: '',
+            districtName: null,
+            districtId: null,
+            districtData: [],
             shipmentModal: false,
             paymentService: false,
             transferBank: false,
             ePayment: false,
             minimarket: false,
             creditAndDebit: false,
-            data: [],
+            productFromStorage: [],
             productDataset: [
                 {
                     id:1,
@@ -193,14 +212,23 @@ export default class ContentProduct extends React.Component{
             let parseData = JSON.parse(appState);
             this.setState({ 
                 showCart:true,
-                data:parseData, 
+                productFromStorage:parseData, 
                 amountData:parseData.length,
             })
         }
+
+        address.get('/provinces')
+        .then(res => {
+            const {data} = res.data
+            this.setState({ provinceData: data })
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){
-        console.log(this.state.imgIndex);
+        console.log(this.state.city);
         return (
             <>
                 <Sidebar
@@ -219,7 +247,7 @@ export default class ContentProduct extends React.Component{
                         continueToShop={() => this.setState({ cart:false })}
                         removeModal={() => this.setState({ cart:false,modalInfoCustomer:true })}
                         renderProductData={
-                            this.state.data.map((element,index) => {
+                            this.state.productFromStorage.map((element,index) => {
                                 return (
                                     <div key={index}>
                                         <div className="w-full flex flex-nowrap">
@@ -347,8 +375,10 @@ export default class ContentProduct extends React.Component{
                                                     amount:true,
                                                     arrayAmount:Array.from({length: element.amount}, (_, i) => i + 1),
                                                     sizeProduct:element.size,
-                                                    priceProduct:element.price
+                                                    priceProduct:element.price,
+                                                    alert:true,
                                                 })
+                                                setTimeout(() => this.setState({ alert:false }),1000)
                                             }}
                                             className="h-12 w-full flex-column text-center text-xs hp-one:text-sm rounded shadow bg-white mt-4 focus:outline-none"
                                         >
@@ -359,9 +389,9 @@ export default class ContentProduct extends React.Component{
                                 })
                             }
                         />
-                        {this.state.alert ? (
+                        {this.state.alert && this.state.amount ? (
                             <FlashAlert
-                                message="Berhasil ditambahkan" 
+                                message={"Berhasil memilih ukuran " + this.state.sizeProduct} 
                             />): null} 
                         <AmountModal 
                             onOpenAmount={this.state.amount}
@@ -369,20 +399,28 @@ export default class ContentProduct extends React.Component{
                             onClickStock={amountProduct => {
                                 this.setState({ amount:false,cart:true,alert:true,showSetAmount:!this.state.showSetAmount })
                                 setTimeout(() => this.setState({ alert:false }),1000)
-                                let cartTotalProduct = [];
+                                let arr = new Array();
                                 let productData = {
                                     name: 'VANS SK8 HI BLACK WHITE',
                                     price:this.state.priceProduct,
                                     size:this.state.sizeProduct,
                                     amount:amountProduct,
                                 };
-                                cartTotalProduct.push(productData);
-                                localStorage["cart"] = JSON.stringify(cartTotalProduct);
+                                arr.push(productData);
+                                this.setState({
+                                    productFromStorage:[...this.state.productFromStorage,productData],
+                                    amountData: this.state.amountData + 1
+                                });
+                                localStorage["cart"] = JSON.stringify([...this.state.productFromStorage,productData]);
                             }}
                             setAmount={this.state.showSetAmount}
                             showSetAmount={() => this.setState({ showSetAmount:!this.state.showSetAmount })}
                             arraySize={this.state.arrayAmount}
                         />
+                        {this.state.alert && this.state.cart ? (
+                            <FlashAlert
+                                message="Berhasil ditambahkan" 
+                            />): null} 
                         {/* Modal for Manage Amount of Product */}
                         <AmountOfProduct 
                             openModalAmountProduct={this.state.modalAmountProduct}
@@ -410,21 +448,110 @@ export default class ContentProduct extends React.Component{
                             onCloseModalInfoCustomer={() => this.setState({ modalInfoCustomer:false,cart:true })}
                             shipmentModal={() => this.setState({ modalInfoCustomer:false,shipmentService:true }) }
                         />
+                        {/* Modal for Provinces */}
+                        <Provinces 
+                            onOpenProvince={this.state.provinces}
+                            onCloseProvince={() => this.setState({ provinces:false })}
+                            searchProvince={this.state.searchProvince}
+                            onChangeProvince={e => this.setState({ searchProvince: e.target.value })}
+                            clearInput={() => this.setState({ searchProvince : '' }) }
+                            provinceData={this.state.provinceData}
+                            onClickProvinces={(id,name) => {
+                                address.get(`/cities?search=province_id=${id}`)
+                                .then(res => {
+                                    const {data} = res.data;
+                                    this.setState({ cityData: data,provinceName:name,city:true,provinces:false })
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+                            }}
+                        /> 
+                        {/* Modal for Cities */}
+                        <Cities 
+                            onOpenCity={this.state.city}
+                            onCloseCity={() => this.setState({ city:false,provinces:true })}
+                            provinceName={this.state.provinceName}
+                            searchCity={this.state.searchCity}
+                            onChangeCity={e => this.setState({ searchCity: e.target.value })}
+                            clearInput={() => this.setState({ searchCity : '' })}
+                            cityData={this.state.cityData}
+                            onClickCity={(id,name) => {
+                                address.get(`/districts?search=city_id=${id}`)
+                                .then(res => {
+                                    const {data} = res.data;
+                                    this.setState({ districtData:data,cityName:name,cityId:id,city:false,district:true })
+                                })
+                                .catch(err => {
+                                    console.log(err)
+                                })
+                            }}
+                        />
+                        {/* Modal for Districts */}
+                        <Districts 
+                            onOpenDistrict={this.state.district}
+                            onCloseDistrict={() => this.setState({ district:false,city:true })}
+                            provincesAndCities={`${this.state.cityName},${this.state.provinceName}`}
+                            searchDistrict={this.state.searchDistrict}
+                            onChangeDistrict={e => this.setState({ searchDistrict:e.target.value })}
+                            clearInput={() => this.setState({ searchDistrict:'' })}
+                            districtData={this.state.districtData}
+                            onClickDistrict={(id,name) => this.setState({
+                                districtId:id,
+                                districtName:name,
+                                district:false
+                            })}
+                        />
                         {/* Modal for shipment service */}
                         <ShipmentService
                             modalShipmentService={this.state.shipmentService}
                             onCloseShipmentService={() => this.setState({ shipmentService:false,modalInfoCustomer:true })}
-                            paymentModal={() => this.setState({ shipmentService:false,paymentService:true })}
+                            paymentModal={() => {
+                                this.setState({ shipmentService:false,alert:true,paymentService:true })
+                                setTimeout(() => this.setState({ alert:false }),1000)
+                            }}
                         />
+                        {this.state.alert && this.state.paymentService ? (
+                            <FlashAlert
+                                message="Berhasil memilih jasa pengiriman" 
+                            />): null} 
                         {/**Modal for payment service */}
                         <PaymentService 
                             modalPayment={this.state.paymentService}
-                            onCloseModalPayment={() => this.setState({ paymentService:false,shipmentService:true })}
-                            transferBank={() => this.setState({ paymentService:false,transferBank:true })}
-                            ePayment={() => this.setState({ paymentService:false,ePayment:true }) }
-                            minimarket={() => this.setState({ paymentService:false,minimarket:true })}
-                            creditAndDebit={() => this.setState({ paymentService:false,creditAndDebit:true }) }
+                            onCloseModalPayment={() => this.setState({ paymentService:false,alert:true,shipmentService:true })}
+                            transferBank={() => {
+                                this.setState({ paymentService:false,alert:true,transferBank:true })
+                                setTimeout(() => this.setState({ alert:false }),1000)
+                            }}
+                            ePayment={() => {
+                                this.setState({ paymentService:false,alert:true,ePayment:true }) 
+                                setTimeout(() => this.setState({ alert:false }),1000)
+                            }}
+                            minimarket={() => {
+                                this.setState({ paymentService:false,alert:true,minimarket:true })
+                                setTimeout(() => this.setState({ alert:false }),1000)
+                            }}
+                            creditAndDebit={() => {
+                                this.setState({ paymentService:false,alert:true,creditAndDebit:true }) 
+                                setTimeout(() => this.setState({ alert:false }),1000)
+                            }}
                         />
+                        {this.state.alert && this.state.transferBank ? (
+                            <FlashAlert
+                                message="Berhasil memilih transfer bank" 
+                            />): null} 
+                        {this.state.alert && this.state.ePayment ? (
+                            <FlashAlert
+                                message="Berhasil memilih E-Payment" 
+                            />): null} 
+                        {this.state.alert && this.state.minimarket ? (
+                            <FlashAlert
+                                message="Berhasil memilih Minimarket" 
+                            />): null} 
+                        {this.state.alert && this.state.creditAndDebit ? (
+                            <FlashAlert
+                                message="Berhasil memilih Kartu kredit dan debit" 
+                            />): null} 
                         {/**Modal for transfer bank */}
                         <TransferBank
                             transferBank={this.state.transferBank}
@@ -483,6 +610,8 @@ export default class ContentProduct extends React.Component{
                                         discountPrice="290,000"
                                         cartButton={() => this.setState({ size:true })}
                                         onClickMessage={this.pushMessageRoute}
+                                        onClickAddressCustomer={() => this.setState({ provinces:true })}
+                                        nameAddressCustomer={this.state.cityName && this.state.provinceName ? `${this.state.cityName},${this.state.provinceName}` : "Silahkan di isi"}
                                     />
                                 </div>
                             </div>

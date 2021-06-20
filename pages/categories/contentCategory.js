@@ -270,7 +270,7 @@ export default class Categories extends React.Component{
                             <div className="bg-gray-lighter flex flex-nowrap">
                                 <FilterCard searchOnClick={this.onOpenSearch} />
                                 <SearchModal onOpenSearch={this.openSearch} onCloseSearch={this.onCloseSearch} />
-                                <div className="flex flex-wrap w-full mb-16">
+                                <div className="flex flex-wrap w-full mt-3 mb-16">
                                     <ProductCards />
                                     <ProductCards />
                                     <ProductCards /> 
