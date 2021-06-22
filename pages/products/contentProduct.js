@@ -4,7 +4,6 @@ import Footer from './../../components/footer/footer.js';
 import FlashAlert from './../../components/cards/FlashAlertCard.js';
 import ListImagesCard from './../../components/cards/ListImagesCard.js';
 import ModalImageProduct from './../../components/modals/ModalImagesProduct.js';
-import Display3DProduct from './../../components/cards/Display3DCard.js';
 import DisplayImageCard from './../../components/cards/DisplayImageCard.js';
 import DescriptionProductCard from './../../components/cards/DescriptionProductCard.js';
 import CarouselProductCard from './../../components/cards/CarouselProductCard.js';
@@ -13,7 +12,7 @@ import dynamic from 'next/dynamic';
 import ChatWhatsappCard from './../../components/cards/ChatWhatsappCard.js';
 import Whatsapp from './../../assets/images/icons/whatsapp.svg';
 import Cart from './../../assets/images/icons/cart.svg';
-import address from './../../address.js';
+import address from './../../utils/address.js';
 
 /**Import Modal */
 import SearchModal from './../../components/modals/searchModal.js';
@@ -52,9 +51,6 @@ const imgUrls = [
     "https://source.unsplash.com/uOi3lg8fGl4/800x600",
     "https://source.unsplash.com/CwkiN6_qpDI/800x600",
     "https://source.unsplash.com/9O1oQ9SzQZQ/800x600",
-    "https://source.unsplash.com/E4944K_4SvI/800x600",
-    "https://source.unsplash.com/-hI5dX2ObAs/800x600",
-    "https://source.unsplash.com/vZlTg_McCDo/800x600"
 ];                                    
 
 export default class ContentProduct extends React.Component{
@@ -593,12 +589,13 @@ export default class ContentProduct extends React.Component{
                                         activeIndex={this.state.imgIndex}
                                         changeDotIndex={i => this.setState({ imgIndex:i })}
                                     />
-                                    <ListImagesCard
-                                        imgUrls={imgUrls} 
-                                        changeIndex={i => this.setState({ imgIndex:i })} 
-                                        activeIndex={this.state.imgIndex}
-                                    />
-                                    <Display3DProduct />
+                                    <div className="flex justify-center">
+                                        <ListImagesCard
+                                            imgUrls={imgUrls} 
+                                            changeIndex={i => this.setState({ imgIndex:i })} 
+                                            activeIndex={this.state.imgIndex}
+                                        />
+                                    </div>
                                     <video width="750" height="500" controls className="mt-10" >
                                         <source src="/video/1.mp4" type="video/mp4"/>
                                     </video>

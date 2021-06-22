@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Whatsapp from './../../assets/images/icons/whatsapp.svg';
 import SMS from './../../assets/images/icons/sms.svg';

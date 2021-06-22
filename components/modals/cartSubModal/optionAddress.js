@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Checkmark from './../../../assets/images/icons/checkmark2.svg';
 import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';

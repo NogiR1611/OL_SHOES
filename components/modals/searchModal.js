@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Search from './../../assets/images/icons/search.svg';
 import ArrowLeft from './../../assets/images/icons/arrowLeft.svg';

@@ -1,6 +1,5 @@
 import React from 'react';
 import numeral from 'numeral';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Truck from './../../assets/images/icons/truck.svg';
 import Cart from './../../assets/images/icons/cart.svg';

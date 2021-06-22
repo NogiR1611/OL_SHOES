@@ -1,6 +1,5 @@
 import React from 'react';
 import numeral from 'numeral';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Circle from './../../../assets/images/icons/circle.svg';
 import Checkmark from './../../../assets/images/icons/checkmark2.svg';

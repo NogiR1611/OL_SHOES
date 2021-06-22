@@ -340,9 +340,9 @@ export default class Messages extends React.Component{
                             */}
                             {this.state.messages && this.state.messages.map(message => {
                                 return (
-                                    <div className="flex justify-end mt-4 ml-8 hp-one:ml-20">  
+                                    <div className={"flex mt-4 " + (message.admin ? "justify-start mr-8 hp-one:mr-10" : " justify-end ml-8 hp-one:ml-20")}>  
                                         <div className="flex flex-col">
-                                            <div className="bg-red-darker-1 rounded-xl flex-shrink break-words md:w-80 p-2 text-xs hp-one:text-sm md:text-base text-white text-left">
+                                            <div className={"rounded-xl flex-shrink break-words md:w-80 p-2 text-xs hp-one:text-sm md:text-base text-left " + (message.admin ? "bg-white text-black-darker" : "bg-red-darker-1 text-white")}>
                                                 <p>{message.message}</p>
                                             </div>
                                             <div className="flex justify-start pl-3 mt-1">

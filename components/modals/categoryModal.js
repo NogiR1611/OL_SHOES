@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 
 export default class CategoryModal extends React.Component{

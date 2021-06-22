@@ -1,6 +1,5 @@
 import React from 'react';
 import numeral from 'numeral';
-import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import ArrowLeft from './../../../assets/images/icons/arrowLeft.svg';
 import address from './../../../utils/address.js';
