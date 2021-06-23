@@ -1,7 +1,5 @@
 import React from 'react';
-import numeral from 'numeral';
 import Locked from './../assets/images/icons/locked.svg';
-import Lists from './../assets/images/icons/orders.svg';
 import Footer from './../components/footer/footer.js';
 import RejectedOrderCard from './../components/cards/RejectedOrderCard.js';
 import WaitingOrderCard from './../components/cards/WaitingOrderCard.js';
@@ -9,7 +7,7 @@ import SearchModal from './../components/modals/searchModal.js';
 import ContactModal from './../components/modals/contactModal.js';
 import FilterModal from './../components/modals/filterModal.js';
 import {Router} from '../routes.js';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 export const Sidebar = dynamic(() => {
     return import('./../components/sidebar/sidebar.js')

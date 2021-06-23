@@ -23,6 +23,7 @@ export default class Categories extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            inputChat: '',
             openSearch: false,
             showSidebar: false,
             cart: false,
@@ -163,7 +164,9 @@ export default class Categories extends React.Component{
                     <div className="bg-gray-lighter flex flex-col w-full min-h-screen max-h-full">
                         {this.state.openChat ? (
                             <ChatWhatsappCard 
-                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281321267143','_blank')}
+                                onClickWhatsapp={() => window.open(`https://api.whatsapp.com/send?phone=+6281321267143&text=${this.state.inputChat}`,'_blank')}
+                                inputChat={this.state.inputChat}
+                                setInputChat={e => this.setState({ inputChat:e.target.value })}
                             />
                         ) : null}
                         <Header

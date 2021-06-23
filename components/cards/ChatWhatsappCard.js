@@ -31,6 +31,8 @@ export default class ChatWhatsappCard extends React.Component{
                                     type="text" 
                                     id="messages" 
                                     name="messages" 
+                                    value={this.props.inputXhat}
+                                    onChange={this.props.setInputChat}
                                     placeholder="Pesan" 
                                     className="block w-full appearance-none focus:outline-none pt-2 pl-2 hp-one:pt-4 hp-one:pl-4 bg-transparent" 
                                 />

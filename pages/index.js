@@ -41,6 +41,7 @@ class Index extends React.Component{
         super(props)
         this.state = {
             data : [],
+            inputChat : '',
             openSearch : false,
             openFilter : false,
             namePage : 'product',
@@ -225,7 +226,9 @@ class Index extends React.Component{
                     <div className={"bg-gray-lighter flex flex-col w-full min-h-screen mb-auto"}>  
                         {this.state.openChat ? (
                             <ChatWhatsappCard  
-                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281321267143','_blank')}
+                                inputChat={this.state.inputChat}
+                                setInputChat={e => this.setState({ inputChat: event.target.value })}
+                                onClickWhatsapp={() => window.open(`https://api.whatsapp.com/send?phone=+6281321267143&text=${this.state.inputChat}`,'_blank')}
                             />
                         ) : null}
                         <Header

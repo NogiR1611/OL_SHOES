@@ -27,23 +27,24 @@ export default class Categories extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-        openSearch : false,
-        openFilter : false,
-        openCategory : false,
-        openSortir  : false,
-        showSidebar : false,
-        cart : false,
-        showCart : false,
-        openChat: false,
-        data : [],
-        amountData : null,
-        amountProduct : false,
-        amount : null,
-        showCart : false,
-        nameType: ['Semua Produk','Produk Unggulan','Diskon'],
-        nameCategory: ['vans','saba','converse','ventela','local brand','kaos gabut','puma','kids'],
-        clickType: '',
-        clickCategory: ''
+            inputChat : '',
+            openSearch : false,
+            openFilter : false,
+            openCategory : false,
+            openSortir  : false,
+            showSidebar : false,
+            cart : false,
+            showCart : false,
+            openChat: false,
+            data : [],
+            amountData : null,
+            amountProduct : false,
+            amount : null,
+            showCart : false,
+            nameType: ['Semua Produk','Produk Unggulan','Diskon'],
+            nameCategory: ['vans','saba','converse','ventela','local brand','kaos gabut','puma','kids'],
+            clickType: '',
+            clickCategory: ''
         }
     }
 
@@ -187,7 +188,9 @@ export default class Categories extends React.Component{
                     <div className="bg-gray-lighter flex flex-col w-full min-h-screen max-h-full">  
                         {this.state.openChat ? (
                             <ChatWhatsappCard 
-                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281321267143','_blank')}
+                                onClickWhatsapp={() => window.open(`https://api.whatsapp.com/send?phone=+6281321267143&text=${this.state.inputChat}`,'_blank')}
+                                inputChat={this.state.inputChat}
+                                setInputChat={e => this.setState({ inputChat:e.target.value })}
                             />
                         ) : null}
                         <Header
