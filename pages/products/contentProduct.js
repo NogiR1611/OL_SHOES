@@ -283,15 +283,15 @@ export default class ContentProduct extends React.Component{
                         onReduceAmount={() => this.setState({ amountProductCart : this.state.amountProductCart - 1 })}
                         onAddAmount={() => this.setState({ amountProductCart : this.state.amountProductCart + 1 })}
                     />
-                    <div className="flex flex-nowrap fixed bottom-0 z-50 md:pb-2 px-2 w-full">
-                        <div className="flex flex-auto flex-shrink-0 justify-center px-2">
-                        <button
-                            onClick={() => this.setState({ size:true })}
-                            className="block lg:hidden flex w-full p-2 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
-                        >
-                            <Cart className="inline-block float-left fill-current text-white self-center h-5 w-5 hp-one:h-6 hp-one:w-6" />
-                            <span className="mx-auto self-center">Beli Sekarang</span>
-                        </button>
+                    <div className="flex flex-nowrap fixed bottom-0 z-50 md:pb-2 px-0 hp-one:px-2 w-full">
+                        <div className="flex flex-auto flex-shrink justify-center px-2">
+                            <button
+                                onClick={() => this.setState({ size:true })}
+                                className="block lg:hidden flex w-full p-2 bg-red-darker-1 shadow-md h-12 font-semibold text-white text-xs hp-one:text-sm text-center hover:bg-red-darker-1 hover:bg-opacity-90 active:bg-red-darker-1 active:bg-opacity-30 focus:outline-none transition duration-300 linear rounded-md"
+                            >
+                                <Cart className="inline-block float-left fill-current text-white self-center h-5 w-5 hp-one:h-6 hp-one:w-6" />
+                                <span className="mx-auto self-center">Beli Sekarang</span>
+                            </button>
                             {this.state.showCart ? 
                                 <button 
                                     className="hidden lg:block bg-black focus:outline-none w-full md:w-480 md:h-16 rounded-t-md md:rounded-md px-1 hp-one:px-4 py-2"
@@ -312,22 +312,22 @@ export default class ContentProduct extends React.Component{
                                             </div>
                                         </div>
                                         <div className="flex self-center">
-                                            <Cart className="fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
-                                            <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 hp-one:h-6 hp-one:w-6 text-tiny hp-one:text-xs text-white absolute ml-4 top-3 hp-one:top-0">
+                                            <Cart className="fill-current text-white h-4 w-4 hp-one:h-6 hp-one:w-6" />
+                                            <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 hp-one:h-6 hp-one:w-6 text-super-tiny hp-one:text-xs text-white absolute ml-4 top-4 hp-one:top-0">
                                                 <span className="self-center">{this.state.amountData}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </button>
                             : null}
-                            </div>
+                        </div>
                         <div className="flex flex-shrink-0">
                             {this.state.showCart ? (
                                 <button
-                                    className="flex justify-center lg:hidden mr-2 float-right self-center rounded-full h-12 w-12 bg-black transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-black active:bg-opacity-40 active:bg-black focus:outline-none"
+                                    className="flex justify-center lg:hidden mr-2 float-right self-center rounded-full h-8 w-8 hp-one:h-12 hp-one:w-12 bg-black transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-black active:bg-opacity-40 active:bg-black focus:outline-none"
                                     onClick={() => this.setState({ cart:true })}
                                 >
-                                    <Cart className="self-center fill-current text-white h-5 w-5 hp-one:h-6 hp-one:w-6" />
+                                    <Cart className="self-center fill-current text-white h-4 w-4 hp-one:h-6 hp-one:w-6" />
                                         <div className="bg-red-darker-1 rounded-full font-medium flex justify-center w-4 h-4 text-tiny text-white absolute ml-8 top-0">
                                             <span className="self-center">{this.state.amountData}</span>
                                         </div>
@@ -335,16 +335,16 @@ export default class ContentProduct extends React.Component{
                             : null}
                             <button
                                 onClick={() => this.setState({ openChat:!this.state.openChat })}
-                                className="flex justify-center float-right self-center rounded-full h-12 w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
+                                className="flex justify-center float-right self-center rounded-full h-8 w-8 hp-one:h-12 hp-one:w-12 bg-green-whatsapp transition duration-300 ease-in-out hover:bg-opacity-70 hover:bg-green-whatsapp active:bg-opacity-40 active:bg-green-whatsapp focus:outline-none"
                             >
-                                <Whatsapp className="self-center h-5 w-5 hp-one:h-6 hp-one:w-6 fill-current text-white" />
+                                <Whatsapp className="self-center h-4 w-4 hp-one:h-6 hp-one:w-6 fill-current text-white" />
                             </button>
                         </div>
                     </div> 
                     <>
                         {this.state.openChat ? (
                             <ChatWhatsappCard 
-                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281212701276','_blank')}
+                                onClickWhatsapp={() => window.open('https://api.whatsapp.com/send?phone=+6281321267143','_blank')}
                             />
                         ) : null}
                         <Header 
@@ -613,11 +613,11 @@ export default class ContentProduct extends React.Component{
                                 </div>
                             </div>
                             <div className="my-4">
-                                <p className="text-black-darker font-medium">Kamu mungkin juga suka</p>
+                                <p className="text-sm hp-one:text-base text-black-darker font-medium">Kamu mungkin juga suka</p>
                                 <CarouselProductCard />
                             </div>
                             <div className="my-4">
-                                <p className="text-black-darker font-medium">Produk lain dari toko ini</p>
+                                <p className="text-sm hp-one:text-base text-black-darker font-medium">Produk lain dari toko ini</p>
                                 <CarouselProductCard />
                             </div>
                         </div>

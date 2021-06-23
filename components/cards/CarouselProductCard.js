@@ -1,15 +1,11 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import ProductCards from './ProductCards.js';
 import LeftArrow from './../../assets/images/icons/leftArrow.svg';
 import RightArrow from './../../assets/images/icons/rightArrow.svg';
 
 function CustomRightArrow({ onClick }) {
     function handleClick() {
-      // do whatever you want on the right button click
-      console.log('Right button clicked, go to next slide');
-      // ... and don't forget to call onClick to slide
       onClick();
     }
   
@@ -24,9 +20,6 @@ function CustomRightArrow({ onClick }) {
 
 function CustomLeftArrow({ onClick }) {
     function handleClick() {
-      // do whatever you want on the right button click
-      console.log('Right button clicked, go to previous slide');
-      // ... and don't forget to call onClick to slide
       onClick();
     }
   
@@ -82,7 +75,7 @@ export default class CarouselProductCard extends React.Component{
                     max: 1024,
                     min: 425
                     },
-                    items: 4,
+                    items: 3,
                     partialVisibilityGutter: 30
                 }
                 }}

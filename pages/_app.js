@@ -5,6 +5,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import Head from 'next/head';
 import './../assets/styles/modal.css';
+import './../assets/styles/carousel/carousel.css';
 import Spinner from './../assets/images/components/spinner.svg';
 
 export default class MyApp extends React.Component{
